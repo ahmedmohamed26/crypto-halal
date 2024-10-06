@@ -1,0 +1,9 @@
+{
+  "Header": {
+    "home": "Home"
+  },
+  "About": {
+    "title": "About",
+    "description": "This application is a fully translated static website"
+  }
+}
