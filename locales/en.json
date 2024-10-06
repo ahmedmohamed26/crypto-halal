@@ -1,6 +1,12 @@
 {
   "Header": {
-    "home": "Home"
+    "home": "Home",
+    "services": "Our Services",
+    "visuals": "Visuals",
+    "news": "News",
+    "studyAndResearch": "Study and Research",
+    "currencies": "Currencies",
+    "contactUs": "Contact Us"
   },
   "About": {
     "title": "About",

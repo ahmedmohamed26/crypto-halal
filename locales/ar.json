@@ -1,6 +1,12 @@
 {
   "Header": {
-    "home": "الصفحة الرئيسيه"
+    "home": "الرئيسية",
+    "services": "خدماتنا",
+    "visuals": "المرئيات",
+    "news": "الاخبار",
+    "studyAndResearch": "دراسة وابحاث",
+    "currencies": "العملات",
+    "contactUs": "اتصل بنا"
   },
   "About": {
     "title": "معلومات عن التطبيق",
