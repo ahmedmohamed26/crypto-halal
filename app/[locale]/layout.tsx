@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Cairo } from "next/font/google";
 import Header from "../_components/Header";
+import Footer from "../_components/Footer";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           <div className="container">{children}</div>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
