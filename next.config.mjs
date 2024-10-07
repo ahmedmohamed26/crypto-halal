@@ -6,7 +6,6 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
-      include: /assets/,
     });
 
     return config;

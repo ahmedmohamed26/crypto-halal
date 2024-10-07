@@ -17,7 +17,10 @@ const config: Config = {
         liteBorder: "#758173",
       },
       fontSize: {
-        "title-size": "3rem",
+        titleSize: "3rem",
+        size20: "20px",
+        size18: "18px",
+        size16: "16px",
       },
     },
   },

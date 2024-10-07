@@ -2,9 +2,8 @@
 import { Link, type Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import Logo from "../../public/assets/logo.svg";
 import LocaleSwitcher from "./LocaleSwitcher";
-import Logo from "../assets/logo.svg";
-import Image from "next/image";
 
 export default function Header() {
   const t = useTranslations("Header");
@@ -54,7 +53,7 @@ export default function Header() {
 
         <div className="md:flex md:items-center md:gap-12 h-full">
           <nav aria-label="Global" className="hidden md:block h-full">
-            <ul className="flex items-center gap-6  justify-between h-full">
+            <ul className="flex items-center gap-6 justify-between h-full">
               {navList.map((link, ids) => (
                 <li
                   key={ids}
