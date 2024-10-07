@@ -3,6 +3,8 @@ import { Link, type Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
+import Logo from "../assets/logo.svg";
+import Image from "next/image";
 
 export default function Header() {
   const t = useTranslations("Header");
@@ -19,68 +21,80 @@ export default function Header() {
     },
     {
       name: t("visuals"),
-      href: "/about",
+      href: "/visuals",
     },
     {
       name: t("news"),
       href: "/news",
     },
+    {
+      name: t("studyAndResearch"),
+      href: "/study-research",
+    },
+    {
+      name: t("currencies"),
+      href: "/currencies",
+    },
+    {
+      name: t("contactUs"),
+      href: "/contact",
+    },
   ];
+
   return (
-    <header className="bg-white container">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-teal-600" href="#">
-              <span className="sr-only">Home</span>
-            </a>
-            <LocaleSwitcher locale={locale} />
-          </div>
+    <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center">
+      <div className="flex h-full items-center justify-between w-full container ">
+        <div className="flex-1 md:flex md:items-center md:gap-12 ">
+          <Link className="block text-teal-600" href="/">
+            <span className="sr-only">Home</span>
+            <Logo />
+          </Link>
+          <LocaleSwitcher locale={locale} />
+        </div>
 
-          <div className="md:flex md:items-center md:gap-12">
-            <nav aria-label="Global" className="hidden md:block">
-              <ul className="flex items-center gap-6 text-sm">
-                {navList.map((link, ids) => (
-                  <div key={ids}>
-                    {pathName === link.href ? (
-                      <Link
-                        href={link.href}
-                        className="text-lg font-semibold text-primary"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-lg font-semibold text-gray-600 duration-100 hover:text-primary"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-              </ul>
-            </nav>
+        <div className="md:flex md:items-center md:gap-12 h-full">
+          <nav aria-label="Global" className="hidden md:block h-full">
+            <ul className="flex items-center gap-6  justify-between h-full">
+              {navList.map((link, ids) => (
+                <li
+                  key={ids}
+                  className="flex items-center h-full justify-between"
+                >
+                  {pathName === link.href ? (
+                    <Link
+                      href={link.href}
+                      className="text-[18px] text-primary border-b-2 border-primary flex items-center  h-full  justify-between"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <Link href={link.href} className="text-[18px] text-black">
+                      {link.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-            <div className="flex items-center gap-4">
-              <div className="block md:hidden">
-                <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </button>
-              </div>
+          <div className="flex items-center gap-4">
+            <div className="block md:hidden">
+              <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="size-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
