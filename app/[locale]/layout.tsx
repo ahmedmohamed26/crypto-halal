@@ -23,7 +23,6 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-  // unstable_setRequestLocale(locale);
   const dir = useTextDirection();
   const messages = useMessages();
   return (

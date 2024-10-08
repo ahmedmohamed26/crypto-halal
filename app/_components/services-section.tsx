@@ -1,9 +1,12 @@
+import { useTranslations } from "next-intl";
+
 const ServicesSection = () => {
+  const t = useTranslations("Home");
   const data = [
-    { number: 1500, label: "فريق العمل" },
-    { number: 2500, label: "الفحوصات" },
-    { number: 1200, label: "المشتركين" },
-    { number: 5200, label: "المشاريع" },
+    { number: 1500, label: t("workTeam") },
+    { number: 2500, label: t("tests") },
+    { number: 1200, label: t("subscribers") },
+    { number: 5200, label: t("projects") },
   ];
   return (
     <div className="flex justify-center items-center bg-[#F1F7FD] p-[2rem] mt-8">

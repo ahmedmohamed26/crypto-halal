@@ -13,9 +13,12 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
   const router = useRouter();
 
   const changeLocale = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    // const newLocale = event.target.value as Locale;
+    // document.cookie = `NEXT_LOCALE=${newLocale}`;
+    // router.refresh();
     const newLocale = event.target.value as Locale;
-    document.cookie = `NEXT_LOCALE=${newLocale}`;
-    router.refresh();
+
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (

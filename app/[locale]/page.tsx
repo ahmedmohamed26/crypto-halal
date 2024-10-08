@@ -45,13 +45,40 @@ export default function Home() {
 
       {/* services section */}
 
-      <section className="services container py-8">
-        <div className="flex justify-end mt-4">
+      <section className="services  py-8">
+        <div className="flex justify-end mt-4 container">
           <div className=" rounded bg-[#FFBB00] px-8 py-2 font-medium text-black text-[20px]">
             {t("services")}
           </div>
         </div>
-        <ServicesSection />
+        <div className="container">
+          <ServicesSection />
+        </div>
+
+        {/* services list */}
+
+        <div className="w-full relative bg-[#0B2962] h-[3000px] mt-[-105px] z-[-1]">
+          <div className='bg-[url("../../public/assets/layer.png")] bg-no-repeat bg-cover aspect-[55/54] w-full'>
+            <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center items-center justify-center h-[100%]">
+              <div className="flex items-center justify-center flex-col	">
+                <h4 className="text-white text-[50px] mb-[2rem]">
+                  الاصدارات المرئية
+                </h4>
+                <p className="w-[75%] text-white text-[28px] mb-[2rem]">
+                  اكثر من 30 صوتية مخصصة لشرح اهم مباديْ التعامل مع احكام
+                  العملات علي يد متخصصين في احكام العملات خصيصا لك
+                </p>
+                <Link
+                  href="/"
+                  className="rounded bg-[#FFBB00] px-6 py-3  text-black text-[16px]"
+                >
+                  {t("more")}
+                </Link>
+              </div>
+              <div>ahmed</div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
