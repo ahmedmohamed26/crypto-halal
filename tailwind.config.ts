@@ -11,16 +11,20 @@ const config: Config = {
       colors: {
         primary: "#0B2962",
         black: "#000000",
-        secondary: "#1f241f",
+        yellow: "#FFBB00",
         gray: "#707070",
         darkPrimary: "#000101",
         liteBorder: "#758173",
       },
       fontSize: {
         titleSize: "3rem",
-        size20: "20px",
-        size18: "18px",
         size16: "16px",
+        size18: "18px",
+        size20: "20px",
+        size24: "24px",
+      },
+      backgroundImage: {
+        "hero-image": "url('/public/assets/intro.png')",
       },
     },
   },
