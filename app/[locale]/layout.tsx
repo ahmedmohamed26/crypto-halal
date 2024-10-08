@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={cairo.className}>
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <div className="container">{children}</div>
+          <div>{children}</div>
           <Footer />
         </NextIntlClientProvider>
       </body>
