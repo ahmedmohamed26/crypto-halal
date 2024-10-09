@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import ServicesSection from "../_components/services-section";
+import Link from "next/link";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -57,25 +57,77 @@ export default function Home() {
 
         {/* services list */}
 
-        <div className="w-full relative bg-[#0B2962] h-[3000px] mt-[-105px] z-[-1]">
-          <div className='bg-[url("../../public/assets/layer.png")] bg-no-repeat bg-cover aspect-[55/54] w-full'>
-            <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center items-center justify-center h-[100%]">
-              <div className="flex items-center justify-center flex-col	">
-                <h4 className="text-white text-[50px] mb-[2rem]">
-                  الاصدارات المرئية
-                </h4>
-                <p className="w-[75%] text-white text-[28px] mb-[2rem]">
-                  اكثر من 30 صوتية مخصصة لشرح اهم مباديْ التعامل مع احكام
-                  العملات علي يد متخصصين في احكام العملات خصيصا لك
-                </p>
-                <Link
-                  href="/"
-                  className="rounded bg-[#FFBB00] px-6 py-3  text-black text-[16px]"
-                >
-                  {t("more")}
-                </Link>
-              </div>
-              <div>ahmed</div>
+        <div className="w-full relative bg-[#0B2962]  mt-[-105px] z-[-1] ">
+          <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center pt-[250px] container">
+            <div className="flex items-center  flex-col">
+              <h4 className="text-white text-[50px] mb-[3rem]">
+                {t("visualReleases")}
+              </h4>
+              <p className="w-[75%] text-white text-[28px] mb-[2rem]">
+                {t("visualReleasesDescription")}
+              </p>
+              <Link
+                href="/"
+                className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
+              >
+                {t("more")}
+              </Link>
+            </div>
+            <div className="w-full flex items-center justify-center">
+              <img
+                loading="lazy"
+                src="assets/visual-releases.svg"
+                width={400}
+                height={400}
+              />
+            </div>
+          </div>
+
+          <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center pt-[250px] container">
+            <div className="w-full flex items-center justify-center">
+              <img
+                loading="lazy"
+                src="assets/crypto-education.svg"
+                width={500}
+                height={500}
+              />
+            </div>
+            <div className="flex items-center flex-col">
+              <h4 className="text-white text-[50px] mb-[3rem]">
+                {t("studiesAndResearch")}
+              </h4>
+              <p className="w-[75%] text-white text-[28px] mb-[2rem]">
+                {t("studiesAndResearchDescription")}
+              </p>
+              <Link
+                href="/"
+                className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
+              >
+                {t("more")}
+              </Link>
+            </div>
+          </div>
+
+          <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center py-[200px] container">
+            <div className="flex items-center flex-col">
+              <h4 className="text-white text-[50px] mb-[3rem]">{t("news")}</h4>
+              <p className="w-[75%] text-white text-[28px] mb-[2rem]">
+                {t("newsDescription")}
+              </p>
+              <Link
+                href="/"
+                className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
+              >
+                {t("more")}
+              </Link>
+            </div>
+            <div className="w-full flex items-center justify-center">
+              <img
+                loading="lazy"
+                src="assets/news.svg"
+                width={400}
+                height={400}
+              />
             </div>
           </div>
         </div>
