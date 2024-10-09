@@ -3,7 +3,6 @@ import { Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import AliceCarousel from "react-alice-carousel";
-
 const ServicesSection = () => {
   const t = useTranslations("Home");
   const locale = useLocale() as Locale;
@@ -21,7 +20,7 @@ const ServicesSection = () => {
   };
 
   const partnersListResponsive = {
-    0: { items: 1 },
+    0: { items: 2 },
     568: { items: 2 },
     1024: { items: 5 },
   };
@@ -41,6 +40,7 @@ const ServicesSection = () => {
           className="w-full rounded object-cover"
           width={150}
           height={200}
+          loading="lazy"
         />
 
         <div className="mt-3 flex justify-between items-center">
@@ -50,6 +50,7 @@ const ServicesSection = () => {
             className="object-cover"
             width={50}
             height={50}
+            loading="lazy"
           />
           <div>
             <h3 className="text-primary text-size22 font-regular mb-1">

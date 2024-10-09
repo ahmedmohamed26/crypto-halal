@@ -19,7 +19,7 @@ export default function Home() {
             <div className="mt-[3rem]">
               <Link
                 href="/"
-                className="inline-block rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24 focus:outline-none focus:ring"
+                className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
               >
                 {t("subscribe")}
               </Link>
