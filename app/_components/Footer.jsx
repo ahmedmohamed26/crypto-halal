@@ -114,12 +114,12 @@ function Footer() {
             </p>
           </div>
           <ul className="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
-            {socialMediaList.map((link) => {
+            {socialMediaList.map((link, index) => {
               const IconComponent = link.src;
 
               return (
                 <a
-                  key={link.name}
+                  key={index}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
