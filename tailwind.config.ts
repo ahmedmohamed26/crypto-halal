@@ -21,6 +21,7 @@ const config: Config = {
         size16: "16px",
         size18: "18px",
         size20: "20px",
+        size22: "22px",
         size24: "24px",
       },
       backgroundImage: {

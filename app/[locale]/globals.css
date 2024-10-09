@@ -1,3 +1,5 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,5 +13,3 @@
 .container {
   @apply mx-auto   max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8;
 }
-
- 
