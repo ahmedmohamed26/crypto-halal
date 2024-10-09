@@ -67,12 +67,15 @@ export default function Header() {
                     {pathName === link.href ? (
                       <Link
                         href={link.href}
-                        className="text-[18px] text-primary border-b-2 border-primary flex items-center  h-full  justify-between"
+                        className="text-[18px] font-medium text-primary border-b-2 border-primary flex items-center h-full justify-between"
                       >
                         {link.name}
                       </Link>
                     ) : (
-                      <Link href={link.href} className="text-[18px] text-black">
+                      <Link
+                        href={link.href}
+                        className="text-[18px] text-black font-medium"
+                      >
                         {link.name}
                       </Link>
                     )}
@@ -82,7 +85,11 @@ export default function Header() {
               <li>
                 <Link
                   href="/register"
-                  className="btn-yellow !text-[18px] font-regular !p-2"
+                  className={
+                    pathName === "/register"
+                      ? "btn-yellow !bg-primary !text-white !text-[18px] font-regular !p-2"
+                      : "btn-yellow !text-[18px] font-regular !p-2"
+                  }
                 >
                   {t("subscribe")}
                 </Link>

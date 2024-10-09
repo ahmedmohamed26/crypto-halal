@@ -33,7 +33,7 @@ export default function Login() {
               <input
                 type="email"
                 id="UserEmail"
-                placeholder="john@rhcp.com"
+                placeholder={t("email")}
                 className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
                 {...register("email")}
               />
@@ -49,7 +49,7 @@ export default function Login() {
               <input
                 type="password"
                 id="UserPassword"
-                placeholder="john@rhcp.com"
+                placeholder={t("password")}
                 className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
                 {...register("password")}
               />
