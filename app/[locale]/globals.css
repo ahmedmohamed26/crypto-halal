@@ -1,5 +1,4 @@
 @import "react-alice-carousel/lib/alice-carousel.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +8,13 @@
     text-wrap: balance;
   }
 }
-
+body {
+  font-family: "Cairo", sans-serif;
+}
 .container {
   @apply mx-auto   max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8;
+}
+
+.btn-yellow {
+  @apply rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24;
 }

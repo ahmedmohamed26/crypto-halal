@@ -1,15 +1,67 @@
 {
+  "Home": {
+    "appName": "Crypto Halal",
+    "description": "A comprehensive project aimed at creating a trading environment free from religious prohibitions.",
+    "subscribe": "Subscribe Now",
+    "whatIsCrypto": "What is Crypto Halal?",
+    "whatIsCryptoDesc": "Crypto Halal is a comprehensive project aimed at creating a trading environment free from religious prohibitions, guiding participants in cryptocurrency markets toward halal earnings, free from usury or any form of forbidden gain. To achieve this goal, in October 2021, the Crypto Halal Office for Shariah Compliance and Auditing of cryptocurrency markets was established by Dr. Mohammed Youssef Abu Jazar, a specialist in comparative jurisprudence, particularly Islamic financial transactions. He is a member of the Islamic Economy Forum, the Palestine Scholars Association, and has served as a legal arbitrator in financial cases for (12) years.",
+    "services": "Our Services",
+    "tests": "Tests",
+    "workTeam": "Our Team",
+    "subscribers": "Subscribers",
+    "projects": "Projects",
+    "more": "More",
+    "visualReleases": "Visual Releases",
+    "visualReleasesDescription": "Over 30 audio guides explaining key principles of dealing with cryptocurrencies by experts in the field, specially for you.",
+    "studiesAndResearch": "Studies and Research",
+    "studiesAndResearchDescription": "A collection of studies and research on cryptocurrency markets and their technology.",
+    "news": "News",
+    "newsDescription": "Stay updated on Arab projects, contracts, and cryptocurrency market news.",
+    "partners": "Our Partners"
+  },
   "Header": {
+    "home": "Home",
+    "services": "Services",
+    "visuals": "Visuals",
+    "news": "News",
+    "studyAndResearch": "Research",
+    "currencies": "Currencies",
+    "contactUs": "Contact",
+    "subscribe": "Subscribe",
+    "login": "Login"
+  },
+  "Footer": {
+    "app-name": "Crypto Halal",
+    "description": "A comprehensive project aimed at creating a trading environment free from religious prohibitions.",
     "home": "Home",
     "services": "Our Services",
     "visuals": "Visuals",
     "news": "News",
-    "studyAndResearch": "Study and Research",
+    "studyAndResearch": "Studies and Research",
     "currencies": "Currencies",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndConditions": "Terms and Conditions",
+    "subscribeToMail": "Subscribe to Mail",
+    "subscribeNews": "Subscribe to the newsletter to receive the latest news and updates.",
+    "addEmail": "Add your email",
+    "subscribe": "Subscribe",
+    "copyRight": "All rights reserved to Crypto Halal Office"
   },
-  "About": {
-    "title": "About",
-    "description": "This application is a fully translated static website"
+  "Login": {
+    "title": "Download the app now",
+    "email": "Email",
+    "password": "Password",
+    "rememberMe": "Remember Me",
+    "forgotPassword": "Forgot your password?",
+    "login": "Login"
+  },
+  "Register": {
+    "title": "Download the app now",
+    "email": "Email",
+    "password": "Password",
+    "userName": "Username",
+    "confirmPassword": "Confirm Password"
   }
 }

@@ -38,6 +38,10 @@ export default function Header() {
       name: t("contactUs"),
       href: "/contact",
     },
+    {
+      name: t("login"),
+      href: "/login",
+    },
   ];
 
   return (
@@ -55,24 +59,41 @@ export default function Header() {
           <nav aria-label="Global" className="hidden md:block h-full">
             <ul className="flex items-center gap-6 justify-between h-full">
               {navList.map((link, ids) => (
-                <li
-                  key={ids}
-                  className="flex items-center h-full justify-between"
-                >
-                  {pathName === link.href ? (
-                    <Link
-                      href={link.href}
-                      className="text-[18px] text-primary border-b-2 border-primary flex items-center  h-full  justify-between"
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <Link href={link.href} className="text-[18px] text-black">
-                      {link.name}
-                    </Link>
-                  )}
-                </li>
+                <>
+                  <li
+                    key={ids}
+                    className="flex items-center h-full justify-between"
+                  >
+                    {pathName === link.href ? (
+                      <Link
+                        href={link.href}
+                        className="text-[18px] font-medium text-primary border-b-2 border-primary flex items-center h-full justify-between"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-[18px] text-black font-medium"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </li>
+                </>
               ))}
+              <li>
+                <Link
+                  href="/register"
+                  className={
+                    pathName === "/register"
+                      ? "btn-yellow !bg-primary !text-white !text-[18px] font-regular !p-2"
+                      : "btn-yellow !text-[18px] font-regular !p-2"
+                  }
+                >
+                  {t("subscribe")}
+                </Link>
+              </li>
             </ul>
           </nav>
 
