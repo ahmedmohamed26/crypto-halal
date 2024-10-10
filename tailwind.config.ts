@@ -13,7 +13,7 @@ const config: Config = {
         black: "#000000",
         yellow: "#FFBB00",
         gray: "#F1F7FD",
-        darkPrimary: "#000101",
+        darkGray: "#667085",
         liteBorder: "#758173",
       },
       fontSize: {
