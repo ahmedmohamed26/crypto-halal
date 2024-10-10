@@ -8,6 +8,10 @@
     text-wrap: balance;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Cairo", sans-serif;
 }

@@ -28,7 +28,14 @@
     "currencies": "العملات",
     "contactUs": "اتصل بنا",
     "subscribe": "الاشتراك",
-    "login": "تسجيل دخول"
+    "login": "تسجيل دخول",
+    "legitimacyCheck": "فحص المشروعية",
+    "halalCryptoApp": "تطبيق كريبتوا حلال",
+    "shariaSupervision": "الرقابة الشرعية",
+    "forensicAudit": "التدقيق الشرعي",
+    "shariaStandards": "المعايير الشرعية",
+    "media": "الإعلام ومواقع التواصل",
+    "technicalAnalysis": "التحليل الفني"
   },
   "Footer": {
     "app-name": "كريبتو حلال",
@@ -63,5 +70,12 @@
     "password": "كلمة المرور",
     "userName": "اسم المستخدم",
     "confirmPassword": "تأكيد كلمة المرور"
+  },
+  "ContactUs": {
+    "userName": "اسم المستخدم",
+    "email": "البريد الالكتروني",
+    "subject": "الموضوع",
+    "message": "الرساله",
+    "send": "ارسال"
   }
 }

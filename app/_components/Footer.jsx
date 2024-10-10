@@ -62,9 +62,6 @@ function Footer() {
               <li>
                 <Link href="/currencies">{t("currencies")}</Link>
               </li>
-              <li>
-                <Link href="/contact">{t("contactUs")}</Link>
-              </li>
             </ul>
           </div>
 
