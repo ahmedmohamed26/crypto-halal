@@ -1,22 +1,38 @@
 import { useTranslations } from "next-intl";
-import ServicesSection from "../_components/services-section";
 import Link from "next/link";
+import ServicesSection from "../_components/services-section";
 
 export default function Home() {
   const t = useTranslations("Home");
+  // useEffect(() => {
+  //   const styleSheet = document.styleSheets[0];
+  //   const keyframes = `
+  //     @keyframes fadeInBottom {
+  //       0% {
+  //         opacity: 0;
+  //         transform: translateY(50px);
+  //       }
+  //       100% {
+  //         opacity: 1;
+  //         transform: translateY(0);
+  //       }
+  //     }`;
 
+  //   styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+  // }, []);
   return (
     <div>
-      <div className="w-full relative bg-[#F1F7FD] pt-[5%]">
-        <div className='bg-[url("../../public/assets/intro.png")] bg-no-repeat bg-cover aspect-[4/3] w-full'>
+      <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
+        {/* <div className='bg-[url("../../public/assets/intro.svg")] bg-no-repeat bg-cover aspect-[4/3] w-full'> */}
+        <div className="grid grid-cols-2">
           <div className="container">
-            <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold">
+            <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold container">
               {t("appName")}
             </h1>
-            <p className="text-black text-[2rem] font-semibold w-[50%] mt-[3rem]">
+            <p className="text-black text-[2rem] font-semibold   mt-[3rem] container">
               {t("description")}
             </p>
-            <div className="mt-[3rem]">
+            <div className="mt-[3rem] container">
               <Link
                 href="/"
                 className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
@@ -25,9 +41,21 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          <div className="h-[100vh] relative w-full  overflow-hidden">
+            <img
+              src="assets/intro.svg"
+              alt=""
+              style={{
+                width: "100%",
+                height: "auto",
+                // opacity: 0, // Initial opacity
+                animation: "fadeInBottom 1.5s ease-out forwards", // Use the keyframes
+              }}
+            />
+          </div>
         </div>
       </div>
-      <div className=" bg-white relative mt-[-250px] pb-12">
+      <div className=" bg-white relative mt-[-200px] pb-12">
         <div
           className="container"
           style={{

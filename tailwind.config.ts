@@ -12,7 +12,7 @@ const config: Config = {
         primary: "#0B2962",
         black: "#000000",
         yellow: "#FFBB00",
-        gray: "#707070",
+        gray: "#F1F7FD",
         darkPrimary: "#000101",
         liteBorder: "#758173",
       },

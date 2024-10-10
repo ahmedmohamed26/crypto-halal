@@ -17,6 +17,36 @@ export default function Header() {
     {
       name: t("services"),
       href: "/services",
+      subMenu: [
+        {
+          name: t("legitimacyCheck"),
+          href: "/services#legitimacy-check",
+        },
+        {
+          name: t("halalCryptoApp"),
+          href: "/services#halal-cryptoApp",
+        },
+        {
+          name: t("shariaSupervision"),
+          href: "/services#shariaSupervision",
+        },
+        {
+          name: t("forensicAudit"),
+          href: "/services#forensicAudit",
+        },
+        {
+          name: t("shariaStandards"),
+          href: "/services#shariaStandards",
+        },
+        {
+          name: t("media"),
+          href: "/services#media",
+        },
+        {
+          name: t("technicalAnalysis"),
+          href: "/services#technicalAnalysis",
+        },
+      ],
     },
     {
       name: t("visuals"),
@@ -62,7 +92,7 @@ export default function Header() {
                 <>
                   <li
                     key={ids}
-                    className="flex items-center h-full justify-between"
+                    className="flex items-center h-full justify-between relative group"
                   >
                     {pathName === link.href ? (
                       <Link
@@ -78,6 +108,22 @@ export default function Header() {
                       >
                         {link.name}
                       </Link>
+                    )}
+                    {link.subMenu && (
+                      <div className="flex items-center">
+                        <ul className="fixed w-[100vw] justify-center opacity-0 flex left-0 mt-[160px] z-10  bg-gray-700 p-2  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
+                          {link.subMenu.map((subItem, index) => (
+                            <li key={index} className="max-w-lg">
+                              <a
+                                href={subItem.href}
+                                className="block px-5 py-2 text-black text-size18 font-medium"
+                              >
+                                {subItem.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
                   </li>
                 </>
