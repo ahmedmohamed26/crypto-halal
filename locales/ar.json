@@ -70,5 +70,12 @@
     "password": "كلمة المرور",
     "userName": "اسم المستخدم",
     "confirmPassword": "تأكيد كلمة المرور"
+  },
+  "ContactUs": {
+    "userName": "اسم المستخدم",
+    "email": "البريد الالكتروني",
+    "subject": "الموضوع",
+    "message": "الرساله",
+    "send": "ارسال"
   }
 }
