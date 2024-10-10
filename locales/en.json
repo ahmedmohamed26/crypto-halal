@@ -1,10 +1,10 @@
 {
   "Home": {
     "appName": "Crypto Halal",
-    "description": "A comprehensive project aimed at creating a trading environment free from religious prohibitions.",
+    "description": "A comprehensive project aimed at creating a trading environment free of Shariah-compliant concerns.",
     "subscribe": "Subscribe Now",
     "whatIsCrypto": "What is Crypto Halal?",
-    "whatIsCryptoDesc": "Crypto Halal is a comprehensive project aimed at creating a trading environment free from religious prohibitions, guiding participants in cryptocurrency markets toward halal earnings, free from usury or any form of forbidden gain. To achieve this goal, in October 2021, the Crypto Halal Office for Shariah Compliance and Auditing of cryptocurrency markets was established by Dr. Mohammed Youssef Abu Jazar, a specialist in comparative jurisprudence, particularly Islamic financial transactions. He is a member of the Islamic Economy Forum, the Palestine Scholars Association, and has served as a legal arbitrator in financial cases for (12) years.",
+    "whatIsCryptoDesc": "Crypto Halal is a comprehensive project aimed at creating a trading environment free from Shariah-compliant concerns, leading participants in cryptocurrency markets to earn lawful income, free from interest (riba) or any prohibited forms of earnings. To achieve this goal, the Crypto Halal Shariah Supervision and Auditing Office was established in October 2021 by Dr. Mohammad Youssef Abu Jazar, an expert in comparative jurisprudence, specifically Islamic financial transactions. He is a member of the Islamic Economics Forum, the Palestine Scholars Association, and has been a Shariah arbitrator in financial cases for 12 years.",
     "services": "Our Services",
     "tests": "Tests",
     "workTeam": "Our Team",
@@ -12,11 +12,11 @@
     "projects": "Projects",
     "more": "More",
     "visualReleases": "Visual Releases",
-    "visualReleasesDescription": "Over 30 audio guides explaining key principles of dealing with cryptocurrencies by experts in the field, specially for you.",
+    "visualReleasesDescription": "More than 30 audio clips explaining the key principles of cryptocurrency trading, taught by experts in currency rulings, just for you.",
     "studiesAndResearch": "Studies and Research",
-    "studiesAndResearchDescription": "A collection of studies and research on cryptocurrency markets and their technology.",
+    "studiesAndResearchDescription": "A collection of studies and research on cryptocurrencies, financial markets, and their technologies.",
     "news": "News",
-    "newsDescription": "Stay updated on Arab projects, contracts, and cryptocurrency market news.",
+    "newsDescription": "Stay updated on Arab projects, contract news, and cryptocurrency market news.",
     "partners": "Our Partners"
   },
   "Header": {
@@ -28,11 +28,18 @@
     "currencies": "Currencies",
     "contactUs": "Contact",
     "subscribe": "Subscribe",
-    "login": "Login"
+    "login": "Login",
+    "legitimacyCheck": "Legitimacy Check",
+    "halalCryptoApp": "Crypto Halal App",
+    "shariaSupervision": "Shariah Supervision",
+    "forensicAudit": "Forensic Audit",
+    "shariaStandards": "Shariah Standards",
+    "media": "Media and Social Networks",
+    "technicalAnalysis": "Technical Analysis"
   },
   "Footer": {
     "app-name": "Crypto Halal",
-    "description": "A comprehensive project aimed at creating a trading environment free from religious prohibitions.",
+    "description": "A comprehensive project aimed at creating a trading environment free of Shariah-compliant concerns.",
     "home": "Home",
     "services": "Our Services",
     "visuals": "Visuals",
@@ -43,25 +50,38 @@
     "termsOfUse": "Terms of Use",
     "privacyPolicy": "Privacy Policy",
     "termsAndConditions": "Terms and Conditions",
-    "subscribeToMail": "Subscribe to Mail",
+    "subscribeToMail": "Subscribe to our Mailing List",
     "subscribeNews": "Subscribe to the newsletter to receive the latest news and updates.",
     "addEmail": "Add your email",
     "subscribe": "Subscribe",
-    "copyRight": "All rights reserved to Crypto Halal Office"
+    "copyRight": "All rights reserved to the Crypto Halal Office"
   },
   "Login": {
-    "title": "Download the app now",
+    "title": "Download the App Now",
     "email": "Email",
     "password": "Password",
-    "rememberMe": "Remember Me",
+    "rememberMe": "Remember Password",
     "forgotPassword": "Forgot your password?",
     "login": "Login"
   },
   "Register": {
-    "title": "Download the app now",
+    "title": "Download the App Now",
     "email": "Email",
     "password": "Password",
     "userName": "Username",
     "confirmPassword": "Confirm Password"
+  },
+  "ContactUs": {
+    "userName": "Username",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "contactUs": "Contact Us"
+  },
+  "Visuals": {
+    "title": "Visual Releases",
+    "description": "More than 30 audio clips explaining the key principles of cryptocurrency rulings.",
+    "more": "More"
   }
 }
