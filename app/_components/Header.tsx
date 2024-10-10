@@ -28,15 +28,15 @@ export default function Header() {
         },
         {
           name: t("shariaSupervision"),
-          href: "/services#shariaSupervision",
+          href: "/services#sharia-supervision",
         },
         {
           name: t("forensicAudit"),
-          href: "/services#forensicAudit",
+          href: "/services#forensic-audit",
         },
         {
           name: t("shariaStandards"),
-          href: "/services#shariaStandards",
+          href: "/services#sharia-standards",
         },
         {
           name: t("media"),
@@ -44,7 +44,7 @@ export default function Header() {
         },
         {
           name: t("technicalAnalysis"),
-          href: "/services#technicalAnalysis",
+          href: "/services#technical-analysis",
         },
       ],
     },
@@ -94,29 +94,24 @@ export default function Header() {
                     key={ids}
                     className="flex items-center h-full justify-between relative group"
                   >
-                    {pathName === link.href ? (
-                      <Link
-                        href={link.href}
-                        className="text-[18px] font-medium text-primary border-b-2 border-primary flex items-center h-full justify-between"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-[18px] text-black font-medium"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      className={
+                        pathName === link.href
+                          ? "text-[18px] font-medium text-primary border-b-2 border-primary flex items-center h-full justify-between"
+                          : "text-[18px] text-black font-medium"
+                      }
+                    >
+                      {link.name}
+                    </Link>
                     {link.subMenu && (
                       <div className="flex items-center">
-                        <ul className="fixed w-[100vw] justify-center opacity-0 flex left-0 mt-[160px] z-10  bg-gray-700 p-2  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
+                        <ul className="fixed w-[100vw] justify-center opacity-0 flex left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
                           {link.subMenu.map((subItem, index) => (
                             <li key={index} className="max-w-lg">
                               <a
                                 href={subItem.href}
-                                className="block px-5 py-2 text-black text-size18 font-medium"
+                                className="relative mx-4 py-2 text-black text-size18 font-medium"
                               >
                                 {subItem.name}
                               </a>
