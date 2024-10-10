@@ -1,7 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 type Inputs = {
   userName: string;
@@ -21,8 +20,11 @@ export default function ContactUs() {
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
-    <section className="bg-[#F1F7FD]">
-      <form onSubmit={handleSubmit(onSubmit)} className="container py-20">
+    <section className="bg-[#F1F7FD] pt-10">
+      <h1 className="text-black text-[4rem] font-semibold text-center mb-4">
+        {t("contactUs")}
+      </h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="container pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="col-span-2">
             <div className="form-control mb-4">
@@ -82,7 +84,7 @@ export default function ContactUs() {
         <div className="form-control mb-4">
           <label
             htmlFor="message"
-            className="block text-black text-size22 font-medium mb-4"
+            className="block text-black text-size22 font-medium"
           >
             {t("message")}
           </label>
@@ -95,7 +97,7 @@ export default function ContactUs() {
           />
         </div>
 
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-12">
           <button type="submit" className="btn-yellow !px-12">
             {t("send")}
           </button>
