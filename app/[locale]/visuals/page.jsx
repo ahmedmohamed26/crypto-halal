@@ -1,5 +1,6 @@
 import Card from "@/app/_components/card";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 function Visuals() {
   const t = useTranslations("Visuals");
@@ -16,7 +17,9 @@ function Visuals() {
       <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 container pt-20">
         {visualsListLength.map((item, index) => (
           <li key={index}>
-            <Card />
+            <Link href={`visuals/${1}`}>
+              <Card />
+            </Link>
           </li>
         ))}
       </ul>
