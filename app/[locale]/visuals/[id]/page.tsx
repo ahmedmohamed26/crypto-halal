@@ -163,8 +163,8 @@ function VisualDetails({ params }: { params: { id: string } }) {
         </div>
 
         <div className="share">
-          <h3 className=" text-[28px] text-black font-medium mb-6">
-            {t("comment")}
+          <h3 className=" text-size24 text-primary font-medium mb-6">
+            {t("share")}
           </h3>
           <ul className="flex justify-center gap-6 sm:mt-0 lg:justify-end">
             {socialMediaList.map((link, index) => {
