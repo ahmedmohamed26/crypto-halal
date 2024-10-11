@@ -1,16 +1,16 @@
-function Card() {
+import React from "react";
+interface CartProps {
+  title: string;
+  img: string;
+}
+
+const Card: React.FC<CartProps> = ({ title, img }) => {
   return (
     <div className="bg-white overflow-hidden rounded-md shadow-md p-2">
-      <img
-        alt=""
-        src="/assets/mock-image.png"
-        className="h-36 w-full object-cover rounded-md"
-      />
+      <img alt="" src={img} className="h-48 w-full object-cover rounded-md" />
 
       <div className="bg-white pt-4">
-        <p className="text-primary text-size22 font-medium">
-          التعريف بالعملات الرقمية وفلسفة البيتكوين
-        </p>
+        <p className="text-primary text-size22 font-medium">{title}</p>
         <span className="flex items-center my-4">
           <span className="h-px flex-1 bg-[#ddd]"></span>
         </span>
@@ -37,6 +37,6 @@ function Card() {
       </div>
     </div>
   );
-}
+};
 
 export default Card;
