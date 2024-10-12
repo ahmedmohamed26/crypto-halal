@@ -147,25 +147,12 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4  lg:hidden">
-            <div className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75">
+            <div className="block rounded bg-gray-100 pt-3.5 text-gray-600 transition hover:text-gray-600/75">
               <button
                 onClick={toggleMenu}
                 className="text-gray-700 focus:outline-none"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <img src="/assets/menu.svg" alt="menu" />
               </button>
             </div>
             <div
