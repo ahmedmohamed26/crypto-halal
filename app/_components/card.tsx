@@ -1,10 +1,10 @@
 import React from "react";
-interface CartProps {
+interface CardProps {
   title: string;
   img: string;
 }
 
-const Card: React.FC<CartProps> = ({ title, img }) => {
+const Card: React.FC<CardProps> = ({ title, img }) => {
   return (
     <div className="bg-white overflow-hidden rounded-md shadow-md p-2">
       <img alt="" src={img} className="h-48 w-full object-cover rounded-md" />
