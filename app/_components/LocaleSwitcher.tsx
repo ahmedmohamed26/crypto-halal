@@ -22,7 +22,7 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
   };
 
   return (
-    <div className="rounded-2xl p-1 border-2 bg-[#DDEBFF]">
+    <div className="rounded-2xl p-1 border-2 bg-[#DDEBFF] w-[100px]">
       <select value={locale} onChange={changeLocale} className="bg-[#DDEBFF]">
         {locales.map((loc) => (
           <option key={loc} value={loc}>

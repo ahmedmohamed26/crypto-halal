@@ -23,16 +23,15 @@ export default function Home() {
   return (
     <div>
       <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
-        {/* <div className='bg-[url("../../public/assets/intro.svg")] bg-no-repeat bg-cover aspect-[4/3] w-full'> */}
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="container">
-            <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold container">
+            <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold md:container">
               {t("appName")}
             </h1>
-            <p className="text-black text-[2rem] font-semibold   mt-[3rem] container">
+            <p className="text-black md:text-[2rem] text-[1rem] font-semibold   mt-[3rem] md:container">
               {t("description")}
             </p>
-            <div className="mt-[3rem] container">
+            <div className="mt-[3rem] md:container">
               <Link
                 href="/"
                 className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
@@ -41,7 +40,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="h-[100vh] relative w-full  overflow-hidden">
+          <div className="h-[100vh] relative w-full  overflow-hidden hidden md:block">
             <img
               src="assets/intro.svg"
               alt=""
@@ -55,7 +54,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className=" bg-white relative mt-[-200px] pb-12">
+      <div className=" bg-white relative md:mt-[-200px] mt-20 pb-12">
         <div
           className="container"
           style={{
@@ -65,7 +64,7 @@ export default function Home() {
           <h3 className="text-black md:text-[3rem] text-[1.5rem] font-semibold">
             {t("whatIsCrypto")}
           </h3>
-          <p className="font-medium text-[28px] text-black mt-[1rem]">
+          <p className="font-medium text-[14px] md:text-[28px] text-black mt-[1rem]">
             {t("whatIsCryptoDesc")}
           </p>
         </div>
@@ -74,7 +73,7 @@ export default function Home() {
       {/* services section */}
 
       <section className="services  py-8">
-        <div className="flex justify-end mt-4 container">
+        <div className="flex justify-center  md:justify-end mt-4 container">
           <div className=" rounded bg-[#FFBB00] px-8 py-2 font-medium text-black text-[20px]">
             {t("services")}
           </div>

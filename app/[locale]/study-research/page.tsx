@@ -2,8 +2,8 @@ import Card from "@/app/_components/card";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-function Visuals() {
-  const t = useTranslations("Visuals");
+function StudyAndResearch() {
+  const t = useTranslations("StudyAndResearch");
   const visualsListLength = Array.from({ length: 18 });
   return (
     <section className="visuals py-28">
@@ -17,8 +17,11 @@ function Visuals() {
       <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 container pt-20">
         {visualsListLength.map((item, index) => (
           <li key={index}>
-            <Link href={`visuals/${1}`}>
-              <Card />
+            <Link href={`study-research/${1}`}>
+              <Card
+                img={`/assets/study-and-research.svg`}
+                title={"نقدية العملات المشفرة واثرها و حكمها الشرعي"}
+              />
             </Link>
           </li>
         ))}
@@ -30,4 +33,4 @@ function Visuals() {
   );
 }
 
-export default Visuals;
+export default StudyAndResearch;

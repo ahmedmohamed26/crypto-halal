@@ -1,15 +1,13 @@
 import Card from "@/app/_components/card";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import React from "react";
 import Facebook from "../../../../public/assets/facebook.svg";
 import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
 
-function VisualDetails({ params }: { params: { id: string } }) {
-  const videosListLength = Array.from({ length: 2 });
+function StudyResearchDetails({ params }: { params: { id: string } }) {
   const relatedVideosListLength = Array.from({ length: 4 });
   const t = useTranslations("Visuals");
   const socialMediaList = [
@@ -33,7 +31,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
   return (
     <section className="py-24 container">
       <h1 className="text-primary text-[38px] font-medium  mb-4">
-        التعريف بالعملات الرقمية وفلسفة البيتكوين
+        نقدية العملات المشفرة واثرهافي بيان حكمها الشرعي
       </h1>
       <div className="flex items-center">
         <span className="text-[#475467] text-size16 font-medium">
@@ -60,69 +58,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
         </h6>
       </div>
 
-      <div className="video-container mt-16">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <div>
-            <ul>
-              {videosListLength.map((_, index) => (
-                <li key={index}>
-                  <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
-                    <div className="flex items-center">
-                      <img
-                        alt=""
-                        src="/assets/mock-image.png"
-                        className="h-24 w[30%]  object-cover rounded-md"
-                      />
-                      <p className="text-primary text-size16 font-medium ms-3">
-                        التعريف بالعملات الرقمية وفلسفة البيتكوين
-                      </p>
-                    </div>
-
-                    <div className="flex items-center pt-6">
-                      <span className="text-size16 font-medium text-darkGray">
-                        11 اكتوبر 2023
-                      </span>
-                      <div className="flex items-center ms-3">
-                        <img
-                          alt=""
-                          src="/assets/eye.svg"
-                          className="mx-2"
-                          width={22}
-                        />
-                        <span className="text-size16 font-medium text-darkGray">
-                          440
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className=" pt-6 flex items-center justify-start">
-                      <img
-                        alt=""
-                        src="/assets/mock-image.png"
-                        className="h-12 w-12 object-cover rounded-full"
-                      />
-                      <h6 className="text-size16 font-medium text-yellow mx-4">
-                        أ.د / محمد علي
-                      </h6>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="col-span-2">
-            <div>
-              <iframe
-                className="w-full h-[515px]"
-                src="https://www.youtube.com/embed/CLYC3v3wZdo"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="video-container mt-16"></div>
 
       <div className="related-videos mt-16">
         <div className="flex items-center justify-between">
@@ -139,8 +75,8 @@ function VisualDetails({ params }: { params: { id: string } }) {
             <li key={index}>
               <Link href={`visuals/${1}`}>
                 <Card
-                  img={`/assets/mock-image.png`}
-                  title={"التعريف بالعملات الرقمية وفلسفة البيتكوين"}
+                  img={`/assets/study-and-research.svg`}
+                  title={"نقدية العملات المشفرة واثرها و حكمها الشرعي"}
                 />
               </Link>
             </li>
@@ -191,4 +127,4 @@ function VisualDetails({ params }: { params: { id: string } }) {
   );
 }
 
-export default VisualDetails;
+export default StudyResearchDetails;
