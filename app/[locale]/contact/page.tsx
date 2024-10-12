@@ -21,7 +21,7 @@ export default function ContactUs() {
 
   return (
     <section className="bg-[#F1F7FD] pt-10">
-      <h1 className="text-black text-[4rem] font-semibold text-center mb-4">
+      <h1 className="text-black text-size22 md:text-[4rem] font-semibold text-center mb-12">
         {t("contactUs")}
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="container pb-8">
@@ -30,7 +30,7 @@ export default function ContactUs() {
             <div className="form-control mb-4">
               <label
                 htmlFor="userName"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("userName")}
               </label>
@@ -46,7 +46,7 @@ export default function ContactUs() {
             <div className="form-control mb-4">
               <label
                 htmlFor="email"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("email")}
               </label>
@@ -62,7 +62,7 @@ export default function ContactUs() {
             <div className="form-control mb-4">
               <label
                 htmlFor="subject"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("subject")}
               </label>
@@ -76,7 +76,7 @@ export default function ContactUs() {
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="text-center hidden md:block">
             <img src="assets/contact-us.svg" alt="contact us" />
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function ContactUs() {
         <div className="form-control mb-4">
           <label
             htmlFor="message"
-            className="block text-black text-size22 font-medium"
+            className="block text-black text-size18 md:text-size22 font-medium mb-4"
           >
             {t("message")}
           </label>

@@ -13,15 +13,15 @@ export default function Services() {
           }}
           className="py-16"
         >
-          <div className="container ">
+          <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-              <p className="text-white font-medium text-[28px]">
+              <p className="text-white font-medium text-[28px]  order-2 md:order-1">
                 وهي خدمة يقدمها المكتب من خلال فريق متخصص في الجوانب الشرعية
                 والتقنية والترجمة, وتسلم تقاريرها التفصيلية للعملاء ابتداء من
                 وصف المشروع ومرورا بخدماته واستخدامات العملة, وانتهاء بالحكم
                 الشرعي الخاص بكل مشروع, كل ذلك باللغتين العربية والانجليزية.
               </p>
-              <div className="flex items-center lg:justify-end justify-center">
+              <div className="flex items-center lg:justify-end justify-center order-1 md:order-2  mb-8 md:mb-0">
                 <img src="assets/services/trading-online.svg" alt="" />
               </div>
             </div>
@@ -37,7 +37,7 @@ export default function Services() {
         <div className="bg-white py-16">
           <div className="container ">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-              <div className="flex items-center lg:justify-start justify-center">
+              <div className="flex items-center lg:justify-start justify-center  mb-8 md:mb-0">
                 <img src="assets/iPhone.svg" alt="" />
               </div>
               <p className="text-black font-medium text-[28px]">
@@ -65,15 +65,15 @@ export default function Services() {
           className="py-16"
         >
           <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 ">
-              <p className="text-white font-medium text-[28px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              <p className="text-white font-medium text-[28px] order-2 md:order-1">
                 يقدم مكتب كريبتو حلال خدمات الرقابة الشرعية على مشاريع العملات
                 الرقمية منذ مرحلة كتابة الورقة البيضاء, مرورا بمرحلة انشاء العقد
                 الذكي, وانتهاء بمرحلة الطرح في أسواق التداول, للتأكد من عدم وجود
                 أي مخالفة شرعية في المراحل المذكورة, وإصدار شهادة من المكتب
                 بتحقق المعايير الشرعية في المشروع محل الفحص.
               </p>
-              <div className="flex items-center lg:justify-end justify-center">
+              <div className="flex items-center lg:justify-end justify-center order-1 md:order-2 mb-8 md:mb-0">
                 <img src="assets/services/sharia-supervision.svg" alt="" />
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Services() {
         <div className="bg-white py-16">
           <div className="container ">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-              <div className="flex items-center lg:justify-start justify-center">
+              <div className="flex items-center lg:justify-start justify-center  mb-8 md:mb-0">
                 <img src="assets/services/forensic-audit.svg" alt="" />
               </div>
               <p className="text-black font-medium text-[28px]">
@@ -118,14 +118,14 @@ export default function Services() {
         >
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-              <p className="text-white font-medium text-[28px]">
+              <p className="text-white font-medium text-[28px] order-2 md:order-1">
                 شرع المكتب بالفعل بكتابة مسودة للمعايير الشرعية لتعاملات اسواق
                 العملات الرقمية , وكل ذلك بمشاركة تقنيين وشرعيين ومتداولين
                 مخضرمين, وجاري العمل على باقي المعايير بهدف تقديمها في المستقبل
                 القريب إلى فريق من علماء الشريعة من مختلف انحاء العالم الإسلامي,
                 لتكون نقطة انطلاق لاعتمادها أو إضافة ما يستجد عليها .
               </p>
-              <div className="flex items-center lg:justify-end justify-center">
+              <div className="flex items-center lg:justify-end justify-center order-1 md:order-2  mb-8 md:mb-0">
                 <img src="assets/services/sharia-standards.svg" alt="" />
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function Services() {
         <div className="bg-white py-16">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-              <div className="flex items-center lg:justify-start justify-center">
+              <div className="flex items-center lg:justify-start justify-center  mb-8 md:mb-0">
                 <img src="assets/services/media.svg" alt="" />
               </div>
               <p className="text-black font-medium text-[28px]">
@@ -169,13 +169,13 @@ export default function Services() {
         >
           <div className="container ">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-              <p className="text-white font-medium text-[28px]">
+              <p className="text-white font-medium text-[28px] order-2 md:order-1">
                 وهي خدمة يقدمها المكتب من خلال فريق متخصص في الجوانب الشرعية
                 والتقنية والترجمة, وتسلم تقاريرها التفصيلية للعملاء ابتداء من
                 وصف المشروع ومرورا بخدماته واستخدامات العملة, وانتهاء بالحكم
                 الشرعي الخاص بكل مشروع, كل ذلك باللغتين العربية والانجليزية.
               </p>
-              <div className="flex items-center lg:justify-end justify-center">
+              <div className="flex items-center lg:justify-end justify-center order-1 md:order-2 mb-8 md:mb-0">
                 <img src="assets/services/technical-analysis.svg" alt="" />
               </div>
             </div>

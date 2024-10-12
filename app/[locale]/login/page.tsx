@@ -19,14 +19,17 @@ export default function Login() {
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
-    <section className="bg-[#F1F7FD]">
-      <form onSubmit={handleSubmit(onSubmit)} className="container  py-20">
+    <section className="bg-[#F1F7FD] pt-10">
+      <h1 className="text-black text-size22 md:text-[4rem] font-semibold text-center mb-12">
+        {t("login")}
+      </h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="container pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
             <div className="form-control  mb-9">
               <label
                 htmlFor="UserEmail"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("email")}
               </label>
@@ -42,7 +45,7 @@ export default function Login() {
             <div className="form-control">
               <label
                 htmlFor="UserPassword"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("password")}
               </label>
@@ -55,7 +58,7 @@ export default function Login() {
               />
             </div>
             <div className="flex justify-between items-center mt-8">
-              <div className="remember-me text-primary text-size22 font-medium">
+              <div className="remember-me text-primary text-size16 md:text-size22 font-medium">
                 <label
                   htmlFor="Option1"
                   className="flex cursor-pointer items-start gap-2"
@@ -76,7 +79,7 @@ export default function Login() {
                   </div>
                 </label>
               </div>
-              <div className="forgot-password text-primary text-size22 font-medium">
+              <div className="forgot-password text-primary  text-size16 md:text-size22 font-medium">
                 <Link href="/forgot-password">{t("forgotPassword")}</Link>
               </div>
             </div>
