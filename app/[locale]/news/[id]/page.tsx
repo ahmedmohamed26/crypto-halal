@@ -1,10 +1,11 @@
+import CardNews from "@/app/_components/newCard";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import Facebook from "../../../../public/assets/facebook.svg";
 import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
-import Link from "next/link";
-import CardNews from "@/app/_components/newCard";
+import "./style.css";
 
 function NewsDetails({ params }: { params: { id: string } }) {
   const newsListLength = Array.from({ length: 3 });
@@ -33,7 +34,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 ">
           <div className="col-span-8">
             <img src="/assets/bg-news.svg" />
-            <h1 className="mt-8 text-primary text-[38px] gont-medium">
+            <h1 className="mt-8 text-primary text-size22 md:text-[38px] gont-medium">
               رفعت هيئة الأوراق المالية والبورصة دعوى قضائية ضد مدقق حسابات FTX
             </h1>
             <h6 className="text-[#475467] text-size16 font-medium mt-8">
@@ -64,7 +65,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
             </p>
           </div>
           <div className="col-span-1"></div>
-          <div className="col-span-3">
+          <div className="col-span-3 hidden md:block">
             <img
               src="/assets/ads/ads-one.svg"
               className="w-full  h-auto mb-16 rounded-md"

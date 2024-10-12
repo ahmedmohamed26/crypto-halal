@@ -32,7 +32,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
   ];
   return (
     <section className="py-24 container">
-      <h1 className="text-primary text-[38px] font-medium  mb-4">
+      <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
         التعريف بالعملات الرقمية وفلسفة البيتكوين
       </h1>
       <div className="flex items-center">
@@ -62,7 +62,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
 
       <div className="video-container mt-16">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <div>
+          <div className="hidden md:block">
             <ul>
               {videosListLength.map((_, index) => (
                 <li key={index}>

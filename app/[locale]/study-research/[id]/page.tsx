@@ -30,7 +30,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
   ];
   return (
     <section className="py-24 container">
-      <h1 className="text-primary text-[38px] font-medium  mb-4">
+      <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
         نقدية العملات المشفرة واثرهافي بيان حكمها الشرعي
       </h1>
       <div className="flex items-center">

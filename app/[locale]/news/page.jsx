@@ -6,7 +6,7 @@ function News() {
   const visualsListLength = Array.from({ length: 18 });
   return (
     <section className="news py-28">
-      <h1 className="text-primary text-[4rem] font-semibold text-center mb-4">
+      <h1 className="text-primary text-size22 md:text-[4rem] font-semibold text-center mb-4">
         {t("title")}
       </h1>
 

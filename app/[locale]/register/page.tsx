@@ -28,7 +28,7 @@ function Register() {
           <h2 className="text-center font-semibold text-black text-[50px] mb-8">
             اختر خطَّتك
           </h2>
-          <div className="container grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-16 text-center">
+          <div className="container grid grid-cols-1 gap-4  sm:items-stretch md:grid-cols-3 md:gap-16 text-center">
             <div className="card px-8 py-12 bg-[#EAEAEA] rounded-md shadow-md">
               <h2 className="text-black font-semibold text-[28px] mb-8">
                 اشتراك عادي
@@ -76,7 +76,7 @@ function Register() {
             <div className="form-control  mb-9">
               <label
                 htmlFor="userName"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("userName")}
               </label>
@@ -92,7 +92,7 @@ function Register() {
             <div className="form-control  mb-9">
               <label
                 htmlFor="UserEmail"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("email")}
               </label>
@@ -108,7 +108,7 @@ function Register() {
             <div className="form-control mb-9">
               <label
                 htmlFor="UserPassword"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("password")}
               </label>
@@ -124,7 +124,7 @@ function Register() {
             <div className="form-control mb-9">
               <label
                 htmlFor="confirmPassword"
-                className="block text-black text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("confirmPassword")}
               </label>
@@ -178,7 +178,7 @@ function Register() {
             <div>
               {/* Payment Method Section */}
               <div>
-                <h2 className="text-[28px] font-medium mb-4">
+                <h2 className="text-size16 md:text-[28px] font-medium mb-4">
                   اختر وسيلة للدفع مناسبة
                 </h2>
                 <div className="flex items-center space-x-2">
@@ -207,7 +207,7 @@ function Register() {
 
               {/* Coupon Code Section */}
               <div className="mt-6 ">
-                <h2 className="text-[28px] font-medium mb-4">
+                <h2 className="text-size16 md:text-[28px] font-medium mb-4">
                   أدخل رمز القسيمة
                 </h2>
                 <div className="flex">
@@ -216,7 +216,7 @@ function Register() {
                     placeholder="أدخل رمز القسيمة"
                     className="w-full p-3   rounded-md bg-[#F1F7FD] focus:outline-none"
                   />
-                  <button className="btn-yellow mx-2  !text-size22">
+                  <button className="btn-yellow mx-2  !text-size18 md:!text-size22">
                     تفعيل
                   </button>
                 </div>
@@ -224,9 +224,11 @@ function Register() {
 
               {/* Invoice Summary Section */}
               <div className="mt-8">
-                <h2 className="text-[28px] font-medium mb-9">ملخص الفاتورة</h2>
-                <div className="text-gray-600">
-                  <p className="text-size16 mb-9">
+                <h2 className="text-size16 md:text-[28px] font-medium mb-9">
+                  ملخص الفاتورة
+                </h2>
+                <div className="text-gray-600 text-[14px] md:text-size16">
+                  <p className="mb-9">
                     الباقة المختارة:{" "}
                     <span className="font-semibold">النسخة النصف سنوية</span>،
                     سعر الباقة: <span className="font-semibold">USD 30.00</span>
@@ -243,7 +245,9 @@ function Register() {
         </div>
 
         <div className="pt-12 flex justify-center">
-          <button className="btn-yellow !text-size22">واصل</button>
+          <button className="btn-yellow !text-size18 md:!text-size22">
+            واصل
+          </button>
         </div>
       </form>
     </section>

@@ -95,7 +95,7 @@ export default function Header() {
           <LocaleSwitcher locale={locale} />
         </div>
 
-        <div className="md:flex md:items-center   h-full">
+        <div className="md:flex md:items-center  h-full">
           <nav aria-label="Global" className="hidden md:block h-full">
             <ul className="flex items-center gap-6 justify-between h-full">
               {navList.map((link, ids) => (
