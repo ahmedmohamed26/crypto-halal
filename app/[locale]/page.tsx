@@ -23,7 +23,6 @@ export default function Home() {
   return (
     <div>
       <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
-        {/* <div className='bg-[url("../../public/assets/intro.svg")] bg-no-repeat bg-cover aspect-[4/3] w-full'> */}
         <div className="grid grid-cols-2">
           <div className="container">
             <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold container">

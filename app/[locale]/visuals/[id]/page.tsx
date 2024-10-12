@@ -139,7 +139,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
             <li key={index}>
               <Link href={`visuals/${1}`}>
                 <Card
-                  img={`assets/mock-image.png`}
+                  img={`/assets/mock-image.png`}
                   title={"التعريف بالعملات الرقمية وفلسفة البيتكوين"}
                 />
               </Link>

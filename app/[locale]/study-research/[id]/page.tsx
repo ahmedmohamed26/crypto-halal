@@ -1,7 +1,6 @@
 import Card from "@/app/_components/card";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import React from "react";
 import Facebook from "../../../../public/assets/facebook.svg";
 import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
@@ -9,7 +8,6 @@ import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
 
 function StudyResearchDetails({ params }: { params: { id: string } }) {
-  const videosListLength = Array.from({ length: 2 });
   const relatedVideosListLength = Array.from({ length: 4 });
   const t = useTranslations("Visuals");
   const socialMediaList = [
@@ -60,17 +58,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         </h6>
       </div>
 
-      <div className="video-container mt-16">
-        <div>
-          <iframe
-            className="w-full h-[515px]"
-            src="https://www.youtube.com/embed/CLYC3v3wZdo"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
+      <div className="video-container mt-16"></div>
 
       <div className="related-videos mt-16">
         <div className="flex items-center justify-between">
