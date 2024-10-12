@@ -2,10 +2,20 @@
 import { Link, type Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Logo from "../../public/assets/logo.svg";
 import LocaleSwitcher from "./LocaleSwitcher";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
   const t = useTranslations("Header");
   const locale = useLocale() as Locale;
   const pathName = usePathname();
@@ -136,24 +146,67 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4">
-            <div className="block md:hidden">
-              <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+          <div className="flex items-center gap-4  lg:hidden">
+            <div className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75">
+              <button
+                onClick={toggleMenu}
+                className="text-gray-700 focus:outline-none"
+              >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-5"
+                  className="w-6 h-6"
                   fill="none"
-                  viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
               </button>
+            </div>
+            <div
+              className={`fixed top-0 left-0 w-full h-screen bg-white z-50 transform transition-transform duration-300 ease-in-out ${
+                isOpen
+                  ? "opacity-100 translate-x-0 visible"
+                  : "opacity-0 -translate-x-full invisible pointer-events-none"
+              } lg:static lg:flex lg:bg-transparent lg:h-auto lg:w-auto lg:translate-x-0 lg:opacity-100 lg:visible`}
+            >
+              <button
+                onClick={closeMenu}
+                className="absolute top-4 right-4 text-gray-700 focus:outline-none lg:hidden"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <ul className="flex flex-col justify-center items-center space-y-8 h-full lg:flex-row lg:space-y-0 lg:space-x-6">
+                {navList.map((link, ids) => (
+                  <li key={ids}>
+                    <Link
+                      href={link.href}
+                      className="text-[18px] text-black font-medium"
+                      onClick={closeMenu}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

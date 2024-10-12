@@ -34,8 +34,8 @@ function Footer() {
   ];
   return (
     <footer className="bg-[#06102B] text-white">
-      <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+      <div className="pt-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 container !items-start">
           <div>
             <h3 className="text-size20 mb-[1.5rem]">{t("app-name")}</h3>
             <p>{t("description")}</p>
@@ -103,29 +103,31 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16  pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24">
-          <div className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
-            <p className="text-size16">
-              {t("copyRight")}
-              {currentYear}
-            </p>
-          </div>
-          <ul className="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
-            {socialMediaList.map((link, index) => {
-              const IconComponent = link.src;
+        <div className="mt-16 py-6 block md:flex md:items-center md:justify-between lg:mt-24 bg-[#101828]">
+          <div className="container md:flex justify-between items-center">
+            <div className="sm:text-center mb-4 md:mb-0">
+              <p className="text-size16">
+                {t("copyRight")}
+                {currentYear}
+              </p>
+            </div>
+            <ul className="flex justify-center gap-6 sm:mt-0 lg:justify-end">
+              {socialMediaList.map((link, index) => {
+                const IconComponent = link.src;
 
-              return (
-                <a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IconComponent />
-                </a>
-              );
-            })}
-          </ul>
+                return (
+                  <a
+                    key={index}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconComponent />
+                  </a>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
