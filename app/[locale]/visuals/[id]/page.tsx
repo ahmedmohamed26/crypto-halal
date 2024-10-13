@@ -160,11 +160,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
             {visualDetails?.similers.map((item: any, index: number) => (
               <li key={index}>
                 <Link href={`visuals/${1}`}>
-                  <Card
-                    item={""}
-                    img={`/assets/mock-image.png`}
-                    title={"التعريف بالعملات الرقمية وفلسفة البيتكوين"}
-                  />
+                  <Card item={""} />
                 </Link>
               </li>
             ))}

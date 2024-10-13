@@ -37,11 +37,7 @@ function StudyAndResearch() {
         {data?.map((item, index) => (
           <li key={index}>
             <Link href={`study-research/${1}`}>
-              <Card
-                item={item}
-                img={`/assets/study-and-research.svg`}
-                title={"نقدية العملات المشفرة واثرها و حكمها الشرعي"}
-              />
+              <Card item={item} />
             </Link>
           </li>
         ))}

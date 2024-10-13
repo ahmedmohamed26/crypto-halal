@@ -39,11 +39,7 @@ function Visuals() {
         {data?.map((item: any, index) => (
           <li key={index}>
             <Link href={`visuals/${item?.id}`}>
-              <Card
-                item={item}
-                img={`assets/mock-image.png`}
-                title={"التعريف بالعملات الرقمية وفلسفة البيتكوين"}
-              />
+              <Card item={item} />
             </Link>
           </li>
         ))}
