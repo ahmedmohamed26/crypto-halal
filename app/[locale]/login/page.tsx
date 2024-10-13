@@ -2,6 +2,8 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
+import login from "@/app/_lib/login";
 
 type Inputs = {
   email: string;
@@ -16,7 +18,15 @@ export default function Login() {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const [error, setError] = useState<string | null>(null);
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      await login(data.email, data.password);
+    } catch (error) {
+      setError("Login failed. Please check your credentials.");
+    }
+  };
 
   return (
     <section className="bg-[#F1F7FD] pt-10">
