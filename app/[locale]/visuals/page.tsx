@@ -1,10 +1,31 @@
+"use client";
 import Card from "@/app/_components/card";
+import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 function Visuals() {
   const t = useTranslations("Visuals");
   const visualsListLength = Array.from({ length: 18 });
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get("visions?limit=10&page=1");
+        setData(response.data.data.items);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className="visuals py-28 container">
       <h1 className="text-primary text-size22 md:text-[4rem] font-semibold text-center mb-4">
@@ -15,10 +36,11 @@ function Visuals() {
       </p>
 
       <ul className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-4 pt-20">
-        {visualsListLength.map((item, index) => (
+        {data?.map((item: any, index) => (
           <li key={index}>
-            <Link href={`visuals/${1}`}>
+            <Link href={`visuals/${item?.id}`}>
               <Card
+                item={item}
                 img={`assets/mock-image.png`}
                 title={"التعريف بالعملات الرقمية وفلسفة البيتكوين"}
               />

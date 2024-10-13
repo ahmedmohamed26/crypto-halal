@@ -1,3 +1,4 @@
+"use client";
 import Card from "@/app/_components/card";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -7,8 +8,11 @@ import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
+import { useEffect, useState } from "react";
+import axiosInstance from "@/app/_lib/axios";
 
 function VisualDetails({ params }: { params: { id: string } }) {
+  const [visualDetails, setVisualDetails] = useState<any>({});
   const videosListLength = Array.from({ length: 2 });
   const relatedVideosListLength = Array.from({ length: 4 });
   const t = useTranslations("Visuals");
@@ -30,33 +34,51 @@ function VisualDetails({ params }: { params: { id: string } }) {
       url: "/",
     },
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get(`visions/${params.id}`);
+        setVisualDetails(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className="py-24 container">
       <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
-        التعريف بالعملات الرقمية وفلسفة البيتكوين
+        {visualDetails?.title}
       </h1>
       <div className="flex items-center">
         <span className="text-[#475467] text-size16 font-medium">
-          11 اكتوبر 2023
+          {visualDetails?.date}
         </span>
         <div className="flex items-center ms-3">
           <img alt="" src="/assets/clock.svg" className="mx-2" />
-          <span className="text-size16 font-medium text-darkGray">10 د</span>
+          <span className="text-size16 font-medium text-darkGray">
+            {visualDetails?.duration}
+          </span>
         </div>
 
         <div className="flex items-center ms-3">
           <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
-          <span className="text-size16 font-medium text-darkGray">440</span>
+          <span className="text-size16 font-medium text-darkGray">
+            {visualDetails?.views}
+          </span>
         </div>
       </div>
       <div className="flex items-center justify-start mt-4">
         <img
           alt=""
-          src="/assets/mock-image.png"
+          src={visualDetails?.lecturer?.image}
           className="h-12 w-12 object-cover rounded-full"
         />
         <h6 className="text-size22 font-medium text-yellow mx-4">
-          أ.د / محمد علي
+          {visualDetails?.lecturer?.name}
         </h6>
       </div>
 
@@ -114,7 +136,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
             <div>
               <iframe
                 className="w-full h-[515px]"
-                src="https://www.youtube.com/embed/CLYC3v3wZdo"
+                src={visualDetails?.video}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -133,19 +155,25 @@ function VisualDetails({ params }: { params: { id: string } }) {
             <span>{t("more")}</span>
           </Link>
         </div>
-
-        <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
-          {relatedVideosListLength.map((item, index) => (
-            <li key={index}>
-              <Link href={`visuals/${1}`}>
-                <Card
-                  img={`/assets/mock-image.png`}
-                  title={"التعريف بالعملات الرقمية وفلسفة البيتكوين"}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {visualDetails?.similers?.length ? (
+          <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
+            {visualDetails?.similers.map((item: any, index: number) => (
+              <li key={index}>
+                <Link href={`visuals/${1}`}>
+                  <Card
+                    item={""}
+                    img={`/assets/mock-image.png`}
+                    title={"التعريف بالعملات الرقمية وفلسفة البيتكوين"}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <h6 className="text-center mt-16 text-[28px] text-black font-medium">
+            {t("notFoundVideos")}
+          </h6>
+        )}
       </div>
 
       <div className="comments lg:flex block items-end justify-between mt-32">
