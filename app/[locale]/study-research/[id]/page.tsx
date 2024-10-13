@@ -75,6 +75,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
             <li key={index}>
               <Link href={`visuals/${1}`}>
                 <Card
+                  item={""}
                   img={`/assets/study-and-research.svg`}
                   title={"نقدية العملات المشفرة واثرها و حكمها الشرعي"}
                 />
