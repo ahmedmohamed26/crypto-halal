@@ -1,11 +1,9 @@
 import React from "react";
 interface CardProps {
-  title: string;
-  img: string;
   item: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, img, item }) => {
+const Card: React.FC<CardProps> = ({ item }) => {
   return (
     <div className="bg-white overflow-hidden rounded-md shadow-md p-2">
       <img
