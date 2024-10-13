@@ -87,7 +87,7 @@ export default function Header() {
   return (
     <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center">
       <div className="flex h-full items-center justify-between w-full container ">
-        <div className="flex-1 md:flex md:items-center md:gap-12 ">
+        <div className="flex items-center gap-4">
           <Link className="block text-teal-600" href="/">
             <span className="sr-only">Home</span>
             <Logo />
@@ -95,7 +95,7 @@ export default function Header() {
           <LocaleSwitcher locale={locale} />
         </div>
 
-        <div className="md:flex md:items-center  h-full">
+        <div className="flex items-center h-full">
           <nav aria-label="Global" className="hidden md:block h-full">
             <ul className="flex items-center gap-6 justify-between h-full">
               {navList.map((link, ids) => (
@@ -115,7 +115,7 @@ export default function Header() {
                   </Link>
                   {link.subMenu && (
                     <div className="flex items-center">
-                      <ul className="fixed w-[100vw] justify-center opacity-0 flex left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
+                      <ul className="fixed w-[100vw] justify-center opacity-0 hidden  left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
                         {link.subMenu.map((subItem, index) => (
                           <li key={index} className="max-w-lg">
                             <a
@@ -146,11 +146,11 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4  lg:hidden">
+          <div className="flex items-center gap-4 lg:hidden">
             <div className="block rounded bg-gray-100 pt-3.5 text-gray-600 transition hover:text-gray-600/75">
               <button
                 onClick={toggleMenu}
-                className="text-gray-700 focus:outline-none"
+                className="text-gray-700 focus:outline-none mb-4"
               >
                 <img src="/assets/menu.svg" alt="menu" />
               </button>
