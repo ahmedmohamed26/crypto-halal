@@ -1,16 +1,19 @@
 "use client";
 import { Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import AliceCarousel from "react-alice-carousel";
-const ServicesSection = () => {
+import DOMPurify from "isomorphic-dompurify";
+
+const ServicesSection = ({ sponsors, teams, info }: any) => {
   const t = useTranslations("Home");
   const locale = useLocale() as Locale;
   const data = [
-    { number: 1500, label: t("workTeam") },
-    { number: 2500, label: t("tests") },
-    { number: 1200, label: t("subscribers") },
-    { number: 5200, label: t("projects") },
+    { number: info?.teams, label: t("workTeam") },
+    { number: info?.tests, label: t("tests") },
+    { number: info?.subscribers, label: t("subscribers") },
+    { number: info?.projects, label: t("projects") },
   ];
 
   const teamListResponsive = {
@@ -24,22 +27,18 @@ const ServicesSection = () => {
     568: { items: 2 },
     1024: { items: 5 },
   };
-  const teamsListLength = Array.from({ length: 5 });
 
-  const teamsList = teamsListLength.map((item, index) => {
-    const style = { height: 200 + index * 10 };
+  const teamsList = teams?.map((item: any, index: number) => {
     return (
       <div
         className="item group block bg-white p-4 mx-2"
-        data-value={index + 1}
+        data-value={index}
         dir={locale == "en" ? "rtl" : "ltr"}
       >
         <img
-          src="assets/mock-image.png"
-          alt=""
-          className="w-full rounded object-cover"
-          width={150}
-          height={200}
+          src={item?.image}
+          alt={item?.name}
+          className="w-full h-60 rounded object-fill"
           loading="lazy"
         />
 
@@ -66,19 +65,18 @@ const ServicesSection = () => {
     );
   });
 
-  const partnersList = teamsListLength.map((item, index) => {
+  const partnersList = sponsors?.map((item: any, index: number) => {
     return (
       <div
         className="item group block bg-white p-4 mx-2"
-        data-value={index + 1}
+        data-value={index}
         dir={locale == "en" ? "rtl" : "ltr"}
       >
         <img
-          src={`assets/partners/partner${index + 1}.svg`}
-          alt=""
-          className="w-full border border-[#f3f3f3] rounded object-cover shadow-md p-4"
-          width={150}
-          height={200}
+          src={item?.image}
+          alt={item?.name}
+          className="w-full h-[200px] rounded object-fill shadow-md p-4"
+          loading="lazy"
         />
       </div>
     );
@@ -116,7 +114,9 @@ const ServicesSection = () => {
                 {t("visualReleases")}
               </h4>
               <p className="w-[75%] text-white text-[28px] mb-[2rem]">
-                {t("visualReleasesDescription")}
+                {DOMPurify.sanitize(info?.vision, {
+                  USE_PROFILES: { html: false },
+                })}
               </p>
               <Link
                 href="/visuals"
@@ -149,7 +149,9 @@ const ServicesSection = () => {
                 {t("studiesAndResearch")}
               </h4>
               <p className="w-[75%] text-white text-[28px] mb-[2rem]">
-                {t("studiesAndResearchDescription")}
+                {DOMPurify.sanitize(info?.research, {
+                  USE_PROFILES: { html: false },
+                })}
               </p>
               <Link
                 href="/study-research"
@@ -164,7 +166,9 @@ const ServicesSection = () => {
             <div className="flex items-center flex-col order-2 md:order-1">
               <h4 className="text-white text-[50px] mb-[3rem]">{t("news")}</h4>
               <p className="w-[75%] text-white text-[28px] mb-[2rem]">
-                {t("newsDescription")}
+                {DOMPurify.sanitize(info?.news, {
+                  USE_PROFILES: { html: false },
+                })}
               </p>
               <Link
                 href="/news"

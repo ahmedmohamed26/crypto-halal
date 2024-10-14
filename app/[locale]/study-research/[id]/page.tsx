@@ -1,3 +1,4 @@
+"use client";
 import Card from "@/app/_components/card";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -6,10 +7,16 @@ import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
+import { useEffect, useState } from "react";
+import axiosInstance from "@/app/_lib/axios";
+import PdfViewer from "@lmtri/react-pdf-viewer";
+
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 
 function StudyResearchDetails({ params }: { params: { id: string } }) {
-  const relatedVideosListLength = Array.from({ length: 4 });
   const t = useTranslations("Visuals");
+  const [researchDetails, setResearchDetails] = useState<any>({});
   const socialMediaList = [
     {
       src: instagram,
@@ -28,23 +35,41 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       url: "/",
     },
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get(`researches/${params.id}`);
+        setResearchDetails(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className="py-24 container">
       <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
-        نقدية العملات المشفرة واثرهافي بيان حكمها الشرعي
+        {researchDetails?.title}
       </h1>
       <div className="flex items-center">
         <span className="text-[#475467] text-size16 font-medium">
-          11 اكتوبر 2023
+          {researchDetails?.date}
         </span>
         <div className="flex items-center ms-3">
           <img alt="" src="/assets/clock.svg" className="mx-2" />
-          <span className="text-size16 font-medium text-darkGray">10 د</span>
+          <span className="text-size16 font-medium text-darkGray">
+            {researchDetails?.duration}
+          </span>
         </div>
 
         <div className="flex items-center ms-3">
           <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
-          <span className="text-size16 font-medium text-darkGray">440</span>
+          <span className="text-size16 font-medium text-darkGray">
+            {researchDetails?.views}
+          </span>
         </div>
       </div>
       <div className="flex items-center justify-start mt-4">
@@ -58,7 +83,12 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         </h6>
       </div>
 
-      <div className="video-container mt-16"></div>
+      <div className="video-container mt-16">
+        <PdfViewer
+          src={"https://pdfobject.com/pdf/sample.pdf"}
+          fileName="sample.pdf"
+        />
+      </div>
 
       <div className="related-videos mt-16">
         <div className="flex items-center justify-between">
@@ -71,10 +101,10 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         </div>
 
         <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
-          {relatedVideosListLength.map((item, index) => (
+          {researchDetails?.similers?.map((item: any, index: number) => (
             <li key={index}>
-              <Link href={`visuals/${1}`}>
-                <Card item={""} />
+              <Link href={`study-research/${item?.id}`}>
+                <Card item={item} />
               </Link>
             </li>
           ))}

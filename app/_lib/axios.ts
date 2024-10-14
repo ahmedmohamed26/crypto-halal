@@ -1,14 +1,16 @@
 import axios from "axios";
 
-// Create an Axios instance
+// const metaTag = document.querySelector('meta[name="csrf-token"]');
+// const token = metaTag ? metaTag.getAttribute("content") : null;
+
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   withCredentials: false,
-  //   withXSRFToken: true,
+  withXSRFToken: true,
   headers: {
-    "Content-Type": "application/json",
+    // "X-CSRF-TOKEN": token,
     Accept: "application/json",
-
+    "Accept-Language": "ar",
     // "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
     // "Access-Control-Allow-Origin": "*",
     // "Access-Control-Allow-Credentials": true,
