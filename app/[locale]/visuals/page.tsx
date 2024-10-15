@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 function Visuals() {
   const t = useTranslations("Visuals");
-  const visualsListLength = Array.from({ length: 18 });
   const [data, setData] = useState([]);
+  const [pagination, setPagination] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ function Visuals() {
       try {
         const response = await axiosInstance.get("visions?limit=10&page=1");
         setData(response.data.data.items);
+        setPagination(response.data.data.meta);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -44,9 +45,11 @@ function Visuals() {
           </li>
         ))}
       </ul>
-      <div className="flex justify-center py-16">
-        <button className="btn-yellow">{t("more")}</button>
-      </div>
+      {pagination.next_page !== null && (
+        <div className="flex justify-center py-16">
+          <button className="btn-yellow">{t("more")}</button>
+        </div>
+      )}
     </section>
   );
 }

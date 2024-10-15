@@ -3,11 +3,13 @@ import { Link, type Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Logo from "../../public/assets/logo.svg";
+import { useUser } from "../_context/UserContext";
 import LocaleSwitcher from "./LocaleSwitcher";
+import ProfileDropdown from "./ProfileDD";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isLoggedIn } = useUser();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,10 +25,13 @@ export default function Header() {
     {
       name: t("home"),
       href: "/",
+      active: true,
     },
     {
       name: t("services"),
       href: "/services",
+      active: true,
+
       subMenu: [
         {
           name: t("legitimacyCheck"),
@@ -61,26 +66,32 @@ export default function Header() {
     {
       name: t("visuals"),
       href: "/visuals",
+      active: true,
     },
     {
       name: t("news"),
       href: "/news",
+      active: true,
     },
     {
       name: t("studyAndResearch"),
       href: "/study-research",
+      active: true,
     },
     {
       name: t("currencies"),
       href: "/currencies",
+      active: isLoggedIn ? true : false,
     },
     {
       name: t("contactUs"),
       href: "/contact",
+      active: true,
     },
     {
       name: t("login"),
       href: "/login",
+      active: isLoggedIn ? false : true,
     },
   ];
 
@@ -88,9 +99,11 @@ export default function Header() {
     <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center">
       <div className="flex h-full items-center justify-between w-full container ">
         <div className="flex items-center gap-4">
+          {isLoggedIn && <ProfileDropdown />}
+
           <Link className="block text-teal-600" href="/">
             <span className="sr-only">Home</span>
-            <Logo />
+            <img src="/assets/logo.svg" alt="logo" />
           </Link>
           <LocaleSwitcher locale={locale} />
         </div>
@@ -98,51 +111,57 @@ export default function Header() {
         <div className="flex items-center h-full">
           <nav aria-label="Global" className="hidden md:block h-full">
             <ul className="flex items-center gap-6 justify-between h-full">
-              {navList.map((link, ids) => (
-                <li
-                  key={ids}
-                  className="flex items-center h-full justify-between relative group"
-                >
+              {navList.map(
+                (link, ids) =>
+                  link.active === true && (
+                    <li
+                      key={ids}
+                      className="flex items-center h-full justify-between relative group"
+                    >
+                      <Link
+                        href={link.href}
+                        className={
+                          pathName === link.href
+                            ? "text-[18px] font-medium text-primary border-b-2 border-primary flex items-center h-full justify-between"
+                            : "text-[18px] text-black font-medium"
+                        }
+                      >
+                        {link.name}
+                      </Link>
+                      {link.subMenu && (
+                        <div className="flex items-center">
+                          <ul className="fixed w-[100vw] justify-center opacity-0 hidden  left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
+                            {link.subMenu.map((subItem, index) => (
+                              <li key={index} className="max-w-lg">
+                                <a
+                                  href={subItem.href}
+                                  className="relative mx-4 py-2 text-black text-size18 font-medium"
+                                >
+                                  {subItem.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                  )
+              )}
+
+              {!isLoggedIn && (
+                <li>
                   <Link
-                    href={link.href}
+                    href="/register"
                     className={
-                      pathName === link.href
-                        ? "text-[18px] font-medium text-primary border-b-2 border-primary flex items-center h-full justify-between"
-                        : "text-[18px] text-black font-medium"
+                      pathName === "/register"
+                        ? "btn-yellow !bg-primary !text-white !text-[18px] font-regular !p-2"
+                        : "btn-yellow !text-[18px] font-regular !p-2"
                     }
                   >
-                    {link.name}
+                    {t("subscribe")}
                   </Link>
-                  {link.subMenu && (
-                    <div className="flex items-center">
-                      <ul className="fixed w-[100vw] justify-center opacity-0 hidden  left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
-                        {link.subMenu.map((subItem, index) => (
-                          <li key={index} className="max-w-lg">
-                            <a
-                              href={subItem.href}
-                              className="relative mx-4 py-2 text-black text-size18 font-medium"
-                            >
-                              {subItem.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </li>
-              ))}
-              <li>
-                <Link
-                  href="/register"
-                  className={
-                    pathName === "/register"
-                      ? "btn-yellow !bg-primary !text-white !text-[18px] font-regular !p-2"
-                      : "btn-yellow !text-[18px] font-regular !p-2"
-                  }
-                >
-                  {t("subscribe")}
-                </Link>
-              </li>
+              )}
             </ul>
           </nav>
 

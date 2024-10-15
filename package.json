@@ -10,15 +10,19 @@
   },
   "dependencies": {
     "@fileforge/pdfreader": "^0.1.43",
+    "@hookform/resolvers": "^3.9.0",
+    "@lmtri/react-pdf-viewer": "^1.0.1",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.7.7",
+    "isomorphic-dompurify": "^2.16.0",
     "next": "14.2.14",
     "next-intl": "^3.20.0",
     "react": "^18",
     "react-alice-carousel": "^2.9.1",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
-    "rtl-detect": "^1.1.2"
+    "rtl-detect": "^1.1.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",

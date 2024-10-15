@@ -1,27 +1,33 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
+import DOMPurify from "isomorphic-dompurify";
 interface CardNewsProps {
-  title: string;
-  img: string;
+  item: any;
 }
 
-const CardNews: React.FC<CardNewsProps> = ({ title, img }) => {
+const CardNews: React.FC<CardNewsProps> = ({ item }) => {
   const t = useTranslations("News");
   return (
     <div className="bg-white overflow-hidden rounded-md shadow-md p-6">
-      <img
+      {/* <img
         alt=""
-        src="/assets/bg-news.svg"
+        src={item?.image}
         className="h-48 w-full object-cover rounded-md"
-      />
-      <h2 className="title text-primary  text-[14px] md:text-size22 font-medium my-6">
-        حصلت Coinbase على موافقة كاملة للعمل في سنغافورة
+      /> */}
+      <h2 className="title text-primary  text-[14px] md:text-size22 font-medium">
+        {item?.title}
       </h2>
+
+      <p className="title text-black  text-[14px] md:text-size22 font-medium mt-6 text-ellipsis line-clamp-3">
+        {DOMPurify.sanitize(item?.desc, {
+          USE_PROFILES: { html: false },
+        })}
+      </p>
 
       <div className="mt-6 flex justify-end">
         <Link
-          href={`news/${1}`}
+          href={`news/${item?.id}`}
           className="text-primary text-size16 md:text-size22 font-medium"
         >
           {t("readMore")}
@@ -34,12 +40,12 @@ const CardNews: React.FC<CardNewsProps> = ({ title, img }) => {
 
         <div className="flex items-center justify-between">
           <span className="text-[12px] md:text-size16 font-medium text-darkGray">
-            11 اكتوبر 2023
+            {item?.date}
           </span>
           <div className="flex items-center">
             <img alt="" src="/assets/eye.svg" className="mx-2" />
             <span className="text-[12px] md:text-size16 font-medium text-darkGray">
-              440
+              {item?.views}
             </span>
           </div>
         </div>

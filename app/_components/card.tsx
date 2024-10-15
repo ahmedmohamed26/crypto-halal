@@ -9,10 +9,10 @@ const Card: React.FC<CardProps> = ({ item }) => {
       <img
         alt=""
         src={item?.image}
-        className="w-full object-cover rounded-md"
+        className="w-full h-[140px] object-cover rounded-md"
       />
 
-      <div className="bg-white pt-2">
+      <div className="bg-white pt-6">
         <p className="text-primary text-[14px] md:text-size22 font-medium">
           {item?.title}
         </p>

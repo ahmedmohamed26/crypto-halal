@@ -1,8 +1,28 @@
+"use client";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import ServicesSection from "../_components/services-section";
+import axiosInstance from "../_lib/axios";
+import DOMPurify from "isomorphic-dompurify";
+import { useUser } from "../_context/UserContext";
 
 export default function Home() {
+  const [data, setData] = useState<any>(null);
+  const { isLoggedIn } = useUser();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get("home");
+        setData(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const t = useTranslations("Home");
   // useEffect(() => {
   //   const styleSheet = document.styleSheets[0];
@@ -31,14 +51,16 @@ export default function Home() {
             <p className="text-black md:text-[2rem] text-[1rem] font-semibold   mt-[3rem] md:container">
               {t("description")}
             </p>
-            <div className="mt-[3rem] md:container">
-              <Link
-                href="/"
-                className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
-              >
-                {t("subscribe")}
-              </Link>
-            </div>
+            {!isLoggedIn && (
+              <div className="mt-[3rem] md:container">
+                <Link
+                  href="/"
+                  className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
+                >
+                  {t("subscribe")}
+                </Link>
+              </div>
+            )}
           </div>
           <div className="h-[100vh] relative w-full  overflow-hidden hidden md:block">
             <img
@@ -47,8 +69,7 @@ export default function Home() {
               style={{
                 width: "100%",
                 height: "auto",
-                // opacity: 0, // Initial opacity
-                animation: "fadeInBottom 1.5s ease-out forwards", // Use the keyframes
+                animation: "fadeInBottom 1.5s ease-out forwards",
               }}
             />
           </div>
@@ -65,7 +86,9 @@ export default function Home() {
             {t("whatIsCrypto")}
           </h3>
           <p className="font-medium text-[14px] md:text-[28px] text-black mt-[1rem]">
-            {t("whatIsCryptoDesc")}
+            {DOMPurify.sanitize(data?.info?.about, {
+              USE_PROFILES: { html: false },
+            })}
           </p>
         </div>
       </div>
@@ -79,7 +102,11 @@ export default function Home() {
           </div>
         </div>
 
-        <ServicesSection />
+        <ServicesSection
+          sponsors={data?.sponsors}
+          teams={data?.teams}
+          info={data?.info}
+        />
       </section>
     </div>
   );

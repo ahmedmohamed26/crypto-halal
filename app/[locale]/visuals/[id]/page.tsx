@@ -1,20 +1,17 @@
 "use client";
 import Card from "@/app/_components/card";
+import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import React from "react";
+import { useEffect, useState } from "react";
 import Facebook from "../../../../public/assets/facebook.svg";
 import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
-import { useEffect, useState } from "react";
-import axiosInstance from "@/app/_lib/axios";
 
 function VisualDetails({ params }: { params: { id: string } }) {
   const [visualDetails, setVisualDetails] = useState<any>({});
-  const videosListLength = Array.from({ length: 2 });
-  const relatedVideosListLength = Array.from({ length: 4 });
   const t = useTranslations("Visuals");
   const socialMediaList = [
     {
@@ -86,50 +83,54 @@ function VisualDetails({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="hidden md:block">
             <ul>
-              {videosListLength.map((_, index) => (
-                <li key={index}>
-                  <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
-                    <div className="flex items-center">
-                      <img
-                        alt=""
-                        src="/assets/mock-image.png"
-                        className="h-24 w[30%]  object-cover rounded-md"
-                      />
-                      <p className="text-primary text-size16 font-medium ms-3">
-                        التعريف بالعملات الرقمية وفلسفة البيتكوين
-                      </p>
-                    </div>
+              {visualDetails?.same_lecturers?.map(
+                (item: any, index: number) => (
+                  <li key={index}>
+                    <Link href="/">
+                      <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
+                        <div className="flex items-center">
+                          <img
+                            alt={item?.title}
+                            src={item?.image}
+                            className="h-24 w[30%]  object-cover rounded-md"
+                          />
+                          <p className="text-primary text-size16 font-medium ms-3">
+                            {item?.title}
+                          </p>
+                        </div>
 
-                    <div className="flex items-center pt-6">
-                      <span className="text-size16 font-medium text-darkGray">
-                        11 اكتوبر 2023
-                      </span>
-                      <div className="flex items-center ms-3">
-                        <img
-                          alt=""
-                          src="/assets/eye.svg"
-                          className="mx-2"
-                          width={22}
-                        />
-                        <span className="text-size16 font-medium text-darkGray">
-                          440
-                        </span>
+                        <div className="flex items-center pt-6">
+                          <span className="text-size16 font-medium text-darkGray">
+                            {item?.date}
+                          </span>
+                          <div className="flex items-center ms-3">
+                            <img
+                              alt=""
+                              src="/assets/eye.svg"
+                              className="mx-2"
+                              width={22}
+                            />
+                            <span className="text-size16 font-medium text-darkGray">
+                              {item?.views}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className=" pt-6 flex items-center justify-start">
+                          <img
+                            alt=""
+                            src={item?.lecturer?.image}
+                            className="h-12 w-12 object-cover rounded-full"
+                          />
+                          <h6 className="text-size16 font-medium text-yellow mx-4">
+                            {item?.lecturer?.name}
+                          </h6>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className=" pt-6 flex items-center justify-start">
-                      <img
-                        alt=""
-                        src="/assets/mock-image.png"
-                        className="h-12 w-12 object-cover rounded-full"
-                      />
-                      <h6 className="text-size16 font-medium text-yellow mx-4">
-                        أ.د / محمد علي
-                      </h6>
-                    </div>
-                  </div>
-                </li>
-              ))}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
           <div className="col-span-2">
@@ -138,7 +139,6 @@ function VisualDetails({ params }: { params: { id: string } }) {
                 className="w-full h-[515px]"
                 src={visualDetails?.video}
                 title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
@@ -159,8 +159,8 @@ function VisualDetails({ params }: { params: { id: string } }) {
           <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
             {visualDetails?.similers.map((item: any, index: number) => (
               <li key={index}>
-                <Link href={`visuals/${1}`}>
-                  <Card item={""} />
+                <Link href={`visuals/${item?.id}`}>
+                  <Card item={item} />
                 </Link>
               </li>
             ))}
