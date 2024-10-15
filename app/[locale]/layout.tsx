@@ -5,6 +5,7 @@ import Header from "../_components/Header";
 import Footer from "../_components/Footer";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
+import { UserProvider } from "../_context/UserContext";
 
 export const metadata: Metadata = {
   title: "كريبتو حلال",
@@ -29,12 +30,14 @@ export default function RootLayout({
   const messages = useMessages();
   return (
     <html lang={locale} dir={dir}>
-      <body className={cairo.className}>
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          <div>{children}</div>
-          <Footer />
-        </NextIntlClientProvider>
+      <body className={cairo.className} suppressHydrationWarning={true}>
+        <UserProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            <div>{children}</div>
+            <Footer />
+          </NextIntlClientProvider>
+        </UserProvider>
       </body>
     </html>
   );

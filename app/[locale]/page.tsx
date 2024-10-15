@@ -5,9 +5,12 @@ import { useEffect, useState } from "react";
 import ServicesSection from "../_components/services-section";
 import axiosInstance from "../_lib/axios";
 import DOMPurify from "isomorphic-dompurify";
+import { useUser } from "../_context/UserContext";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
+  const { isLoggedIn } = useUser();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -48,14 +51,16 @@ export default function Home() {
             <p className="text-black md:text-[2rem] text-[1rem] font-semibold   mt-[3rem] md:container">
               {t("description")}
             </p>
-            <div className="mt-[3rem] md:container">
-              <Link
-                href="/"
-                className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
-              >
-                {t("subscribe")}
-              </Link>
-            </div>
+            {!isLoggedIn && (
+              <div className="mt-[3rem] md:container">
+                <Link
+                  href="/"
+                  className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
+                >
+                  {t("subscribe")}
+                </Link>
+              </div>
+            )}
           </div>
           <div className="h-[100vh] relative w-full  overflow-hidden hidden md:block">
             <img

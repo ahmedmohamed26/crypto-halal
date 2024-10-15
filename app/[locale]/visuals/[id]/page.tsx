@@ -83,52 +83,54 @@ function VisualDetails({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="hidden md:block">
             <ul>
-              {visualDetails?.same_lecturers.map((item: any, index: number) => (
-                <li key={index}>
-                  <Link href="/">
-                    <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
-                      <div className="flex items-center">
-                        <img
-                          alt={item?.title}
-                          src={item?.image}
-                          className="h-24 w[30%]  object-cover rounded-md"
-                        />
-                        <p className="text-primary text-size16 font-medium ms-3">
-                          {item?.title}
-                        </p>
-                      </div>
+              {visualDetails?.same_lecturers?.map(
+                (item: any, index: number) => (
+                  <li key={index}>
+                    <Link href="/">
+                      <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
+                        <div className="flex items-center">
+                          <img
+                            alt={item?.title}
+                            src={item?.image}
+                            className="h-24 w[30%]  object-cover rounded-md"
+                          />
+                          <p className="text-primary text-size16 font-medium ms-3">
+                            {item?.title}
+                          </p>
+                        </div>
 
-                      <div className="flex items-center pt-6">
-                        <span className="text-size16 font-medium text-darkGray">
-                          {item?.date}
-                        </span>
-                        <div className="flex items-center ms-3">
+                        <div className="flex items-center pt-6">
+                          <span className="text-size16 font-medium text-darkGray">
+                            {item?.date}
+                          </span>
+                          <div className="flex items-center ms-3">
+                            <img
+                              alt=""
+                              src="/assets/eye.svg"
+                              className="mx-2"
+                              width={22}
+                            />
+                            <span className="text-size16 font-medium text-darkGray">
+                              {item?.views}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className=" pt-6 flex items-center justify-start">
                           <img
                             alt=""
-                            src="/assets/eye.svg"
-                            className="mx-2"
-                            width={22}
+                            src={item?.lecturer?.image}
+                            className="h-12 w-12 object-cover rounded-full"
                           />
-                          <span className="text-size16 font-medium text-darkGray">
-                            {item?.views}
-                          </span>
+                          <h6 className="text-size16 font-medium text-yellow mx-4">
+                            {item?.lecturer?.name}
+                          </h6>
                         </div>
                       </div>
-
-                      <div className=" pt-6 flex items-center justify-start">
-                        <img
-                          alt=""
-                          src={item?.lecturer?.image}
-                          className="h-12 w-12 object-cover rounded-full"
-                        />
-                        <h6 className="text-size16 font-medium text-yellow mx-4">
-                          {item?.lecturer?.name}
-                        </h6>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
-              ))}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
           <div className="col-span-2">

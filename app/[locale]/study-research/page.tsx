@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 function StudyAndResearch() {
   const [data, setData] = useState([]);
-
+  const [pagination, setPagination] = useState<any>({});
   const t = useTranslations("StudyAndResearch");
 
   useEffect(() => {
@@ -15,6 +15,7 @@ function StudyAndResearch() {
       try {
         const response = await axiosInstance.get("researches?limit=10&page=1");
         setData(response.data.data.items);
+        setPagination(response.data.data.meta);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -33,17 +34,19 @@ function StudyAndResearch() {
       </p>
 
       <ul className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-4 pt-20">
-        {data?.map((item, index) => (
+        {data?.map((item: any, index: number) => (
           <li key={index}>
-            <Link href={`study-research/${1}`}>
+            <Link href={`study-research/${item?.id}`}>
               <Card item={item} />
             </Link>
           </li>
         ))}
       </ul>
-      <div className="flex justify-center py-16">
-        <button className="btn-yellow">{t("more")}</button>
-      </div>
+      {pagination.next_page !== null && (
+        <div className="flex justify-center py-16">
+          <button className="btn-yellow">{t("more")}</button>
+        </div>
+      )}
     </section>
   );
 }

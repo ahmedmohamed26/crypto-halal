@@ -2,70 +2,119 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from "react";
 import login from "@/app/_lib/login";
-
-type Inputs = {
-  email: string;
-  password: string;
-};
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import React, { useState } from "react";
+import { showToaster } from "@/app/_lib/toasters";
+import { useUser } from "@/app/_context/UserContext";
+import axiosInstance from "@/app/_lib/axios";
 
 export default function Login() {
+  const [showToast, setShowToast] = useState(false);
   const t = useTranslations("Login");
+  const { setUser } = useUser();
+  const loginSchema = z.object({
+    email: z
+      .string()
+      .nonempty({ message: t("emailRequiredMsg") })
+      .email(t("validEmailMsg")),
+    password: z
+      .string()
+      .nonempty({ message: t("passwordRequiredMsg") })
+      .min(6, { message: t("passwordLengthMsg") }),
+  });
+
+  type FormFields = z.infer<typeof loginSchema>;
+
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
-  const [error, setError] = useState<string | null>(null);
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<FormFields>({
+    mode: "onTouched",
+    resolver: zodResolver(loginSchema),
+  });
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
       await login(data.email, data.password);
+      setShowToast(true);
+      fetchProfileData();
+      // showToaster(t("loginSuccessMsg"), "green");
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    } catch (error: any) {
+      // showToaster(error.message, "red");
+    }
+  };
+
+  const fetchProfileData = async () => {
+    try {
+      const response = await axiosInstance.get("profile");
+      const userProfile = response.data.data;
+      setUser({
+        email: userProfile.email,
+        name: userProfile.name,
+      });
     } catch (error) {
-      setError("Login failed. Please check your credentials.");
+      console.error("Error fetching data:", error);
     }
   };
 
   return (
     <section className="bg-[#F1F7FD] pt-10">
+      {/* {showToast && showToaster()} */}
       <h1 className="text-black text-size22 md:text-[4rem] font-semibold text-center mb-12">
         {t("login")}
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="container pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <div className="form-control  mb-9">
+            <div className="mb-9 form-control">
               <label
-                htmlFor="UserEmail"
+                htmlFor="email"
                 className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("email")}
               </label>
               <input
-                type="email"
-                id="UserEmail"
+                type="text"
+                id="email"
                 placeholder={t("email")}
                 className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
-                {...register("email")}
+                {...register("email", {
+                  required: true,
+                })}
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-2">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             <div className="form-control">
               <label
-                htmlFor="UserPassword"
+                htmlFor="password"
                 className="block text-black text-size18 md:text-size22 font-medium mb-4"
               >
                 {t("password")}
               </label>
               <input
                 type="password"
-                id="UserPassword"
+                id="password"
                 placeholder={t("password")}
                 className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
-                {...register("password")}
-              />
+                {...register("password", { required: true })}
+              />{" "}
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-2">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
             <div className="flex justify-between items-center mt-8">
               <div className="remember-me text-primary text-size16 md:text-size22 font-medium">
@@ -130,7 +179,7 @@ export default function Login() {
           </div>
         </div>
         <div className="flex  justify-center mt-16">
-          <button type="submit" className="btn-yellow">
+          <button type="submit" className="btn-yellow" disabled={isSubmitting}>
             {t("login")}
           </button>
         </div>

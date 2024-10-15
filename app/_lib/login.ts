@@ -1,4 +1,5 @@
 import axiosInstance from "./axios";
+import { showToaster } from "./toasters";
 
 const login = async (email: string, password: string) => {
   try {
@@ -7,11 +8,12 @@ const login = async (email: string, password: string) => {
       password,
     });
     console.log(response);
-    // const { token } = response.data;
-    // localStorage.setItem("token", token);
-    // window.location.href = "/";
-  } catch (error) {
-    console.error("Login failed:", error);
+
+    const { token } = response.data.data;
+    localStorage.setItem("token", token);
+    window.location.href = "/";
+  } catch (error: any) {
+    showToaster(error.message, "red");
   }
 };
 
