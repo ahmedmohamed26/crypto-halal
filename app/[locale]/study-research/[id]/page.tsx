@@ -1,18 +1,17 @@
 "use client";
 import Card from "@/app/_components/card";
+import axiosInstance from "@/app/_lib/axios";
+import PdfViewer from "@lmtri/react-pdf-viewer";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 import Facebook from "../../../../public/assets/facebook.svg";
 import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
-import { useEffect, useState } from "react";
-import axiosInstance from "@/app/_lib/axios";
-import PdfViewer from "@lmtri/react-pdf-viewer";
-
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
 
 function StudyResearchDetails({ params }: { params: { id: string } }) {
   const t = useTranslations("Visuals");
@@ -58,12 +57,12 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         <span className="text-[#475467] text-size16 font-medium">
           {researchDetails?.date}
         </span>
-        <div className="flex items-center ms-3">
+        {/* <div className="flex items-center ms-3">
           <img alt="" src="/assets/clock.svg" className="mx-2" />
           <span className="text-size16 font-medium text-darkGray">
             {researchDetails?.duration}
           </span>
-        </div>
+        </div> */}
 
         <div className="flex items-center ms-3">
           <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
@@ -75,11 +74,11 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       <div className="flex items-center justify-start mt-4">
         <img
           alt=""
-          src="/assets/mock-image.png"
+          src={researchDetails?.lecturer?.image}
           className="h-12 w-12 object-cover rounded-full"
         />
         <h6 className="text-size22 font-medium text-yellow mx-4">
-          أ.د / محمد علي
+          {researchDetails?.lecturer?.name}
         </h6>
       </div>
 

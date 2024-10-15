@@ -9,7 +9,6 @@ function StudyAndResearch() {
   const [data, setData] = useState([]);
 
   const t = useTranslations("StudyAndResearch");
-  const visualsListLength = Array.from({ length: 18 });
 
   useEffect(() => {
     const fetchData = async () => {

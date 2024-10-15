@@ -1,10 +1,9 @@
 "use client";
 import { Locale } from "@/i18n.config";
+import DOMPurify from "isomorphic-dompurify";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
 import Link from "next/link";
 import AliceCarousel from "react-alice-carousel";
-import DOMPurify from "isomorphic-dompurify";
 
 const ServicesSection = ({ sponsors, teams, info }: any) => {
   const t = useTranslations("Home");
