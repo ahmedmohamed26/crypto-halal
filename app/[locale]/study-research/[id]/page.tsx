@@ -12,10 +12,14 @@ import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
+import { showToaster } from "@/app/_lib/toasters";
 
 function StudyResearchDetails({ params }: { params: { id: string } }) {
-  const t = useTranslations("Visuals");
+  const t = useTranslations("StudyAndResearch");
   const [researchDetails, setResearchDetails] = useState<any>({});
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [text, setText] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const socialMediaList = [
     {
       src: instagram,
@@ -48,8 +52,33 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
     fetchData();
   }, []);
 
+  const addComment = async () => {
+    try {
+      let data = {
+        comment: text,
+        research_id: parseInt(params.id),
+      };
+      const response = await axiosInstance.post(`news`, data);
+      setShowToast(true);
+      setText("");
+      setIsDisabled(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setText(value);
+    setIsDisabled(!value);
+  };
+
   return (
     <section className="py-24 container">
+      {showToast && showToaster(t("addCommentSuccess"), "green")}
       <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
         {researchDetails?.title}
       </h1>
@@ -113,12 +142,18 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
             <h3 className=" text-[28px] text-black font-medium ">
               {t("comment")}
             </h3>
-            <button className="btn-yellow !text-size22 !px-6 !py-2">
+            <button
+              className="btn-yellow !text-size22 !px-6 !py-2"
+              disabled={isDisabled}
+              onClick={() => addComment()}
+            >
               <span>{t("publish")}</span>
             </button>
           </div>
           <textarea
             id="message"
+            value={text}
+            onChange={handleChange}
             rows={7}
             className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black  indent-2.5 !outline-none resize-none"
           />

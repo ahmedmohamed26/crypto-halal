@@ -94,7 +94,8 @@
     "publish": "نشر",
     "comment": "اترك تعليق",
     "share": "شارك المقال",
-    "notFoundVideos": "لا يوجد فيديوهات حاليا"
+    "notFoundVideos": "لا يوجد فيديوهات حاليا",
+    "addCommentSuccess": "تم اضافه التعليق بنجاح"
   },
   "StudyAndResearch": {
     "title": "دراسة وأبحاث",
@@ -103,7 +104,8 @@
     "watchMore": "شاهد ايضا",
     "publish": "نشر",
     "comment": "اترك تعليق",
-    "share": "شارك المقال"
+    "share": "شارك المقال",
+    "addCommentSuccess": "تم اضافه التعليق بنجاح"
   },
   "News": {
     "title": "أخبار المشاريع العربية",
@@ -112,6 +114,7 @@
     "more": "المزيد",
     "publish": "نشر",
     "comment": "اترك تعليق",
-    "share": "شارك المقال"
+    "share": "شارك المقال",
+    "addCommentSuccess": "تم اضافه التعليق بنجاح"
   }
 }

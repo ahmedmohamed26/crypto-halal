@@ -9,10 +9,17 @@ import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
+import { useRouter } from "next/navigation";
+import { showToaster } from "@/app/_lib/toasters";
 
 function VisualDetails({ params }: { params: { id: string } }) {
   const [visualDetails, setVisualDetails] = useState<any>({});
   const t = useTranslations("Visuals");
+  const router = useRouter();
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [text, setText] = useState("");
+  const [showToast, setShowToast] = useState(false);
+
   const socialMediaList = [
     {
       src: instagram,
@@ -45,8 +52,33 @@ function VisualDetails({ params }: { params: { id: string } }) {
     fetchData();
   }, []);
 
+  const addComment = async () => {
+    try {
+      let data = {
+        comment: text,
+        vision_id: parseInt(params.id),
+      };
+      const response = await axiosInstance.post(`news`, data);
+      setShowToast(true);
+      setText("");
+      setIsDisabled(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setText(value);
+    setIsDisabled(!value);
+  };
+
   return (
     <section className="py-24 container">
+      {showToast && showToaster(t("addCommentSuccess"), "green")}
       <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
         {visualDetails?.title}
       </h1>
@@ -70,7 +102,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
       </div>
       <div className="flex items-center justify-start mt-4">
         <img
-          alt=""
+          alt={visualDetails?.lecturer?.name}
           src={visualDetails?.lecturer?.image}
           className="h-12 w-12 object-cover rounded-full"
         />
@@ -86,17 +118,20 @@ function VisualDetails({ params }: { params: { id: string } }) {
               {visualDetails?.same_lecturers?.map(
                 (item: any, index: number) => (
                   <li key={index}>
-                    <Link href="/">
+                    <button
+                      onClick={() => router.push(`/visuals/${item?.id}`)}
+                      className="w-full"
+                    >
                       <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
-                        <div className="flex items-center">
+                        <div className="flex items-start">
                           <img
                             alt={item?.title}
                             src={item?.image}
-                            className="h-24 w[30%]  object-cover rounded-md"
+                            className="h-32 w-[50%]  object-cover rounded-md"
                           />
-                          <p className="text-primary text-size16 font-medium ms-3">
+                          <h2 className="text-primary text-size16 font-medium mt-4 ms-3">
                             {item?.title}
-                          </p>
+                          </h2>
                         </div>
 
                         <div className="flex items-center pt-6">
@@ -127,7 +162,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                           </h6>
                         </div>
                       </div>
-                    </Link>
+                    </button>
                   </li>
                 )
               )}
@@ -159,9 +194,12 @@ function VisualDetails({ params }: { params: { id: string } }) {
           <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
             {visualDetails?.similers.map((item: any, index: number) => (
               <li key={index}>
-                <Link href={`visuals/${item?.id}`}>
+                <button
+                  className="w-full"
+                  onClick={() => router.push(`/visuals/${item?.id}`)}
+                >
                   <Card item={item} />
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
@@ -178,13 +216,19 @@ function VisualDetails({ params }: { params: { id: string } }) {
             <h3 className=" text-[28px] text-black font-medium ">
               {t("comment")}
             </h3>
-            <button className="btn-yellow !text-size22 !px-6 !py-2">
+            <button
+              className="btn-yellow !text-size22 !px-6 !py-2"
+              disabled={isDisabled}
+              onClick={() => addComment()}
+            >
               <span>{t("publish")}</span>
             </button>
           </div>
           <textarea
             id="message"
             rows={7}
+            value={text}
+            onChange={handleChange}
             className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black  indent-2.5 !outline-none resize-none"
           />
         </div>

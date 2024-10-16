@@ -13,9 +13,9 @@ const Card: React.FC<CardProps> = ({ item }) => {
       />
 
       <div className="bg-white pt-6">
-        <p className="text-primary text-[14px] md:text-size22 font-medium">
+        <h3 className="text-primary text-[14px] md:text-size22 font-medium text-start">
           {item?.title}
-        </p>
+        </h3>
         <span className="flex items-center my-4">
           <span className="h-px flex-1 bg-[#ddd]"></span>
         </span>

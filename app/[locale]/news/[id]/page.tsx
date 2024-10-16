@@ -10,11 +10,15 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import axiosInstance from "@/app/_lib/axios";
 import DOMPurify from "isomorphic-dompurify";
+import { showToaster } from "@/app/_lib/toasters";
 
 function NewsDetails({ params }: { params: { id: string } }) {
   const newsListLength = Array.from({ length: 3 });
   const t = useTranslations("News");
   const [newsDetails, setNewsDetails] = useState<any>({});
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [text, setText] = useState("");
+  const [showToast, setShowToast] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,6 +31,30 @@ function NewsDetails({ params }: { params: { id: string } }) {
 
     fetchData();
   }, []);
+
+  const addComment = async () => {
+    try {
+      let data = {
+        comment: text,
+        news_id: parseInt(params.id),
+      };
+      const response = await axiosInstance.post(`news`, data);
+      setShowToast(true);
+      setText("");
+      setIsDisabled(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setText(value);
+    setIsDisabled(!value);
+  };
 
   const socialMediaList = [
     {
@@ -48,6 +76,8 @@ function NewsDetails({ params }: { params: { id: string } }) {
   ];
   return (
     <section className="news container">
+      {showToast && showToaster(t("addCommentSuccess"), "green")}
+
       <div className="py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 ">
           <div className="col-span-8">
@@ -102,12 +132,18 @@ function NewsDetails({ params }: { params: { id: string } }) {
               <h3 className=" text-[28px] text-black font-medium ">
                 {t("comment")}
               </h3>
-              <button className="btn-yellow !text-size22 !px-6 !py-2">
+              <button
+                className="btn-yellow !text-size22 !px-6 !py-2"
+                disabled={isDisabled}
+                onClick={() => addComment()}
+              >
                 <span>{t("publish")}</span>
               </button>
             </div>
             <textarea
               id="message"
+              value={text}
+              onChange={handleChange}
               rows={7}
               className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black  indent-2.5 !outline-none resize-none"
             />
