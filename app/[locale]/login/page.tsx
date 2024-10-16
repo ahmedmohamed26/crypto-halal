@@ -43,7 +43,7 @@ export default function Login() {
       const response = await axiosInstance.post("login", data);
       const { token } = response.data.data;
       localStorage.setItem("token", token);
-      router.push("/");
+      fetchProfileData();
     } catch (error: any) {
       showToaster(error.message, "red");
     }
@@ -69,6 +69,7 @@ export default function Login() {
         email: userProfile.email,
         name: userProfile.name,
       });
+      router.push("/");
     } catch (error) {
       console.error("Error fetching data:", error);
     }
