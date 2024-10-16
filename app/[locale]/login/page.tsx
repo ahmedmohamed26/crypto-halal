@@ -1,18 +1,19 @@
 "use client";
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form";
-import login from "@/app/_lib/login";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import React, { useState } from "react";
-import { showToaster } from "@/app/_lib/toasters";
 import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
+import { showToaster } from "@/app/_lib/toasters";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import * as z from "zod";
 
 export default function Login() {
   const [showToast, setShowToast] = useState(false);
   const t = useTranslations("Login");
+  const router = useRouter();
   const { setUser } = useUser();
   const loginSchema = z.object({
     email: z
@@ -39,16 +40,25 @@ export default function Login() {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      await login(data.email, data.password);
-      setShowToast(true);
-      fetchProfileData();
-      // showToaster(t("loginSuccessMsg"), "green");
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
+      const response = await axiosInstance.post("login", data);
+      const { token } = response.data.data;
+      localStorage.setItem("token", token);
+      router.push("/");
     } catch (error: any) {
-      // showToaster(error.message, "red");
+      showToaster(error.message, "red");
     }
+
+    // try {
+    //   await login(data.email, data.password);
+    //   setShowToast(true);
+    //   fetchProfileData();
+    //   // showToaster(t("loginSuccessMsg"), "green");
+    //   setTimeout(() => {
+    //     setShowToast(false);
+    //   }, 3000);
+    // } catch (error: any) {
+    //   // showToaster(error.message, "red");
+    // }
   };
 
   const fetchProfileData = async () => {
