@@ -96,7 +96,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center">
+    <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center fixed top-0  left-0 w-full   shadow-md z-50">
       <div className="flex h-full items-center justify-between w-full container ">
         <div className="flex items-center gap-4">
           {isLoggedIn && <ProfileDropdown />}

@@ -85,7 +85,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
     <>
       <section className="services py-8">
         <div className="container">
-          <div className="flex justify-center items-center bg-[#F1F7FD] p-[2rem] relative z-[2222]">
+          <div className="flex justify-center items-center bg-[#F1F7FD] p-[2rem] relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-6xl text-center">
               {data.map((item, index) => (
                 <div key={index} className="p-4 relative">

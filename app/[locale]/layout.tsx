@@ -34,7 +34,7 @@ export default function RootLayout({
         <UserProvider>
           <NextIntlClientProvider messages={messages}>
             <Header />
-            <div>{children}</div>
+            <div className="mt-[100px]">{children}</div>
             <Footer />
           </NextIntlClientProvider>
         </UserProvider>
