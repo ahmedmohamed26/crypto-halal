@@ -1,17 +1,18 @@
 "use client";
 import Card from "@/app/_components/card";
+import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import Facebook from "../../../../public/assets/facebook.svg";
 import instagram from "../../../../public/assets/instagram.svg";
 import linkedin from "../../../../public/assets/linkedIn.svg";
 import twitter from "../../../../public/assets/x.svg";
 import "./style.css";
-import { useRouter } from "next/navigation";
-import { showToaster } from "@/app/_lib/toasters";
-import type { Metadata } from "next";
 
 const metadata: Metadata = {
   title: "VisualDetails",
@@ -24,7 +25,8 @@ function VisualDetails({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [isDisabled, setIsDisabled] = useState(true);
   const [text, setText] = useState("");
-  const [showToast, setShowToast] = useState(false);
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+  const { isLoggedIn } = useUser();
 
   const socialMediaList = [
     {
@@ -59,20 +61,20 @@ function VisualDetails({ params }: { params: { id: string } }) {
   }, []);
 
   const addComment = async () => {
+    setLoadingSpinner(true);
     try {
       let data = {
         comment: text,
         vision_id: parseInt(params.id),
       };
       const response = await axiosInstance.post(`news`, data);
-      setShowToast(true);
       setText("");
+      toast.success(t("addCommentSuccess"));
       setIsDisabled(true);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
-    } catch (error) {
-      console.error("Error fetching data:", error);
+      setLoadingSpinner(false);
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message);
+      setLoadingSpinner(false);
     }
   };
 
@@ -85,7 +87,13 @@ function VisualDetails({ params }: { params: { id: string } }) {
   return (
     <>
       <section className="py-24 container">
-        {showToast && showToaster(t("addCommentSuccess"), "green")}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          closeOnClick
+          rtl={false}
+          theme="light"
+        />
         <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
           {visualDetails?.title}
         </h1>
@@ -218,27 +226,33 @@ function VisualDetails({ params }: { params: { id: string } }) {
         </div>
 
         <div className="comments lg:flex block items-end justify-between mt-32">
-          <div className="bg-[#EAF1FA] p-4 w-full lg:w-[60%] rounded-md max-[600px]:mb-4">
-            <div className="flex items-center justify-between">
-              <h3 className=" text-[28px] text-black font-medium ">
-                {t("comment")}
-              </h3>
-              <button
-                className="btn-yellow !text-size22 !px-6 !py-2"
-                disabled={isDisabled}
-                onClick={() => addComment()}
-              >
-                <span>{t("publish")}</span>
-              </button>
+          {isLoggedIn && (
+            <div className="bg-[#EAF1FA] p-4 w-full lg:w-[60%] rounded-md max-[600px]:mb-4">
+              <div className="flex items-center justify-between">
+                <h3 className=" text-[28px] text-black font-medium ">
+                  {t("comment")}
+                </h3>
+                <button
+                  className="btn-yellow !text-size22 !px-6 !py-2"
+                  disabled={isDisabled}
+                  onClick={() => addComment()}
+                >
+                  {loadingSpinner ? (
+                    <div className="border-white h-8 w-8 animate-spin rounded-full border-2 border-t-primary p-2" />
+                  ) : (
+                    <span>{t("publish")}</span>
+                  )}
+                </button>
+              </div>
+              <textarea
+                id="message"
+                rows={7}
+                value={text}
+                onChange={handleChange}
+                className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black  indent-2.5 !outline-none resize-none"
+              />
             </div>
-            <textarea
-              id="message"
-              rows={7}
-              value={text}
-              onChange={handleChange}
-              className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black  indent-2.5 !outline-none resize-none"
-            />
-          </div>
+          )}
 
           <div className="share">
             <h3 className=" text-size24 text-primary font-medium mb-6">

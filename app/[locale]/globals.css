@@ -50,3 +50,16 @@ body {
   height: 20px;
   pointer-events: none;
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-custom {
+  animation: spin 1s linear infinite;
+}
