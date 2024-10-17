@@ -6,10 +6,11 @@ import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as z from "zod";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function ContactUs() {
   const t = useTranslations("ContactUs");
-  const [showToast, setShowToast] = useState(false);
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
 
   const contactSchema = z.object({
     name: z.string().nonempty({ message: t("userNameRequiredMsg") }),
@@ -33,22 +34,27 @@ export default function ContactUs() {
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    setLoadingSpinner(true);
     try {
       const response = await axiosInstance.post("contact", data);
-      setShowToast(true);
+      setLoadingSpinner(false);
       reset();
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
+      toast.success(t("contactSuccessMsg"));
     } catch (error: any) {
-      setShowToast(true);
-      showToaster(error.message, "red");
+      setLoadingSpinner(false);
+      toast.error(error?.response?.data?.message);
     }
   };
 
   return (
     <section className="bg-[#F1F7FD] pt-10">
-      {showToast && showToaster(t("contactSuccessMsg"), "green")}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        closeOnClick
+        rtl={false}
+        theme="light"
+      />{" "}
       <h1 className="text-black text-size22 md:text-[4rem] font-semibold text-center mb-12">
         {t("contactUs")}
       </h1>
@@ -157,7 +163,11 @@ export default function ContactUs() {
             disabled={!isDirty || !isValid}
             className="btn-yellow !px-12"
           >
-            {t("send")}
+            {loadingSpinner ? (
+              <div className="border-white h-10 w-10 animate-spin rounded-full border-2 border-t-primary mx-4   p-3" />
+            ) : (
+              t("send")
+            )}
           </button>
         </div>
       </form>

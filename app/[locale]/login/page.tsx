@@ -13,6 +13,7 @@ import * as z from "zod";
 
 export default function Login() {
   const t = useTranslations("Login");
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
   const router = useRouter();
   const { setUser } = useUser();
   const loginSchema = z.object({
@@ -39,15 +40,16 @@ export default function Login() {
   });
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    setLoadingSpinner(true);
     try {
       const response = await axiosInstance.post("login", data);
+      setLoadingSpinner(false);
       const { token } = response.data.data;
       localStorage.setItem("token", token);
       fetchProfileData();
-      setTimeout(() => {
-        toast.success(t("loginSuccessMsg"));
-      }, 4000);
+      toast.success(t("loginSuccessMsg"));
     } catch (error: any) {
+      setLoadingSpinner(false);
       toast.error(error?.response?.data?.message);
     }
   };
@@ -188,13 +190,17 @@ export default function Login() {
             </div>
           </div>
         </div>
-        <div className="flex  justify-center mt-16">
+        <div className="flex justify-center mt-16">
           <button
             type="submit"
-            className="btn-yellow"
+            className="btn-yellow flex justify-center"
             disabled={!isDirty || !isValid}
           >
-            {t("login")}
+            {loadingSpinner ? (
+              <div className="border-white h-10 w-10 animate-spin rounded-full border-2 border-t-primary mx-4   p-3" />
+            ) : (
+              t("login")
+            )}
           </button>
         </div>
       </form>

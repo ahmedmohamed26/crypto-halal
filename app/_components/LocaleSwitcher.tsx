@@ -10,11 +10,11 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
     locale == "en" ? "/assets/ar.png" : "/assets/en.png"
   );
 
-  const changeLocale = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const changeLocale = (newLocale: any) => {
     // const newLocale = event.target.value as Locale;
     // document.cookie = `NEXT_LOCALE=${newLocale}`;
     // router.refresh();
-    const newLocale = event.target.value as Locale;
+
     if (newLocale === "en") {
       setIcon("/assets/en.png");
     } else if (newLocale === "ar") {
@@ -25,11 +25,14 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
 
   return (
     <div className="selectWrapper">
-      <img src={icon} alt="" className="selectedIcon" />
-      <select value={locale} onChange={changeLocale} className="localeSelect">
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-      </select>
+      <div className="localeSelect border-[#ccc] border-[1px] p-1 rounded cursor-pointer">
+        <img
+          src={icon}
+          alt=""
+          className="selectedIcon"
+          onClick={() => changeLocale(locale === "en" ? "ar" : "en")}
+        />
+      </div>
     </div>
   );
 }

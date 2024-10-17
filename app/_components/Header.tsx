@@ -12,14 +12,6 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [dataService, setDataService] = useState<any>(null);
   const { isLoggedIn } = useUser();
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
   const t = useTranslations("Header");
   const locale = useLocale() as Locale;
   const pathName = usePathname();
@@ -79,6 +71,13 @@ export default function Header() {
       active: isLoggedIn ? false : true,
     },
   ];
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   return (
     <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center fixed top-0  left-0 w-full   shadow-md z-50">
@@ -120,7 +119,7 @@ export default function Header() {
                               (subItem: any, index: number) => (
                                 <li key={index} className="max-w-lg">
                                   <a
-                                    href={`services#${subItem.id}`}
+                                    href={`/services#${subItem.id}`}
                                     className="relative mx-4 py-2 text-black text-size18 font-medium"
                                   >
                                     {subItem.name}
