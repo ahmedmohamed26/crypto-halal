@@ -16,7 +16,7 @@ function ShareIcons({ pathName }: any) {
     {
       button: (
         <FacebookShareButton
-          url={`${process.env.NEXT_PUBLIC_WEBSiTE_URL}${pathName}`}
+          url={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${pathName}`}
         >
           <FacebookIcon size={32} round />
         </FacebookShareButton>
@@ -25,7 +25,7 @@ function ShareIcons({ pathName }: any) {
     {
       button: (
         <LinkedinShareButton
-          url={`${process.env.NEXT_PUBLIC_WEBSiTE_URL}${pathName}`}
+          url={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${pathName}`}
         >
           <LinkedinIcon size={32} round />
         </LinkedinShareButton>
@@ -34,7 +34,7 @@ function ShareIcons({ pathName }: any) {
     {
       button: (
         <TwitterShareButton
-          url={`${process.env.NEXT_PUBLIC_WEBSiTE_URL}${pathName}`}
+          url={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${pathName}`}
         >
           <TwitterIcon size={32} round />
         </TwitterShareButton>
@@ -43,7 +43,7 @@ function ShareIcons({ pathName }: any) {
     {
       button: (
         <TelegramShareButton
-          url={`${process.env.NEXT_PUBLIC_WEBSiTE_URL}${pathName}`}
+          url={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${pathName}`}
         >
           <TelegramIcon size={32} round />
         </TelegramShareButton>
@@ -52,7 +52,7 @@ function ShareIcons({ pathName }: any) {
     {
       button: (
         <WhatsappShareButton
-          url={`${process.env.NEXT_PUBLIC_WEBSiTE_URL}${pathName}`}
+          url={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${pathName}`}
           separator=":: "
         >
           <WhatsappIcon size={32} round />
