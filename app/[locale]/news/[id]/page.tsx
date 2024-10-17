@@ -1,17 +1,13 @@
 "use client";
 import CardNews from "@/app/_components/newCard";
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import Facebook from "../../../../public/assets/facebook.svg";
-import instagram from "../../../../public/assets/instagram.svg";
-import linkedin from "../../../../public/assets/linkedIn.svg";
-import twitter from "../../../../public/assets/x.svg";
-import "./style.css";
-import { useEffect, useState } from "react";
+import ShareIcons from "@/app/_components/share-icons";
+import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import DOMPurify from "isomorphic-dompurify";
-import { showToaster } from "@/app/_lib/toasters";
-import { useUser } from "@/app/_context/UserContext";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 function NewsDetails({ params }: { params: { id: string } }) {
@@ -21,6 +17,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
   const [text, setText] = useState("");
   const { isLoggedIn } = useUser();
   const [loadingSpinner, setLoadingSpinner] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,24 +56,6 @@ function NewsDetails({ params }: { params: { id: string } }) {
     setIsDisabled(!value);
   };
 
-  const socialMediaList = [
-    {
-      src: instagram,
-      url: "/",
-    },
-    {
-      src: twitter,
-      url: "/",
-    },
-    {
-      src: Facebook,
-      url: "/",
-    },
-    {
-      src: linkedin,
-      url: "/",
-    },
-  ];
   return (
     <section className="news container">
       <ToastContainer
@@ -115,24 +94,26 @@ function NewsDetails({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        <div className="related-news mt-16">
-          <div className="flex items-center justify-between">
-            <h3 className=" text-[28px] text-black font-medium">
-              {t("similarArticles")}
-            </h3>
-            <Link href="/news" className="btn-yellow !text-size22">
-              <span>{t("more")}</span>
-            </Link>
-          </div>
+        {newsDetails?.similers?.length ? (
+          <div className="related-news mt-16">
+            <div className="flex items-center justify-between">
+              <h3 className=" text-[28px] text-black font-medium">
+                {t("similarArticles")}
+              </h3>
+              <Link href="/news" className="btn-yellow !text-size22">
+                <span>{t("more")}</span>
+              </Link>
+            </div>
 
-          <ul className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 pt-16">
-            {newsDetails?.similers?.map((item: any, index: number) => (
-              <li key={index}>
-                <CardNews item={item} />
-              </li>
-            ))}
-          </ul>
-        </div>
+            <ul className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 pt-16">
+              {newsDetails?.similers?.map((item: any, index: number) => (
+                <li key={index}>
+                  <CardNews item={item} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         <div className="comments lg:flex block items-end justify-between mt-32">
           {isLoggedIn && (
@@ -167,22 +148,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
             <h3 className=" text-size24 text-primary font-medium mb-6">
               {t("share")}
             </h3>
-            <ul className="flex justify-center gap-6 sm:mt-0 lg:justify-end">
-              {socialMediaList.map((link, index) => {
-                const IconComponent = link.src;
-                return (
-                  <a
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="icon-link"
-                  >
-                    <IconComponent />
-                  </a>
-                );
-              })}
-            </ul>
+            <ShareIcons pathName={pathname.slice(1)} />
           </div>
         </div>
       </div>

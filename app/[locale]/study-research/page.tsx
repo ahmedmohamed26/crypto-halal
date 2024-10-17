@@ -25,7 +25,7 @@ function StudyAndResearch() {
   }, []);
 
   return (
-    <section className="visuals container py-28">
+    <section className="visions container py-28">
       <h1 className="text-primary text-size22 md:text-[4rem] font-semibold text-center mb-4">
         {t("title")}
       </h1>

@@ -1,3 +1,4 @@
+"use client";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Email from "../../public/assets/email.svg";
@@ -6,32 +7,49 @@ import instagram from "../../public/assets/instagram.svg";
 import linkedin from "../../public/assets/linkedIn.svg";
 import twitter from "../../public/assets/x.svg";
 import youtube from "../../public/assets/youtube.svg";
+import { useEffect, useState } from "react";
+import axiosInstance from "../_lib/axios";
 
-function Footer() {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [dataInfo, setDataInfo] = useState<any>(null);
   const t = useTranslations("Footer");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get("info");
+        setDataInfo(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const socialMediaList = [
     {
       src: youtube,
-      url: "/",
+      url: dataInfo?.youtube,
     },
     {
       src: linkedin,
-      url: "/",
+      url: dataInfo?.linkedin,
     },
     {
       src: twitter,
-      url: "/",
+      url: dataInfo?.twitter,
     },
     {
       src: instagram,
-      url: "/",
+      url: dataInfo?.instagram,
     },
     {
       src: Facebook,
-      url: "/",
+      url: dataInfo?.facebook,
     },
   ];
+
   return (
     <footer className="bg-[#06102B] text-white">
       <div className="pt-16">
@@ -51,7 +69,7 @@ function Footer() {
                 <Link href="/services">{t("services")}</Link>
               </li>
               <li>
-                <Link href="/visuals">{t("visuals")}</Link>
+                <Link href="/visions">{t("visions")}</Link>
               </li>
               <li>
                 <Link href="/news">{t("news")}</Link>
@@ -68,14 +86,14 @@ function Footer() {
           <div>
             <ul className="text-size18 space-y-4">
               <li>
-                <Link href="/">{t("termsOfUse")}</Link>
+                <Link href="/usage">{t("termsOfUse")}</Link>
               </li>
 
               <li>
-                <Link href="/">{t("privacyPolicy")}</Link>
+                <Link href="/privacy-policy">{t("privacyPolicy")}</Link>
               </li>
               <li>
-                <Link href="/">{t("termsAndConditions")}</Link>
+                <Link href="/terms-conditions">{t("termsAndConditions")}</Link>
               </li>
             </ul>
           </div>
@@ -133,5 +151,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

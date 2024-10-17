@@ -1,19 +1,15 @@
 "use client";
 import Card from "@/app/_components/card";
+import ShareIcons from "@/app/_components/share-icons";
+import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import PdfViewer from "@lmtri/react-pdf-viewer";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
-import Facebook from "../../../../public/assets/facebook.svg";
-import instagram from "../../../../public/assets/instagram.svg";
-import linkedin from "../../../../public/assets/linkedIn.svg";
-import twitter from "../../../../public/assets/x.svg";
-import "./style.css";
-import { showToaster } from "@/app/_lib/toasters";
-import { useUser } from "@/app/_context/UserContext";
 import { toast, ToastContainer } from "react-toastify";
 
 function StudyResearchDetails({ params }: { params: { id: string } }) {
@@ -23,25 +19,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
   const [text, setText] = useState("");
   const { isLoggedIn } = useUser();
   const [loadingSpinner, setLoadingSpinner] = useState(false);
-
-  const socialMediaList = [
-    {
-      src: instagram,
-      url: "/",
-    },
-    {
-      src: twitter,
-      url: "/",
-    },
-    {
-      src: Facebook,
-      url: "/",
-    },
-    {
-      src: linkedin,
-      url: "/",
-    },
-  ];
+  const pathname = usePathname();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -122,29 +100,35 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       </div>
 
       <div className="video-container mt-16">
-        <PdfViewer src={researchDetails?.pdf} fileName="sample.pdf" />
+        <PdfViewer
+          src={"https://pdfobject.com/pdf/sample.pdf"}
+          fileName="sample.pdf"
+        />
+        {/* researchDetails?.pdf */}
       </div>
 
-      <div className="related-videos mt-16">
-        <div className="flex items-center justify-between">
-          <h3 className=" text-[28px] text-black font-medium">
-            {t("watchMore")}
-          </h3>
-          <Link href="/visuals" className="btn-yellow !text-size22">
-            <span>{t("more")}</span>
-          </Link>
+      {researchDetails?.similers?.length ? (
+        <div className="related-videos mt-16">
+          <div className="flex items-center justify-between">
+            <h3 className=" text-[28px] text-black font-medium">
+              {t("watchMore")}
+            </h3>
+            <Link href="/visions" className="btn-yellow !text-size22">
+              <span>{t("more")}</span>
+            </Link>
+          </div>
+
+          <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
+            {researchDetails?.similers?.map((item: any, index: number) => (
+              <li key={index}>
+                <Link href={`study-research/${item?.id}`}>
+                  <Card item={item} />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
-          {researchDetails?.similers?.map((item: any, index: number) => (
-            <li key={index}>
-              <Link href={`study-research/${item?.id}`}>
-                <Card item={item} />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      ) : null}
 
       <div className="comments lg:flex block items-end justify-between mt-32">
         {isLoggedIn && (
@@ -179,22 +163,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           <h3 className=" text-size24 text-primary font-medium mb-6">
             {t("share")}
           </h3>
-          <ul className="flex justify-center gap-6 sm:mt-0 lg:justify-end">
-            {socialMediaList.map((link, index) => {
-              const IconComponent = link.src;
-              return (
-                <a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-link"
-                >
-                  <IconComponent />
-                </a>
-              );
-            })}
-          </ul>
+          <ShareIcons pathName={pathname.slice(1)} />
         </div>
       </div>
     </section>
