@@ -106,6 +106,7 @@
     "share": "Share the Article"
   },
   "News": {
+    "news": "News",
     "title": "Arab Project News",
     "readMore": "Read More",
     "similarArticles": "Similar Articles",
@@ -113,5 +114,8 @@
     "publish": "Publish",
     "comment": "Leave a Comment",
     "share": "Share the Article"
+  },
+  "Services": {
+    "title": "Services"
   }
 }

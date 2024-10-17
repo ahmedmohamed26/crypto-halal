@@ -114,6 +114,7 @@
     "addCommentSuccess": "تم اضافه التعليق بنجاح"
   },
   "News": {
+    "news": "الأخبار",
     "title": "أخبار المشاريع العربية",
     "readMore": "اقرا المزيد",
     "similarArticles": "مقالات مشابهة",
@@ -122,5 +123,9 @@
     "comment": "اترك تعليق",
     "share": "شارك المقال",
     "addCommentSuccess": "تم اضافه التعليق بنجاح"
+  },
+
+  "Services": {
+    "title": "خدماتنا"
   }
 }
