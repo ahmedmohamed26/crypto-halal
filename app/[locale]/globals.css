@@ -31,26 +31,6 @@ body {
   display: inline-block;
 }
 
-.localeSelect {
-  color: transparent;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 40px;
-}
-.localeSelect option {
-  color: #000 !important;
-}
-.selectedIcon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
