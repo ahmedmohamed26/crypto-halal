@@ -72,11 +72,20 @@
     "loginSuccessMsg": "تم تسجيل الدخول بنجاح"
   },
   "Register": {
+    "signup": "اشتراك",
     "title": "حمل التطبيق الان",
     "email": "البريد الالكتروني",
     "password": "كلمة المرور",
     "userName": "اسم المستخدم",
-    "confirmPassword": "تأكيد كلمة المرور"
+    "confirmPassword": "تأكيد كلمة المرور",
+    "register": "تسجيل دخول",
+    "userNameRequiredMsg": "يجب ادخال أسم المستخدم",
+    "emailRequiredMsg": "يجب ادخال البريد الالكتروني",
+    "validEmailMsg": "يجب ادخال البريد الالكتروني بشكل صحيح",
+    "passwordRequiredMsg": "يجب ادخال كلمه المرور",
+    "passwordLengthMsg": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+    "registerSuccessMsg": "تم التسجيل بنجاح",
+    "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
@@ -127,5 +136,9 @@
 
   "Services": {
     "title": "خدماتنا"
+  },
+  "Currencies": {
+    "title": "العملات",
+    "currencyList": "قائمة العملات الرقمية"
   }
 }
