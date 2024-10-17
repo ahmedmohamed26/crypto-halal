@@ -24,6 +24,7 @@ export default function Home() {
     fetchData();
   }, []);
   const t = useTranslations("Home");
+
   // useEffect(() => {
   //   const styleSheet = document.styleSheets[0];
   //   const keyframes = `
