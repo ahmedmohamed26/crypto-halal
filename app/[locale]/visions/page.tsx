@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-function Visuals() {
-  const t = useTranslations("Visuals");
+function Visions() {
+  const t = useTranslations("Visions");
   const [data, setData] = useState([]);
   const [pagination, setPagination] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(true);
@@ -28,7 +28,7 @@ function Visuals() {
   }, []);
 
   return (
-    <section className="visuals py-28 container">
+    <section className="visions py-28 container">
       <h1 className="text-primary text-size22 md:text-[4rem] font-semibold text-center mb-4">
         {t("title")}
       </h1>
@@ -39,7 +39,7 @@ function Visuals() {
       <ul className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-4 pt-20">
         {data?.map((item: any, index) => (
           <li key={index}>
-            <Link href={`visuals/${item?.id}`}>
+            <Link href={`visions/${item?.id}`}>
               <Card item={item} />
             </Link>
           </li>
@@ -54,4 +54,4 @@ function Visuals() {
   );
 }
 
-export default Visuals;
+export default Visions;

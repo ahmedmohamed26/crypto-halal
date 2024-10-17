@@ -21,7 +21,7 @@ const metadata: Metadata = {
 
 function VisualDetails({ params }: { params: { id: string } }) {
   const [visualDetails, setVisualDetails] = useState<any>({});
-  const t = useTranslations("Visuals");
+  const t = useTranslations("Visions");
   const router = useRouter();
   const [isDisabled, setIsDisabled] = useState(true);
   const [text, setText] = useState("");
@@ -134,7 +134,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                   (item: any, index: number) => (
                     <li key={index}>
                       <button
-                        onClick={() => router.push(`/visuals/${item?.id}`)}
+                        onClick={() => router.push(`/visions/${item?.id}`)}
                         className="w-full"
                       >
                         <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
@@ -201,7 +201,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
             <h3 className=" text-[28px] text-black font-medium">
               {t("watchMore")}
             </h3>
-            <Link href="/visuals" className="btn-yellow !text-size22">
+            <Link href="/visions" className="btn-yellow !text-size22">
               <span>{t("more")}</span>
             </Link>
           </div>
@@ -211,7 +211,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                 <li key={index}>
                   <button
                     className="w-full"
-                    onClick={() => router.push(`/visuals/${item?.id}`)}
+                    onClick={() => router.push(`/visions/${item?.id}`)}
                   >
                     <Card item={item} />
                   </button>

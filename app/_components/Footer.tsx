@@ -52,7 +52,7 @@ export default function Footer() {
                 <Link href="/services">{t("services")}</Link>
               </li>
               <li>
-                <Link href="/visuals">{t("visuals")}</Link>
+                <Link href="/visions">{t("visions")}</Link>
               </li>
               <li>
                 <Link href="/news">{t("news")}</Link>

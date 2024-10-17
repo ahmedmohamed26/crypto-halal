@@ -24,7 +24,7 @@
   "Header": {
     "home": "الرئيسية",
     "services": "خدماتنا",
-    "visuals": "المرئيات",
+    "visions": "المرئيات",
     "news": "الاخبار",
     "studyAndResearch": "دراسة وابحاث",
     "currencies": "العملات",
@@ -44,7 +44,7 @@
     "description": "مشروع متكامل يهدف الى إيجاد بيئة تداول خالية من المحاذير الشرعية.",
     "home": "الرئيسية",
     "services": "خدماتنا",
-    "visuals": "المرئيات",
+    "visions": "المرئيات",
     "news": "الاخبار",
     "studyAndResearch": "دراسة وابحاث",
     "currencies": "العملات",
@@ -92,7 +92,7 @@
     "messageRequiredMsg": "يجب ادخال الرساله",
     "contactSuccessMsg": "تم ارسال الرسالة بنجاح"
   },
-  "Visuals": {
+  "Visions": {
     "title": "الاصدارات المرئية",
     "description": "اكثر من 30 صوتية لشرح اهم مبادئ التعامل مع احكام العملات",
     "more": "المزيد",

@@ -130,7 +130,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           <h3 className=" text-[28px] text-black font-medium">
             {t("watchMore")}
           </h3>
-          <Link href="/visuals" className="btn-yellow !text-size22">
+          <Link href="/visions" className="btn-yellow !text-size22">
             <span>{t("more")}</span>
           </Link>
         </div>

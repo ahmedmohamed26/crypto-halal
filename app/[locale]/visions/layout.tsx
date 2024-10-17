@@ -11,7 +11,7 @@ interface LayoutProps {
 }
 
 export async function generateMetadata({ params: { locale } }: Params) {
-  const t = await getTranslations({ locale, namespace: "Visuals" });
+  const t = await getTranslations({ locale, namespace: "Visions" });
 
   return {
     title: t("title"),

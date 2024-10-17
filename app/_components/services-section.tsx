@@ -118,7 +118,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
                 })}
               </p>
               <Link
-                href="/visuals"
+                href="/visions"
                 className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
               >
                 {t("more")}

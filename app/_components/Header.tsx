@@ -41,8 +41,8 @@ export default function Header() {
       subMenu: dataService,
     },
     {
-      name: t("visuals"),
-      href: "/visuals",
+      name: t("visions"),
+      href: "/visions",
       active: true,
     },
     {
