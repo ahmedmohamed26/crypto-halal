@@ -7,7 +7,7 @@ import linkedin from "../../public/assets/linkedIn.svg";
 import twitter from "../../public/assets/x.svg";
 import youtube from "../../public/assets/youtube.svg";
 
-function Footer() {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
   const t = useTranslations("Footer");
   const socialMediaList = [
@@ -32,6 +32,7 @@ function Footer() {
       url: "/",
     },
   ];
+
   return (
     <footer className="bg-[#06102B] text-white">
       <div className="pt-16">
@@ -68,14 +69,14 @@ function Footer() {
           <div>
             <ul className="text-size18 space-y-4">
               <li>
-                <Link href="/">{t("termsOfUse")}</Link>
+                <Link href="/usage">{t("termsOfUse")}</Link>
               </li>
 
               <li>
-                <Link href="/">{t("privacyPolicy")}</Link>
+                <Link href="/privacy-policy">{t("privacyPolicy")}</Link>
               </li>
               <li>
-                <Link href="/">{t("termsAndConditions")}</Link>
+                <Link href="/terms-conditions">{t("termsAndConditions")}</Link>
               </li>
             </ul>
           </div>
@@ -133,5 +134,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

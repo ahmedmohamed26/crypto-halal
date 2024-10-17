@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Cairo } from "next/font/google";
-import Footer from "../_components/Footer";
 import Header from "../_components/Header";
 import { UserProvider } from "../_context/UserContext";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
+import Footer from "../_components/Footer";
 
 export const metadata: Metadata = {
   title: "كريبتو حلال",
