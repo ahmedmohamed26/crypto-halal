@@ -115,24 +115,26 @@ function NewsDetails({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        <div className="related-news mt-16">
-          <div className="flex items-center justify-between">
-            <h3 className=" text-[28px] text-black font-medium">
-              {t("similarArticles")}
-            </h3>
-            <Link href="/news" className="btn-yellow !text-size22">
-              <span>{t("more")}</span>
-            </Link>
-          </div>
+        {newsDetails?.similers?.length ? (
+          <div className="related-news mt-16">
+            <div className="flex items-center justify-between">
+              <h3 className=" text-[28px] text-black font-medium">
+                {t("similarArticles")}
+              </h3>
+              <Link href="/news" className="btn-yellow !text-size22">
+                <span>{t("more")}</span>
+              </Link>
+            </div>
 
-          <ul className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 pt-16">
-            {newsDetails?.similers?.map((item: any, index: number) => (
-              <li key={index}>
-                <CardNews item={item} />
-              </li>
-            ))}
-          </ul>
-        </div>
+            <ul className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 pt-16">
+              {newsDetails?.similers?.map((item: any, index: number) => (
+                <li key={index}>
+                  <CardNews item={item} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         <div className="comments lg:flex block items-end justify-between mt-32">
           {isLoggedIn && (

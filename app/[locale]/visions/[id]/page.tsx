@@ -196,16 +196,16 @@ function VisualDetails({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        <div className="related-videos mt-16">
-          <div className="flex items-center justify-between">
-            <h3 className=" text-[28px] text-black font-medium">
-              {t("watchMore")}
-            </h3>
-            <Link href="/visions" className="btn-yellow !text-size22">
-              <span>{t("more")}</span>
-            </Link>
-          </div>
-          {visualDetails?.similers?.length ? (
+        {visualDetails?.similers?.length ? (
+          <div className="related-videos mt-16">
+            <div className="flex items-center justify-between">
+              <h3 className=" text-[28px] text-black font-medium">
+                {t("watchMore")}
+              </h3>
+              <Link href="/visions" className="btn-yellow !text-size22">
+                <span>{t("more")}</span>
+              </Link>
+            </div>
             <ul className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 pt-16">
               {visualDetails?.similers.map((item: any, index: number) => (
                 <li key={index}>
@@ -218,12 +218,12 @@ function VisualDetails({ params }: { params: { id: string } }) {
                 </li>
               ))}
             </ul>
-          ) : (
-            <h6 className="text-center mt-16 text-[28px] text-black font-medium">
-              {t("notFoundVideos")}
-            </h6>
-          )}
-        </div>
+          </div>
+        ) : (
+          <h6 className="text-center mt-16 text-[28px] text-black font-medium">
+            {t("notFoundVideos")}
+          </h6>
+        )}
 
         <div className="comments lg:flex block items-end justify-between mt-32">
           {isLoggedIn && (
