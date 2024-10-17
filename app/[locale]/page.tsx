@@ -24,6 +24,7 @@ export default function Home() {
     fetchData();
   }, []);
   const t = useTranslations("Home");
+
   // useEffect(() => {
   //   const styleSheet = document.styleSheets[0];
   //   const keyframes = `
@@ -44,7 +45,7 @@ export default function Home() {
     <div>
       <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="container">
+          <div className="">
             <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold md:container">
               {t("appName")}
             </h1>
@@ -62,13 +63,13 @@ export default function Home() {
               </div>
             )}
           </div>
-          <div className="h-[100vh] relative w-full  overflow-hidden hidden md:block">
+          <div className="h-[100vh] relative w-full overflow-hidden hidden md:block">
             <img
               src="assets/intro.svg"
               alt=""
               style={{
                 width: "100%",
-                height: "auto",
+                height: "100%",
                 animation: "fadeInBottom 1.5s ease-out forwards",
               }}
             />

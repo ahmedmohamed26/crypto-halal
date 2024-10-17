@@ -84,7 +84,13 @@
     "subject": "الموضوع",
     "message": "الرساله",
     "send": "ارسال",
-    "contactUs": "اتصل بنا"
+    "contactUs": "اتصل بنا",
+    "userNameRequiredMsg": "يجب ادخال أسم المستخدم",
+    "emailRequiredMsg": "يجب ادخال البريد الالكتروني",
+    "validEmailMsg": "يجب ادخال البريد الالكتروني بشكل صحيح",
+    "subjectRequiredMsg": "يجب ادخال الموضوع",
+    "messageRequiredMsg": "يجب ادخال الرساله",
+    "contactSuccessMsg": "تم ارسال الرسالة بنجاح"
   },
   "Visuals": {
     "title": "الاصدارات المرئية",
@@ -94,7 +100,8 @@
     "publish": "نشر",
     "comment": "اترك تعليق",
     "share": "شارك المقال",
-    "notFoundVideos": "لا يوجد فيديوهات حاليا"
+    "notFoundVideos": "لا يوجد فيديوهات حاليا",
+    "addCommentSuccess": "تم اضافه التعليق بنجاح"
   },
   "StudyAndResearch": {
     "title": "دراسة وأبحاث",
@@ -103,15 +110,22 @@
     "watchMore": "شاهد ايضا",
     "publish": "نشر",
     "comment": "اترك تعليق",
-    "share": "شارك المقال"
+    "share": "شارك المقال",
+    "addCommentSuccess": "تم اضافه التعليق بنجاح"
   },
   "News": {
+    "news": "الأخبار",
     "title": "أخبار المشاريع العربية",
     "readMore": "اقرا المزيد",
     "similarArticles": "مقالات مشابهة",
     "more": "المزيد",
     "publish": "نشر",
     "comment": "اترك تعليق",
-    "share": "شارك المقال"
+    "share": "شارك المقال",
+    "addCommentSuccess": "تم اضافه التعليق بنجاح"
+  },
+
+  "Services": {
+    "title": "خدماتنا"
   }
 }

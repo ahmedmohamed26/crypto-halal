@@ -2,13 +2,15 @@
 import { Link, type Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUser } from "../_context/UserContext";
 import LocaleSwitcher from "./LocaleSwitcher";
 import ProfileDropdown from "./ProfileDD";
+import axiosInstance from "../_lib/axios";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [dataService, setDataService] = useState<any>(null);
   const { isLoggedIn } = useUser();
 
   const toggleMenu = () => {
@@ -21,6 +23,19 @@ export default function Header() {
   const t = useTranslations("Header");
   const locale = useLocale() as Locale;
   const pathName = usePathname();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get("services");
+        setDataService(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const navList = [
     {
       name: t("home"),
@@ -31,37 +46,7 @@ export default function Header() {
       name: t("services"),
       href: "/services",
       active: true,
-
-      subMenu: [
-        {
-          name: t("legitimacyCheck"),
-          href: "/services#legitimacy-check",
-        },
-        {
-          name: t("halalCryptoApp"),
-          href: "/services#halal-cryptoApp",
-        },
-        {
-          name: t("shariaSupervision"),
-          href: "/services#sharia-supervision",
-        },
-        {
-          name: t("forensicAudit"),
-          href: "/services#forensic-audit",
-        },
-        {
-          name: t("shariaStandards"),
-          href: "/services#sharia-standards",
-        },
-        {
-          name: t("media"),
-          href: "/services#media",
-        },
-        {
-          name: t("technicalAnalysis"),
-          href: "/services#technical-analysis",
-        },
-      ],
+      subMenu: dataService,
     },
     {
       name: t("visuals"),
@@ -96,7 +81,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center">
+    <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center fixed top-0  left-0 w-full   shadow-md z-50">
       <div className="flex h-full items-center justify-between w-full container ">
         <div className="flex items-center gap-4">
           {isLoggedIn && <ProfileDropdown />}
@@ -130,17 +115,19 @@ export default function Header() {
                       </Link>
                       {link.subMenu && (
                         <div className="flex items-center">
-                          <ul className="fixed w-[100vw] justify-center opacity-0 hidden  left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white">
-                            {link.subMenu.map((subItem, index) => (
-                              <li key={index} className="max-w-lg">
-                                <a
-                                  href={subItem.href}
-                                  className="relative mx-4 py-2 text-black text-size18 font-medium"
-                                >
-                                  {subItem.name}
-                                </a>
-                              </li>
-                            ))}
+                          <ul className="fixed w-full justify-center opacity-0 hidden  left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white flex-wrap">
+                            {link?.subMenu?.map(
+                              (subItem: any, index: number) => (
+                                <li key={index} className="max-w-lg">
+                                  <a
+                                    href={subItem.id}
+                                    className="relative mx-4 py-2 text-black text-size18 font-medium"
+                                  >
+                                    {subItem.name}
+                                  </a>
+                                </li>
+                              )
+                            )}
                           </ul>
                         </div>
                       )}

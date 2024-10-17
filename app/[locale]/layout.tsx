@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Cairo } from "next/font/google";
-import Header from "../_components/Header";
 import Footer from "../_components/Footer";
+import Header from "../_components/Header";
+import { UserProvider } from "../_context/UserContext";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
-import { UserProvider } from "../_context/UserContext";
 
 export const metadata: Metadata = {
   title: "كريبتو حلال",
@@ -34,7 +34,7 @@ export default function RootLayout({
         <UserProvider>
           <NextIntlClientProvider messages={messages}>
             <Header />
-            <div>{children}</div>
+            <div className="mt-[100px]">{children}</div>
             <Footer />
           </NextIntlClientProvider>
         </UserProvider>
