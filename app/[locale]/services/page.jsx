@@ -23,7 +23,7 @@ export default function Services() {
     <section className="services bg-gray">
       {data?.map((service, index) =>
         (index + 1) % 2 !== 0 ? (
-          <div key={index} id={index} className="pt-16">
+          <div key={index} id={service?.id} className="pt-16">
             <h3 className="text-center mb-16 text-[38px] text=black font-medium">
               {service?.name}
             </h3>

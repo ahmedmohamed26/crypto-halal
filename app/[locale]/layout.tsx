@@ -28,6 +28,7 @@ export default function RootLayout({
 }>) {
   const dir = useTextDirection();
   const messages = useMessages();
+
   return (
     <html lang={locale} dir={dir}>
       <body className={cairo.className} suppressHydrationWarning={true}>

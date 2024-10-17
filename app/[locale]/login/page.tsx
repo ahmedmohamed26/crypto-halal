@@ -8,10 +8,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
 import * as z from "zod";
 
 export default function Login() {
-  const [showToast, setShowToast] = useState(false);
   const t = useTranslations("Login");
   const router = useRouter();
   const { setUser } = useUser();
@@ -32,7 +32,7 @@ export default function Login() {
     register,
     handleSubmit,
     setError,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<FormFields>({
     mode: "onTouched",
     resolver: zodResolver(loginSchema),
@@ -44,21 +44,12 @@ export default function Login() {
       const { token } = response.data.data;
       localStorage.setItem("token", token);
       fetchProfileData();
+      setTimeout(() => {
+        toast.success(t("loginSuccessMsg"));
+      }, 4000);
     } catch (error: any) {
-      showToaster(error.message, "red");
+      toast.error(error?.response?.data?.message);
     }
-
-    // try {
-    //   await login(data.email, data.password);
-    //   setShowToast(true);
-    //   fetchProfileData();
-    //   // showToaster(t("loginSuccessMsg"), "green");
-    //   setTimeout(() => {
-    //     setShowToast(false);
-    //   }, 3000);
-    // } catch (error: any) {
-    //   // showToaster(error.message, "red");
-    // }
   };
 
   const fetchProfileData = async () => {
@@ -69,15 +60,23 @@ export default function Login() {
         email: userProfile.email,
         name: userProfile.name,
       });
+
       router.push("/");
-    } catch (error) {
-      console.error("Error fetching data:", error);
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message);
     }
   };
 
   return (
     <section className="bg-[#F1F7FD] pt-10">
-      {/* {showToast && showToaster()} */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        closeOnClick
+        rtl={false}
+        theme="light"
+      />
+
       <h1 className="text-black text-size22 md:text-[4rem] font-semibold text-center mb-12">
         {t("login")}
       </h1>
@@ -190,7 +189,11 @@ export default function Login() {
           </div>
         </div>
         <div className="flex  justify-center mt-16">
-          <button type="submit" className="btn-yellow" disabled={isSubmitting}>
+          <button
+            type="submit"
+            className="btn-yellow"
+            disabled={!isDirty || !isValid}
+          >
             {t("login")}
           </button>
         </div>
