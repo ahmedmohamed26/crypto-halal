@@ -128,6 +128,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               <img
                 loading="lazy"
                 src="assets/visual-releases.svg"
+                alt="visions"
                 width={400}
                 height={400}
               />
@@ -139,6 +140,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               <img
                 loading="lazy"
                 src="assets/crypto-education.svg"
+                alt="research"
                 width={500}
                 height={500}
               />
@@ -180,6 +182,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               <img
                 loading="lazy"
                 src="assets/news.svg"
+                alt="news"
                 width={400}
                 height={400}
               />

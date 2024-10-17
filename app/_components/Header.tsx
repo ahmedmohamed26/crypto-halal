@@ -120,7 +120,7 @@ export default function Header() {
                               (subItem: any, index: number) => (
                                 <li key={index} className="max-w-lg">
                                   <a
-                                    href={subItem.id}
+                                    href={`services#${subItem.id}`}
                                     className="relative mx-4 py-2 text-black text-size18 font-medium"
                                   >
                                     {subItem.name}
