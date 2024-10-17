@@ -1,19 +1,15 @@
 "use client";
 import Card from "@/app/_components/card";
+import ShareIcons from "@/app/_components/share-icons";
+import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import PdfViewer from "@lmtri/react-pdf-viewer";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
-import Facebook from "../../../../public/assets/facebook.svg";
-import instagram from "../../../../public/assets/instagram.svg";
-import linkedin from "../../../../public/assets/linkedIn.svg";
-import twitter from "../../../../public/assets/x.svg";
-import "./style.css";
-import { showToaster } from "@/app/_lib/toasters";
-import { useUser } from "@/app/_context/UserContext";
 import { toast, ToastContainer } from "react-toastify";
 
 function StudyResearchDetails({ params }: { params: { id: string } }) {
@@ -23,25 +19,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
   const [text, setText] = useState("");
   const { isLoggedIn } = useUser();
   const [loadingSpinner, setLoadingSpinner] = useState(false);
-
-  const socialMediaList = [
-    {
-      src: instagram,
-      url: "/",
-    },
-    {
-      src: twitter,
-      url: "/",
-    },
-    {
-      src: Facebook,
-      url: "/",
-    },
-    {
-      src: linkedin,
-      url: "/",
-    },
-  ];
+  const pathname = usePathname();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -185,22 +163,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           <h3 className=" text-size24 text-primary font-medium mb-6">
             {t("share")}
           </h3>
-          <ul className="flex justify-center gap-6 sm:mt-0 lg:justify-end">
-            {socialMediaList.map((link, index) => {
-              const IconComponent = link.src;
-              return (
-                <a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="icon-link"
-                >
-                  <IconComponent />
-                </a>
-              );
-            })}
-          </ul>
+          <ShareIcons pathName={pathname.slice(1)} />
         </div>
       </div>
     </section>
