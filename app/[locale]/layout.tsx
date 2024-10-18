@@ -6,6 +6,7 @@ import { UserProvider } from "../_context/UserContext";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
 import Footer from "../_components/Footer";
+import { NextUIProvider } from "@nextui-org/react";
 
 export const metadata: Metadata = {
   title: "كريبتو حلال",
@@ -33,11 +34,13 @@ export default function RootLayout({
     <html lang={locale} dir={dir}>
       <body className={cairo.className} suppressHydrationWarning={true}>
         <UserProvider>
-          <NextIntlClientProvider messages={messages}>
-            <Header />
-            <div className="mt-[100px]">{children}</div>
-            <Footer />
-          </NextIntlClientProvider>
+          <NextUIProvider>
+            <NextIntlClientProvider messages={messages}>
+              <Header />
+              <div className="mt-[100px]">{children}</div>
+              <Footer />
+            </NextIntlClientProvider>
+          </NextUIProvider>
         </UserProvider>
       </body>
     </html>
