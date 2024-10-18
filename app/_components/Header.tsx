@@ -114,7 +114,13 @@ export default function Header() {
                       </Link>
                       {link.subMenu && (
                         <div className="flex items-center">
-                          <ul className="fixed w-full justify-center opacity-0 hidden  left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-200 bg-white flex-wrap">
+                          <ul
+                            className={`${
+                              pathName === link.href
+                                ? "flex fixed w-full justify-center opacity-1 left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-400 bg-white flex-wrap"
+                                : "hidden fixed w-full justify-center opacity-0  left-0 mt-[160px] z-10  bg-gray-700 p-4  group-hover:opacity-100 group-hover:flex space-x-4 transition-opacity   ease-in-out delay-400 bg-white flex-wrap "
+                            }  `}
+                          >
                             {link?.subMenu?.map(
                               (subItem: any, index: number) => (
                                 <li key={index} className="max-w-lg">

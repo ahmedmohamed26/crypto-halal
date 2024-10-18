@@ -131,7 +131,11 @@ export default function ContactUs() {
           </div>
 
           <div className="text-center hidden md:block">
-            <img src="assets/contact-us.svg" alt="contact us" />
+            <img
+              src="assets/contact-us.svg"
+              className="h-[300px]"
+              alt="contact us"
+            />
           </div>
         </div>
 
@@ -146,7 +150,7 @@ export default function ContactUs() {
             id="message"
             rows={10}
             placeholder={t("message")}
-            className="w-full rounded-md  shadow-sm sm:text-sm  text-black border indent-2.5 !outline-none resize-none"
+            className="w-full rounded-md  shadow-sm sm:text-sm  text-black border indent-2.5 px-1 py-2  !outline-none resize-none"
             {...register("msg", {
               required: true,
             })}

@@ -45,15 +45,15 @@ export default function Home() {
     <div>
       <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="">
-            <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold md:container">
+          <div className="container  ps-[10%] md:ps-[20%]">
+            <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold">
               {t("appName")}
             </h1>
-            <p className="text-black md:text-[2rem] text-[1rem] font-semibold   mt-[3rem] md:container">
+            <p className="text-black md:text-[2rem] text-[1rem] font-semibold   mt-[3rem]">
               {t("description")}
             </p>
             {!isLoggedIn && (
-              <div className="mt-[3rem] md:container">
+              <div className="mt-[3rem]">
                 <Link
                   href="/"
                   className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
@@ -63,8 +63,8 @@ export default function Home() {
               </div>
             )}
           </div>
-          <div className="h-[100vh] relative w-full overflow-hidden hidden md:block">
-            <img
+          <div className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'>
+            {/* <img
               src="assets/intro.svg"
               alt=""
               style={{
@@ -72,11 +72,11 @@ export default function Home() {
                 height: "100%",
                 animation: "fadeInBottom 1.5s ease-out forwards",
               }}
-            />
+            /> */}
           </div>
         </div>
       </div>
-      <div className=" bg-white relative md:mt-[-200px] mt-20 pb-12">
+      <div className=" bg-white relative md:mt-[-180px] mt-20 pb-12">
         <div
           className="container"
           style={{
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* services section */}
 
-      <section className="services  py-8">
+      <section className="services bg-white pt-8">
         <div className="flex justify-center  md:justify-end mt-4 container">
           <div className=" rounded bg-[#FFBB00] px-8 py-2 font-medium text-black text-[20px]">
             {t("services")}

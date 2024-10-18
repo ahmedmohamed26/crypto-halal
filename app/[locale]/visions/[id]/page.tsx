@@ -227,7 +227,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                 rows={7}
                 value={text}
                 onChange={handleChange}
-                className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black  indent-2.5 !outline-none resize-none"
+                className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black px-1 py-2 indent-2.5 !outline-none resize-none"
               />
             </div>
           )}

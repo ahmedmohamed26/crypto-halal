@@ -36,9 +36,6 @@ const config: Config = {
         size22: "22px",
         size24: "24px",
       },
-      backgroundImage: {
-        "hero-image": "url('/public/assets/intro.png')",
-      },
     },
   },
   plugins: [nextui()],

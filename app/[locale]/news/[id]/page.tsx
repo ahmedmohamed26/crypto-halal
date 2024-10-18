@@ -139,7 +139,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
                 value={text}
                 onChange={handleChange}
                 rows={7}
-                className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black  indent-2.5 !outline-none resize-none"
+                className="mt-4 w-full rounded-md  shadow-sm sm:text-sm  text-black px-1 py-2 indent-2.5 !outline-none resize-none"
               />
             </div>
           )}

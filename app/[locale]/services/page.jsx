@@ -49,7 +49,7 @@ export default function Services() {
             </div>
           </div>
         ) : (
-          <div id="halal-cryptoApp" className="pt-16">
+          <div id={service?.id} className="pt-16">
             <h3 className="text-center mb-16 text-[38px] text=black font-medium">
               {service?.name}
             </h3>

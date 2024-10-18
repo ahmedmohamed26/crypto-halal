@@ -37,7 +37,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
         <img
           src={item?.image}
           alt={item?.name}
-          className="w-full h-60 rounded object-fill"
+          className="w-full h-72 rounded object-fill"
           loading="lazy"
         />
 
@@ -67,14 +67,14 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
   const partnersList = sponsors?.map((item: any, index: number) => {
     return (
       <div
-        className="item group block bg-white p-4 mx-2"
+        className="item group block  border-1 border-[#ddd] shadow-md p-4 mx-2"
         data-value={index}
         dir={locale == "en" ? "rtl" : "ltr"}
       >
         <img
           src={item?.image}
           alt={item?.name}
-          className="w-full h-[200px] rounded object-fill shadow-md p-4"
+          className="w-full h-[200px] rounded object-fill"
           loading="lazy"
         />
       </div>
@@ -83,7 +83,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
 
   return (
     <>
-      <section className="services py-8">
+      <section className="services pt-8">
         <div className="container">
           <div className="flex justify-center items-center bg-[#F1F7FD] p-[2rem] relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-6xl text-center">
@@ -190,7 +190,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
           </div>
         </div>
         <section
-          className="work-team py-16"
+          className="work-team pt-16 pb-20"
           style={{
             background:
               "linear-gradient(-135deg, #62798b 0%, #62798b 72%, #0B2962 50%, #0B2962 100%)",
@@ -217,8 +217,8 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
         </section>
       </section>
 
-      <section className="partners py-8">
-        <h3 className=" text-center text-black text-size22 md:text-[66px] font-semibold mb-[2rem] md:mb-[4rem]">
+      <section className="partners pt-8 pb-16 bg-[#F1F7FD]">
+        <h3 className=" text-center text-black text-size22 md:text-[66px] font-semibold mb-[2rem] md:mb-[4rem] mt-4">
           {t("partners")}
         </h3>
         <div className="container">
