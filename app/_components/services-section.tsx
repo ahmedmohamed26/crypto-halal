@@ -106,7 +106,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
 
         {/* services  */}
 
-        <div className="w-full relative bg-[#0B2962]  mt-[-105px]">
+        <div className="w-full relative bg-primary  mt-[-105px]">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 text-center pt-[250px] container">
             <div className="flex items-center  flex-col order-2 md:order-1">
               <h4 className="text-white text-[50px] mb-[3rem]">

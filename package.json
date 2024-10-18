@@ -12,6 +12,8 @@
     "@fileforge/pdfreader": "^0.1.43",
     "@hookform/resolvers": "^3.9.0",
     "@lmtri/react-pdf-viewer": "^1.0.1",
+    "@nextui-org/modal": "^2.0.41",
+    "@nextui-org/react": "^2.4.8",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.7.7",
     "isomorphic-dompurify": "^2.16.0",

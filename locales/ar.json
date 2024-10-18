@@ -69,14 +69,27 @@
     "validEmailMsg": "يجب ادخال البريد الالكتروني بشكل صحيح",
     "passwordRequiredMsg": "يجب ادخال كلمه المرور",
     "passwordLengthMsg": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
-    "loginSuccessMsg": "تم تسجيل الدخول بنجاح"
+    "loginSuccessMsg": "تم تسجيل الدخول بنجاح",
+    "forgotPasswordTitle": "هل نسيت كلمة المرور",
+    "insertEmail": "الرجاء أدخال عنوان البريد الالكتروني الخاص بك",
+    "makeSure": "تأكيد",
+    "forgetPasswordSuccessMsg": "لقد تم ارسال رساله للبريد الخاص بك"
   },
   "Register": {
+    "signup": "اشتراك",
     "title": "حمل التطبيق الان",
     "email": "البريد الالكتروني",
     "password": "كلمة المرور",
     "userName": "اسم المستخدم",
-    "confirmPassword": "تأكيد كلمة المرور"
+    "confirmPassword": "تأكيد كلمة المرور",
+    "register": "تسجيل دخول",
+    "userNameRequiredMsg": "يجب ادخال أسم المستخدم",
+    "emailRequiredMsg": "يجب ادخال البريد الالكتروني",
+    "validEmailMsg": "يجب ادخال البريد الالكتروني بشكل صحيح",
+    "passwordRequiredMsg": "يجب ادخال كلمه المرور",
+    "passwordLengthMsg": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+    "registerSuccessMsg": "تم التسجيل بنجاح",
+    "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
@@ -127,5 +140,24 @@
 
   "Services": {
     "title": "خدماتنا"
+  },
+  "ResetPassword": {
+    "title": "إعادة تعيين كلمة المرور",
+    "emailRequiredMsg": "يجب ادخال البريد الالكتروني",
+    "validEmailMsg": "يجب ادخال البريد الالكتروني بشكل صحيح",
+    "passwordRequiredMsg": "يجب ادخال كلمه المرور",
+    "passwordLengthMsg": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
+    "downloadApp": "حمل التطبيق الان",
+    "email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "codeLengthMsg": "يجب أن يحتوي الكود على 4 ارقام",
+    "codeRequiredMsg": "يجب ادخال الكود",
+    "code": "الكود",
+    "send": "ارسال",
+    "resetPasswordSuccessMsg": "تم تحديث كلمه المرور"
+  },
+  "Currencies": {
+    "title": "العملات",
+    "currencyList": "قائمة العملات الرقمية"
   }
 }
