@@ -88,7 +88,7 @@ function Register() {
       <form onSubmit={handleSubmit(onSubmit)} className="py-20">
         <div className="bg-white  px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
           <h2 className="text-center font-semibold text-black text-[50px] mb-8">
-            اختر خطَّتك
+            اختر خطتك
           </h2>
           <div className="container grid grid-cols-1 gap-4  sm:items-stretch md:grid-cols-3 md:gap-16 text-center">
             <div className="card px-8 py-12 bg-[#EAEAEA] rounded-md shadow-md">

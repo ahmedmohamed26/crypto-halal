@@ -158,6 +158,9 @@
   },
   "Currencies": {
     "title": "العملات",
-    "currencyList": "قائمة العملات الرقمية"
+    "currencyList": "قائمة العملات الرقمية",
+    "provisions": "الاحكام",
+    "currency": "العمله",
+    "search": "بحث"
   }
 }
