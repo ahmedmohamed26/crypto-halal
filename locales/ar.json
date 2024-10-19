@@ -1,8 +1,16 @@
 {
   "Profile": {
     "welcome": "اهلا",
+    "title": "الملف الشخصي",
+    "logout": "تسجيل خروج",
     "editProfile": "تعديل الملف الشخصي",
-    "logout": "تسجيل خروج"
+    "subscription": "الاشتراك",
+    "protectionAndPassword": "الحماية وكلمة المرور",
+    "subscriptionValue": " قيمة الاشتراك",
+    "currentSubscription": "الاشتراك الحالي",
+    "planDetails": " هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات لمدة",
+    "day": "يوم",
+    "renewSubscription": "تجديد الاشتراك"
   },
   "Home": {
     "appName": "كريبتو حَلَالٌ",
@@ -73,7 +81,12 @@
     "forgotPasswordTitle": "هل نسيت كلمة المرور",
     "insertEmail": "الرجاء أدخال عنوان البريد الالكتروني الخاص بك",
     "makeSure": "تأكيد",
-    "forgetPasswordSuccessMsg": "لقد تم ارسال رساله للبريد الخاص بك"
+    "forgetPasswordSuccessMsg": "لقد تم ارسال رساله للبريد الخاص بك",
+    "currentPassword": "كلمه المرور الحاليه",
+    "newPassword": "كلمه المرور الجديدة",
+    "confirmNewPassword": "تأكيد كلمة المرور",
+    "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+    "passwordsOldNewDoNotMatch": "لا يمكن أن تكون كلمة المرور الجديدة هي نفس كلمة المرور القديمة"
   },
   "Register": {
     "signup": "اشتراك",
@@ -89,7 +102,8 @@
     "passwordRequiredMsg": "يجب ادخال كلمه المرور",
     "passwordLengthMsg": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
     "registerSuccessMsg": "تم التسجيل بنجاح",
-    "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
+    "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+    "save": "حفظ"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
@@ -170,6 +184,8 @@
     "currencyCard": "بطاقة عملة",
     "projectType": "نوع المشروع",
     "projectServices": "خدمات المشروع",
-    "projectRule": "حكم المشروع"
+    "projectRule": "حكم المشروع",
+    "charts": "المخططات البيانية",
+    "historicalData": "البيانات التاريخية"
   }
 }

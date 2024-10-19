@@ -35,7 +35,6 @@ export default function Login() {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<FormFields>({
     mode: "onTouched",
