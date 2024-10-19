@@ -165,7 +165,7 @@ export default function ChangePassword() {
             {loadingSpinner ? (
               <div className="border-white h-10 w-10 animate-spin rounded-full border-2 border-t-primary mx-4 p-3" />
             ) : (
-              t("login")
+              t("save")
             )}
           </button>
         </div>
