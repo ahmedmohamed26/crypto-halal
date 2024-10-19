@@ -67,23 +67,23 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         rtl={false}
         theme="light"
       />
-      <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
+      <h1 className="text-primary text-size22 md:text-[38px] font-regular  mb-4">
         {researchDetails?.title}
       </h1>
       <div className="flex items-center">
-        <span className="text-[#475467] text-size16 font-medium">
+        <span className="text-[#475467] text-size16 font-regular">
           {researchDetails?.date}
         </span>
         {/* <div className="flex items-center ms-3">
           <img alt="" src="/assets/clock.svg" className="mx-2" />
-          <span className="text-size16 font-medium text-darkGray">
+          <span className="text-size16 font-regular text-darkGray">
             {researchDetails?.duration}
           </span>
         </div> */}
 
         <div className="flex items-center ms-3">
           <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
-          <span className="text-size16 font-medium text-darkGray">
+          <span className="text-size16 font-regular text-darkGray">
             {researchDetails?.views}
           </span>
         </div>
@@ -94,7 +94,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           src={researchDetails?.lecturer?.image}
           className="h-12 w-12 object-cover rounded-full"
         />
-        <h6 className="text-size22 font-medium text-yellow mx-4">
+        <h6 className="text-size22 font-regular text-yellow mx-4">
           {researchDetails?.lecturer?.name}
         </h6>
       </div>
@@ -110,7 +110,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       {researchDetails?.similers?.length ? (
         <div className="related-videos mt-16">
           <div className="flex items-center justify-between">
-            <h3 className=" text-[28px] text-black font-medium">
+            <h3 className=" text-[28px] text-black font-regular">
               {t("watchMore")}
             </h3>
             <Link href="/visions" className="btn-yellow !text-size22">
@@ -134,7 +134,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         {isLoggedIn && (
           <div className="bg-[#EAF1FA] p-4 w-full lg:w-[60%] rounded-md max-[600px]:mb-4">
             <div className="flex items-center justify-between">
-              <h3 className=" text-[28px] text-black font-medium ">
+              <h3 className=" text-[28px] text-black font-regular ">
                 {t("comment")}
               </h3>
               <button
@@ -160,7 +160,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         )}
 
         <div className="share">
-          <h3 className=" text-size24 text-primary font-medium mb-6">
+          <h3 className=" text-size24 text-primary font-regular mb-6">
             {t("share")}
           </h3>
           <ShareIcons pathName={pathname.slice(1)} />

@@ -29,7 +29,7 @@ function StudyAndResearch() {
       <h1 className="text-primary text-size22 md:text-[4rem] font-semibold text-center mb-4">
         {t("title")}
       </h1>
-      <p className="text-black text-size16 md:text-[28px] font-medium text-center">
+      <p className="text-black text-size16 md:text-[28px] font-regular text-center">
         {t("description")}
       </p>
 

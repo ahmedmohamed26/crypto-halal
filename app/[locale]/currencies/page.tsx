@@ -116,7 +116,7 @@ export default function Currencies() {
           <div className="relative flex items-center gap-2">
             <Link
               href="/currencies/1"
-              className="rounded bg-[#173EAD] p-3 font-medium text-white text-[14px] md:text-size16"
+              className="rounded bg-[#173EAD] p-3 font-regular text-white text-[14px] md:text-size16"
             >
               {t("details")}
             </Link>
@@ -221,7 +221,7 @@ export default function Currencies() {
               table: "p-0 m-0",
               base: "border-1  border-white rounded",
               th: "bg-[#203B61] text-yellow py-4 border-none",
-              td: " text-white !text-size22 font-medium",
+              td: " text-white !text-size22 font-regular",
               wrapper: "bg-transparent",
               tbody: "bg-transparent",
               tr: "  border-b-1  border-[#667085] last:border-none",

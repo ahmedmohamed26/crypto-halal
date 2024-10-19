@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
       />
 
       <div className="bg-white pt-6">
-        <h3 className="text-primary text-[14px] md:text-size22 font-medium text-start">
+        <h3 className="text-primary text-[14px] md:text-size22 font-regular text-start">
           {item?.title}
         </h3>
         <span className="flex items-center my-4">
@@ -25,18 +25,18 @@ const Card: React.FC<CardProps> = ({ item }) => {
             src={item?.lecturer?.image}
             className="h-6 w-6 md:h-12 md:w-12 object-cover rounded-full"
           />
-          <h6 className="text-[12px] md:text-size16 font-medium text-yellow mx-4">
+          <h6 className="text-[12px] md:text-size16 font-regular text-yellow mx-4">
             {item?.lecturer?.name}
           </h6>
         </div>
 
         <div className="flex items-center justify-between pt-4 pb-2">
-          <span className="text-[12px] md:text-size16 font-medium text-darkGray">
+          <span className="text-[12px] md:text-size16 font-regular text-darkGray">
             {item?.date}
           </span>
           <div className="flex items-center">
             <img alt="" src="/assets/eye.svg" className="mx-2" />
-            <span className="text-[12px] md:text-size16 font-medium text-darkGray">
+            <span className="text-[12px] md:text-size16 font-regular text-darkGray">
               {item?.views}
             </span>
           </div>

@@ -72,10 +72,10 @@ function NewsDetails({ params }: { params: { id: string } }) {
             <h1 className="mt-8 text-primary text-size22 md:text-[38px] gont-medium">
               {newsDetails?.title}
             </h1>
-            <h6 className="text-[#475467] text-size16 font-medium mt-8">
+            <h6 className="text-[#475467] text-size16 font-regular mt-8">
               {newsDetails?.date}
             </h6>
-            <p className="text-black text-size22 font-medium mt-10">
+            <p className="text-black text-size22 font-regular mt-10">
               {DOMPurify.sanitize(newsDetails?.desc, {
                 USE_PROFILES: { html: false },
               })}
@@ -97,7 +97,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
         {newsDetails?.similers?.length ? (
           <div className="related-news mt-16">
             <div className="flex items-center justify-between">
-              <h3 className=" text-[28px] text-black font-medium">
+              <h3 className=" text-[28px] text-black font-regular">
                 {t("similarArticles")}
               </h3>
               <Link href="/news" className="btn-yellow !text-size22">
@@ -119,7 +119,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
           {isLoggedIn && (
             <div className="bg-[#EAF1FA] p-4 w-full lg:w-[60%] rounded-md max-[600px]:mb-4">
               <div className="flex items-center justify-between">
-                <h3 className=" text-[28px] text-black font-medium ">
+                <h3 className=" text-[28px] text-black font-regular ">
                   {t("comment")}
                 </h3>
                 <button
@@ -145,7 +145,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
           )}
 
           <div className="share">
-            <h3 className=" text-size24 text-primary font-medium mb-6">
+            <h3 className=" text-size24 text-primary font-regular mb-6">
               {t("share")}
             </h3>
             <ShareIcons pathName={pathname.slice(1)} />

@@ -106,8 +106,8 @@ export default function Header() {
                         href={link.href}
                         className={
                           pathName === link.href
-                            ? "text-[18px] font-medium text-primary border-b-2 border-primary flex items-center h-full justify-between"
-                            : "text-[18px] text-black font-medium"
+                            ? "text-[18px] font-regular text-primary border-b-2 border-primary flex items-center h-full justify-between"
+                            : "text-[18px] text-black font-regular"
                         }
                       >
                         {link.name}
@@ -126,7 +126,7 @@ export default function Header() {
                                 <li key={index} className="max-w-lg">
                                   <a
                                     href={`/services#${subItem.id}`}
-                                    className="relative mx-4 py-2 text-black text-size18 font-medium"
+                                    className="relative mx-4 py-2 text-black text-size18 font-regular"
                                   >
                                     {subItem.name}
                                   </a>
@@ -197,7 +197,7 @@ export default function Header() {
                   <li key={ids}>
                     <Link
                       href={link.href}
-                      className="text-[18px] text-black font-medium"
+                      className="text-[18px] text-black font-regular"
                       onClick={closeMenu}
                     >
                       {link.name}

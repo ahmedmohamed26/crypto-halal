@@ -5,18 +5,18 @@ function Subscription() {
   const t = useTranslations("Profile");
   return (
     <section className="">
-      <h1 className="text-black text-[30px] font-medium">
+      <h1 className="text-black text-[30px] font-regular">
         {t("subscription")}
       </h1>
       <div className="flex items-center justify-between mt-12">
         <h4 className="text-black text-size22 font-semibold">
           {t("currentSubscription")}
         </h4>
-        <h4 className="text-primary text-size20 font-medium">
+        <h4 className="text-primary text-size20 font-regular">
           الخطة النصف سنوية
         </h4>
       </div>
-      <p className="text-[#444444] text-size18 font-medium mt-8">
+      <p className="text-[#444444] text-size18 font-regular mt-8">
         {t("planDetails")}
         180 {t("day")}
       </p>
@@ -25,7 +25,7 @@ function Subscription() {
         <h4 className="text-black text-size22 font-semibold">
           {t("subscriptionValue")}
         </h4>
-        <h4 className="text-primary text-size20 font-medium">USD 30</h4>
+        <h4 className="text-primary text-size20 font-regular">USD 30</h4>
       </div>
 
       <div className="flex items-center justify-center mt-12">

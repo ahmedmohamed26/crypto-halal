@@ -69,7 +69,7 @@ function EditProfile() {
         <div className="form-control  mb-9">
           <label
             htmlFor="name"
-            className="flex text-black text-size18 md:text-size22 font-medium mb-4"
+            className="flex text-black text-size18 md:text-size22 font-regular mb-4"
           >
             {t("userName")}
           </label>
@@ -92,7 +92,7 @@ function EditProfile() {
         <div className="form-control  mb-9">
           <label
             htmlFor="UserEmail"
-            className="flex text-black text-size18 md:text-size22 font-medium mb-4"
+            className="flex text-black text-size18 md:text-size22 font-regular mb-4"
           >
             {t("email")}
           </label>

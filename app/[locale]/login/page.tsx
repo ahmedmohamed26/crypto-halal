@@ -81,7 +81,7 @@ export default function Login() {
         theme="light"
       />
 
-      <h1 className="text-black text-size22 md:text-[4rem] font-semibold text-center mb-12">
+      <h1 className="text-black text-size22 md:text-[4rem] font-regular text-center mb-12">
         {t("login")}
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="container pb-8">
@@ -90,7 +90,7 @@ export default function Login() {
             <div className="mb-9 form-control">
               <label
                 htmlFor="email"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("email")}
               </label>
@@ -113,7 +113,7 @@ export default function Login() {
             <div className="form-control">
               <label
                 htmlFor="password"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("password")}
               </label>
@@ -131,7 +131,7 @@ export default function Login() {
               )}
             </div>
             <div className="flex justify-between items-center mt-8">
-              <div className="remember-me text-primary text-size16 md:text-size22 font-medium">
+              <div className="remember-me text-primary text-size16 md:text-size22">
                 <label
                   htmlFor="Option1"
                   className="flex cursor-pointer items-start gap-2"
@@ -146,14 +146,14 @@ export default function Login() {
                   </div>
 
                   <div>
-                    <strong className="font-medium text-gray-900">
+                    <h3 className="font-regular text-primary">
                       {t("rememberMe")}
-                    </strong>
+                    </h3>
                   </div>
                 </label>
               </div>
               <Button
-                className="bg-transparent forgot-password text-primary  text-size16 md:text-size22 font-medium"
+                className="bg-transparent forgot-password text-primary  text-size16 md:text-size22 font-regular"
                 onPress={onOpen}
               >
                 {t("forgotPassword")}
