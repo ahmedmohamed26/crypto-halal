@@ -2,14 +2,14 @@
   "Profile": {
     "welcome": "Welcome",
     "editProfile": "Edit Profile",
-    "logout": "Log Out"
+    "logout": "Logout"
   },
   "Home": {
     "appName": "Crypto Halal",
-    "description": "A comprehensive project aimed at creating a trading environment free from Sharia-compliant prohibitions.",
+    "description": "A comprehensive project aimed at creating a trading environment free from Sharia prohibitions.",
     "subscribe": "Subscribe Now",
     "whatIsCrypto": "What is Crypto Halal?",
-    "whatIsCryptoDesc": "Crypto Halal is a comprehensive project aimed at creating a trading environment free from Sharia-compliant prohibitions. It guides those involved in cryptocurrency markets towards lawful earnings, free from any form of usury or prohibited gains. To achieve this goal, the Crypto Halal office for Sharia compliance and auditing was established in October 2021 by Dr. Mohamed Youssef Abu Jazar, an expert in comparative jurisprudence, particularly financial transactions, a member of the Islamic Economy Forum, the Palestine Scholars Association, and a Sharia judge in financial matters for 12 years.",
+    "whatIsCryptoDesc": "Crypto Halal is a comprehensive project aimed at creating a trading environment free from Sharia prohibitions. It guides traders in the cryptocurrency markets towards lawful earnings, free from interest or any other form of prohibited earnings. To achieve this goal, the Crypto Halal office for Sharia oversight and audit of cryptocurrency markets was established in October 2021 by Dr. Mohammad Yousif Abu Jazar, a specialist in comparative jurisprudence, particularly financial transactions jurisprudence. He is a member of the Islamic Economics Forum and the Association of Palestinian Scholars and has served as a Sharia arbitrator in financial cases for 12 years.",
     "services": "Our Services",
     "tests": "Tests",
     "workTeam": "Our Team",
@@ -24,7 +24,7 @@
   "Header": {
     "home": "Home",
     "services": "Our Services",
-    "visions": "Visions",
+    "visions": "Visuals",
     "news": "News",
     "studyAndResearch": "Studies and Research",
     "currencies": "Currencies",
@@ -36,15 +36,15 @@
     "shariaSupervision": "Sharia Supervision",
     "forensicAudit": "Forensic Audit",
     "shariaStandards": "Sharia Standards",
-    "media": "Media and Social Networks",
+    "media": "Media & Social Platforms",
     "technicalAnalysis": "Technical Analysis"
   },
   "Footer": {
     "app-name": "Crypto Halal",
-    "description": "A comprehensive project aimed at creating a trading environment free from Sharia-compliant prohibitions.",
+    "description": "A comprehensive project aimed at creating a trading environment free from Sharia prohibitions.",
     "home": "Home",
     "services": "Our Services",
-    "visions": "visions",
+    "visions": "Visuals",
     "news": "News",
     "studyAndResearch": "Studies and Research",
     "currencies": "Currencies",
@@ -52,14 +52,14 @@
     "termsOfUse": "Terms of Use",
     "privacyPolicy": "Privacy Policy",
     "termsAndConditions": "Terms and Conditions",
-    "subscribeToMail": "Subscribe to our Mailing List",
-    "subscribeNews": "Subscribe to our newsletter to get the latest news and updates",
+    "subscribeToMail": "Subscribe to Mail",
+    "subscribeNews": "Subscribe to the newsletter to receive the latest news and updates",
     "addEmail": "Add your email",
     "subscribe": "Subscribe",
-    "copyRight": "All rights reserved for Crypto Halal Office"
+    "copyRight": "All rights reserved to Crypto Halal Office"
   },
   "Login": {
-    "title": "Download the App Now",
+    "title": "Download the app now",
     "email": "Email",
     "password": "Password",
     "rememberMe": "Remember Me",
@@ -69,14 +69,27 @@
     "validEmailMsg": "Please enter a valid email",
     "passwordRequiredMsg": "Password is required",
     "passwordLengthMsg": "Password must be at least 6 characters",
-    "loginSuccessMsg": "Successfully logged in"
+    "loginSuccessMsg": "Login successful",
+    "forgotPasswordTitle": "Forgot Password",
+    "insertEmail": "Please enter your email address",
+    "makeSure": "Confirm",
+    "forgetPasswordSuccessMsg": "A message has been sent to your email"
   },
   "Register": {
-    "title": "Download the App Now",
+    "signup": "Sign Up",
+    "title": "Download the app now",
     "email": "Email",
     "password": "Password",
     "userName": "Username",
-    "confirmPassword": "Confirm Password"
+    "confirmPassword": "Confirm Password",
+    "register": "Register",
+    "userNameRequiredMsg": "Username is required",
+    "emailRequiredMsg": "Email is required",
+    "validEmailMsg": "Please enter a valid email",
+    "passwordRequiredMsg": "Password is required",
+    "passwordLengthMsg": "Password must be at least 6 characters",
+    "registerSuccessMsg": "Registration successful",
+    "passwordsDoNotMatch": "Passwords do not match"
   },
   "ContactUs": {
     "userName": "Username",
@@ -84,26 +97,34 @@
     "subject": "Subject",
     "message": "Message",
     "send": "Send",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "userNameRequiredMsg": "Username is required",
+    "emailRequiredMsg": "Email is required",
+    "validEmailMsg": "Please enter a valid email",
+    "subjectRequiredMsg": "Subject is required",
+    "messageRequiredMsg": "Message is required",
+    "contactSuccessMsg": "Message sent successfully"
   },
   "Visions": {
     "title": "Visual Releases",
-    "description": "Over 30 audio clips explaining the most important principles of dealing with currencies",
+    "description": "More than 30 audios explaining key principles of dealing with currencies",
     "more": "More",
     "watchMore": "Watch More",
     "publish": "Publish",
     "comment": "Leave a Comment",
-    "share": "Share the Article",
-    "notFoundVideos": "No videos available at the moment"
+    "share": "Share Article",
+    "notFoundVideos": "No videos available at the moment",
+    "addCommentSuccess": "Comment added successfully"
   },
   "StudyAndResearch": {
     "title": "Studies and Research",
-    "description": "A collection of studies on cryptocurrency, its markets, and technology",
+    "description": "A collection of studies in the field of digital currencies, their financial markets, and technologies",
     "more": "More",
     "watchMore": "Watch More",
     "publish": "Publish",
     "comment": "Leave a Comment",
-    "share": "Share the Article"
+    "share": "Share Article",
+    "addCommentSuccess": "Comment added successfully"
   },
   "News": {
     "news": "News",
@@ -113,9 +134,41 @@
     "more": "More",
     "publish": "Publish",
     "comment": "Leave a Comment",
-    "share": "Share the Article"
+    "share": "Share Article",
+    "addCommentSuccess": "Comment added successfully"
   },
   "Services": {
-    "title": "Services"
+    "title": "Our Services"
+  },
+  "ResetPassword": {
+    "title": "Reset Password",
+    "emailRequiredMsg": "Email is required",
+    "validEmailMsg": "Please enter a valid email",
+    "passwordRequiredMsg": "Password is required",
+    "passwordLengthMsg": "Password must be at least 6 characters",
+    "downloadApp": "Download the app now",
+    "email": "Email",
+    "password": "Password",
+    "codeLengthMsg": "The code must be 4 digits",
+    "codeRequiredMsg": "Code is required",
+    "code": "Code",
+    "send": "Send",
+    "resetPasswordSuccessMsg": "Password updated successfully"
+  },
+  "Currencies": {
+    "title": "Currencies",
+    "currencyList": "Cryptocurrency List",
+    "provisions": "Provisions",
+    "currency": "Currency",
+    "search": "Search",
+    "coin": "Coin",
+    "price": "Price",
+    "24hChange": "24h Change",
+    "marketCap": "Market Cap",
+    "details": "Details",
+    "currencyCard": "Currency Card",
+    "projectType": "Project Type",
+    "projectServices": "Project Services",
+    "projectRule": "Project Rule"
   }
 }

@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface Params {
   params: {
@@ -12,6 +12,7 @@ interface LayoutProps {
 
 export async function generateMetadata({ params: { locale } }: Params) {
   const t = await getTranslations({ locale, namespace: "Currencies" });
+
   return {
     title: t("title"),
   };
