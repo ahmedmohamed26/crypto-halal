@@ -65,23 +65,23 @@ function VisualDetails({ params }: { params: { id: string } }) {
           rtl={false}
           theme="light"
         />
-        <h1 className="text-primary text-size22 md:text-[38px] font-medium  mb-4">
+        <h1 className="text-primary text-size22 md:text-[38px] font-regular  mb-4">
           {visualDetails?.title}
         </h1>
         <div className="flex items-center">
-          <span className="text-[#475467] text-size16 font-medium">
+          <span className="text-[#475467] text-size16 font-regular">
             {visualDetails?.date}
           </span>
           <div className="flex items-center ms-3">
             <img alt="" src="/assets/clock.svg" className="mx-2" />
-            <span className="text-size16 font-medium text-darkGray">
+            <span className="text-size16 font-regular text-darkGray">
               {visualDetails?.duration}
             </span>
           </div>
 
           <div className="flex items-center ms-3">
             <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
-            <span className="text-size16 font-medium text-darkGray">
+            <span className="text-size16 font-regular text-darkGray">
               {visualDetails?.views}
             </span>
           </div>
@@ -92,7 +92,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
             src={visualDetails?.lecturer?.image}
             className="h-12 w-12 object-cover rounded-full"
           />
-          <h6 className="text-size22 font-medium text-yellow mx-4">
+          <h6 className="text-size22 font-regular text-yellow mx-4">
             {visualDetails?.lecturer?.name}
           </h6>
         </div>
@@ -115,13 +115,13 @@ function VisualDetails({ params }: { params: { id: string } }) {
                               src={item?.image}
                               className="h-32 w-[50%]  object-cover rounded-md"
                             />
-                            <h2 className="text-primary text-size16 font-medium mt-4 ms-3">
+                            <h2 className="text-primary text-size16 font-regular mt-4 ms-3">
                               {item?.title}
                             </h2>
                           </div>
 
                           <div className="flex items-center pt-6">
-                            <span className="text-size16 font-medium text-darkGray">
+                            <span className="text-size16 font-regular text-darkGray">
                               {item?.date}
                             </span>
                             <div className="flex items-center ms-3">
@@ -131,7 +131,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                                 className="mx-2"
                                 width={22}
                               />
-                              <span className="text-size16 font-medium text-darkGray">
+                              <span className="text-size16 font-regular text-darkGray">
                                 {item?.views}
                               </span>
                             </div>
@@ -143,7 +143,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                               src={item?.lecturer?.image}
                               className="h-12 w-12 object-cover rounded-full"
                             />
-                            <h6 className="text-size16 font-medium text-yellow mx-4">
+                            <h6 className="text-size16 font-regular text-yellow mx-4">
                               {item?.lecturer?.name}
                             </h6>
                           </div>
@@ -177,7 +177,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
         {visualDetails?.similers?.length ? (
           <div className="related-videos mt-16">
             <div className="flex items-center justify-between">
-              <h3 className=" text-[28px] text-black font-medium">
+              <h3 className=" text-[28px] text-black font-regular">
                 {t("watchMore")}
               </h3>
               <Link href="/visions" className="btn-yellow !text-size22">
@@ -198,7 +198,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
             </ul>
           </div>
         ) : (
-          <h6 className="text-center mt-16 text-[28px] text-black font-medium">
+          <h6 className="text-center mt-16 text-[28px] text-black font-regular">
             {t("notFoundVideos")}
           </h6>
         )}
@@ -207,7 +207,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
           {isLoggedIn && (
             <div className="bg-[#EAF1FA] p-4 w-full lg:w-[60%] rounded-md max-[600px]:mb-4">
               <div className="flex items-center justify-between">
-                <h3 className=" text-[28px] text-black font-medium ">
+                <h3 className=" text-[28px] text-black font-regular ">
                   {t("comment")}
                 </h3>
                 <button
@@ -233,7 +233,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
           )}
 
           <div className="share">
-            <h3 className=" text-size24 text-primary font-medium mb-6">
+            <h3 className=" text-size24 text-primary font-regular mb-6">
               {t("share")}
             </h3>
             <ShareIcons pathName={pathname.slice(1)} />

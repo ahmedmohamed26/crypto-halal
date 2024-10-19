@@ -65,13 +65,13 @@ export default function ProfileDropdown() {
 
           <Link
             href="/profile"
-            className="flex justify-center w-full border-black font-medium border-2 rounded-md mt-4 py-[10px]"
+            className="flex justify-center w-full border-black font-regular border-2 rounded-md mt-4 py-[10px]"
           >
             {t("title")}
           </Link>
           <button
             onClick={() => handleLogout()}
-            className=" w-full border-black font-medium border-2 rounded-md mt-4 py-[10px] flex items-center justify-between px-4"
+            className=" w-full border-black font-regular border-2 rounded-md mt-4 py-[10px] flex items-center justify-between px-4"
           >
             <img src="/assets/logout.svg" />
             {t("logout")}

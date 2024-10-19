@@ -15,11 +15,11 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
         src={item?.image}
         className="h-48 w-full object-cover rounded-md"
       /> */}
-      <h2 className="title text-primary  text-[14px] md:text-size22 font-medium">
+      <h2 className="title text-primary  text-[14px] md:text-size22 font-regular">
         {item?.title}
       </h2>
 
-      <p className="title text-black  text-[14px] md:text-size22 font-medium mt-6 text-ellipsis line-clamp-3">
+      <p className="title text-black  text-[14px] md:text-size22 font-regular mt-6 text-ellipsis line-clamp-3">
         {DOMPurify.sanitize(item?.desc, {
           USE_PROFILES: { html: false },
         })}
@@ -28,7 +28,7 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
       <div className="mt-6 flex justify-end">
         <Link
           href={`news/${item?.id}`}
-          className="text-primary text-size16 md:text-size22 font-medium"
+          className="text-primary text-size16 md:text-size22 font-regular"
         >
           {t("readMore")}
         </Link>
@@ -39,12 +39,12 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
         </span>
 
         <div className="flex items-center justify-between">
-          <span className="text-[12px] md:text-size16 font-medium text-darkGray">
+          <span className="text-[12px] md:text-size16 font-regular text-darkGray">
             {item?.date}
           </span>
           <div className="flex items-center">
             <img alt="" src="/assets/eye.svg" className="mx-2" />
-            <span className="text-[12px] md:text-size16 font-medium text-darkGray">
+            <span className="text-[12px] md:text-size16 font-regular text-darkGray">
               {item?.views}
             </span>
           </div>

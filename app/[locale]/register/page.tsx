@@ -98,7 +98,7 @@ function Register() {
               </h2>
 
               <p className="text-primary font-bold text-[38px] mb-8">$ 15.00</p>
-              <p className="text-black font-medium text-size22 mb-8">
+              <p className="text-black font-regular text-size22 mb-8">
                 هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات
                 لمدة 60 يوم
               </p>
@@ -111,7 +111,7 @@ function Register() {
               </h2>
 
               <p className="text-primary font-bold text-[38px] mb-8">$ 31.00</p>
-              <p className="text-black font-medium text-size22 mb-8">
+              <p className="text-black font-regular text-size22 mb-8">
                 هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات
                 لمدة 180 يوم
               </p>
@@ -124,7 +124,7 @@ function Register() {
               </h2>
 
               <p className="text-primary font-bold text-[38px] mb-8">$ 55.00</p>
-              <p className="text-black font-medium text-size22 mb-8">
+              <p className="text-black font-regular text-size22 mb-8">
                 هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات
                 لمدة 365 يوم
               </p>
@@ -138,7 +138,7 @@ function Register() {
             <div className="form-control  mb-9">
               <label
                 htmlFor="name"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("userName")}
               </label>
@@ -161,7 +161,7 @@ function Register() {
             <div className="form-control  mb-9">
               <label
                 htmlFor="UserEmail"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("email")}
               </label>
@@ -184,7 +184,7 @@ function Register() {
             <div className="form-control mb-9">
               <label
                 htmlFor="password"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("password")}
               </label>
@@ -207,7 +207,7 @@ function Register() {
             <div className="form-control mb-9">
               <label
                 htmlFor="confirmPassword"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("confirmPassword")}
               </label>
@@ -272,7 +272,7 @@ function Register() {
             <div>
               {/* Payment Method Section */}
               <div>
-                <h2 className="text-size16 md:text-[28px] font-medium mb-4">
+                <h2 className="text-size16 md:text-[28px] font-regular mb-4">
                   اختر وسيلة للدفع مناسبة
                 </h2>
                 <div className="flex items-center space-x-2">
@@ -301,7 +301,7 @@ function Register() {
 
               {/* Coupon Code Section */}
               <div className="mt-6 ">
-                <h2 className="text-size16 md:text-[28px] font-medium mb-4">
+                <h2 className="text-size16 md:text-[28px] font-regular mb-4">
                   أدخل رمز القسيمة
                 </h2>
                 <div className="flex">
@@ -318,7 +318,7 @@ function Register() {
 
               {/* Invoice Summary Section */}
               <div className="mt-8">
-                <h2 className="text-size16 md:text-[28px] font-medium mb-9">
+                <h2 className="text-size16 md:text-[28px] font-regular mb-9">
                   ملخص الفاتورة
                 </h2>
                 <div className="text-gray-600 text-[14px] md:text-size16">

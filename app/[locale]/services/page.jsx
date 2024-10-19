@@ -24,7 +24,7 @@ export default function Services() {
       {data?.map((service, index) =>
         (index + 1) % 2 !== 0 ? (
           <div key={index} id={service?.id} className="pt-16">
-            <h3 className="text-center mb-16 text-[38px] text=black font-medium">
+            <h3 className="text-center mb-16 text-[38px] text=black font-regular">
               {service?.name}
             </h3>
             <div
@@ -36,7 +36,7 @@ export default function Services() {
             >
               <div className="container">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-                  <p className="text-white font-medium text-[28px]  order-2 md:order-1">
+                  <p className="text-white font-regular text-[28px]  order-2 md:order-1">
                     {DOMPurify.sanitize(service?.desc, {
                       USE_PROFILES: { html: false },
                     })}
@@ -50,7 +50,7 @@ export default function Services() {
           </div>
         ) : (
           <div id={service?.id} className="pt-16">
-            <h3 className="text-center mb-16 text-[38px] text=black font-medium">
+            <h3 className="text-center mb-16 text-[38px] text=black font-regular">
               {service?.name}
             </h3>
             <div className="bg-white py-16">
@@ -59,7 +59,7 @@ export default function Services() {
                   <div className="flex items-center lg:justify-start justify-center  mb-8 md:mb-0">
                     <img src={service?.image} alt={service?.name} />
                   </div>
-                  <p className="text-black font-medium text-[28px]">
+                  <p className="text-black font-regular text-[28px]">
                     {DOMPurify.sanitize(service?.desc, {
                       USE_PROFILES: { html: false },
                     })}

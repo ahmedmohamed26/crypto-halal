@@ -75,7 +75,7 @@ export default function ChangePassword() {
         <div className="mb-9 form-control">
           <label
             htmlFor="email"
-            className="block text-black text-size18 md:text-size22 font-medium mb-4"
+            className="block text-black text-size18 md:text-size22 font-regular mb-4"
           >
             {t("email")}
           </label>
@@ -96,7 +96,7 @@ export default function ChangePassword() {
         <div className="mb-9 form-control">
           <label
             htmlFor="password"
-            className="block text-black text-size18 md:text-size22 font-medium mb-4"
+            className="block text-black text-size18 md:text-size22 font-regular mb-4"
           >
             {t("currentPassword")}
           </label>
@@ -117,7 +117,7 @@ export default function ChangePassword() {
         <div className="mb-9 form-control">
           <label
             htmlFor="password"
-            className="block text-black text-size18 md:text-size22 font-medium mb-4"
+            className="block text-black text-size18 md:text-size22 font-regular mb-4"
           >
             {t("newPassword")}
           </label>
@@ -138,7 +138,7 @@ export default function ChangePassword() {
         <div className="mb-19 form-control">
           <label
             htmlFor="password"
-            className="block text-black text-size18 md:text-size22 font-medium mb-4"
+            className="block text-black text-size18 md:text-size22 font-regular mb-4"
           >
             {t("confirmNewPassword")}
           </label>

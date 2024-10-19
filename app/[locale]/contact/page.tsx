@@ -63,7 +63,7 @@ export default function ContactUs() {
             <div className="form-control mb-4">
               <label
                 htmlFor="name"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("userName")}
               </label>
@@ -86,7 +86,7 @@ export default function ContactUs() {
             <div className="form-control mb-4">
               <label
                 htmlFor="email"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("email")}
               </label>
@@ -109,7 +109,7 @@ export default function ContactUs() {
             <div className="form-control mb-4">
               <label
                 htmlFor="subject"
-                className="block text-black text-size18 md:text-size22 font-medium mb-4"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
                 {t("subject")}
               </label>
@@ -142,7 +142,7 @@ export default function ContactUs() {
         <div className="form-control mb-4">
           <label
             htmlFor="message"
-            className="block text-black text-size18 md:text-size22 font-medium mb-4"
+            className="block text-black text-size18 md:text-size22 font-regular mb-4"
           >
             {t("message")}
           </label>

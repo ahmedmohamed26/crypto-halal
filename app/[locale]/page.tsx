@@ -48,7 +48,7 @@ export default function Home() {
       <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="container  ps-[10%] md:ps-[20%]">
-            <h1 className="text-primary md:text-[5rem] text-[2rem] font-bold">
+            <h1 className="text-primary md:text-[5rem] text-[2rem] font-regular">
               {t("appName")}
             </h1>
             <p className="text-black md:text-[2rem] text-[1rem] font-semibold   mt-[3rem]">
@@ -58,7 +58,7 @@ export default function Home() {
               <div className="mt-[3rem]">
                 <Link
                   href="/"
-                  className="rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size24"
+                  className="rounded bg-[#FFBB00] px-6 py-3 font-regular text-primary text-size24"
                 >
                   {t("subscribe")}
                 </Link>
@@ -92,7 +92,7 @@ export default function Home() {
           <h3 className="text-black md:text-[3rem] text-[1.5rem] font-semibold">
             {t("whatIsCrypto")}
           </h3>
-          <p className="font-medium text-[14px] md:text-[28px] text-black mt-[1rem]">
+          <p className="font-regular text-[14px] md:text-[28px] text-black mt-[1rem]">
             {DOMPurify.sanitize(data?.info?.about, {
               USE_PROFILES: { html: false },
             })}
@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="services bg-white pt-8">
         <div className="flex justify-center  md:justify-end mt-4 container">
-          <div className=" rounded bg-[#FFBB00] px-8 py-2 font-medium text-black text-[20px]">
+          <div className=" rounded bg-[#FFBB00] px-8 py-2 font-regular text-black text-[20px]">
             {t("services")}
           </div>
         </div>

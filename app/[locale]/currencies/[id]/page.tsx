@@ -14,11 +14,11 @@ export default function CurrencyDetails() {
 
         <div>
           <div className="bg-[#1E3760] mt-7 rounded-md p-4">
-            <h2 className="text-[22px] font-medium text-white">
+            <h2 className="text-[22px] font-regular text-white">
               {t("projectType")} : <span>تقني </span>
             </h2>
           </div>
-          <p className="text-size18 font-medium text-white w-full md:w-[50%] mt-8 leading-10">
+          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
             يعتبر المشروع منصة تطوير لامركزية مبنية بشكل أساسي على بلوكتشين عام
             ومشترك، حيث يقوم هذا البروتوكول بتوفير بيئة صديقة للمطورين. وهو يركز
             بشكل أساسي على تسهيل تطوير التطبيقات اللامركزية DApps للمطورين،
@@ -35,11 +35,11 @@ export default function CurrencyDetails() {
 
         <div>
           <div className="bg-[#1E3760] mt-7 rounded-md p-4">
-            <h2 className="text-[22px] font-medium text-white">
+            <h2 className="text-[22px] font-regular text-white">
               {t("projectServices")}
             </h2>
           </div>
-          <p className="text-size18 font-medium text-white w-full md:w-[50%] mt-8 leading-10">
+          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
             محفظة NEAR التي تتيح لمطوري التطبيقات إنشاء واجهات مستخدم محسّنة.
             خدمة” NEAR Explorer” للمساعدة على تصحيح أخطاء العقود وفهم أداء
             الشبكة.خدمة أوامر NEAR لتمكين المطورين من نشر التطبيقات من السيرفرات
@@ -48,13 +48,13 @@ export default function CurrencyDetails() {
         </div>
 
         <div className="bg-[#059669] mt-9 rounded-md p-4 w-auto inline-block">
-          <h2 className="text-[22px] font-medium text-white">
+          <h2 className="text-[22px] font-regular text-white">
             {t("projectRule")} : <span>مباح</span>
           </h2>
         </div>
 
         <div className="flex w-full items-start justify-between mt-16">
-          <h6 className="text-size22 text-white font-medium mt-2">
+          <h6 className="text-size22 text-white font-regular mt-2">
             معلومات اضافيه
           </h6>
           <Tabs

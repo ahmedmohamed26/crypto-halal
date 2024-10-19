@@ -74,7 +74,7 @@ function ForgetPassword({
                     src="/assets/forget-password.svg"
                     alt="forget-password"
                   />
-                  <p className="mt-8 text-size22 text-black font-medium">
+                  <p className="mt-8 text-size22 text-black font-regular">
                     {t("insertEmail")}
                   </p>
                   <div className="flex my-4">

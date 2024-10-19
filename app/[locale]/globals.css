@@ -23,7 +23,7 @@ body {
 }
 
 .btn-yellow {
-  @apply rounded bg-[#FFBB00] px-6 py-3 font-medium text-primary text-size16 md:text-size24 disabled:opacity-[.5] disabled:cursor-not-allowed;
+  @apply rounded bg-[#FFBB00] px-6 py-3   text-primary text-size16 md:text-size24 disabled:opacity-[.5] disabled:cursor-not-allowed;
 }
 
 .selectWrapper {
