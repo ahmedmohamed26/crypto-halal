@@ -1,15 +1,17 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ServicesSection from "../_components/services-section";
 import axiosInstance from "../_lib/axios";
 import DOMPurify from "isomorphic-dompurify";
 import { useUser } from "../_context/UserContext";
+import { Locale } from "@/i18n.config";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
   const { isLoggedIn } = useUser();
+  const locale = useLocale() as Locale;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,17 +65,21 @@ export default function Home() {
               </div>
             )}
           </div>
-          <div className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'>
-            {/* <img
-              src="assets/intro.svg"
-              alt=""
+          {locale === "ar" ? (
+            <div
               style={{
-                width: "100%",
-                height: "100%",
-                animation: "fadeInBottom 1.5s ease-out forwards",
+                transform: "rotateY(0) !important",
               }}
-            /> */}
-          </div>
+              className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'
+            ></div>
+          ) : (
+            <div
+              style={{
+                transform: "rotateY(180deg) !important",
+              }}
+              className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'
+            ></div>
+          )}
         </div>
       </div>
       <div className=" bg-white relative md:mt-[-180px] mt-20 pb-12">

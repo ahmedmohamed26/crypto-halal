@@ -1,5 +1,7 @@
+"use client";
 import { useTranslations } from "next-intl";
 import React from "react";
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 
 export default function CurrencyDetails() {
   const t = useTranslations("Currencies");
@@ -49,6 +51,51 @@ export default function CurrencyDetails() {
           <h2 className="text-[22px] font-medium text-white">
             {t("projectRule")} : <span>مباح</span>
           </h2>
+        </div>
+
+        <div className="flex w-full items-start justify-between mt-16">
+          <h6 className="text-size22 text-white font-medium mt-2">
+            معلومات اضافيه
+          </h6>
+          <Tabs
+            aria-label="Options"
+            variant="underlined"
+            isVertical={false}
+            size="lg"
+            classNames={{
+              cursor: "w-full bg-yellow",
+              tab: "h-[50px] ",
+              tabContent: "text-white text-size18 my-4",
+              panel: "w-full",
+            }}
+          >
+            <Tab
+              key="historicalData"
+              title={
+                <div className="flex items-center space-x-2 text-white">
+                  <span className="mx-2">{t("historicalData")}</span>
+                  <img className="w-[20px]" src="/assets/calendar.svg" />
+                </div>
+              }
+            >
+              <Card className="w-full">
+                <CardBody></CardBody>
+              </Card>
+            </Tab>
+            <Tab
+              key="charts"
+              title={
+                <div className="flex items-center space-x-2 text-white">
+                  <span className="mx-2">{t("charts")}</span>
+                  <img className="w-[20px]" src="/assets/charts.svg" />
+                </div>
+              }
+            >
+              <Card className="w-full">
+                <CardBody className="w-full"></CardBody>
+              </Card>
+            </Tab>
+          </Tabs>
         </div>
       </div>
     </section>
