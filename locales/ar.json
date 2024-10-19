@@ -86,7 +86,8 @@
     "newPassword": "كلمه المرور الجديدة",
     "confirmNewPassword": "تأكيد كلمة المرور",
     "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
-    "passwordsOldNewDoNotMatch": "لا يمكن أن تكون كلمة المرور الجديدة هي نفس كلمة المرور القديمة"
+    "passwordsOldNewDoNotMatch": "لا يمكن أن تكون كلمة المرور الجديدة هي نفس كلمة المرور القديمة",
+    "save": "حفظ"
   },
   "Register": {
     "signup": "اشتراك",
