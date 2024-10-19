@@ -51,7 +51,7 @@ export default function Home() {
             <h1 className="text-primary md:text-[5rem] text-[2rem] font-regular">
               {t("appName")}
             </h1>
-            <p className="text-black md:text-[2rem] text-[1rem] font-semibold   mt-[3rem]">
+            <p className="text-black md:text-[2rem] text-[1rem] font-semibold mt-[3rem]">
               {t("description")}
             </p>
             {!isLoggedIn && (

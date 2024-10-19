@@ -1,10 +1,13 @@
 "use client";
 import { useTranslations } from "next-intl";
-import React from "react";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import HistoricalData from "./historicalData";
+import React, { useState } from "react";
 
 export default function CurrencyDetails() {
   const t = useTranslations("Currencies");
+  const [currentTab, setCurrentTab] = useState("historicalData");
+
   return (
     <section className="bg-[#0b2962] py-28">
       <div className="container">
@@ -53,8 +56,8 @@ export default function CurrencyDetails() {
           </h2>
         </div>
 
-        <div className="flex w-full items-start justify-between mt-16">
-          <h6 className="text-size22 text-white font-regular mt-2">
+        <div className="flex w-full items-start justify-between mt-16 mb-8">
+          <h6 className="text-size22 text-white font-regular mt-3">
             معلومات اضافيه
           </h6>
           <Tabs
@@ -68,6 +71,7 @@ export default function CurrencyDetails() {
               tabContent: "text-white text-size18 my-4",
               panel: "w-full",
             }}
+            onSelectionChange={(e: any) => setCurrentTab(e)}
           >
             <Tab
               key="historicalData"
@@ -77,11 +81,8 @@ export default function CurrencyDetails() {
                   <img className="w-[20px]" src="/assets/calendar.svg" />
                 </div>
               }
-            >
-              <Card className="w-full">
-                <CardBody></CardBody>
-              </Card>
-            </Tab>
+            />
+
             <Tab
               key="charts"
               title={
@@ -90,13 +91,10 @@ export default function CurrencyDetails() {
                   <img className="w-[20px]" src="/assets/charts.svg" />
                 </div>
               }
-            >
-              <Card className="w-full">
-                <CardBody className="w-full"></CardBody>
-              </Card>
-            </Tab>
+            />
           </Tabs>
         </div>
+        {currentTab === "historicalData" ? <HistoricalData /> : null}
       </div>
     </section>
   );
