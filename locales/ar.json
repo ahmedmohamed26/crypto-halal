@@ -161,6 +161,15 @@
     "currencyList": "قائمة العملات الرقمية",
     "provisions": "الاحكام",
     "currency": "العمله",
-    "search": "بحث"
+    "search": "بحث",
+    "coin": "العمله",
+    "price": "السعر",
+    "24hChange": "تغيير 24 ساعة",
+    "marketCap": "القيمة السوقية",
+    "details": "التفاصيل",
+    "currencyCard": "بطاقة عملة",
+    "projectType": "نوع المشروع",
+    "projectServices": "خدمات المشروع",
+    "projectRule": "حكم المشروع"
   }
 }
