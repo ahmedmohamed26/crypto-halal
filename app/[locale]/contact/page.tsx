@@ -130,7 +130,7 @@ export default function ContactUs() {
             </div>
           </div>
 
-          <div className="text-center hidden md:block">
+          <div className="md:flex justify-center hidden">
             <img
               src="assets/contact-us.svg"
               className="h-[300px]"

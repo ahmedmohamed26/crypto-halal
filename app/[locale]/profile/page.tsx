@@ -18,10 +18,12 @@ export default function Profile() {
         size="lg"
         classNames={{
           tabList:
-            "w-[20vw] h-[400px] relative p-8 rounded-md border-yellow border-[1px]",
-          cursor: "w-full bg-transparent border-none shadow-none ",
+            "w-[25vw] h-[500px] relative p-8 rounded-lg border-yellow border-[2px]",
+          cursor:
+            "w-full bg-transparent  shadow-none border-b-2 border-black rounded-none ",
           tab: " h-[50px] border-none shadow-none ",
-          tabContent: "group-data-[selected=true]:text-primary  text-size18",
+          tabContent:
+            "group-data-[selected=true]:text-primary border-none text-size18",
           panel: "w-full",
         }}
       >
@@ -51,7 +53,7 @@ export default function Profile() {
           }
           className="bg-transparent flex justify-start"
         >
-          <Card className="bg-[#f1f7fd] border-none shadow-none  w-full">
+          <Card className="bg-[#f1f7fd] border-none shadow-none w-full">
             <CardBody className="text-start">
               <Subscription />
             </CardBody>
@@ -68,9 +70,9 @@ export default function Profile() {
               <span>{t("protectionAndPassword")}</span>
             </div>
           }
-          className="bg-transparent flex justify-start"
+          className="bg-transparent flex justify-start !outline-transparent"
         >
-          <Card className="bg-[#f1f7fd] border-none shadow-none  w-full">
+          <Card className="bg-[#f1f7fd] border-none shadow-none w-full !focus:outline-none">
             <CardBody className="text-start">
               <ChangePassword />
             </CardBody>

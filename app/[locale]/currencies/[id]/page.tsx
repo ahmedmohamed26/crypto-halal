@@ -1,12 +1,31 @@
 "use client";
+import axiosInstance from "@/app/_lib/axios";
+import { Tab, Tabs } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import { useEffect, useState } from "react";
 import HistoricalData from "./historicalData";
-import React, { useState } from "react";
 
-export default function CurrencyDetails() {
+export default function CurrencyDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
   const t = useTranslations("Currencies");
   const [currentTab, setCurrentTab] = useState("historicalData");
+  const [currencyDetails, setCurrencyDetails] = useState<any>({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get(`coins/${params.id}`);
+        setCurrencyDetails(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section className="bg-[#0b2962] py-28">
@@ -18,21 +37,11 @@ export default function CurrencyDetails() {
         <div>
           <div className="bg-[#1E3760] mt-7 rounded-md p-4">
             <h2 className="text-[22px] font-regular text-white">
-              {t("projectType")} : <span>تقني </span>
+              {t("projectType")} : <span>{currencyDetails?.projectType} </span>
             </h2>
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            يعتبر المشروع منصة تطوير لامركزية مبنية بشكل أساسي على بلوكتشين عام
-            ومشترك، حيث يقوم هذا البروتوكول بتوفير بيئة صديقة للمطورين. وهو يركز
-            بشكل أساسي على تسهيل تطوير التطبيقات اللامركزية DApps للمطورين،
-            وأيضًا الحفاظ عليها حتى عند توسيع نطاقها وذلك ليشمل ملايين
-            المستخدمين،  يقوم مشروع Near بتوفير حزمة OSS Stack تقوم بالسماح
-            للمطورين بكتابة عقود ذكية على البلوكشين وذلك عن طريق استخدامه بأي
-            لغة ويتم تجميعها إلى WebAssembly وهذا سيكون دعم لكل
-            من AssemblyScript وRust. يقوم مشروع NEAR بالسماح ببناء تطبيقات
-            لامركزية وتهيئة المستخدمين من أجل إنجاز تطبيقات واسعة النطاق، يقوم
-            بروتوكول NEAR باستخدام آلية إجماع جديدة والتي يطلق عليها اسم TPoS،
-            وهذا من أجل ضمان التحقق من صحة المعاملات بالشكل الصحيح.
+            {currencyDetails?.description}
           </p>
         </div>
 
@@ -43,16 +52,28 @@ export default function CurrencyDetails() {
             </h2>
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            محفظة NEAR التي تتيح لمطوري التطبيقات إنشاء واجهات مستخدم محسّنة.
-            خدمة” NEAR Explorer” للمساعدة على تصحيح أخطاء العقود وفهم أداء
-            الشبكة.خدمة أوامر NEAR لتمكين المطورين من نشر التطبيقات من السيرفرات
-            المحلية
+            {currencyDetails?.services}
           </p>
         </div>
 
-        <div className="bg-[#059669] mt-9 rounded-md p-4 w-auto inline-block">
+        <div
+          className={`${
+            currencyDetails?.judgement == 0
+              ? "bg-[#059669]"
+              : currencyDetails?.judgement == 1
+              ? "bg-red-500"
+              : "bg-orange-500"
+          }  mt-9 rounded-md p-4 w-auto inline-block`}
+        >
           <h2 className="text-[22px] font-regular text-white">
-            {t("projectRule")} : <span>مباح</span>
+            {t("projectRule")} :
+            {currencyDetails?.judgement == 0 ? (
+              <span>{t("available")}</span>
+            ) : currencyDetails?.judgement == 1 ? (
+              <span>{t("unavailable")}</span>
+            ) : (
+              <span>{t("suspect")}</span>
+            )}
           </h2>
         </div>
 

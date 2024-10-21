@@ -42,7 +42,6 @@ function EditProfile() {
     try {
       const response = await axiosInstance.post("profile", data);
       setLoadingSpinner(false);
-      console.log(response.data.data);
       const userProfile = response.data.data;
       setUser({
         email: userProfile.email,

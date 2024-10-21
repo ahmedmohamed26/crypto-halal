@@ -146,7 +146,7 @@ export default function Login() {
                   </div>
 
                   <div>
-                    <h3 className="font-regular text-primary">
+                    <h3 className="font-regular text-black">
                       {t("rememberMe")}
                     </h3>
                   </div>
