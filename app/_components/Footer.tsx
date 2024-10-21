@@ -53,14 +53,17 @@ export default function Footer() {
   return (
     <footer className="bg-[#06102B] text-white">
       <div className="pt-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 container !items-start">
+        <div className="grid grid-cols-1 gap-28 md:grid-cols-4 container !items-start">
           <div>
-            <h3 className="text-size20 mb-[1.5rem]">{t("app-name")}</h3>
-            <p>{t("description")}</p>
+            <h3 className="text-size20 md:text-[28px] mb-[1.5rem]">
+              {t("app-name")}
+            </h3>
+            <p className="mb-2 text-[14px] font-regular">{t("description1")}</p>
+            <p className="text-[14px] font-regular">{t("description2")}</p>
           </div>
 
           <div>
-            <ul className="text-size18 space-y-4">
+            <ul className="text-size16 space-y-4">
               <li>
                 <Link href="/">{t("home")}</Link>
               </li>
@@ -84,7 +87,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <ul className="text-size18 space-y-4">
+            <ul className="text-size16 space-y-4">
               <li>
                 <Link href="/usage">{t("termsOfUse")}</Link>
               </li>
@@ -99,8 +102,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-size20 mb-[1.5rem]">{t("subscribeToMail")}</h3>
-            <p>{t("subscribeNews")}</p>
+            <h3 className="text-size16  mb-[1.5rem]">{t("subscribeToMail")}</h3>
+            <p className="text-[14px]">{t("subscribeNews")}</p>
 
             <div className="relative mt-[1.5rem]">
               <input

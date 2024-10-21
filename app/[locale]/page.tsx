@@ -51,7 +51,7 @@ export default function Home() {
             <h1 className="text-primary md:text-[5rem] text-[2rem] font-regular">
               {t("appName")}
             </h1>
-            <p className="text-black md:text-[2rem] text-[1rem] font-semibold mt-[3rem]">
+            <p className="text-black md:text-[28px] text-[1rem] font-medium mt-[3rem]">
               {t("description")}
             </p>
             {!isLoggedIn && (
@@ -92,7 +92,7 @@ export default function Home() {
           <h3 className="text-black md:text-[3rem] text-[1.5rem] font-semibold">
             {t("whatIsCrypto")}
           </h3>
-          <p className="font-regular text-[14px] md:text-[28px] text-black mt-[1rem]">
+          <p className="font-regular text-[14px] md:text-[24px] text-black mt-[1rem]">
             {DOMPurify.sanitize(data?.info?.about, {
               USE_PROFILES: { html: false },
             })}

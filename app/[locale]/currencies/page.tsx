@@ -1,8 +1,11 @@
 "use client";
+import axiosInstance from "@/app/_lib/axios";
 import {
   Input,
+  Pagination,
   Select,
   SelectItem,
+  Spinner,
   Table,
   TableBody,
   TableCell,
@@ -12,102 +15,148 @@ import {
   User,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import React, { useState } from "react";
-import { Pagination } from "@nextui-org/react";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Currencies() {
   const t = useTranslations("Currencies");
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [judgementStatus, setJudgementStatus] = useState<string>("available");
+  const [searchKey, setSearchKey] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [pagination, setPagination] = useState<any>({});
+
+  const judgements = [
+    { key: "available", label: t("available") },
+    { key: "unavailable", label: t("unavailable") },
+    { key: "suspect", label: t("suspect") },
+  ];
 
   const columns = [
-    { name: t("coin"), uid: "coin" },
-    { name: t("price"), uid: "price" },
-    { name: t("24hChange"), uid: "hChange" },
-    { name: t("marketCap"), uid: "marketCap" },
+    { name: t("coin"), uid: "name" },
+    { name: t("price"), uid: "price_usd" },
+    { name: t("24hChange"), uid: "percent_change_24h" },
+    { name: t("marketCap"), uid: "market_cap_usd" },
     { name: t("details"), uid: "details" },
   ];
 
-  const users = [
-    {
-      id: 1,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 2,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 3,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 4,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 5,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-  ];
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get(`coins`, {
+          params: {
+            limit: 15,
+            page: currentPage,
+            judgement: judgementStatus,
+            search: searchKey,
+          },
+        });
+
+        setData(response.data.data.items);
+        setPagination(response.data.data.meta);
+        setIsLoading(false);
+      } catch (error: any) {
+        toast.error(t("subscriptionErrMsg"));
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [currentPage, searchKey, judgementStatus]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchKey, judgementStatus]);
+
+  // const users = [
+  //   {
+  //     id: 1,
+  //     coin: "Tony Reichert",
+  //     price: "3,002.77",
+  //     hChange: "+44.00",
+  //     marketCap: "B 279.58 $",
+  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+  //     details: "tony.reichert@example.com",
+  //   },
+  //   {
+  //     id: 2,
+  //     coin: "Tony Reichert",
+  //     price: "3,002.77",
+  //     hChange: "+44.00",
+  //     marketCap: "B 279.58 $",
+  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+  //     details: "tony.reichert@example.com",
+  //   },
+  //   {
+  //     id: 3,
+  //     coin: "Tony Reichert",
+  //     price: "3,002.77",
+  //     hChange: "+44.00",
+  //     marketCap: "B 279.58 $",
+  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+  //     details: "tony.reichert@example.com",
+  //   },
+  //   {
+  //     id: 4,
+  //     coin: "Tony Reichert",
+  //     price: "3,002.77",
+  //     hChange: "+44.00",
+  //     marketCap: "B 279.58 $",
+  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+  //     details: "tony.reichert@example.com",
+  //   },
+  //   {
+  //     id: 5,
+  //     coin: "Tony Reichert",
+  //     price: "3,002.77",
+  //     hChange: "+44.00",
+  //     marketCap: "B 279.58 $",
+  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+  //     details: "tony.reichert@example.com",
+  //   },
+  // ];
 
   const renderCell = React.useCallback((user: any, columnKey: any) => {
     const cellValue = user[columnKey];
 
     switch (columnKey) {
-      case "coin":
+      case "name":
         return (
           <User
-            avatarProps={{ radius: "lg", src: user.avatar }}
-            description={user.coin}
+            avatarProps={{ radius: "full", src: user.img }}
+            description={user.symbol}
             name={cellValue}
-          >
-            {user.coin}
-          </User>
+          ></User>
         );
-      case "price":
+      case "price_usd":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{user.price}</p>
-          </div>
-        );
-      case "hChange":
-        return (
-          <div className="flex flex-col">
-            <p className="text-size16 text-black text-bold text-sm capitalize bg-white p-2 w-[50%] rounded">
-              {user.hChange}
+            <p className="text-bold text-sm capitalize">
+              {Number.parseFloat(user.price_usd).toFixed(2)} {"$"}
             </p>
           </div>
         );
-      case "marketCap":
+      case "percent_change_24h":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{user.marketCap}</p>
+            <p
+              className={`${
+                user.percent_change_24h > 0 ? "text-green-500" : "text-red-500"
+              } text-size16 font-regular  capitalize bg-white p-2 w-[70px] rounded text-center`}
+            >
+              {Number.parseFloat(user.percent_change_24h).toFixed(2)}
+            </p>
+          </div>
+        );
+      case "market_cap_usd":
+        return (
+          <div className="flex flex-col">
+            <p className="font-regular text-size16 capitalize text-start">
+              {Number.parseFloat(user.market_cap_usd).toFixed(2)} {"$"}
+            </p>
           </div>
         );
 
@@ -115,8 +164,8 @@ export default function Currencies() {
         return (
           <div className="relative flex items-center gap-2">
             <Link
-              href="/currencies/1"
-              className="rounded bg-[#173EAD] p-3 font-regular text-white text-[14px] md:text-size16"
+              href={`/currencies/${user.id}`}
+              className="rounded bg-[#173EAD] px-8 py-3 font-regular text-white text-[14px] md:text-size16"
             >
               {t("details")}
             </Link>
@@ -128,20 +177,26 @@ export default function Currencies() {
     }
   }, []);
 
-  const provisions = [
-    { key: "1", label: "كل الاحكام" },
-    { key: "2", label: "مباح" },
-    { key: "3", label: "غير مباح" },
-    { key: "4", label: "مشتبه به" },
-  ];
-
   const currencies = [
     { key: "1", label: "USD" },
     { key: "2", label: "EGP" },
   ];
 
   return (
-    <section className="bg-[#0b2962] py-28">
+    <section
+      className="py-28"
+      style={{
+        background:
+          "linear-gradient(140deg, rgba(26,81,154,1) 0%, rgba(16,36,73,1) 25%, rgba(28,74,112,1) 100%)",
+      }}
+    >
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        closeOnClick
+        rtl={false}
+        theme="light"
+      />
       <div className="container">
         <h1 className="text-center text-white text-[50px] font-semibold">
           {t("currencyList")}
@@ -152,7 +207,8 @@ export default function Currencies() {
             type="text"
             placeholder={t("search")}
             className="w-full md:w-[40%] focus:outline-white mb-4 md:mb-0"
-            // variant="bordered"
+            onChange={(e: any) => setSearchKey(e.target.value)}
+            onClear={() => setSearchKey(null)}
             startContent={
               <svg
                 aria-hidden="true"
@@ -187,14 +243,15 @@ export default function Currencies() {
               <div>
                 <Select
                   placeholder={t("provisions")}
-                  // variant="bordered"
                   classNames={{
                     label: "!text-white",
                   }}
+                  defaultSelectedKeys={[judgementStatus]}
+                  onChange={(e) => setJudgementStatus(e.target.value)}
                 >
-                  {provisions.map((provision) => (
-                    <SelectItem key={provision.key}>
-                      {provision.label}
+                  {judgements.map((judgement) => (
+                    <SelectItem key={judgement.key}>
+                      {judgement.label}
                     </SelectItem>
                   ))}
                 </Select>
@@ -202,10 +259,7 @@ export default function Currencies() {
             </div>
             <div className="w-full md:w-[30%]">
               <div>
-                <Select
-                  placeholder={t("currency")}
-                  //  variant="bordered"
-                >
+                <Select placeholder={t("currency")}>
                   {currencies.map((currency) => (
                     <SelectItem key={currency.key}>{currency.label}</SelectItem>
                   ))}
@@ -214,18 +268,20 @@ export default function Currencies() {
             </div>
           </div>
         </div>
-        <div className=" w-full mt-16  bg-transparent">
+        <div className=" w-full mt-16">
           <Table
             aria-label="table with custom cells overflow-auto"
             classNames={{
-              table: "p-0 m-0",
-              base: "border-1  border-white rounded",
-              th: "bg-[#203B61] text-yellow py-4 border-none",
+              table: "shadow-none p-0 m-0 ",
+              base: "bg-[#3263288] shadow-none p-0 m-0 ",
+              th: "bg-[#303c42] text-yellow py-4",
               td: " text-white !text-size22 font-regular",
-              wrapper: "bg-transparent",
-              tbody: "bg-transparent",
-              tr: "  border-b-1  border-[#667085] last:border-none",
+              wrapper:
+                "bg-[#263238] rounded-tl-lg rounded-tr-lg rounded-bl-[0]  rounded-br-[0]",
+              tbody: "",
+              tr: "border-b-1 border-[#667085] last:border-none",
             }}
+            // last:border-none
           >
             <TableHeader columns={columns}>
               {(column) => (
@@ -237,8 +293,13 @@ export default function Currencies() {
                 </TableColumn>
               )}
             </TableHeader>
-            <TableBody items={users}>
-              {(item) => (
+            <TableBody
+              items={data}
+              isLoading={isLoading}
+              emptyContent={t("noDataShow")}
+              loadingContent={<Spinner size="lg" color="white" />}
+            >
+              {(item: any) => (
                 <TableRow key={item.id}>
                   {(columnKey) => (
                     <TableCell>{renderCell(item, columnKey)}</TableCell>
@@ -247,9 +308,24 @@ export default function Currencies() {
               )}
             </TableBody>
           </Table>
-          <div className="mt-16 flex justify-center">
-            <Pagination color="primary" isCompact total={10} initialPage={1} />
-          </div>
+          {data && (
+            <div className="flex justify-center w-full  bg-white h-12 rounded-bl-lg rounded-br-lg">
+              <Pagination
+                color="primary"
+                isCompact
+                total={pagination?.last_page}
+                page={pagination.current_page}
+                onChange={setCurrentPage}
+                classNames={{
+                  wrapper: "py-4 mt-2 h-8 rounded",
+                  item: "text-small rounded-md bg-white",
+                  cursor:
+                    "!border-[2px] !border-primary bg-transparent shadow-lg text-primary font-bold",
+                  forwardIcon: "scale-x-[-1]",
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

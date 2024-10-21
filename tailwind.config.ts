@@ -30,6 +30,7 @@ const config: Config = {
       },
       fontSize: {
         titleSize: "3rem",
+        size14: "14px",
         size16: "16px",
         size18: "18px",
         size20: "20px",

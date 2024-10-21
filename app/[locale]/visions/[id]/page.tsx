@@ -108,44 +108,44 @@ function VisualDetails({ params }: { params: { id: string } }) {
                         onClick={() => router.push(`/visions/${item?.id}`)}
                         className="w-full"
                       >
-                        <div className="bg-white overflow-hidden rounded-md shadow-md p-2 mb-12">
+                        <div className="bg-white overflow-hidden rounded-md shadow-md p-4 mb-12">
                           <div className="flex items-start">
                             <img
                               alt={item?.title}
                               src={item?.image}
-                              className="h-32 w-[50%]  object-cover rounded-md"
+                              className="h-36 w-[50%]  rounded-md"
                             />
-                            <h2 className="text-primary text-size16 font-regular mt-4 ms-3">
-                              {item?.title}
-                            </h2>
-                          </div>
-
-                          <div className="flex items-center pt-6">
-                            <span className="text-size16 font-regular text-darkGray">
-                              {item?.date}
-                            </span>
-                            <div className="flex items-center ms-3">
-                              <img
-                                alt=""
-                                src="/assets/eye.svg"
-                                className="mx-2"
-                                width={22}
-                              />
-                              <span className="text-size16 font-regular text-darkGray">
-                                {item?.views}
-                              </span>
+                            <div className="ms-4">
+                              <h2 className="text-primary text-size18 font-regular  text-start">
+                                {item?.title}
+                              </h2>
+                              <div className="flex justify-between pt-4">
+                                <span className="text-size14 font-regular text-darkGray">
+                                  {item?.date}
+                                </span>
+                                <div className="flex items-center">
+                                  <img
+                                    alt=""
+                                    src="/assets/eye.svg"
+                                    className="mx-1"
+                                    width={18}
+                                  />
+                                  <span className="text-size14 font-regular text-darkGray">
+                                    {item?.views}
+                                  </span>
+                                </div>
+                              </div>
+                              <div className=" pt-6 flex items-center justify-start">
+                                <img
+                                  alt=""
+                                  src={item?.lecturer?.image}
+                                  className="h-10 w-10 object-cover rounded-full"
+                                />
+                                <h6 className="text-size14 font-regular text-yellow mx-4">
+                                  {item?.lecturer?.name}
+                                </h6>
+                              </div>
                             </div>
-                          </div>
-
-                          <div className=" pt-6 flex items-center justify-start">
-                            <img
-                              alt=""
-                              src={item?.lecturer?.image}
-                              className="h-12 w-12 object-cover rounded-full"
-                            />
-                            <h6 className="text-size16 font-regular text-yellow mx-4">
-                              {item?.lecturer?.name}
-                            </h6>
                           </div>
                         </div>
                       </button>
