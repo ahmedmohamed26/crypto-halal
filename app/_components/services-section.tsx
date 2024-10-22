@@ -3,7 +3,9 @@ import { Locale } from "@/i18n.config";
 import DOMPurify from "isomorphic-dompurify";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { useState } from "react";
 import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const ServicesSection = ({ sponsors, teams, info }: any) => {
   const t = useTranslations("Home");
@@ -14,6 +16,15 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
     { number: info?.subscribers, label: t("subscribers") },
     { number: info?.projects, label: t("projects") },
   ];
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleMouseDown = () => {
+    setIsDragging(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   const teamListResponsive = {
     0: { items: 1 },
@@ -39,6 +50,9 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
           alt={item?.name}
           className="w-full h-72 rounded object-fill"
           loading="lazy"
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          draggable={false}
         />
 
         <div className="mt-3 flex justify-between items-center">
@@ -76,6 +90,9 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
           alt={item?.name}
           className="w-full h-[200px] rounded object-fill"
           loading="lazy"
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          draggable={false}
         />
       </div>
     );
@@ -218,6 +235,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               autoPlayInterval={2000}
               animationDuration={2000}
               autoPlayDirection={locale == "ar" ? "rtl" : "ltr"}
+              onSlideChanged={() => setIsDragging(false)}
             />
           </div>
         </section>
@@ -240,6 +258,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
             autoPlayInterval={2000}
             animationDuration={2000}
             autoPlayDirection={locale == "ar" ? "rtl" : "ltr"}
+            onSlideChanged={() => setIsDragging(false)}
           />
         </div>
       </section>
