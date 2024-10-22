@@ -14,7 +14,7 @@ import {
   TableRow,
   User,
 } from "@nextui-org/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -27,7 +27,7 @@ export default function Currencies() {
   const [searchKey, setSearchKey] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [pagination, setPagination] = useState<any>({});
-
+  const locale = useLocale();
   const judgements = [
     { key: "available", label: t("available") },
     { key: "unavailable", label: t("unavailable") },
@@ -281,6 +281,28 @@ export default function Currencies() {
               tbody: "",
               tr: "border-b-1 border-[#667085] last:border-none",
             }}
+            // bottomContent={
+            //   pagination.current_page > 0 ? (
+            //     <div className="flex justify-center w-full  bg-white h-12 rounded-bl-lg rounded-br-lg">
+            //       <Pagination
+            //         isCompact
+            //         showControls={false}
+            //         showShadow
+            //         color="primary"
+            //         total={pagination?.last_page}
+            //         page={pagination.current_page}
+            //         onChange={setCurrentPage}
+            //         classNames={{
+            //           wrapper: " py-4 mt-2 h-8 rounded",
+            //           item: "text-small rounded-md bg-white",
+            //           cursor:
+            //             "!border-[2px] !border-primary bg-transparent shadow-lg text-primary font-bold",
+            //         }}
+            //       />
+            //     </div>
+            //   ) : null
+            // }
+
             // last:border-none
           >
             <TableHeader columns={columns}>
@@ -308,7 +330,7 @@ export default function Currencies() {
               )}
             </TableBody>
           </Table>
-          {data && (
+          {pagination.current_page > 0 && (
             <div className="flex justify-center w-full  bg-white h-12 rounded-bl-lg rounded-br-lg">
               <Pagination
                 color="primary"
@@ -317,7 +339,7 @@ export default function Currencies() {
                 page={pagination.current_page}
                 onChange={setCurrentPage}
                 classNames={{
-                  wrapper: "py-4 mt-2 h-8 rounded",
+                  wrapper: " py-4 mt-2 h-8 rounded",
                   item: "text-small rounded-md bg-white",
                   cursor:
                     "!border-[2px] !border-primary bg-transparent shadow-lg text-primary font-bold",
@@ -331,3 +353,4 @@ export default function Currencies() {
     </section>
   );
 }
+//  "flex flex-row-reverse py-4 mt-2 h-8 rounded justify-center"
