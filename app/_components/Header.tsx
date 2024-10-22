@@ -106,7 +106,7 @@ export default function Header() {
                         href={link.href}
                         className={
                           pathName === link.href
-                            ? "xl:text-size18 lg:text-[13px] text-size14 font-regular text-primary border-b-2 border-primary flex items-center h-full justify-between"
+                            ? "-mb-1 xl:text-size18 lg:text-[13px] text-size14 font-regular text-primary border-b-4 border-primary flex items-center h-full justify-between"
                             : "xl:text-size18 lg:text-[13px] text-size14 text-black font-regular"
                         }
                       >

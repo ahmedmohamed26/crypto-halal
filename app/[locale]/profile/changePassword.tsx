@@ -12,10 +12,6 @@ export default function ChangePassword() {
 
   const schema = z
     .object({
-      email: z
-        .string()
-        .nonempty({ message: t("emailRequiredMsg") })
-        .email(t("validEmailMsg")),
       oldPassword: z
         .string()
         .nonempty({ message: t("passwordRequiredMsg") })
@@ -71,27 +67,6 @@ export default function ChangePassword() {
           rtl={false}
           theme="light"
         />
-
-        <div className="mb-9 form-control">
-          <label
-            htmlFor="email"
-            className="block text-black text-size18 md:text-size22 font-regular mb-4"
-          >
-            {t("email")}
-          </label>
-          <input
-            type="text"
-            id="email"
-            placeholder={t("email")}
-            className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
-            {...register("email", {
-              required: true,
-            })}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-2">{errors.email.message}</p>
-          )}
-        </div>
 
         <div className="mb-9 form-control">
           <label
