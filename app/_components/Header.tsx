@@ -93,7 +93,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center h-full">
-          <nav aria-label="Global" className="hidden md:block h-full">
+          <nav aria-label="Global" className="hidden lg:block h-full">
             <ul className="flex items-center gap-6 justify-between h-full">
               {navList.map(
                 (link, ids) =>
@@ -157,7 +157,7 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-4 lg:hidden">
             <div className="block rounded bg-gray-100 pt-3.5 text-gray-600 transition hover:text-gray-600/75">
               <button
                 onClick={toggleMenu}
