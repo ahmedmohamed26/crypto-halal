@@ -51,7 +51,7 @@ export default function ProfileDropdown() {
       </DropdownTrigger> */}
       <DropdownMenu
         aria-label="Static Actions"
-        className="!w-[20vw] hover:bg-transparent"
+        className="hover:bg-transparent"
       >
         <DropdownItem key="new" color={"undefined" as any}>
           <div className="w-full flex justify-center items-center">

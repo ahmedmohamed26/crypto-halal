@@ -193,26 +193,32 @@ export default function Header() {
                 </svg>
               </button>
               <ul className="flex flex-col justify-center items-center space-y-8 h-full lg:flex-row lg:space-y-0 lg:space-x-6">
-                {navList.map((link, ids) => (
-                  <li key={ids}>
+                {navList.map(
+                  (link, ids) =>
+                    link.active === true && (
+                      <li key={ids}>
+                        <Link
+                          href={link.href}
+                          className="text-[16px] text-black font-regular"
+                          onClick={closeMenu}
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    )
+                )}
+
+                {!isLoggedIn && (
+                  <li>
                     <Link
-                      href={link.href}
+                      href="/register"
                       className="text-[16px] text-black font-regular"
                       onClick={closeMenu}
                     >
-                      {link.name}
+                      {t("subscribe")}
                     </Link>
                   </li>
-                ))}
-                <li>
-                  <Link
-                    href="/register"
-                    className="text-[16px] text-black font-regular"
-                    onClick={closeMenu}
-                  >
-                    {t("subscribe")}
-                  </Link>
-                </li>
+                )}
               </ul>
             </div>
           </div>
