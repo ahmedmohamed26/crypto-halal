@@ -78,7 +78,7 @@ export default function CurrencyDetails({
                   ></User>
                 </TableCell>
                 <TableCell>
-                  <p className="text-bold text-sm capitalize">
+                  <p className="text-bold text-size16 capitalize">
                     {Number.parseFloat(currencyDetails?.price_usd).toFixed(2)}{" "}
                     {"$"}
                   </p>

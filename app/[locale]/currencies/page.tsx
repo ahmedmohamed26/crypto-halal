@@ -135,7 +135,7 @@ export default function Currencies() {
       case "price_usd":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">
+            <p className="text-bold text-size16 capitalize">
               {Number.parseFloat(user?.price_usd).toFixed(2)} {"$"}
             </p>
           </div>
