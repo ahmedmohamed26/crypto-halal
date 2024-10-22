@@ -106,7 +106,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
               </Link>
             </div>
 
-            <ul className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 pt-16">
+            <ul className="grid lg:grid-cols-4 grid-cols-2 gap-8 pt-16">
               {newsDetails?.similers?.map((item: any, index: number) => (
                 <li key={index}>
                   <CardNews item={item} />

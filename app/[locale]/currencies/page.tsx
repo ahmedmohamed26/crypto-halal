@@ -202,7 +202,7 @@ export default function Currencies() {
           {t("currencyList")}
         </h1>
 
-        <div className="flex md:flex-row sm:flex-col items-center justify-between mt-16">
+        <div className="md:flex md:flex-row sm:flex-col items-center justify-between mt-16">
           <Input
             type="text"
             placeholder={t("search")}
@@ -238,7 +238,7 @@ export default function Currencies() {
             }
           />
 
-          <div className="flex md:flex-row sm:flex-col items-center justify-between w-full md:w-[30%]">
+          <div className="md:flex md:flex-row sm:flex-col items-center justify-between w-full md:w-[30%]">
             <div className="w-full md:w-[60%] mb-4 md:mb-0">
               <div>
                 <Select
