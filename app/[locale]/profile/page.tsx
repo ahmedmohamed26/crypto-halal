@@ -18,7 +18,7 @@ export default function Profile() {
         size="lg"
         classNames={{
           tabList:
-            "w-[25vw] h-[500px] relative p-8 rounded-lg border-yellow border-[2px]",
+            "xl:w-[30vw] md:w-[35vw] w-[28vw] h-[500px] relative p-8 rounded-lg border-yellow border-[2px]",
           cursor:
             "w-full bg-transparent  shadow-none border-b-2 border-black rounded-none ",
           tab: " h-[50px] border-none shadow-none ",
@@ -32,7 +32,7 @@ export default function Profile() {
           title={
             <div className="flex items-center gap-2">
               <img className="w-[20px]" src="/assets/edit-profile.svg" />
-              <span>{t("editProfile")}</span>
+              <span className="hidden md:block">{t("editProfile")}</span>
             </div>
           }
           className="bg-transparent flex justify-start"
@@ -48,7 +48,7 @@ export default function Profile() {
           title={
             <div className="flex items-center gap-2">
               <img className="w-[20px]" src="/assets/subscription.svg" />
-              <span>{t("subscription")}</span>
+              <span className="hidden md:block">{t("subscription")}</span>
             </div>
           }
           className="bg-transparent flex justify-start"
@@ -67,7 +67,9 @@ export default function Profile() {
                 className="w-[20px]"
                 src="/assets/protectionAndPassword.svg"
               />
-              <span>{t("protectionAndPassword")}</span>
+              <span className="hidden md:block">
+                {t("protectionAndPassword")}
+              </span>
             </div>
           }
           className="bg-transparent flex justify-start !outline-transparent"

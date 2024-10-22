@@ -8,7 +8,7 @@ function Subscription() {
       <h1 className="text-black text-[30px] font-regular">
         {t("subscription")}
       </h1>
-      <div className="flex items-center justify-between mt-12">
+      <div className="md:flex block items-center justify-between mt-12">
         <h4 className="text-black text-size22 font-semibold">
           {t("currentSubscription")}
         </h4>
@@ -21,7 +21,7 @@ function Subscription() {
         180 {t("day")}
       </p>
 
-      <div className="flex items-center justify-between mt-12">
+      <div className="md:flex block items-center justify-between mt-12">
         <h4 className="text-black text-size22 font-semibold">
           {t("subscriptionValue")}
         </h4>
