@@ -1,9 +1,21 @@
 "use client";
 import axiosInstance from "@/app/_lib/axios";
-import { Tab, Tabs } from "@nextui-org/react";
+import {
+  Spinner,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
+  Tab,
+  Tabs,
+  User,
+} from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import HistoricalData from "./historicalData";
+import React from "react";
 
 export default function CurrencyDetails({
   params,
@@ -33,6 +45,75 @@ export default function CurrencyDetails({
         <h1 className="text-center text-white text-[50px] font-semibold">
           {t("currencyCard")}
         </h1>
+
+        <div className=" w-full mt-16">
+          <Table
+            aria-label="Example static collection table"
+            classNames={{
+              table: "shadow-none p-0 m-0 ",
+              base: "bg-[#3263288] shadow-none p-0 m-0 ",
+              th: "bg-[#303c42] text-yellow py-4",
+              td: " text-white !text-size22 font-regular",
+              wrapper:
+                "bg-[#263238] rounded-tl-lg rounded-tr-lg rounded-bl-[0]  rounded-br-[0]",
+              tbody: "",
+              tr: "border-b-1 border-[#667085] last:border-none",
+            }}
+          >
+            <TableHeader>
+              <TableColumn>{t("coin")}</TableColumn>
+              <TableColumn>{t("price")}</TableColumn>
+              <TableColumn>{t("24hChange")}</TableColumn>
+              <TableColumn>{t("marketCap")}</TableColumn>
+              <TableColumn>{t("totalSupply")}</TableColumn>
+            </TableHeader>
+            <TableBody>
+              <TableRow key="1">
+                <TableCell>
+                  {" "}
+                  <User
+                    avatarProps={{ radius: "full", src: currencyDetails?.img }}
+                    description={currencyDetails?.symbol}
+                    name={currencyDetails?.name}
+                  ></User>
+                </TableCell>
+                <TableCell>
+                  <p className="text-bold text-sm capitalize">
+                    {Number.parseFloat(currencyDetails?.price_usd).toFixed(2)}{" "}
+                    {"$"}
+                  </p>
+                </TableCell>
+                <TableCell>
+                  <p
+                    className={`${
+                      currencyDetails?.percent_change_24h > 0
+                        ? "text-green-500"
+                        : "text-red-500"
+                    } text-size16 font-regular  capitalize bg-white p-2 w-[70px] rounded text-center`}
+                  >
+                    {Number.parseFloat(
+                      currencyDetails?.percent_change_24h
+                    ).toFixed(2)}
+                  </p>
+                </TableCell>
+                <TableCell>
+                  {" "}
+                  <p className="font-regular text-size16 capitalize text-start">
+                    {Number.parseFloat(currencyDetails?.market_cap_usd).toFixed(
+                      2
+                    )}{" "}
+                    {"$"}
+                  </p>
+                </TableCell>
+                <TableCell>
+                  <p className="font-regular text-size16 capitalize text-start">
+                    {currencyDetails?.total_supply}
+                  </p>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
 
         <div>
           <div className="bg-[#1E3760] mt-7 rounded-md p-4">
