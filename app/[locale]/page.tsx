@@ -66,23 +66,13 @@ export default function Home() {
             )}
           </div>
           {locale === "ar" ? (
-            <div
-              style={{
-                transform: "rotateY(0) !important",
-              }}
-              className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'
-            ></div>
+            <div className='hidden xl:block bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'></div>
           ) : (
-            <div
-              style={{
-                transform: "rotateY(180deg) !important",
-              }}
-              className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'
-            ></div>
+            <div className='hidden xl:block bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full scale-x-[-1]'></div>
           )}
         </div>
       </div>
-      <div className=" bg-white relative md:mt-[-180px] mt-20 pb-12">
+      <div className=" bg-white relative xl:mt-[-180px] mt-20 pb-12">
         <div
           className="container"
           style={{

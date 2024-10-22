@@ -58,7 +58,7 @@ export default function Header() {
     {
       name: t("currencies"),
       href: "/currencies",
-      active: isLoggedIn ? true : false,
+      active: true,
     },
     {
       name: t("contactUs"),
@@ -106,8 +106,8 @@ export default function Header() {
                         href={link.href}
                         className={
                           pathName === link.href
-                            ? "text-[18px] font-regular text-primary border-b-2 border-primary flex items-center h-full justify-between"
-                            : "text-[18px] text-black font-regular"
+                            ? "xl:text-size18 lg:text-[13px] text-size14 font-regular text-primary border-b-2 border-primary flex items-center h-full justify-between"
+                            : "xl:text-size18 lg:text-[13px] text-size14 text-black font-regular"
                         }
                       >
                         {link.name}
@@ -126,7 +126,7 @@ export default function Header() {
                                 <li key={index} className="max-w-lg">
                                   <a
                                     href={`/services#${subItem.id}`}
-                                    className="relative mx-4 py-2 text-black text-size18 font-regular"
+                                    className="relative mx-1 py-2 text-black xl:text-size18 lg:text-size14 text-size14 font-regular"
                                   >
                                     {subItem.name}
                                   </a>
@@ -146,8 +146,8 @@ export default function Header() {
                     href="/register"
                     className={
                       pathName === "/register"
-                        ? "btn-yellow !bg-primary !text-white !text-[18px] font-regular !p-2"
-                        : "btn-yellow !text-[18px] font-regular !p-2"
+                        ? "btn-yellow !bg-primary !text-white xl:text-size18 lg:text-[13px] text-size14 font-regular !p-2"
+                        : "btn-yellow xl:text-size18 lg:text-[13px] text-size14 font-regular !p-2"
                     }
                   >
                     {t("subscribe")}
@@ -157,7 +157,7 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-4 lg:hidden">
+          <div className="flex items-center gap-4 md:hidden">
             <div className="block rounded bg-gray-100 pt-3.5 text-gray-600 transition hover:text-gray-600/75">
               <button
                 onClick={toggleMenu}
@@ -197,13 +197,22 @@ export default function Header() {
                   <li key={ids}>
                     <Link
                       href={link.href}
-                      className="text-[18px] text-black font-regular"
+                      className="text-[16px] text-black font-regular"
                       onClick={closeMenu}
                     >
                       {link.name}
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href="/register"
+                    className="text-[16px] text-black font-regular"
+                    onClick={closeMenu}
+                  >
+                    {t("subscribe")}
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

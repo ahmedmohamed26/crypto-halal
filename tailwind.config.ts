@@ -11,15 +11,15 @@ const config: Config = {
   theme: {
     extend: {
       // screens: {
-      //   sm: { max: "480" },
-      //   md: { max: "991" },
-      //   lg: { max: "992" },
+      //   sm: { max: "480px" },
+      //   md: { max: "769px" },
+      //   lg: { max: "992px" },
       // },
-      screens: {
-        sm: "320px",
-        md: "481px",
-        lg: "769px",
-      },
+      // screens: {
+      //   sm: "320px",
+      //   md: "481px",
+      //   lg: "769px",
+      // },
       colors: {
         primary: "#0B2962",
         black: "#000000",
