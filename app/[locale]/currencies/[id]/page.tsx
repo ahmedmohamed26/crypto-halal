@@ -77,8 +77,8 @@ export default function CurrencyDetails({
           </h2>
         </div>
 
-        <div className="flex w-full items-start justify-between mt-16 mb-8">
-          <h6 className="text-size22 text-white font-regular mt-3">
+        <div className="lg:flex md:block w-full items-start justify-between mt-16 mb-8">
+          <h6 className="lg:text-size20 text-size16 text-white font-regular mt-3">
             معلومات اضافيه
           </h6>
           <Tabs
@@ -89,7 +89,7 @@ export default function CurrencyDetails({
             classNames={{
               cursor: "w-full bg-yellow",
               tab: "h-[50px] ",
-              tabContent: "text-white text-size18 my-4",
+              tabContent: "text-white lg:text-size18 text-size14 my-4",
               panel: "w-full",
             }}
             onSelectionChange={(e: any) => setCurrentTab(e)}

@@ -59,7 +59,7 @@ export default function Currencies() {
         setPagination(response.data.data.meta);
         setIsLoading(false);
       } catch (error: any) {
-        toast.error(t("subscriptionErrMsg"));
+        // toast.error(t("subscriptionErrMsg"));
         setIsLoading(false);
       }
     };

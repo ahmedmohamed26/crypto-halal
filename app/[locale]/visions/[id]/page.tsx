@@ -120,17 +120,16 @@ function VisualDetails({ params }: { params: { id: string } }) {
                                 {item?.title}
                               </h2>
                               <div className="flex justify-between pt-4">
-                                <span className="text-size14 font-regular text-darkGray">
+                                <span className="text-size14 lg:text-[12px] font-regular text-darkGray">
                                   {item?.date}
                                 </span>
                                 <div className="flex items-center">
                                   <img
                                     alt=""
                                     src="/assets/eye.svg"
-                                    className="mx-1"
-                                    width={18}
+                                    className="mx-1 w-5 lg:w-3"
                                   />
-                                  <span className="text-size14 font-regular text-darkGray">
+                                  <span className="text-size14 lg:text-[12px] font-regular text-darkGray">
                                     {item?.views}
                                   </span>
                                 </div>
@@ -141,7 +140,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                                   src={item?.lecturer?.image}
                                   className="h-10 w-10 object-cover rounded-full"
                                 />
-                                <h6 className="text-size14 font-regular text-yellow mx-4">
+                                <h6 className="text-size14 lg:text-[12px]  font-regular text-yellow mx-4">
                                   {item?.lecturer?.name}
                                 </h6>
                               </div>
