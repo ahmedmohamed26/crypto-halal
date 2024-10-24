@@ -195,6 +195,7 @@
     "suspect": "مشتبه به",
     "subscriptionErrMsg": "لمشاهدة باقي العملات يجب عليك تجديد الأشتراك",
     "noDataShow": "لا يوجد عملات لعرضها.",
-    "totalSupply": "إجمالي العرض"
+    "totalSupply": "إجمالي العرض",
+    "additionalInformation": "معلومات اضافيه"
   }
 }
