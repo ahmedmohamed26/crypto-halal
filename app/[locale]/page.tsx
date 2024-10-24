@@ -27,22 +27,6 @@ export default function Home() {
   }, []);
   const t = useTranslations("Home");
 
-  // useEffect(() => {
-  //   const styleSheet = document.styleSheets[0];
-  //   const keyframes = `
-  //     @keyframes fadeInBottom {
-  //       0% {
-  //         opacity: 0;
-  //         transform: translateY(50px);
-  //       }
-  //       100% {
-  //         opacity: 1;
-  //         transform: translateY(0);
-  //       }
-  //     }`;
-
-  //   styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-  // }, []);
   return (
     <div>
       <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
@@ -94,9 +78,12 @@ export default function Home() {
 
       <section className="services bg-white pt-8">
         <div className="flex justify-center  md:justify-end mt-4 container">
-          <div className=" rounded bg-[#FFBB00] px-8 py-2 font-regular text-black text-[20px]">
+          <Link
+            href="/services"
+            className=" rounded bg-[#FFBB00] px-8 py-2 font-regular text-black text-[20px]"
+          >
             {t("services")}
-          </div>
+          </Link>
         </div>
 
         <ServicesSection
