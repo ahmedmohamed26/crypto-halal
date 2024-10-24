@@ -10,6 +10,7 @@ import { toast, ToastContainer } from "react-toastify";
 function EditProfile() {
   const t = useTranslations("Register");
   const { user, setUser } = useUser();
+  const userInitial = user && user.name.charAt(0).toUpperCase();
 
   const [loadingSpinner, setLoadingSpinner] = useState(false);
 
@@ -65,6 +66,11 @@ function EditProfile() {
         theme="light"
       />
       <div className="register-form w-full">
+        <div className="w-full flex justify-center items-center">
+          <h3 className="bg-yellow rounded-full py-4 px-6  text-white text-size20 mb-8 inline-block">
+            {userInitial || "Profile"}
+          </h3>
+        </div>
         <div className="form-control  mb-9">
           <label
             htmlFor="name"
