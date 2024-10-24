@@ -35,27 +35,19 @@ export default function ProfileDropdown() {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button className="bg-yellow" variant="flat">
+        <Button className="bg-yellow" variant="flat" isIconOnly radius="full">
           <span className=" text-white text-size18">
             {userInitial || "Profile"}
           </span>
         </Button>
       </DropdownTrigger>
-      {/* <DropdownTrigger>
-        <Avatar
-          isBordered
-          as="button"
-          className="transition-transform"
-          src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-        />
-      </DropdownTrigger> */}
       <DropdownMenu
         aria-label="Static Actions"
         className="hover:bg-transparent"
       >
         <DropdownItem key="new" color={"undefined" as any}>
           <div className="w-full flex justify-center items-center">
-            <h3 className="bg-yellow rounded-full py-2 px-4  text-white text-size18 inline-block">
+            <h3 className="bg-yellow rounded-full py-3 px-4  text-white text-size18 inline-block">
               {userInitial || "Profile"}
             </h3>
           </div>
