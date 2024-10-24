@@ -12,11 +12,11 @@ export default function ChangePassword() {
 
   const schema = z
     .object({
-      oldPassword: z
+      password: z
         .string()
         .nonempty({ message: t("passwordRequiredMsg") })
         .min(6, { message: t("passwordLengthMsg") }),
-      newPassword: z
+      new_password: z
         .string()
         .nonempty({ message: t("passwordRequiredMsg") })
         .min(6, { message: t("passwordLengthMsg") }),
@@ -25,11 +25,11 @@ export default function ChangePassword() {
         .nonempty({ message: t("passwordRequiredMsg") })
         .min(6, { message: t("passwordLengthMsg") }),
     })
-    .refine((data) => data.newPassword === data.confirmNewPassword, {
+    .refine((data) => data.new_password === data.confirmNewPassword, {
       path: ["confirmNewPassword"],
       message: t("passwordsDoNotMatch"),
     })
-    .refine((data) => data.oldPassword !== data.newPassword, {
+    .refine((data) => data.password !== data.new_password, {
       path: ["newPassword"],
       message: t("passwordsOldNewDoNotMatch"),
     });
@@ -45,7 +45,9 @@ export default function ChangePassword() {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<ChangePasswordFormData> = async (data) => {
+  const onSubmit: SubmitHandler<ChangePasswordFormData> = async (formValue) => {
+    const data: any = formValue;
+    delete data.confirmNewPassword;
     setLoadingSpinner(true);
     try {
       const response = await axiosInstance.post("change-password", data);
@@ -80,11 +82,11 @@ export default function ChangePassword() {
             id="password"
             placeholder={t("currentPassword")}
             className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
-            {...register("oldPassword", { required: true })}
+            {...register("password", { required: true })}
           />{" "}
-          {errors.oldPassword && (
+          {errors.password && (
             <p className="text-red-500 text-sm mt-2">
-              {errors.oldPassword.message}
+              {errors.password.message}
             </p>
           )}
         </div>
@@ -101,11 +103,11 @@ export default function ChangePassword() {
             id="newPassword"
             placeholder={t("newPassword")}
             className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
-            {...register("newPassword", { required: true })}
+            {...register("new_password", { required: true })}
           />{" "}
-          {errors.newPassword && (
+          {errors.new_password && (
             <p className="text-red-500 text-sm mt-2">
-              {errors.newPassword.message}
+              {errors.new_password.message}
             </p>
           )}
         </div>
