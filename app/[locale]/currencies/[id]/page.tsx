@@ -160,7 +160,7 @@ export default function CurrencyDetails({
 
         <div className="lg:flex md:block w-full items-start justify-between mt-16 mb-8">
           <h6 className="lg:text-size20 text-size16 text-white font-regular mt-3">
-            معلومات اضافيه
+            {t("additionalInformation")}
           </h6>
           <Tabs
             aria-label="Options"

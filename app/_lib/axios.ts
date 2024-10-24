@@ -5,9 +5,7 @@ const axiosInstance = axios.create({
   withCredentials: false,
   withXSRFToken: true,
   headers: {
-    // "X-CSRF-TOKEN": token,
     Accept: "application/json",
-    "Accept-Language": "ar",
   },
 });
 
@@ -17,6 +15,12 @@ axiosInstance.interceptors.request.use(
     if (token && config.headers) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
+    const locale = localStorage.getItem("NEXT_LOCALE") || "ar";
+
+    if (config.headers) {
+      config.headers["Accept-Language"] = locale;
+    }
+
     return config;
   },
   (error) => {

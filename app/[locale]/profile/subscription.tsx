@@ -35,7 +35,7 @@ function Subscription() {
       </div>
       <p className="text-[#444444] text-size18 font-regular mt-8">
         {t("planDetails")} {""}
-        {profileData?.subscription?.plan?.duration} {t("day")}
+        <strong>{profileData?.subscription?.plan?.duration}</strong> {t("day")}
       </p>
 
       <div className="md:flex block items-center justify-between mt-12">
