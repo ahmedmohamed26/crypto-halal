@@ -1,108 +1,98 @@
 import {
-  DateRangePicker,
+  Spinner,
   Table,
   TableBody,
   TableCell,
   TableColumn,
   TableHeader,
   TableRow,
-  User,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import React from "react";
-export default function HistoricalData() {
+
+interface HistoricalProps {
+  historical: any;
+  isLoading: boolean;
+}
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+};
+
+export const HistoricalData: React.FC<HistoricalProps> = ({
+  historical = [],
+  isLoading,
+}) => {
   const t = useTranslations("Currencies");
 
   const columns = [
-    { name: t("coin"), uid: "coin" },
-    { name: t("price"), uid: "price" },
-    { name: t("24hChange"), uid: "hChange" },
-    { name: t("marketCap"), uid: "marketCap" },
+    { name: t("volume"), uid: "volume" },
+    { name: t("low"), uid: "low" },
+    { name: t("high"), uid: "high" },
+    { name: t("close"), uid: "close" },
+    { name: t("open"), uid: "open" },
+    { name: t("date"), uid: "timestamp" },
   ];
 
-  const users = [
-    {
-      id: 1,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 2,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 3,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 4,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-    {
-      id: 5,
-      coin: "Tony Reichert",
-      price: "3,002.77",
-      hChange: "+44.00",
-      marketCap: "B 279.58 $",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      details: "tony.reichert@example.com",
-    },
-  ];
-
-  const renderCell = React.useCallback((user: any, columnKey: any) => {
-    const cellValue = user[columnKey];
+  const renderCell = React.useCallback((item: any, columnKey: any) => {
+    const cellValue = item[columnKey];
 
     switch (columnKey) {
-      case "coin":
-        return (
-          <User
-            avatarProps={{ radius: "lg", src: user.avatar }}
-            description={user.coin}
-            name={cellValue}
-          >
-            {user.coin}
-          </User>
-        );
-      case "price":
+      case "volume":
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm capitalize text-black ">
-              {user.price}
+              {"$"} {""}
+              {parseFloat(item?.quote?.USD?.volume.toFixed(4))}
             </p>
           </div>
         );
-      case "hChange":
+      case "low":
+        return (
+          <div className="flex flex-col">
+            <p className="text-bold text-sm capitalize text-black ">
+              {"$"} {""}
+              {parseFloat(item?.quote?.USD?.low.toFixed(4))}
+            </p>
+          </div>
+        );
+      case "high":
         return (
           <div className="flex flex-col">
             <p className="text-size16 text-black text-bold text-sm capitalize">
-              {user.hChange}
+              {"$"} {""}
+              {parseFloat(item?.quote?.USD?.high.toFixed(4))}
             </p>
           </div>
         );
-      case "marketCap":
+      case "close":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize text-black ">
-              {user.marketCap}
+            <p className="text-size16 text-black text-bold text-sm capitalize">
+              {"$"} {""}
+              {parseFloat(item?.quote?.USD?.close.toFixed(4))}
+            </p>
+          </div>
+        );
+      case "open":
+        return (
+          <div className="flex flex-col">
+            <p className="text-size16 text-black text-bold text-sm capitalize">
+              {"$"} {""}
+              {parseFloat(item?.quote?.USD?.open.toFixed(4))}
+            </p>
+          </div>
+        );
+      case "timestamp":
+        return (
+          <div className="flex flex-col">
+            <p className="text-size16 text-black text-bold text-sm capitalize">
+              {formatDate(item?.quote?.USD?.timestamp)}
             </p>
           </div>
         );
@@ -114,9 +104,6 @@ export default function HistoricalData() {
 
   return (
     <>
-      <div className="flex w-full flex-wrap md:flex-nowrap">
-        <DateRangePicker visibleMonths={1} />
-      </div>
       <div className=" w-full mt-8  bg-white rounded">
         <Table
           aria-label="table with custom cells overflow-auto "
@@ -140,9 +127,15 @@ export default function HistoricalData() {
               </TableColumn>
             )}
           </TableHeader>
-          <TableBody items={users}>
-            {(item) => (
-              <TableRow key={item.id}>
+
+          <TableBody
+            items={historical}
+            isLoading={isLoading}
+            emptyContent={t("noDataShow")}
+            loadingContent={<Spinner size="lg" color="primary" />}
+          >
+            {(item: any) => (
+              <TableRow key={item?.quote?.USD?.close}>
                 {(columnKey) => (
                   <TableCell>{renderCell(item, columnKey)}</TableCell>
                 )}
@@ -153,4 +146,4 @@ export default function HistoricalData() {
       </div>
     </>
   );
-}
+};

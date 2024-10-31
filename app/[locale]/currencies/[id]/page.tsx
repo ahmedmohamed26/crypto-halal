@@ -11,11 +11,22 @@ import {
   Tab,
   Tabs,
   User,
+  DateRangePicker,
+  Button,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import HistoricalData from "./historicalData";
 import React from "react";
+import { HistoricalData } from "./historicalData";
+
+const dateFormat = (dateObj: any) => {
+  const dateStr = `${String(dateObj.year)}-${String(dateObj.month).padStart(
+    2,
+    "0"
+  )}-${String(dateObj.day).padStart(2, "0")}`;
+  const date = new Date(dateStr);
+  return date.getTime();
+};
 
 export default function CurrencyDetails({
   params,
@@ -25,19 +36,42 @@ export default function CurrencyDetails({
   const t = useTranslations("Currencies");
   const [currentTab, setCurrentTab] = useState("historicalData");
   const [currencyDetails, setCurrencyDetails] = useState<any>({});
+  const [startDate, setStartDate] = useState<any>(null);
+  const [endDate, setEndDate] = useState<any>();
+  const [isLoading, setIsLoading] = useState(true);
+  const [dateValue, setDateValue] = useState<any>(null);
+
+  const selectDate = (e: any) => {
+    setStartDate(dateFormat(e.start));
+    setEndDate(dateFormat(e.end));
+    setDateValue(e);
+  };
+
+  const setDateRange = () => {
+    setStartDate(null);
+    setEndDate(null);
+    setDateValue(null);
+  };
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`coins/${params.id}`);
+        const response = await axiosInstance.get(`coins/${params.id}`, {
+          params: {
+            start_date: startDate,
+            end_date: endDate,
+          },
+        });
         setCurrencyDetails(response.data.data);
+        setIsLoading(false);
       } catch (error) {
+        setIsLoading(false);
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
-  }, []);
+  }, [startDate, endDate]);
 
   return (
     <section className="bg-[#0b2962] py-28">
@@ -196,7 +230,26 @@ export default function CurrencyDetails({
             />
           </Tabs>
         </div>
-        {currentTab === "historicalData" ? <HistoricalData /> : null}
+        <div className="flex w-full flex-wrap md:flex-nowrap">
+          <DateRangePicker
+            visibleMonths={1}
+            onChange={(e) => selectDate(e)}
+            value={dateValue}
+            startContent={
+              <Button variant="light" onClick={() => setDateRange()} isIconOnly>
+                <span className="flex items-center justify-center w-8 h-8 text-gray-500 rounded-full border-[1px] border-green-500">
+                  X
+                </span>
+              </Button>
+            }
+          />
+        </div>
+        {currentTab === "historicalData" ? (
+          <HistoricalData
+            historical={currencyDetails.historical}
+            isLoading={isLoading}
+          />
+        ) : null}
       </div>
     </section>
   );

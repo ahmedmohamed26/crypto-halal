@@ -196,6 +196,12 @@
     "subscriptionErrMsg": "لمشاهدة باقي العملات يجب عليك تجديد الأشتراك",
     "noDataShow": "لا يوجد عملات لعرضها.",
     "totalSupply": "إجمالي العرض",
-    "additionalInformation": "معلومات اضافيه"
+    "additionalInformation": "معلومات اضافيه",
+    "volume": "مقدار",
+    "low": "الأدني",
+    "high": "الأعلي",
+    "close": "غلق",
+    "open": "فتح",
+    "date": "التاريخ"
   }
 }
