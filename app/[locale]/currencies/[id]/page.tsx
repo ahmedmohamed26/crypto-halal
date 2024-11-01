@@ -18,6 +18,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import React from "react";
 import { HistoricalData } from "./historicalData";
+import { ChartData } from "./chartData";
 
 const dateFormat = (dateObj: any) => {
   const dateStr = `${String(dateObj.year)}-${String(dateObj.month).padStart(
@@ -249,7 +250,11 @@ export default function CurrencyDetails({
             historical={currencyDetails.historical}
             isLoading={isLoading}
           />
-        ) : null}
+        ) : (
+          <div className="bg-white mt-4 rounded-md">
+            <ChartData data={currencyDetails.chart} isLoading={isLoading} />
+          </div>
+        )}
       </div>
     </section>
   );
