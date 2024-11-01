@@ -131,7 +131,7 @@ export const HistoricalData: React.FC<HistoricalProps> = ({
           <TableBody
             items={historical}
             isLoading={isLoading}
-            emptyContent={t("noDataShow")}
+            emptyContent={t("noHistoricalData")}
             loadingContent={<Spinner size="lg" color="primary" />}
           >
             {(item: any) => (
