@@ -3,13 +3,16 @@ import axiosInstance from "@/app/_lib/axios";
 import React, { useEffect, useState } from "react";
 import DOMPurify from "isomorphic-dompurify";
 import { useTranslations } from "next-intl";
+import { toast, ToastContainer } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 function Subscription() {
   const t = useTranslations("Register");
-
+  const router = useRouter();
   const [paymentMethod, setPaymentMethod] = useState("digital-currency");
   const [data, setData] = useState([]);
-  const [planId, setPlanId] = useState([]);
+  const [planId, setPlanId] = useState<number>();
+  const [loadingSpinner, setLoadingSpinner] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +27,31 @@ function Subscription() {
     fetchData();
   }, []);
 
+  const subscribeFn = async (planId: number) => {
+    setPlanId(planId);
+    setLoadingSpinner(true);
+    try {
+      let data = {
+        plan_id: planId,
+      };
+      const response = await axiosInstance.post(`subscriptions`, data);
+      setLoadingSpinner(false);
+      router.push(response.data.data.invoice_url);
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message);
+      setLoadingSpinner(false);
+    }
+  };
+
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        closeOnClick
+        rtl={false}
+        theme="light"
+      />
       <div className="bg-white  px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <h2 className="text-center font-semibold text-black text-[50px] mb-8">
           {t("chooseYourPlan")}
@@ -49,7 +75,16 @@ function Subscription() {
                   USE_PROFILES: { html: false },
                 })}
               </p>
-              <button className="btn-yellow"> اشترك الان</button>
+              <button
+                className="btn-yellow"
+                onClick={() => subscribeFn(plan.id)}
+              >
+                {loadingSpinner && planId == plan.id ? (
+                  <div className="border-white h-8 w-8 animate-spin rounded-full border-2 border-t-primary p-2" />
+                ) : (
+                  <span>{t("subscribeNow")}</span>
+                )}
+              </button>
             </div>
           ))}
         </div>

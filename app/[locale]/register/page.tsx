@@ -64,7 +64,7 @@ function Register() {
       });
       localStorage.setItem("token", token);
       toast.success(t("registerSuccessMsg"));
-      router.push("/");
+      router.push("/subscription");
     } catch (error: any) {
       setLoadingSpinner(false);
       toast.error(error?.response?.data?.message);

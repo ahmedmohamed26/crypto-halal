@@ -106,7 +106,8 @@
     "registerSuccessMsg": "تم التسجيل بنجاح",
     "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
     "save": "حفظ",
-    "chooseYourPlan": "اختر خطتك"
+    "chooseYourPlan": "اختر خطتك",
+    "subscribeNow": "اشترك الان"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
