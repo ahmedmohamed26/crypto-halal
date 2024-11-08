@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/app/_context/UserContext";
 
 function Register() {
-  const [paymentMethod, setPaymentMethod] = useState("digital-currency");
   const t = useTranslations("Register");
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const router = useRouter();
@@ -20,7 +19,6 @@ function Register() {
   const registerSchema = z
     .object({
       name: z.string().nonempty({ message: t("userNameRequiredMsg") }),
-      plan_id: z.number(),
       email: z
         .string()
         .nonempty({ message: t("emailRequiredMsg") })
@@ -47,9 +45,6 @@ function Register() {
     setError,
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<FormFields>({
-    defaultValues: {
-      plan_id: 1,
-    },
     mode: "onTouched",
     resolver: zodResolver(registerSchema),
   });
@@ -85,54 +80,7 @@ function Register() {
         rtl={false}
         theme="light"
       />
-      <form onSubmit={handleSubmit(onSubmit)} className="py-20">
-        <div className="bg-white  px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-          <h2 className="text-center font-semibold text-black text-[50px] mb-8">
-            اختر خطتك
-          </h2>
-          <div className="container grid grid-cols-1 gap-4  sm:items-stretch md:grid-cols-3 md:gap-16 text-center">
-            <div className="card px-8 py-12 bg-[#EAEAEA] rounded-md shadow-md">
-              <h2 className="text-black font-semibold text-[28px] mb-8">
-                اشتراك عادي
-                <span className="sr-only">Plan</span>
-              </h2>
-
-              <p className="text-primary font-bold text-[38px] mb-8">$ 15.00</p>
-              <p className="text-black font-regular text-size22 mb-8">
-                هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات
-                لمدة 60 يوم
-              </p>
-              <button className="btn-yellow"> اشترك الان</button>
-            </div>
-
-            <div className="card px-8 py-12 bg-[#EAEAEA] rounded-md shadow-md">
-              <h2 className="text-black font-semibold text-[28px] mb-8">
-                الخطة نصف السنوية <span className="sr-only">Plan</span>
-              </h2>
-
-              <p className="text-primary font-bold text-[38px] mb-8">$ 31.00</p>
-              <p className="text-black font-regular text-size22 mb-8">
-                هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات
-                لمدة 180 يوم
-              </p>
-              <button className="btn-yellow"> اشترك الان</button>
-            </div>
-
-            <div className="card px-8 py-12 bg-[#EAEAEA] rounded-md shadow-md">
-              <h2 className="text-black font-semibold text-[28px] mb-8">
-                الخطة السنوية<span className="sr-only">Plan</span>
-              </h2>
-
-              <p className="text-primary font-bold text-[38px] mb-8">$ 55.00</p>
-              <p className="text-black font-regular text-size22 mb-8">
-                هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات
-                لمدة 365 يوم
-              </p>
-              <button className="btn-yellow"> اشترك الان</button>
-            </div>
-          </div>
-        </div>
-
+      <form onSubmit={handleSubmit(onSubmit)} className="">
         <div className="register-form grid grid-cols-1 lg:grid-cols-2 gap-8 container px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
           <div>
             <div className="form-control  mb-9">
@@ -267,81 +215,10 @@ function Register() {
           </div>
         </div>
 
-        <div className=" bg-white  py-8">
-          <div className="container grid grid-cols-1 lg:grid-cols-2">
-            <div>
-              {/* Payment Method Section */}
-              <div>
-                <h2 className="text-size16 md:text-[28px] font-regular mb-4">
-                  اختر وسيلة للدفع مناسبة
-                </h2>
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="radio"
-                    id="digital-currency"
-                    name="payment-method"
-                    value="digital-currency"
-                    checked={paymentMethod === "digital-currency"}
-                    onChange={() => setPaymentMethod("digital-currency")}
-                    className="hidden"
-                  />
-                  <label
-                    htmlFor="digital-currency"
-                    className="flex items-center cursor-pointer bg-[#F1F7FD] px-2 py-4 rounded-lg w-full"
-                  >
-                    <div className="w-5 h-5 border border-blue-500 rounded-full flex justify-center items-center mx-2 peer-checked:bg-blue-500 peer-checked:border-transparent">
-                      {paymentMethod === "digital-currency" && (
-                        <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                      )}
-                    </div>
-                    العملات الرقمية
-                  </label>
-                </div>
-              </div>
-
-              {/* Coupon Code Section */}
-              <div className="mt-6 ">
-                <h2 className="text-size16 md:text-[28px] font-regular mb-4">
-                  أدخل رمز القسيمة
-                </h2>
-                <div className="flex">
-                  <input
-                    type="text"
-                    placeholder="أدخل رمز القسيمة"
-                    className="w-full p-3   rounded-md bg-[#F1F7FD] focus:outline-none"
-                  />
-                  <button className="btn-yellow mx-2  !text-size18 md:!text-size22">
-                    تفعيل
-                  </button>
-                </div>
-              </div>
-
-              {/* Invoice Summary Section */}
-              <div className="mt-8">
-                <h2 className="text-size16 md:text-[28px] font-regular mb-9">
-                  ملخص الفاتورة
-                </h2>
-                <div className="text-gray-600 text-[14px] md:text-size16">
-                  <p className="mb-9">
-                    الباقة المختارة:{" "}
-                    <span className="font-semibold">النسخة النصف سنوية</span>،
-                    سعر الباقة: <span className="font-semibold">USD 30.00</span>
-                  </p>
-                  <p>
-                    كوبون تخفيض: <span className="font-semibold">USD 0.00</span>{" "}
-                    المبلغ الإجمالي:{" "}
-                    <span className="font-semibold">USD 30.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-12 flex justify-center">
+        <div className="flex justify-center">
           <button
             type="submit"
-            className="btn-yellow flex justify-center"
+            className="btn-yellow flex justify-center m-10"
             disabled={!isDirty || !isValid}
           >
             {loadingSpinner ? (
