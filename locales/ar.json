@@ -105,7 +105,8 @@
     "passwordLengthMsg": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل",
     "registerSuccessMsg": "تم التسجيل بنجاح",
     "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
-    "save": "حفظ"
+    "save": "حفظ",
+    "chooseYourPlan": "اختر خطتك"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
@@ -205,5 +206,18 @@
     "date": "التاريخ",
     "noHistoricalData": "لا توجد بيانات",
     "priceUSD": "السعر (دولار أمريكي)"
+  },
+  "Subscription": {
+    "subscriptionSuccess": {
+      "title": "تم الدفع",
+      "description1": "نشكرك على إكمال عملية الدفع الآمنة عبر الإنترنت.",
+      "description2": "أتمنى لك يوماً عظيماً",
+      "goHome": "الذهاب للصفحه الرئيسية"
+    },
+    "subscriptionfailed": {
+      "title": "لم يتم الدفع",
+      "description1": "لقد حدث عطل ما ادي الى عدم اكتمال العمليه",
+      "goSubscription": "الذهاب لصفحه الأشتراك"
+    }
   }
 }

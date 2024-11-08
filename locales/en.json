@@ -204,5 +204,18 @@
     "date": "Date",
     "noHistoricalData": "No historical data",
     "priceUSD": "Price (USD)"
+  },
+  "Subscription": {
+    "subscriptionSuccess": {
+      "title": "Payment Successful",
+      "description1": "Thank you for completing the secure online payment.",
+      "description2": "Have a great day!",
+      "goHome": "Go to Home Page"
+    },
+    "subscriptionFailed": {
+      "title": "Payment Failed",
+      "description1": "Something went wrong, and the transaction was not completed.",
+      "goSubscription": "Go to Subscription Page"
+    }
   }
 }
