@@ -1,7 +1,7 @@
 "use client";
 import { Link, type Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useUser } from "../_context/UserContext";
 import LocaleSwitcher from "./LocaleSwitcher";
@@ -15,7 +15,7 @@ export default function Header() {
   const t = useTranslations("Header");
   const locale = useLocale() as Locale;
   const pathName = usePathname();
-
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,6 +28,7 @@ export default function Header() {
 
     fetchData();
   }, []);
+
   const navList = [
     {
       name: t("home"),
@@ -76,7 +77,16 @@ export default function Header() {
   };
 
   const closeMenu = () => {
+    checkLoggedIn();
     setIsOpen(false);
+  };
+
+  const checkLoggedIn = () => {
+    if (isLoggedIn) {
+      router.push("/subscription");
+    } else {
+      router.push("/register");
+    }
   };
 
   return (
@@ -142,8 +152,8 @@ export default function Header() {
 
               {!user?.subscribe_flag && (
                 <li>
-                  <Link
-                    href="/register"
+                  <button
+                    onClick={checkLoggedIn}
                     className={
                       pathName === "/register"
                         ? "btn-yellow !bg-primary !text-white xl:text-size18 lg:text-[13px] text-size14 font-regular !p-2"
@@ -151,7 +161,7 @@ export default function Header() {
                     }
                   >
                     {t("subscribe")}
-                  </Link>
+                  </button>
                 </li>
               )}
             </ul>
@@ -210,13 +220,12 @@ export default function Header() {
 
                 {!user?.subscribe_flag && (
                   <li>
-                    <Link
-                      href="/register"
+                    <button
                       className="text-[16px] text-black font-regular"
                       onClick={closeMenu}
                     >
                       {t("subscribe")}
-                    </Link>
+                    </button>
                   </li>
                 )}
               </ul>

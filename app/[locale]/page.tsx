@@ -7,12 +7,13 @@ import axiosInstance from "../_lib/axios";
 import DOMPurify from "isomorphic-dompurify";
 import { useUser } from "../_context/UserContext";
 import { Locale } from "@/i18n.config";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
   const { isLoggedIn, user } = useUser();
   const locale = useLocale() as Locale;
-
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,6 +28,14 @@ export default function Home() {
   }, []);
   const t = useTranslations("Home");
 
+  const checkLoggedIn = () => {
+    if (isLoggedIn) {
+      router.push("/subscription");
+    } else {
+      router.push("/register");
+    }
+  };
+
   return (
     <div>
       <div className="w-full relative bg-[#F1F7FD] pt-[10%]">
@@ -40,12 +49,12 @@ export default function Home() {
             </p>
             {!user?.subscribe_flag && (
               <div className="mt-[3rem]">
-                <Link
-                  href="/"
+                <button
+                  onClick={checkLoggedIn}
                   className="rounded bg-[#FFBB00] px-6 py-3 font-regular text-primary text-size24"
                 >
                   {t("subscribe")}
-                </Link>
+                </button>
               </div>
             )}
           </div>
