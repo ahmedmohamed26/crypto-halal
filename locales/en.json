@@ -10,7 +10,8 @@
     "currentSubscription": "Current Subscription",
     "planDetails": "This subscription allows you to access currency projects, rulings, and updates for a period of",
     "day": "day",
-    "renewSubscription": "Renew Subscription"
+    "renewSubscription": "Renew Subscription",
+    "noSubscriptionMsg": "No subscriptions"
   },
   "Home": {
     "appName": "Crypto Halal",
