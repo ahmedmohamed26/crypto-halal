@@ -3,13 +3,14 @@ import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 function SuccessSubscription() {
   const t = useTranslations("Subscription");
   const searchParams = useSearchParams();
   const NPIdQuery = searchParams.get("NP_id");
+  const router = useRouter();
 
   useEffect(() => {
     updatePayment();
