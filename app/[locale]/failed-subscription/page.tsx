@@ -1,3 +1,4 @@
+"use client";
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
