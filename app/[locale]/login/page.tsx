@@ -63,6 +63,7 @@ export default function Login() {
       setUser({
         email: userProfile.email,
         name: userProfile.name,
+        subscribe_flag: userProfile.subscribe_flag,
       });
 
       router.push("/");

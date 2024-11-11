@@ -10,6 +10,7 @@ import {
 interface User {
   email: string;
   name: string;
+  subscribe_flag: boolean;
 }
 
 interface UserContextProps {

@@ -11,7 +11,7 @@ import axiosInstance from "../_lib/axios";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [dataService, setDataService] = useState<any>(null);
-  const { isLoggedIn } = useUser();
+  const { isLoggedIn, user } = useUser();
   const t = useTranslations("Header");
   const locale = useLocale() as Locale;
   const pathName = usePathname();
@@ -140,7 +140,7 @@ export default function Header() {
                   )
               )}
 
-              {!isLoggedIn && (
+              {!user?.subscribe_flag && (
                 <li>
                   <Link
                     href="/register"
@@ -208,7 +208,7 @@ export default function Header() {
                     )
                 )}
 
-                {!isLoggedIn && (
+                {!user?.subscribe_flag && (
                   <li>
                     <Link
                       href="/register"
