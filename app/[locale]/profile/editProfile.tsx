@@ -47,6 +47,7 @@ function EditProfile() {
       setUser({
         email: userProfile.email,
         name: userProfile.name,
+        subscribe_flag: userProfile.subscribe_flag,
       });
       reset({ name: userProfile.name, email: userProfile.email });
       toast.success(response?.data?.message);
