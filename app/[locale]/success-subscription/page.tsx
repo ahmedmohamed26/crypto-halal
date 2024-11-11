@@ -1,4 +1,5 @@
 "use client";
+import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -11,6 +12,7 @@ function SuccessSubscription() {
   const searchParams = useSearchParams();
   const NPIdQuery = searchParams.get("NP_id");
   const router = useRouter();
+  const { setUser } = useUser();
 
   useEffect(() => {
     updatePayment();
@@ -22,6 +24,21 @@ function SuccessSubscription() {
         payment_id: NPIdQuery,
       };
       const response = await axiosInstance.post("update-payment", data);
+      fetchProfileData();
+    } catch (error: any) {
+      router.push("/");
+    }
+  };
+
+  const fetchProfileData = async () => {
+    try {
+      const response = await axiosInstance.get("profile");
+      const userProfile = response.data.data;
+      setUser({
+        email: userProfile.email,
+        name: userProfile.name,
+        subscribe_flag: userProfile.subscribe_flag,
+      });
       router.push("/currencies");
     } catch (error: any) {
       router.push("/");

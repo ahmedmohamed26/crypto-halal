@@ -10,7 +10,8 @@
     "currentSubscription": "الاشتراك الحالي",
     "planDetails": " هذا الاشتراك يمكنك من معرفة مشاريع العملات وحكمها والتحديثات لمدة",
     "day": "يوم",
-    "renewSubscription": "تجديد الاشتراك"
+    "renewSubscription": "تجديد الاشتراك",
+    "noSubscriptionMsg": "لا توجد أشتراكات"
   },
   "Home": {
     "appName": "كريبتو حلال",
