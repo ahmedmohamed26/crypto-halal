@@ -10,7 +10,7 @@ import { Locale } from "@/i18n.config";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
-  const { isLoggedIn } = useUser();
+  const { isLoggedIn, user } = useUser();
   const locale = useLocale() as Locale;
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Home() {
             <p className="text-black md:text-[28px] text-[1rem] font-medium mt-[3rem]">
               {t("description")}
             </p>
-            {!isLoggedIn && (
+            {!user?.subscribe_flag && (
               <div className="mt-[3rem]">
                 <Link
                   href="/"

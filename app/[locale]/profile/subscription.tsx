@@ -1,5 +1,6 @@
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
 
@@ -38,20 +39,22 @@ function Subscription() {
         <strong>{profileData?.subscription?.plan?.duration}</strong> {t("day")}
       </p>
 
-      <div className="md:flex block items-center justify-between mt-12">
-        <h4 className="text-black text-size22 font-semibold">
-          {t("subscriptionValue")}
-        </h4>
-        <h4 className="text-primary text-size20 font-regular">
-          USD {profileData?.subscription?.plan?.price}
-        </h4>
-      </div>
+      {!profileData?.subscribe_flag && (
+        <div className="md:flex block items-center justify-between mt-12">
+          <h4 className="text-black text-size22 font-semibold">
+            {t("subscriptionValue")}
+          </h4>
+          <h4 className="text-primary text-size20 font-regular">
+            USD {profileData?.subscription?.plan?.price}
+          </h4>
+        </div>
+      )}
 
       <div className="flex items-center justify-center mt-12">
         {!profileData?.subscribe_flag && (
-          <button className="btn-yellow !text-size18">
+          <Link href="/subscription" className="btn-yellow !text-size18">
             {t("renewSubscription")}
-          </button>
+          </Link>
         )}
       </div>
     </section>

@@ -1,9 +1,31 @@
+import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import React from "react";
+import { useSearchParams } from "next/navigation";
+import router from "next/router";
+import React, { useEffect } from "react";
 
 function FailedSubscription() {
   const t = useTranslations("Subscription");
+
+  const searchParams = useSearchParams();
+  const NPIdQuery = searchParams.get("NP_id");
+
+  useEffect(() => {
+    updatePayment();
+  }, [NPIdQuery]);
+
+  const updatePayment = async () => {
+    try {
+      const data: any = {
+        payment_id: NPIdQuery,
+      };
+      const response = await axiosInstance.post("update-payment", data);
+      router.push("/subscription");
+    } catch (error: any) {
+      router.push("/subscription");
+    }
+  };
 
   return (
     <div className="bg-white h-[70vh] flex items-center">

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import DOMPurify from "isomorphic-dompurify";
 import { useTranslations } from "next-intl";
 import { toast, ToastContainer } from "react-toastify";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 function Subscription() {
   const t = useTranslations("Register");
@@ -13,8 +13,7 @@ function Subscription() {
   const [data, setData] = useState([]);
   const [planId, setPlanId] = useState<number>();
   const [loadingSpinner, setLoadingSpinner] = useState(true);
-  const searchParams = useSearchParams();
-  // const search = searchParams.get('search')
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,8 +25,7 @@ function Subscription() {
     };
 
     fetchData();
-    console.log(searchParams);
-  }, [searchParams]);
+  }, []);
 
   const subscribeFn = async (planId: number) => {
     setPlanId(planId);
