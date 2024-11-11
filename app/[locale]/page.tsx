@@ -41,7 +41,7 @@ export default function Home() {
             {!user?.subscribe_flag && (
               <div className="mt-[3rem]">
                 <Link
-                  href="/"
+                  href="/subscription"
                   className="rounded bg-[#FFBB00] px-6 py-3 font-regular text-primary text-size24"
                 >
                   {t("subscribe")}
