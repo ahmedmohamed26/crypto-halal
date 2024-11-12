@@ -5,6 +5,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { useTranslations } from "next-intl";
 import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/app/_context/UserContext";
 
 function Subscription() {
   const t = useTranslations("Register");
@@ -12,7 +13,12 @@ function Subscription() {
   const [paymentMethod, setPaymentMethod] = useState("digital-currency");
   const [data, setData] = useState([]);
   const [planId, setPlanId] = useState<number>();
-  const [loadingSpinner, setLoadingSpinner] = useState(true);
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+  const [couponLoadingSpinner, setCouponLoadingSpinner] = useState(false);
+
+  const [couponValue, setCouponValue] = useState<string>("");
+  const [couponDetails, setCouponDetails] = useState<any>(null);
+  const { user } = useUser();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +39,7 @@ function Subscription() {
     try {
       let data = {
         plan_id: planId,
+        coupon: couponValue,
       };
       const response = await axiosInstance.post(`subscriptions`, data);
       setLoadingSpinner(false);
@@ -40,6 +47,26 @@ function Subscription() {
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
       setLoadingSpinner(false);
+    }
+  };
+
+  const handleInputChange = (e: any) => {
+    setCouponValue(e.target.value);
+  };
+
+  const checkCoupon = async () => {
+    setCouponLoadingSpinner(true);
+    let data = {
+      email: user?.email,
+      coupon: couponValue,
+    };
+    try {
+      const response = await axiosInstance.post("check-coupon", data);
+      setCouponDetails(response.data.data);
+      setCouponLoadingSpinner(false);
+    } catch (error: any) {
+      setCouponLoadingSpinner(false);
+      toast.error(error?.response?.data?.message);
     }
   };
 
@@ -131,29 +158,42 @@ function Subscription() {
                 <input
                   type="text"
                   placeholder="أدخل رمز القسيمة"
-                  className="w-full p-3   rounded-md bg-[#F1F7FD] focus:outline-none"
+                  className="w-full p-3  rounded-md bg-[#F1F7FD] focus:outline-none"
+                  value={couponValue}
+                  onChange={handleInputChange}
                 />
-                <button className="btn-yellow mx-2  !text-size18 md:!text-size22">
-                  تفعيل
+                <button
+                  className="btn-yellow mx-2 !text-size18 md:!text-size22"
+                  onClick={checkCoupon}
+                >
+                  {couponLoadingSpinner ? (
+                    <div className="border-white h-8 w-8 animate-spin rounded-full border-2 border-t-primary p-2" />
+                  ) : (
+                    <span>تفعيل</span>
+                  )}
                 </button>
               </div>
             </div>
 
             {/* Invoice Summary Section */}
             <div className="mt-8">
-              <h2 className="text-size16 md:text-[28px] font-regular mb-9">
+              {/* <h2 className="text-size16 md:text-[28px] font-regular mb-9">
                 ملخص الفاتورة
-              </h2>
+              </h2> */}
               <div className="text-gray-600 text-[14px] md:text-size16">
-                <p className="mb-9">
+                {/* <p className="mb-9">
                   الباقة المختارة:{" "}
                   <span className="font-semibold">النسخة النصف سنوية</span>، سعر
                   الباقة: <span className="font-semibold">USD 30.00</span>
-                </p>
+                </p> */}
                 <p>
-                  كوبون تخفيض: <span className="font-semibold">USD 0.00</span>{" "}
-                  المبلغ الإجمالي:{" "}
-                  <span className="font-semibold">USD 30.00</span>
+                  كوبون تخفيض :{" "}
+                  <span className="font-semibold">
+                    USD{" "}
+                    {couponDetails?.discount ? couponDetails?.discount : "0.00"}
+                  </span>{" "}
+                  {/* المبلغ الإجمالي:{" "} */}
+                  {/* <span className="font-semibold">USD 30.00</span> */}
                 </p>
               </div>
             </div>

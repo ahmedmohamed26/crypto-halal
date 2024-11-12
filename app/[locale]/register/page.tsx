@@ -61,7 +61,7 @@ function Register() {
       setUser({
         email: userProfile.email,
         name: userProfile.name,
-        subscribe_flag: userProfile.subscribe_flag,
+        subscribe_flag: true,
       });
       localStorage.setItem("token", token);
       toast.success(t("registerSuccessMsg"));
