@@ -108,7 +108,8 @@
     "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
     "save": "حفظ",
     "chooseYourPlan": "اختر خطتك",
-    "subscribeNow": "اشترك الان"
+    "subscribeNow": "اشترك الان",
+    "paymentTitle": "حاله الدفع"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
