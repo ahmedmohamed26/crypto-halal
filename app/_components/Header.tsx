@@ -150,7 +150,7 @@ export default function Header() {
                   )
               )}
 
-              {!user?.subscribe_flag && (
+              {user?.subscribe_flag && (
                 <li>
                   <button
                     onClick={checkLoggedIn}
@@ -218,7 +218,7 @@ export default function Header() {
                     )
                 )}
 
-                {!user?.subscribe_flag && (
+                {user?.subscribe_flag && (
                   <li>
                     <button
                       className="text-[16px] text-black font-regular"
