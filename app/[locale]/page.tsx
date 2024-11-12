@@ -47,7 +47,7 @@ export default function Home() {
             <p className="text-black md:text-[28px] text-[1rem] font-medium mt-[3rem]">
               {t("description")}
             </p>
-            {!user?.subscribe_flag && (
+            {user?.subscribe_flag && (
               <div className="mt-[3rem]">
                 <button
                   onClick={checkLoggedIn}
