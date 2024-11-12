@@ -100,8 +100,12 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       </div>
 
       <div className="video-container mt-16">
-        <PdfViewer src={researchDetails?.pdf} fileName="sample.pdf" />
+        <PdfViewer
+          src="https://yalla.redgits.com/assets/uploads/1728835262-sample.pdf"
+          fileName="sample.pdf"
+        />
         {/* researchDetails?.pdf */}
+        {/* "https://pdfobject.com/pdf/sample.pdf" */}
       </div>
 
       {researchDetails?.similers?.length ? (

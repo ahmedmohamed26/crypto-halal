@@ -1,3 +1,4 @@
+import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { useEffect, useState } from "react";
 function Subscription() {
   const t = useTranslations("Profile");
   const [profileData, setProfileData] = useState<any>({});
+  const { isLoggedIn } = useUser();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +63,7 @@ function Subscription() {
       )}
 
       <div className="flex items-center justify-center mt-12">
-        {profileData?.subscribe_flag && (
+        {(profileData?.subscribe_flag || !isLoggedIn) && (
           <Link href="/subscription" className="btn-yellow !text-size18">
             {t("renewSubscription")}
           </Link>

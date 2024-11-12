@@ -1,3 +1,4 @@
+import ProtectedPage from "@/app/_components/ProtectedPage";
 import { getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
 
@@ -18,6 +19,10 @@ export async function generateMetadata({ params: { locale } }: Params) {
   };
 }
 const PageLayout: React.FC<LayoutProps> = ({ children }) => {
-  return <main>{children}</main>;
+  return (
+    <main>
+      <ProtectedPage> {children}</ProtectedPage>
+    </main>
+  );
 };
 export default PageLayout;

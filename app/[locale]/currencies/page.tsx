@@ -23,12 +23,13 @@ export default function Currencies() {
   const t = useTranslations("Currencies");
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [judgementStatus, setJudgementStatus] = useState<string>("available");
+  const [judgementStatus, setJudgementStatus] = useState<any>(null);
   const [searchKey, setSearchKey] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [pagination, setPagination] = useState<any>({});
   const locale = useLocale();
   const judgements = [
+    { key: "", label: t("allJudgement") },
     { key: "available", label: t("available") },
     { key: "unavailable", label: t("unavailable") },
     { key: "suspect", label: t("suspect") },
@@ -178,11 +179,6 @@ export default function Currencies() {
     }
   }, []);
 
-  const currencies = [
-    { key: "1", label: "USD" },
-    { key: "2", label: "EGP" },
-  ];
-
   return (
     <section
       className="py-28"
@@ -240,29 +236,20 @@ export default function Currencies() {
           />
 
           <div className="md:flex md:flex-row sm:flex-col items-center justify-between w-full md:w-[30%]">
-            <div className="w-full md:w-[60%] mb-4 md:mb-0">
+            <div className="w-full mb-4 md:mb-0">
               <div>
                 <Select
                   placeholder={t("provisions")}
                   classNames={{
                     label: "!text-white",
                   }}
-                  defaultSelectedKeys={[judgementStatus]}
+                  defaultSelectedKeys={[""]}
                   onChange={(e) => setJudgementStatus(e.target.value)}
                 >
                   {judgements.map((judgement) => (
                     <SelectItem key={judgement.key}>
                       {judgement.label}
                     </SelectItem>
-                  ))}
-                </Select>
-              </div>
-            </div>
-            <div className="w-full md:w-[30%]">
-              <div>
-                <Select placeholder={t("currency")}>
-                  {currencies.map((currency) => (
-                    <SelectItem key={currency.key}>{currency.label}</SelectItem>
                   ))}
                 </Select>
               </div>

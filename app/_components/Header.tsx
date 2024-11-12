@@ -150,12 +150,12 @@ export default function Header() {
                   )
               )}
 
-              {user?.subscribe_flag && (
+              {(user?.subscribe_flag || !isLoggedIn) && (
                 <li>
                   <button
                     onClick={checkLoggedIn}
                     className={
-                      pathName === "/register"
+                      pathName === "/register" || pathName === "/subscription"
                         ? "btn-yellow !bg-primary !text-white xl:text-size18 lg:text-[13px] text-size14 font-regular !p-2"
                         : "btn-yellow xl:text-size18 lg:text-[13px] text-size14 font-regular !p-2"
                     }
