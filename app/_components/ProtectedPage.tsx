@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import { useUser } from "../_context/UserContext";
+import { useUser } from "@/app/_context/UserContext";
 
 interface ProtectedPageProps {
   children: ReactNode;
@@ -14,11 +14,12 @@ export default function ProtectedPage({ children }: ProtectedPageProps) {
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/");
+      console.log("User not logged in, redirecting...");
     }
   }, [isLoggedIn, router]);
 
   if (!isLoggedIn) {
-    return <p>Redirecting...</p>; // Optional: Show a loading message
+    return <p>Redirecting...</p>;
   }
 
   return <>{children}</>;

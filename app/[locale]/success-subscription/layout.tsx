@@ -1,4 +1,4 @@
-// import ProtectedPage from "@/app/_components/ProtectedPage";
+import ProtectedPage from "@/app/_components/ProtectedPage";
 import { getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
 
@@ -15,14 +15,13 @@ export async function generateMetadata({ params: { locale } }: Params) {
   const t = await getTranslations({ locale, namespace: "Register" });
 
   return {
-    title: t("signup"),
+    title: t("paymentTitle"),
   };
 }
 const PageLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <main>
-      {/* <ProtectedPage> </ProtectedPage> */}
-      {children}
+      <ProtectedPage> {children}</ProtectedPage>
     </main>
   );
 };
