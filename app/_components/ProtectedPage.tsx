@@ -12,15 +12,10 @@ export default function ProtectedPage({ children }: ProtectedPageProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (isLoggedIn === false) {
       router.push("/");
-      console.log("User not logged in, redirecting...");
     }
   }, [isLoggedIn, router]);
-
-  if (!isLoggedIn) {
-    return <p>Redirecting...</p>;
-  }
 
   return <>{children}</>;
 }

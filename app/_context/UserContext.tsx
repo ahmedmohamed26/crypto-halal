@@ -17,29 +17,34 @@ interface UserContextProps {
   user: User | null;
   setUser: (user: User) => void;
   clearUser: () => void;
-  isLoggedIn: boolean;
+  isLoggedIn: boolean | null;
 }
 
 const UserContext = createContext<UserContextProps | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUserState] = useState<User | null>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    const token = localStorage.getItem("token");
+    // Run this code only in the browser
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      const token = localStorage.getItem("token");
 
-    if (storedUser) {
-      setUserState(JSON.parse(storedUser));
+      if (storedUser && token) {
+        setUserState(JSON.parse(storedUser));
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
     }
-
-    setIsLoggedIn(!!token);
   }, []);
 
   const setUser = (user: User) => {
     setUserState(user);
     localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", "your_token_value");
     setIsLoggedIn(true);
   };
 

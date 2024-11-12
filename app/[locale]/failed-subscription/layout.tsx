@@ -15,7 +15,7 @@ export async function generateMetadata({ params: { locale } }: Params) {
   const t = await getTranslations({ locale, namespace: "Register" });
 
   return {
-    title: t("signup"),
+    title: t("paymentTitle"),
   };
 }
 const PageLayout: React.FC<LayoutProps> = ({ children }) => {
