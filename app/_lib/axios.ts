@@ -6,6 +6,7 @@ const axiosInstance = axios.create({
   withXSRFToken: true,
   headers: {
     Accept: "application/json",
+    "Access-Control-Allow-Origin": "*",
   },
 });
 
