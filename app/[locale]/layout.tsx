@@ -7,6 +7,7 @@ import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
 import Footer from "../_components/Footer";
 import { NextUIProvider } from "@nextui-org/react";
+import FloatingIcon from "../_components/telegramIcon";
 
 const cairo = Cairo({
   weight: ["300", "400", "500", "700"],
@@ -46,7 +47,10 @@ export default function RootLayout({
           <NextUIProvider>
             <NextIntlClientProvider messages={messages}>
               <Header />
-              <div className="mt-[100px]">{children}</div>
+              <div className="mt-[100px]">
+                <FloatingIcon />
+                {children}
+              </div>
               <Footer />
             </NextIntlClientProvider>
           </NextUIProvider>

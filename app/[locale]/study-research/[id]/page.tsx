@@ -3,13 +3,10 @@ import Card from "@/app/_components/card";
 import ShareIcons from "@/app/_components/share-icons";
 import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
-import PdfViewer from "@lmtri/react-pdf-viewer";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
 import { toast, ToastContainer } from "react-toastify";
 
 function StudyResearchDetails({ params }: { params: { id: string } }) {

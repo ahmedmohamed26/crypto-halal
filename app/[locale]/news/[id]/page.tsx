@@ -18,12 +18,14 @@ function NewsDetails({ params }: { params: { id: string } }) {
   const { isLoggedIn } = useUser();
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const pathname = usePathname();
+  const [imgSrc, setImgSrc] = useState("/assets/logo.png");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get(`news/${params.id}`);
         setNewsDetails(response.data.data);
+        setImgSrc(response.data.data.image);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -68,7 +70,12 @@ function NewsDetails({ params }: { params: { id: string } }) {
       <div className="py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 ">
           <div className="col-span-8 bg-white p-10">
-            <img src={newsDetails?.image} className="w-full h-[400px]" />
+            <img
+              src={imgSrc}
+              className="w-full h-[400px]"
+              onError={() => setImgSrc("/assets/logo.svg")}
+              alt="News Image"
+            />
             <h1 className="mt-8 text-primary text-size22 md:text-[38px] gont-medium">
               {newsDetails?.title}
             </h1>
