@@ -1,33 +1,23 @@
-import { useState } from "react";
-import { useUser } from "../_context/UserContext";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
 import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
   Button,
-  Avatar,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
 } from "@nextui-org/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import axiosInstance from "../_lib/axios";
+import { useRouter } from "next/navigation";
+import { useUser } from "../_context/UserContext";
 
 export default function ProfileDropdown() {
-  const [isOpen, setIsOpen] = useState(false);
   const { user, clearUser } = useUser();
   const t = useTranslations("Profile");
   const router = useRouter();
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
 
-  const handleLogout = async () => {
-    try {
-      const response = await axiosInstance.get("logout");
-      clearUser();
-      router.push("/login");
-    } catch (error: any) {}
+  const handleLogout = () => {
+    clearUser();
+    router.push("/login");
   };
 
   const userInitial = user && user.name.charAt(0).toUpperCase();

@@ -9,7 +9,7 @@ interface CardNewsProps {
 const CardNews: React.FC<CardNewsProps> = ({ item }) => {
   const t = useTranslations("News");
   return (
-    <div className="bg-white overflow-hidden rounded-md shadow-md p-6">
+    <div className="bg-white overflow-hidden rounded-md shadow-md p-6 ">
       {/* <img
         alt=""
         src={item?.image}
@@ -19,7 +19,7 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
         {item?.title}
       </h2>
 
-      <p className="title text-black  text-[14px] md:text-size20 font-regular mt-6 text-ellipsis line-clamp-3">
+      <p className="title text-black  text-[14px] md:text-size20 font-regular mt-6 text-ellipsis line-clamp-1">
         {DOMPurify.sanitize(item?.desc, {
           USE_PROFILES: { html: false },
         })}

@@ -67,19 +67,17 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         rtl={false}
         theme="light"
       />
-      <h1 className="text-primary text-size22 md:text-[38px] font-regular  mb-4">
+      <img
+        src={researchDetails?.image}
+        className="w-[30vw] h-[400px] rounded-md"
+      />
+      <h1 className="text-primary text-size22 md:text-[38px] font-regular my-4">
         {researchDetails?.title}
       </h1>
       <div className="flex items-center">
         <span className="text-[#475467] text-size16 font-regular">
           {researchDetails?.date}
         </span>
-        {/* <div className="flex items-center ms-3">
-          <img alt="" src="/assets/clock.svg" className="mx-2" />
-          <span className="text-size16 font-regular text-darkGray">
-            {researchDetails?.duration}
-          </span>
-        </div> */}
 
         <div className="flex items-center ms-3">
           <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
@@ -100,9 +98,13 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       </div>
 
       <div className="video-container mt-16">
-        <PdfViewer src={researchDetails?.pdf} fileName="sample.pdf" />
-        {/* researchDetails?.pdf */}
-        {/* "https://pdfobject.com/pdf/sample.pdf" */}
+        <a
+          className="btn-yellow !text-size18"
+          href={researchDetails?.pdf}
+          target="_blank"
+        >
+          {t("readResearch")}
+        </a>
       </div>
 
       {researchDetails?.similers?.length ? (
