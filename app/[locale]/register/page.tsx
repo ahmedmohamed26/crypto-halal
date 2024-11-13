@@ -18,7 +18,8 @@ function Register() {
 
   const registerSchema = z
     .object({
-      name: z.string().nonempty({ message: t("userNameRequiredMsg") }),
+      name: z.string().nonempty({ message: t("userRequiredMsg") }),
+      username: z.string().nonempty({ message: t("userNameRequiredMsg") }),
       email: z
         .string()
         .nonempty({ message: t("emailRequiredMsg") })
@@ -89,12 +90,12 @@ function Register() {
                 htmlFor="name"
                 className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
-                {t("userName")}
+                {t("name")}
               </label>
               <input
                 type="text"
                 id="name"
-                placeholder={t("userName")}
+                placeholder={t("name")}
                 className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
                 {...register("name", {
                   required: true,
@@ -103,6 +104,28 @@ function Register() {
               {errors.name && (
                 <p className="text-red-500 text-sm mt-2">
                   {errors.name.message}
+                </p>
+              )}
+            </div>
+            <div className="form-control  mb-9">
+              <label
+                htmlFor="userName"
+                className="block text-black text-size18 md:text-size22 font-regular mb-4"
+              >
+                {t("userName")}
+              </label>
+              <input
+                type="text"
+                id="userName"
+                placeholder={t("userName")}
+                className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
+                {...register("username", {
+                  required: true,
+                })}
+              />
+              {errors.username && (
+                <p className="text-red-500 text-sm mt-2">
+                  {errors.username.message}
                 </p>
               )}
             </div>

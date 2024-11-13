@@ -20,10 +20,7 @@ export default function Login() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const loginSchema = z.object({
-    email: z
-      .string()
-      .nonempty({ message: t("emailRequiredMsg") })
-      .email(t("validEmailMsg")),
+    username: z.string().nonempty({ message: t("userNameRequiredMsg") }),
     password: z
       .string()
       .nonempty({ message: t("passwordRequiredMsg") })
@@ -90,23 +87,23 @@ export default function Login() {
           <div>
             <div className="mb-9 form-control">
               <label
-                htmlFor="email"
+                htmlFor="userName"
                 className="block text-black text-size18 md:text-size22 font-regular mb-4"
               >
-                {t("email")}
+                {t("userName")}
               </label>
               <input
                 type="text"
-                id="email"
-                placeholder={t("email")}
+                id="userName"
+                placeholder={t("userName")}
                 className="w-full rounded-md  shadow-sm sm:text-sm h-[50px] text-black border indent-2.5 !outline-none"
-                {...register("email", {
+                {...register("username", {
                   required: true,
                 })}
               />
-              {errors.email && (
+              {errors.username && (
                 <p className="text-red-500 text-sm mt-2">
-                  {errors.email.message}
+                  {errors.username.message}
                 </p>
               )}
             </div>
