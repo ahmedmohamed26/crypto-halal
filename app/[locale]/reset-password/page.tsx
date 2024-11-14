@@ -37,9 +37,9 @@ export default function ResetPassword() {
     handleSubmit,
     formState: { errors, isDirty, isValid },
   } = useForm<FormFields>({
-    defaultValues: {
-      code: "4444",
-    },
+    // defaultValues: {
+    //   code: "4444",
+    // },
     mode: "onTouched",
     resolver: zodResolver(loginSchema),
   });
