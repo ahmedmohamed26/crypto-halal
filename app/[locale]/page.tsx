@@ -1,20 +1,13 @@
 "use client";
+import { Locale } from "@/i18n.config";
+import DOMPurify from "isomorphic-dompurify";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import axiosInstance from "../_lib/axios";
-import DOMPurify from "isomorphic-dompurify";
-import { useUser } from "../_context/UserContext";
-import { Locale } from "@/i18n.config";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
-
-const ServicesSection = dynamic(
-  () => import("../_components/services-section"),
-  {
-    ssr: false,
-  }
-);
+import { useEffect, useState } from "react";
+import ServicesSection from "../_components/services-section";
+import { useUser } from "../_context/UserContext";
+import axiosInstance from "../_lib/axios";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);

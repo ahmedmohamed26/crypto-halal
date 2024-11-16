@@ -1,19 +1,10 @@
 "use client";
 
-import React from "react";
-import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import dynamic from "next/dynamic";
-
-const Subscription = dynamic(() => import("./subscription"), {
-  ssr: false,
-});
-const ChangePassword = dynamic(() => import("./changePassword"), {
-  ssr: false,
-});
-const EditProfile = dynamic(() => import("./editProfile"), {
-  ssr: false,
-});
+import ChangePassword from "./changePassword";
+import EditProfile from "./editProfile";
+import Subscription from "./subscription";
 
 export default function Profile() {
   const t = useTranslations("Profile");

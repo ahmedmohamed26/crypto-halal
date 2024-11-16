@@ -1,13 +1,9 @@
 "use client";
+import CardNews from "@/app/_components/newCard";
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-
-const CardNews = dynamic(() => import("@/app/_components/newCard"), {
-  ssr: false,
-});
 
 function News() {
   const t = useTranslations("News");
