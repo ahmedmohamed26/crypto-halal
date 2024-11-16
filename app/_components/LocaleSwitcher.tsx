@@ -19,7 +19,7 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
     document.cookie = `NEXT_LOCALE=${newLocale}`;
 
     localStorage.setItem("NEXT_LOCALE", newLocale);
-    router.replace(pathname, { locale: newLocale });
+    router.push(pathname, { locale: newLocale });
   };
 
   return (

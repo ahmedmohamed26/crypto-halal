@@ -3,9 +3,17 @@
 import React from "react";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import EditProfile from "./editProfile";
-import Subscription from "./subscription";
-import ChangePassword from "./changePassword";
+import dynamic from "next/dynamic";
+
+const Subscription = dynamic(() => import("./subscription"), {
+  ssr: false,
+});
+const ChangePassword = dynamic(() => import("./changePassword"), {
+  ssr: false,
+});
+const EditProfile = dynamic(() => import("./editProfile"), {
+  ssr: false,
+});
 
 export default function Profile() {
   const t = useTranslations("Profile");

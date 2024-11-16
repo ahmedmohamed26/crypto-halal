@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { locales, type Locale } from "./i18n.config";
 
 // Define the default locale
-export const defaultLocale: Locale = "ar";
+export let defaultLocale: Locale;
 
 export default getRequestConfig(async ({ locale }) => {
   if (!locales.includes(locale as Locale)) {

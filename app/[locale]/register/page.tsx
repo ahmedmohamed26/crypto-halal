@@ -1,14 +1,14 @@
 "use client";
+import { useUser } from "@/app/_context/UserContext";
+import axiosInstance from "@/app/_lib/axios";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import axiosInstance from "@/app/_lib/axios";
-import { useRouter } from "next/navigation";
-import { useUser } from "@/app/_context/UserContext";
 
 function Register() {
   const t = useTranslations("Register");
