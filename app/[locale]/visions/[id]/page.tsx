@@ -1,5 +1,4 @@
 "use client";
-import Card from "@/app/_components/card";
 import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
@@ -7,7 +6,14 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import ShareIcons from "@/app/_components/share-icons";
+
+import dynamic from "next/dynamic";
+const Card = dynamic(() => import("@/app/_components/card"), {
+  ssr: false,
+});
+const ShareIcons = dynamic(() => import("@/app/_components/share-icons"), {
+  ssr: false,
+});
 
 function VisualDetails({ params }: { params: { id: string } }) {
   const [visualDetails, setVisualDetails] = useState<any>({});

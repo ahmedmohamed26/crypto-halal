@@ -2,14 +2,21 @@ import { NextUIProvider } from "@nextui-org/react";
 import { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Cairo } from "next/font/google";
-import Footer from "../_components/Footer";
-import Header from "../_components/Header";
 
-import FloatingIcon from "../_components/telegramIcon";
 import { UserProvider } from "../_context/UserContext";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
-import { Suspense } from "react";
+import dynamic from "next/dynamic";
+
+const Footer = dynamic(() => import("../_components/Footer"), {
+  ssr: false,
+});
+const Header = dynamic(() => import("../_components/Header"), {
+  ssr: false,
+});
+const FloatingIcon = dynamic(() => import("../_components/telegramIcon"), {
+  ssr: false,
+});
 
 const cairo = Cairo({
   weight: ["300", "400", "500", "700"],
@@ -51,9 +58,7 @@ export default function RootLayout({
               <Header />
               <div className="mt-[100px]">
                 <FloatingIcon />
-                <Suspense fallback={<p>Loading feed...</p>}>
-                  {children}
-                </Suspense>
+                {children}
               </div>
               <Footer />
             </NextIntlClientProvider>
