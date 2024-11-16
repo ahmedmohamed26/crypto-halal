@@ -16,9 +16,7 @@ function StudyAndResearch() {
         const response = await axiosInstance.get("researches?limit=10&page=1");
         setData(response.data.data.items);
         setPagination(response.data.data.meta);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();

@@ -53,7 +53,9 @@ function EditProfile() {
       toast.success(response?.data?.message);
     } catch (error: any) {
       setLoadingSpinner(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
     }
   };
 

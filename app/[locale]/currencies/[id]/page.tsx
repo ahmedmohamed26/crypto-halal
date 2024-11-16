@@ -68,7 +68,6 @@ export default function CurrencyDetails({
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
-        console.error("Error fetching data:", error);
       }
     };
     fetchData();

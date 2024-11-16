@@ -69,7 +69,9 @@ function Register() {
       router.push("/subscription");
     } catch (error: any) {
       setLoadingSpinner(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
     }
   };
 

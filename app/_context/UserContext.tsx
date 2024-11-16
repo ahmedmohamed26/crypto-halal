@@ -44,7 +44,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const setUser = (user: User) => {
     setUserState(user);
     localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("token", "your_token_value");
     setIsLoggedIn(true);
   };
 

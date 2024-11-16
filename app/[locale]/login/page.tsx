@@ -7,7 +7,7 @@ import { Button, useDisclosure } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import * as z from "zod";
@@ -49,7 +49,9 @@ export default function Login() {
       toast.success(t("loginSuccessMsg"));
     } catch (error: any) {
       setLoadingSpinner(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
     }
   };
 
@@ -65,7 +67,9 @@ export default function Login() {
 
       router.push("/");
     } catch (error: any) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
     }
   };
 
@@ -75,8 +79,10 @@ export default function Login() {
         position="top-right"
         autoClose={5000}
         closeOnClick
-        rtl={false}
+        rtl={true}
         theme="light"
+        limit={1}
+        containerId="one"
       />
 
       <h1 className="text-black text-size22 md:text-[4rem] font-regular text-center mb-12">

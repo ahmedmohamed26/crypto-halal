@@ -18,7 +18,6 @@ function Visions() {
         setData(response.data.data.items);
         setPagination(response.data.data.meta);
       } catch (error) {
-        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }

@@ -23,9 +23,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       try {
         const response = await axiosInstance.get(`researches/${params.id}`);
         setResearchDetails(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();
@@ -44,7 +42,9 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       setIsDisabled(true);
       setLoadingSpinner(false);
     } catch (error: any) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
       setLoadingSpinner(false);
     }
   };

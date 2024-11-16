@@ -43,7 +43,9 @@ export default function Footer() {
       reset();
     } catch (error: any) {
       setLoadingSpinner(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
     }
   };
 
@@ -52,9 +54,7 @@ export default function Footer() {
       try {
         const response = await axiosInstance.get("info");
         setDataInfo(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();

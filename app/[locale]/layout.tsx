@@ -1,13 +1,14 @@
+import { NextUIProvider } from "@nextui-org/react";
 import { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Cairo } from "next/font/google";
+import Footer from "../_components/Footer";
 import Header from "../_components/Header";
+
+import FloatingIcon from "../_components/telegramIcon";
 import { UserProvider } from "../_context/UserContext";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
-import Footer from "../_components/Footer";
-import { NextUIProvider } from "@nextui-org/react";
-import FloatingIcon from "../_components/telegramIcon";
 
 const cairo = Cairo({
   weight: ["300", "400", "500", "700"],

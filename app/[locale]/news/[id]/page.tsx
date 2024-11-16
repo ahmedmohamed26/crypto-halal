@@ -26,9 +26,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
         const response = await axiosInstance.get(`news/${params.id}`);
         setNewsDetails(response.data.data);
         setImgSrc(response.data.data.image);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();
@@ -47,7 +45,9 @@ function NewsDetails({ params }: { params: { id: string } }) {
       setIsDisabled(true);
       setLoadingSpinner(false);
     } catch (error: any) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
       setLoadingSpinner(false);
     }
   };

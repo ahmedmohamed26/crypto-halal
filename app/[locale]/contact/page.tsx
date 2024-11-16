@@ -41,7 +41,9 @@ export default function ContactUs() {
       toast.success(t("contactSuccessMsg"));
     } catch (error: any) {
       setLoadingSpinner(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
     }
   };
 

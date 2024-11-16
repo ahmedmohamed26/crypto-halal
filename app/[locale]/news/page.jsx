@@ -14,9 +14,7 @@ function News() {
       try {
         const response = await axiosInstance.get("news?limit=10&page=1");
         setData(response.data.data.items);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();

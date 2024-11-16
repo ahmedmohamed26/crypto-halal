@@ -25,9 +25,7 @@ function Subscription() {
       try {
         const response = await axiosInstance.get("plans");
         setData(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();
@@ -45,7 +43,9 @@ function Subscription() {
       setLoadingSpinner(false);
       router.push(response.data.data.invoice_url);
     } catch (error: any) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
       setLoadingSpinner(false);
     }
   };
@@ -66,7 +66,9 @@ function Subscription() {
       setCouponLoadingSpinner(false);
     } catch (error: any) {
       setCouponLoadingSpinner(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        onClose: () => toast.dismiss(),
+      });
     }
   };
 

@@ -21,9 +21,7 @@ export default function Header() {
       try {
         const response = await axiosInstance.get("services");
         setDataService(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();

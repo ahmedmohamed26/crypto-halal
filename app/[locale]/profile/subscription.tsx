@@ -15,9 +15,7 @@ function Subscription() {
       try {
         const response = await axiosInstance.get("profile");
         setProfileData(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();

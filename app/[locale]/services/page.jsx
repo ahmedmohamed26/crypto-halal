@@ -11,9 +11,7 @@ export default function Services() {
       try {
         const response = await axiosInstance.get("services");
         setData(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();

@@ -19,9 +19,7 @@ export default function Home() {
       try {
         const response = await axiosInstance.get("home");
         setData(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();
