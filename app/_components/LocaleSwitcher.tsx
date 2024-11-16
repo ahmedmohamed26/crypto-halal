@@ -10,25 +10,13 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
     locale == "en" ? "/assets/ar.png" : "/assets/en.png"
   );
 
-  // const changeLocale = (newLocale: any) => {
-  //   // const newLocale = event.target.value as Locale;
-  //   // document.cookie = `NEXT_LOCALE=${newLocale}`;
-  //   // router.refresh();
-
-  //   if (newLocale === "en") {
-  //     setIcon("/assets/en.png");
-  //   } else if (newLocale === "ar") {
-  //     setIcon("/assets/ar.png");
-  //   }
-  //   router.replace(pathname, { locale: newLocale });
-  // };
-
   const changeLocale = (newLocale: any) => {
     if (newLocale === "en") {
       setIcon("/assets/en.png");
     } else if (newLocale === "ar") {
       setIcon("/assets/ar.png");
     }
+    document.cookie = `NEXT_LOCALE=${newLocale}`;
 
     localStorage.setItem("NEXT_LOCALE", newLocale);
     router.replace(pathname, { locale: newLocale });

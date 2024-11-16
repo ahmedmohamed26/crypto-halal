@@ -212,7 +212,10 @@ function Register() {
             </h2>
             <div className="grid grid-cols-2 items-center">
               <div className="flex flex-col items-center">
-                <Link href="/">
+                <Link
+                  href="https://play.google.com/store/apps/details?id=com.cryptohalal.cryptohalal"
+                  target="_blank"
+                >
                   <img
                     src="assets/play-store.svg"
                     alt="play store"
@@ -222,7 +225,10 @@ function Register() {
                   />
                 </Link>
 
-                <Link href="/">
+                <Link
+                  href="https://apps.apple.com/us/app/crypto-halal/id6450399914"
+                  target="_blank"
+                >
                   <img
                     src="assets/ios-store.svg"
                     alt="ios store"

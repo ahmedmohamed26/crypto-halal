@@ -47,7 +47,7 @@ export default function Services() {
             </div>
           </div>
         ) : (
-          <div id={service?.id} className="pt-16">
+          <div key={index} id={service?.id} className="pt-16">
             <h3 className="text-center mb-16 text-[34px] text=black font-medium">
               {service?.name}
             </h3>

@@ -65,12 +65,12 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
             loading="lazy"
           />
           <div>
-            <h3 className="text-primary text-size22 font-regular mb-1">
-              دكتور حسين عبد الكريم
+            <h3 className="text-primary text-[17px] font-regular mb-1">
+              {item?.name}
             </h3>
 
-            <p className="text-yellow text-size16 font-regular text-end">
-              مسئول فريق البحث
+            <p className="text-yellow text-size14 font-regular text-end">
+              {item?.job}
             </p>
           </div>
         </div>
