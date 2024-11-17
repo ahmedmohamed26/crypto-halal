@@ -22,7 +22,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`visions/${params.id}`);
+        const response = await axiosInstance.get(`visions/${params?.id}`);
         setVisualDetails(response.data.data);
       } catch (error) {}
     };

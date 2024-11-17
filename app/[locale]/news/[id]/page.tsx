@@ -23,7 +23,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`news/${params.id}`);
+        const response = await axiosInstance.get(`news/${params?.id}`);
         setNewsDetails(response.data.data);
         setImgSrc(response.data.data.image);
       } catch (error) {}

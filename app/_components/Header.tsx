@@ -112,6 +112,7 @@ export default function Header() {
                     >
                       <Link
                         href={link.href}
+                        prefetch
                         className={
                           pathName === link.href
                             ? "-mb-1 xl:text-size18 lg:text-[13px] text-size14 font-regular text-primary border-b-4 border-primary flex items-center h-full justify-between"
@@ -207,6 +208,7 @@ export default function Header() {
                       <li key={ids}>
                         <Link
                           href={link.href}
+                          prefetch
                           className="text-[16px] text-black font-regular"
                           onClick={closeMenu}
                         >

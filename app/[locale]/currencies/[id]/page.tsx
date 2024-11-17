@@ -58,7 +58,7 @@ export default function CurrencyDetails({
     setIsLoading(true);
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`coins/${params.id}`, {
+        const response = await axiosInstance.get(`coins/${params?.id}`, {
           params: {
             start_date: startDate,
             end_date: endDate,
