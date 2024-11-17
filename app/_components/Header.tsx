@@ -93,7 +93,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           {isLoggedIn && <ProfileDropdown />}
 
-          <Link className="block text-teal-600" href="/">
+          <Link className="block text-teal-600" href="/" prefetch>
             <span className="sr-only">Home</span>
             <img src="/assets/logo.svg" alt="logo" />
           </Link>

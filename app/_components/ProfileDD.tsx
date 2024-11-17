@@ -48,6 +48,7 @@ export default function ProfileDropdown() {
           <Link
             href="/profile"
             className="flex justify-center w-full border-black font-regular border-2 rounded-md mt-4 py-[10px]"
+            prefetch
           >
             {t("title")}
           </Link>

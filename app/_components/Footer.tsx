@@ -105,23 +105,35 @@ export default function Footer() {
           <div>
             <ul className="text-size16 space-y-4">
               <li>
-                <Link href="/">{t("home")}</Link>
+                <Link href="/" prefetch>
+                  {t("home")}
+                </Link>
               </li>
 
               <li>
-                <Link href="/services">{t("services")}</Link>
+                <Link href="/services" prefetch>
+                  {t("services")}
+                </Link>
               </li>
               <li>
-                <Link href="/visions">{t("visions")}</Link>
+                <Link href="/visions" prefetch>
+                  {t("visions")}
+                </Link>
               </li>
               <li>
-                <Link href="/news">{t("news")}</Link>
+                <Link href="/news" prefetch>
+                  {t("news")}
+                </Link>
               </li>
               <li>
-                <Link href="/study-research">{t("studyAndResearch")}</Link>
+                <Link href="/study-research" prefetch>
+                  {t("studyAndResearch")}
+                </Link>
               </li>
               <li>
-                <Link href="/currencies">{t("currencies")}</Link>
+                <Link href="/currencies" prefetch>
+                  {t("currencies")}
+                </Link>
               </li>
             </ul>
           </div>
@@ -129,14 +141,20 @@ export default function Footer() {
           <div>
             <ul className="text-size16 space-y-4">
               <li>
-                <Link href="/usage">{t("termsOfUse")}</Link>
+                <Link href="/usage" prefetch>
+                  {t("termsOfUse")}
+                </Link>
               </li>
 
               <li>
-                <Link href="/privacy-policy">{t("privacyPolicy")}</Link>
+                <Link href="/privacy-policy" prefetch>
+                  {t("privacyPolicy")}
+                </Link>
               </li>
               <li>
-                <Link href="/terms-conditions">{t("termsAndConditions")}</Link>
+                <Link href="/terms-conditions" prefetch>
+                  {t("termsAndConditions")}
+                </Link>
               </li>
             </ul>
           </div>

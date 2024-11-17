@@ -179,7 +179,11 @@ function VisualDetails({ params }: { params: { id: string } }) {
               <h3 className=" text-[28px] text-black font-regular">
                 {t("watchMore")}
               </h3>
-              <Link href="/visions" className="btn-yellow !text-size22">
+              <Link
+                href="/visions"
+                className="btn-yellow !text-size22"
+                prefetch
+              >
                 <span>{t("more")}</span>
               </Link>
             </div>

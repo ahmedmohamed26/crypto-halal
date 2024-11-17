@@ -87,6 +87,7 @@ export default function Home() {
         <div className="flex justify-center  md:justify-end mt-4 container">
           <Link
             href="/services"
+            prefetch
             className=" rounded bg-[#FFBB00] px-8 py-2 font-regular text-black text-[20px]"
           >
             {t("services")}

@@ -38,7 +38,7 @@ function Visions() {
       <ul className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-4 pt-20">
         {data?.map((item: any, index) => (
           <li key={index}>
-            <Link href={`visions/${item?.id}`}>
+            <Link href={`visions/${item?.id}`} prefetch>
               <Card item={item} />
             </Link>
           </li>

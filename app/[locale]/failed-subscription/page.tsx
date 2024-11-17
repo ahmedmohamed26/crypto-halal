@@ -48,7 +48,11 @@ function FailedSubscription() {
             {t("subscriptionfailed.description1")}
           </p>
           <div className="py-10 text-center">
-            <Link href="/subscription" className="btn-yellow  !text-size16">
+            <Link
+              href="/subscription"
+              className="btn-yellow  !text-size16"
+              prefetch
+            >
               {t("subscriptionfailed.goSubscription")}
             </Link>
           </div>

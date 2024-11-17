@@ -118,7 +118,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           <ul className="grid  lg:grid-cols-4 grid-cols-2 gap-8 pt-16">
             {researchDetails?.similers?.map((item: any, index: number) => (
               <li key={index}>
-                <Link href={`study-research/${item?.id}`}>
+                <Link href={`study-research/${item?.id}`} prefetch>
                   <Card item={item} />
                 </Link>
               </li>

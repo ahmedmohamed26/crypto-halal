@@ -73,54 +73,6 @@ export default function Currencies() {
     setPagination(null);
   }, [searchKey, judgementStatus]);
 
-  // const users = [
-  //   {
-  //     id: 1,
-  //     coin: "Tony Reichert",
-  //     price: "3,002.77",
-  //     hChange: "+44.00",
-  //     marketCap: "B 279.58 $",
-  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  //     details: "tony.reichert@example.com",
-  //   },
-  //   {
-  //     id: 2,
-  //     coin: "Tony Reichert",
-  //     price: "3,002.77",
-  //     hChange: "+44.00",
-  //     marketCap: "B 279.58 $",
-  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  //     details: "tony.reichert@example.com",
-  //   },
-  //   {
-  //     id: 3,
-  //     coin: "Tony Reichert",
-  //     price: "3,002.77",
-  //     hChange: "+44.00",
-  //     marketCap: "B 279.58 $",
-  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  //     details: "tony.reichert@example.com",
-  //   },
-  //   {
-  //     id: 4,
-  //     coin: "Tony Reichert",
-  //     price: "3,002.77",
-  //     hChange: "+44.00",
-  //     marketCap: "B 279.58 $",
-  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  //     details: "tony.reichert@example.com",
-  //   },
-  //   {
-  //     id: 5,
-  //     coin: "Tony Reichert",
-  //     price: "3,002.77",
-  //     hChange: "+44.00",
-  //     marketCap: "B 279.58 $",
-  //     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  //     details: "tony.reichert@example.com",
-  //   },
-  // ];
-
   const renderCell = React.useCallback((user: any, columnKey: any) => {
     const cellValue = user[columnKey];
 
@@ -166,6 +118,7 @@ export default function Currencies() {
         return (
           <div className="relative flex items-center gap-2">
             <Link
+              prefetch
               href={`/currencies/${user.id}`}
               className="rounded bg-[#173EAD] px-8 py-3 font-regular text-white text-[14px] md:text-size16"
             >

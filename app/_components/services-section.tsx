@@ -143,6 +143,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               <Link
                 href="/visions"
                 className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
+                prefetch
               >
                 {t("more")}
               </Link>
@@ -179,6 +180,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               </p>
               <Link
                 href="/study-research"
+                prefetch
                 className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
               >
                 {t("more")}
@@ -196,6 +198,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               </p>
               <Link
                 href="/news"
+                prefetch
                 className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
               >
                 {t("more")}

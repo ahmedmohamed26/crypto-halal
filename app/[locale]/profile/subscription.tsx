@@ -62,7 +62,11 @@ function Subscription() {
 
       <div className="flex items-center justify-center mt-12">
         {(profileData?.subscribe_flag || !isLoggedIn) && (
-          <Link href="/subscription" className="btn-yellow !text-size18">
+          <Link
+            href="/subscription"
+            className="btn-yellow !text-size18"
+            prefetch
+          >
             {t("renewSubscription")}
           </Link>
         )}

@@ -92,7 +92,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
           <div className="col-span-1"></div>
           <div className="col-span-3 hidden md:block">
             {newsDetails?.ads?.map((ads: any, index: number) => (
-              <Link target="_blank" href={ads?.link} key={index}>
+              <Link target="_blank" href={ads?.link} key={index} prefetch>
                 <img
                   src={ads?.image}
                   className="w-full h-[320px] rounded-md mb-16"
@@ -108,7 +108,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
               <h3 className=" text-[28px] text-black font-regular">
                 {t("similarArticles")}
               </h3>
-              <Link href="/news" className="btn-yellow !text-size22">
+              <Link href="/news" className="btn-yellow !text-size22" prefetch>
                 <span>{t("more")}</span>
               </Link>
             </div>

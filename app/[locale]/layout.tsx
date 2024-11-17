@@ -53,8 +53,8 @@ export default function RootLayout({
               <Header />
               <div className="mt-[100px]">
                 <FloatingIcon />
-                {children}
-                {/* <Suspense fallback={<Loader />}>{children}</Suspense> */}
+                {/* {children} */}
+                <Suspense fallback={<Loader />}>{children}</Suspense>
               </div>
               <Footer />
             </NextIntlClientProvider>

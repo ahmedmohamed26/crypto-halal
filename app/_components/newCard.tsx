@@ -29,6 +29,7 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
         <Link
           href={`news/${item?.id}`}
           className="text-primary text-size16  font-regular"
+          prefetch
         >
           {t("readMore")}
         </Link>
