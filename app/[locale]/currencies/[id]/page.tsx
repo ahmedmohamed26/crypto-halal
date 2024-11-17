@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { HistoricalData } from "./historicalData";
 import { ChartData } from "./chartData";
+import DOMPurify from "isomorphic-dompurify";
 
 const dateFormat = (dateObj: any) => {
   const dateStr = `${String(dateObj.year)}-${String(dateObj.month).padStart(
@@ -147,6 +148,19 @@ export default function CurrencyDetails({
               </TableRow>
             </TableBody>
           </Table>
+        </div>
+
+        <div>
+          <div className="bg-[#1E3760] mt-7 rounded-md p-4">
+            <h2 className="text-[22px] font-regular text-white">
+              {t("UseOfCurrency")}
+            </h2>
+          </div>
+          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
+            {DOMPurify.sanitize(currencyDetails?.uses, {
+              USE_PROFILES: { html: false },
+            })}
+          </p>
         </div>
 
         <div>

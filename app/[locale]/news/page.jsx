@@ -1,9 +1,11 @@
 "use client";
-import CardNews from "@/app/_components/newCard";
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const CardNews = dynamic(() => import("@/app/_components/CardNews"));
 
 function News() {
   const t = useTranslations("News");
@@ -29,7 +31,7 @@ function News() {
       <ul className="grid grid-cols-2 lg:grid-cols-4 container pt-20">
         {data.map((item, index) => (
           <li key={index}>
-            <Link href={`news/${item?.id}`} >
+            <Link href={`news/${item?.id}`}>
               <CardNews item={item} />
             </Link>
           </li>

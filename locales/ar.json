@@ -215,7 +215,8 @@
     "open": "فتح",
     "date": "التاريخ",
     "noHistoricalData": "لا توجد بيانات",
-    "priceUSD": "السعر (دولار أمريكي)"
+    "priceUSD": "السعر (دولار أمريكي)",
+    "UseOfCurrency": "استخدام العمله"
   },
   "Subscription": {
     "subscriptionSuccess": {

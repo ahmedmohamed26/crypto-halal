@@ -1,5 +1,5 @@
 "use client";
-import { Link, type Locale } from "@/i18n.config";
+import { Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -7,7 +7,8 @@ import { useUser } from "../_context/UserContext";
 import LocaleSwitcher from "./LocaleSwitcher";
 import ProfileDropdown from "./ProfileDD";
 import axiosInstance from "../_lib/axios";
-
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,9 +95,20 @@ export default function Header() {
         <div className="flex items-center gap-4">
           {isLoggedIn && <ProfileDropdown />}
 
-          <Link className="block text-teal-600" href="/" prefetch>
+          <Link
+            className="block text-teal-600"
+            href="/"
+            scroll={false}
+            prefetch={true}
+          >
             <span className="sr-only">Home</span>
-            <img src="/assets/logo.svg" alt="logo" />
+            <Image
+              width={150}
+              height={150}
+              src="/assets/logo.svg"
+              alt="logo"
+              priority
+            />
           </Link>
           <LocaleSwitcher locale={locale} />
         </div>
@@ -113,7 +125,9 @@ export default function Header() {
                     >
                       <Link
                         href={link.href}
-                        prefetch
+                        scroll={false}
+                        prefetch={true}
+                        passHref
                         className={
                           pathName === link.href
                             ? "-mb-1 xl:text-size18 lg:text-[13px] text-size14 font-regular text-primary border-b-4 border-primary flex items-center h-full justify-between"
@@ -122,7 +136,7 @@ export default function Header() {
                       >
                         {link.name}
                       </Link>
-                      {link.subMenu && (
+                      {link?.subMenu && (
                         <div className="flex items-center">
                           <ul
                             className={`${

@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import * as z from "zod";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import Image from "next/image";
 
 export default function ContactUs() {
   const t = useTranslations("ContactUs");
@@ -133,11 +134,12 @@ export default function ContactUs() {
           </div>
 
           <div className="md:flex justify-center hidden">
-            <img
+            <Image
               src="assets/contact-us.svg"
-              className="h-[300px]"
+              width={300}
+              height={300}
               alt="contact us"
-              loading="lazy"
+              priority
             />
           </div>
         </div>

@@ -2,6 +2,7 @@
 import axiosInstance from "@/app/_lib/axios";
 import { useEffect, useState } from "react";
 import DOMPurify from "isomorphic-dompurify";
+import Image from "next/image";
 
 export default function Services() {
   const [data, setData] = useState([]);
@@ -40,7 +41,13 @@ export default function Services() {
                     })}
                   </p>
                   <div className="flex items-center lg:justify-end justify-center order-1 md:order-2  mb-8 md:mb-0">
-                    <img src={service?.image} alt={service?.name} loading="lazy" />
+                    <Image
+                      width={300}
+                      height={200}
+                      priority
+                      src={service?.image}
+                      alt={service?.name}
+                    />
                   </div>
                 </div>
               </div>
@@ -55,7 +62,13 @@ export default function Services() {
               <div className="container ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                   <div className="flex items-center lg:justify-start justify-center  mb-8 md:mb-0">
-                    <img src={service?.image} alt={service?.name} loading="lazy" />
+                    <Image
+                      width={300}
+                      height={200}
+                      priority
+                      src={service?.image}
+                      alt={service?.name}
+                    />
                   </div>
                   <p className="text-black font-medium text-[24px]">
                     {DOMPurify.sanitize(service?.desc, {

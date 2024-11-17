@@ -1,6 +1,7 @@
-import ProtectedPage from "@/app/_components/ProtectedPage";
 import { getTranslations } from "next-intl/server";
+import dynamic from "next/dynamic";
 import { ReactNode } from "react";
+const ProtectedPage = dynamic(() => import("@/app/_components/ProtectedPage"));
 
 interface Params {
   params: {

@@ -1,14 +1,17 @@
 "use client";
-import CardNews from "@/app/_components/newCard";
-import ShareIcons from "@/app/_components/share-icons";
+
 import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import DOMPurify from "isomorphic-dompurify";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+
+const CardNews = dynamic(() => import("@/app/_components/CardNews"));
+const ShareIcons = dynamic(() => import("@/app/_components/share-icons"));
 
 function NewsDetails({ params }: { params: { id: string } }) {
   const t = useTranslations("News");
@@ -18,14 +21,12 @@ function NewsDetails({ params }: { params: { id: string } }) {
   const { isLoggedIn } = useUser();
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const pathname = usePathname();
-  const [imgSrc, setImgSrc] = useState("/assets/logo.png");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get(`news/${params?.id}`);
         setNewsDetails(response.data.data);
-        setImgSrc(response.data.data.image);
       } catch (error) {}
     };
 
@@ -71,9 +72,8 @@ function NewsDetails({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 ">
           <div className="col-span-8 bg-white p-10">
             <img
-              src={imgSrc}
+              src={newsDetails?.image}
               className="w-full h-[400px]"
-              onError={() => setImgSrc("/assets/logo.svg")}
               alt="News Image"
               loading="lazy"
             />

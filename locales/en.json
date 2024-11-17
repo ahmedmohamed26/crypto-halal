@@ -211,6 +211,20 @@
     "low": "Low",
     "high": "High",
     "showMore": "Show More",
-    "showLess": "Show Less"
+    "showLess": "Show Less",
+    "UseOfCurrency": "Use Of Currency"
+  },
+  "Subscription": {
+    "subscriptionSuccess": {
+      "title": "Payment Successful",
+      "description1": "Thank you for completing the secure online payment process.",
+      "description2": "Have a great day!",
+      "goHome": "Go to Homepage"
+    },
+    "subscriptionfailed": {
+      "title": "Payment Failed",
+      "description1": "An error occurred that prevented the process from completing.",
+      "goSubscription": "Go to Subscription Page"
+    }
   }
 }

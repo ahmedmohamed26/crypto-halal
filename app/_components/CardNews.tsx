@@ -21,12 +21,9 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
       </p>
 
       <div className="mt-6 flex justify-end">
-        <Link
-          href={`news/${item?.id}`}
-          className="text-primary text-size16  font-regular"
-        >
+        <h3 className="text-primary text-size16  font-regular">
           {t("readMore")}
-        </Link>
+        </h3>
       </div>
       <div className="bg-white">
         <span className="flex items-center my-4">

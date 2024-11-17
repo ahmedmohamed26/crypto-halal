@@ -3,14 +3,18 @@ import { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Cairo } from "next/font/google";
 import { Suspense } from "react";
-import Footer from "../_components/Footer";
-import Header from "../_components/Header";
-import Loader from "../_components/Loader";
-import FloatingIcon from "../_components/telegramIcon";
+
+import dynamic from "next/dynamic";
 import { UserProvider } from "../_context/UserContext";
 import useTextDirection from "../_hooks/useTextDirection";
-
 import "./globals.css";
+const Header = dynamic(() => import("../_components/Header"));
+
+const Footer = dynamic(() => import("../_components/Footer"));
+
+const Loader = dynamic(() => import("../_components/Loader"));
+
+const FloatingIcon = dynamic(() => import("../_components/telegramIcon"));
 
 const cairo = Cairo({
   weight: ["300", "400", "500", "700"],
@@ -52,8 +56,8 @@ export default function RootLayout({
               <Header />
               <div className="mt-[100px]">
                 <FloatingIcon />
-                {/* {children} */}
-                <Suspense fallback={<Loader />}>{children}</Suspense>
+                {children}
+                {/* <Suspense fallback={<Loader />}>{children}</Suspense> */}
               </div>
               <Footer />
             </NextIntlClientProvider>

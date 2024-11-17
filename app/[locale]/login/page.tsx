@@ -1,16 +1,20 @@
 "use client";
-import ForgetPassword from "@/app/_components/forget-password";
 import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, useDisclosure } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import * as z from "zod";
+const ForgetPassword = dynamic(
+  () => import("@/app/_components/forget-password")
+);
 
 export default function Login() {
   const t = useTranslations("Login");
@@ -175,13 +179,13 @@ export default function Login() {
                   href="https://play.google.com/store/apps/details?id=com.cryptohalal.cryptohalal"
                   target="_blank"
                 >
-                  <img
+                  <Image
                     src="assets/play-store.svg"
                     alt="play store"
                     width={150}
                     height={150}
                     className="mb-8"
-                    loading="lazy"
+                    priority
                   />
                 </Link>
 
@@ -189,21 +193,21 @@ export default function Login() {
                   href="https://apps.apple.com/us/app/crypto-halal/id6450399914"
                   target="_blank"
                 >
-                  <img
+                  <Image
                     src="assets/ios-store.svg"
                     alt="ios store"
                     width={150}
                     height={150}
-                    loading="lazy"
+                    priority
                   />
                 </Link>
               </div>
-              <img
+              <Image
                 src="assets/iPhone.svg"
                 alt="store"
                 width={250}
                 height={250}
-                loading="lazy"
+                priority
               />
             </div>
           </div>

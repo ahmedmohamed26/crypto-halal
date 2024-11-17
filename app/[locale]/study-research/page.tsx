@@ -1,9 +1,10 @@
 "use client";
-import Card from "@/app/_components/card";
 import axiosInstance from "@/app/_lib/axios";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+const Card = dynamic(() => import("@/app/_components/card"));
 
 function StudyAndResearch() {
   const [data, setData] = useState([]);

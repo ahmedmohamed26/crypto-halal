@@ -3,6 +3,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
   reactStrictMode: false,
+  // trailingSlash: true,
   images: {
     remotePatterns: [
       {

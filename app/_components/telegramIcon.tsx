@@ -14,7 +14,7 @@ const FloatingIcon = () => {
       }  cursor-pointer z-50`}
     >
       <img
-        src="/assets/telegram.png"
+        src="/assets/telegram.svg"
         alt="Telegram Icon"
         className="w-12 h-12"
         loading="lazy"
