@@ -8,6 +8,7 @@ import LocaleSwitcher from "./LocaleSwitcher";
 import ProfileDropdown from "./ProfileDD";
 import axiosInstance from "../_lib/axios";
 
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [dataService, setDataService] = useState<any>(null);
@@ -133,12 +134,12 @@ export default function Header() {
                             {link?.subMenu?.map(
                               (subItem: any, index: number) => (
                                 <li key={index} className="max-w-lg">
-                                  <a
+                                  <Link
                                     href={`/services#${subItem.id}`}
                                     className="relative mx-1 py-2 text-black xl:text-size18 lg:text-size14 text-size14 font-regular"
                                   >
                                     {subItem.name}
-                                  </a>
+                                  </Link>
                                 </li>
                               )
                             )}

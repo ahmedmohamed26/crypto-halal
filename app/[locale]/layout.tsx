@@ -2,7 +2,6 @@ import { NextUIProvider } from "@nextui-org/react";
 import { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Cairo } from "next/font/google";
-
 import { Suspense } from "react";
 import Footer from "../_components/Footer";
 import Header from "../_components/Header";

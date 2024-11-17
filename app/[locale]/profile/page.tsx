@@ -30,7 +30,11 @@ export default function Profile() {
           key="editProfile"
           title={
             <div className="flex items-center gap-2">
-              <img className="w-[20px]" src="/assets/edit-profile.svg" />
+              <img
+                className="w-[20px]"
+                src="/assets/edit-profile.svg"
+                loading="lazy"
+              />
               <span className="hidden md:block">{t("editProfile")}</span>
             </div>
           }
@@ -46,7 +50,11 @@ export default function Profile() {
           key="subscription"
           title={
             <div className="flex items-center gap-2">
-              <img className="w-[20px]" src="/assets/subscription.svg" />
+              <img
+                className="w-[20px]"
+                src="/assets/subscription.svg"
+                loading="lazy"
+              />
               <span className="hidden md:block">{t("subscription")}</span>
             </div>
           }
@@ -65,6 +73,7 @@ export default function Profile() {
               <img
                 className="w-[20px]"
                 src="/assets/protectionAndPassword.svg"
+                loading="lazy"
               />
               <span className="hidden md:block">
                 {t("protectionAndPassword")}

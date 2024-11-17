@@ -181,6 +181,7 @@ export default function Login() {
                     width={150}
                     height={150}
                     className="mb-8"
+                    loading="lazy"
                   />
                 </Link>
 
@@ -193,6 +194,7 @@ export default function Login() {
                     alt="ios store"
                     width={150}
                     height={150}
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -201,6 +203,7 @@ export default function Login() {
                 alt="store"
                 width={250}
                 height={250}
+                loading="lazy"
               />
             </div>
           </div>

@@ -30,6 +30,7 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
           alt=""
           className="selectedIcon"
           onClick={() => changeLocale(locale === "en" ? "ar" : "en")}
+          loading="lazy"
         />
       </div>
     </div>

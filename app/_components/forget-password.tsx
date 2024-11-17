@@ -75,6 +75,7 @@ function ForgetPassword({
                     className="w-full h-[160px]"
                     src="/assets/forget-password.svg"
                     alt="forget-password"
+                    loading="lazy"
                   />
                   <p className="mt-8 text-size22 text-black font-regular">
                     {t("insertEmail")}

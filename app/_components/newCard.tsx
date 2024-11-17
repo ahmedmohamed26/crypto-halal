@@ -10,11 +10,6 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
   const t = useTranslations("News");
   return (
     <div className="bg-white overflow-hidden rounded-md shadow-md p-6 ">
-      {/* <img
-        alt=""
-        src={item?.image}
-        className="h-48 w-full object-cover rounded-md"
-      /> */}
       <h2 className="title text-primary  text-[14px] md:text-size22 font-regular">
         {item?.title}
       </h2>
@@ -29,7 +24,6 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
         <Link
           href={`news/${item?.id}`}
           className="text-primary text-size16  font-regular"
-          prefetch
         >
           {t("readMore")}
         </Link>
@@ -44,7 +38,13 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
             {item?.date}
           </span>
           <div className="flex items-center">
-            <img alt="" src="/assets/eye.svg" className="mx-2" width={18} />
+            <img
+              alt=""
+              src="/assets/eye.svg"
+              className="mx-2"
+              width={18}
+              loading="lazy"
+            />
             <span className="text-[12px] md:text-size16 font-regular text-darkGray">
               {item?.views}
             </span>

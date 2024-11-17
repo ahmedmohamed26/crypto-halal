@@ -222,6 +222,7 @@ function Register() {
                     width={150}
                     height={150}
                     className="mb-8"
+                    loading="lazy"
                   />
                 </Link>
 
@@ -234,6 +235,7 @@ function Register() {
                     alt="ios store"
                     width={150}
                     height={150}
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -242,6 +244,7 @@ function Register() {
                 alt="store"
                 width={250}
                 height={250}
+                loading="lazy"
               />
             </div>
           </div>

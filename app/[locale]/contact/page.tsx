@@ -137,6 +137,7 @@ export default function ContactUs() {
               src="assets/contact-us.svg"
               className="h-[300px]"
               alt="contact us"
+              loading="lazy"
             />
           </div>
         </div>

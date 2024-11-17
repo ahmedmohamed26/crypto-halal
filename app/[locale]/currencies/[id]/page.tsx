@@ -214,7 +214,11 @@ export default function CurrencyDetails({
               title={
                 <div className="flex items-center space-x-2 text-white">
                   <span className="mx-2">{t("historicalData")}</span>
-                  <img className="w-[20px]" src="/assets/calendar.svg" />
+                  <img
+                    className="w-[20px]"
+                    src="/assets/calendar.svg"
+                    loading="lazy"
+                  />
                 </div>
               }
             />
@@ -224,7 +228,11 @@ export default function CurrencyDetails({
               title={
                 <div className="flex items-center space-x-2 text-white">
                   <span className="mx-2">{t("charts")}</span>
-                  <img className="w-[20px]" src="/assets/charts.svg" />
+                  <img
+                    className="w-[20px]"
+                    src="/assets/charts.svg"
+                    loading="lazy"
+                  />
                 </div>
               }
             />

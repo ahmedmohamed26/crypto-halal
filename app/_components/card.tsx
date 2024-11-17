@@ -24,6 +24,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
             alt=""
             src={item?.lecturer?.image}
             className="h-6 w-6 md:h-12 md:w-12 object-cover rounded-full"
+            loading="lazy"
           />
           <h6 className="text-[12px] md:text-size16 font-regular text-yellow mx-4">
             {item?.lecturer?.name}
@@ -35,7 +36,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
             {item?.date}
           </span>
           <div className="flex items-center">
-            <img alt="" src="/assets/eye.svg" className="mx-2" />
+            <img alt="" src="/assets/eye.svg" className="mx-2" loading="lazy" />
             <span className="text-[12px] md:text-size16 font-regular text-darkGray">
               {item?.views}
             </span>

@@ -75,6 +75,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
               className="w-full h-[400px]"
               onError={() => setImgSrc("/assets/logo.svg")}
               alt="News Image"
+              loading="lazy"
             />
             <h1 className="mt-8 text-primary text-size22 md:text-[38px] gont-medium">
               {newsDetails?.title}
@@ -96,6 +97,7 @@ function NewsDetails({ params }: { params: { id: string } }) {
                 <img
                   src={ads?.image}
                   className="w-full h-[320px] rounded-md mb-16"
+                  loading="lazy"
                 />
               </Link>
             ))}

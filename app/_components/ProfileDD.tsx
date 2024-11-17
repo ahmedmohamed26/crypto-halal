@@ -56,7 +56,7 @@ export default function ProfileDropdown() {
             onClick={() => handleLogout()}
             className=" w-full border-black font-regular border-2 rounded-md mt-4 py-[10px] flex items-center justify-between px-4"
           >
-            <img src="/assets/logout.svg" />
+            <img src="/assets/logout.svg" loading="lazy" />
             {t("logout")}
           </button>
         </DropdownItem>

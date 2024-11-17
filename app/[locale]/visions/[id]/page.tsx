@@ -73,14 +73,25 @@ function VisualDetails({ params }: { params: { id: string } }) {
             {visualDetails?.date}
           </span>
           <div className="flex items-center ms-3">
-            <img alt="" src="/assets/clock.svg" className="mx-2" />
+            <img
+              alt=""
+              src="/assets/clock.svg"
+              className="mx-2"
+              loading="lazy"
+            />
             <span className="text-size16 font-regular text-darkGray">
               {visualDetails?.duration}
             </span>
           </div>
 
           <div className="flex items-center ms-3">
-            <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
+            <img
+              alt=""
+              src="/assets/eye.svg"
+              className="mx-2"
+              width={22}
+              loading="lazy"
+            />
             <span className="text-size16 font-regular text-darkGray">
               {visualDetails?.views}
             </span>
@@ -91,6 +102,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
             alt={visualDetails?.lecturer?.name}
             src={visualDetails?.lecturer?.image}
             className="h-12 w-12 object-cover rounded-full"
+            loading="lazy"
           />
           <h6 className="text-size22 font-regular text-yellow mx-4">
             {visualDetails?.lecturer?.name}
@@ -114,6 +126,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                               alt={item?.title}
                               src={item?.image}
                               className="h-36 w-[50%]  rounded-md"
+                              loading="lazy"
                             />
                             <div className="ms-4">
                               <h2 className="text-primary text-size18 font-regular  text-start">
@@ -128,6 +141,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                                     alt=""
                                     src="/assets/eye.svg"
                                     className="mx-1 w-5 lg:w-3"
+                                    loading="lazy"
                                   />
                                   <span className="text-size14 lg:text-[12px] font-regular text-darkGray">
                                     {item?.views}
@@ -139,6 +153,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
                                   alt=""
                                   src={item?.lecturer?.image}
                                   className="h-10 w-10 object-cover rounded-full"
+                                  loading="lazy"
                                 />
                                 <h6 className="text-size14 lg:text-[12px]  font-regular text-yellow mx-4">
                                   {item?.lecturer?.name}

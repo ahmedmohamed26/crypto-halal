@@ -17,6 +17,7 @@ const FloatingIcon = () => {
         src="/assets/telegram.png"
         alt="Telegram Icon"
         className="w-12 h-12"
+        loading="lazy"
       />
     </Link>
   );

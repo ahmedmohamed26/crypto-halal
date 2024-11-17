@@ -40,7 +40,7 @@ export default function Services() {
                     })}
                   </p>
                   <div className="flex items-center lg:justify-end justify-center order-1 md:order-2  mb-8 md:mb-0">
-                    <img src={service?.image} alt={service?.name} />
+                    <img src={service?.image} alt={service?.name} loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default function Services() {
               <div className="container ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                   <div className="flex items-center lg:justify-start justify-center  mb-8 md:mb-0">
-                    <img src={service?.image} alt={service?.name} />
+                    <img src={service?.image} alt={service?.name} loading="lazy" />
                   </div>
                   <p className="text-black font-medium text-[24px]">
                     {DOMPurify.sanitize(service?.desc, {

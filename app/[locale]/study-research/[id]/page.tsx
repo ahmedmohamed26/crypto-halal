@@ -67,6 +67,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       <img
         src={researchDetails?.image}
         className="w-[30vw] h-[400px] rounded-md"
+        loading="lazy"
       />
       <h1 className="text-primary text-size22 md:text-[38px] font-regular my-4">
         {researchDetails?.title}
@@ -77,7 +78,13 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
         </span>
 
         <div className="flex items-center ms-3">
-          <img alt="" src="/assets/eye.svg" className="mx-2" width={22} />
+          <img
+            alt=""
+            src="/assets/eye.svg"
+            className="mx-2"
+            width={22}
+            loading="lazy"
+          />
           <span className="text-size16 font-regular text-darkGray">
             {researchDetails?.views}
           </span>
@@ -88,6 +95,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           alt=""
           src={researchDetails?.lecturer?.image}
           className="h-12 w-12 object-cover rounded-full"
+          loading="lazy"
         />
         <h6 className="text-size22 font-regular text-yellow mx-4">
           {researchDetails?.lecturer?.name}
@@ -95,13 +103,13 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
       </div>
 
       <div className="video-container mt-16">
-        <a
+        <Link
           className="btn-yellow !text-size18"
           href={researchDetails?.pdf}
           target="_blank"
         >
           {t("readResearch")}
-        </a>
+        </Link>
       </div>
 
       {researchDetails?.similers?.length ? (
