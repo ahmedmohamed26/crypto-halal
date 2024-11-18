@@ -78,7 +78,6 @@ export default function Header() {
   };
 
   const closeMenu = () => {
-    checkLoggedIn();
     setIsOpen(false);
   };
 
@@ -88,6 +87,7 @@ export default function Header() {
     } else {
       router.push("/register");
     }
+    checkLoggedIn();
   };
 
   return (
