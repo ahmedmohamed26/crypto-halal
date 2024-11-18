@@ -79,7 +79,6 @@ export default function Header() {
   };
 
   const closeMenu = () => {
-    checkLoggedIn();
     setIsOpen(false);
   };
 
@@ -89,13 +88,9 @@ export default function Header() {
     } else {
       router.push("/register");
     }
+    closeMenu()
   };
 
-  const navigate = (href: string) => {
-    startTransition(() => {
-      router.push("/sometwhere");
-    });
-  };
 
   return (
     <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center fixed top-0  left-0 w-full   shadow-md z-50">

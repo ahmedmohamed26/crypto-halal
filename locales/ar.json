@@ -93,7 +93,8 @@
     "passwordsOldNewDoNotMatch": "لا يمكن أن تكون كلمة المرور الجديدة هي نفس كلمة المرور القديمة",
     "save": "حفظ",
     "userName": "اسم المستخدم",
-    "userNameRequiredMsg": "يجب ادخال أسم المستخدم"
+    "userNameRequiredMsg": "يجب ادخال أسم المستخدم",
+    "createNewAcc":"إنشاء حساب جديد"
   },
   "Register": {
     "signup": "اشتراك",

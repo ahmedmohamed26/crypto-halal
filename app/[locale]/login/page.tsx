@@ -139,27 +139,9 @@ export default function Login() {
               )}
             </div>
             <div className="flex justify-between items-center mt-8">
-              <div className="remember-me text-primary text-size16 md:text-size22">
-                <label
-                  htmlFor="Option1"
-                  className="flex cursor-pointer items-start gap-2"
-                >
-                  <div className="flex items-center">
-                    &#8203;
-                    <input
-                      type="checkbox"
-                      className="size-4 rounded-full border-gray-300"
-                      id="Option1"
-                    />
-                  </div>
-
-                  <div>
-                    <h3 className="font-regular text-black">
-                      {t("rememberMe")}
-                    </h3>
-                  </div>
-                </label>
-              </div>
+              <Link href="/register" className="text-size16 md:text-size22 font-regular">
+              {t("createNewAcc")}
+              </Link>
               <Button
                 className="bg-transparent forgot-password text-primary  text-size16 md:text-size22 font-regular"
                 onPress={onOpen}

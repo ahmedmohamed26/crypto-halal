@@ -104,16 +104,18 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           {researchDetails?.lecturer?.name}
         </h6>
       </div>
-
-      <div className="video-container mt-16">
-        <Link
-          className="btn-yellow !text-size18"
-          href={researchDetails?.pdf}
-          target="_blank"
-        >
-          {t("readResearch")}
-        </Link>
-      </div>
+    {
+      researchDetails?.pdf &&    <div className="video-container mt-16">
+      <Link
+        className="btn-yellow !text-size18"
+        href={researchDetails ? researchDetails?.pdf : ''}
+        target="_blank"
+      >
+        {t("readResearch")}
+      </Link>
+    </div>
+    }
+   
 
       {researchDetails?.similers?.length ? (
         <div className="related-videos mt-16">

@@ -93,7 +93,8 @@
     "passwordsOldNewDoNotMatch": "New password cannot be the same as the old password",
     "save": "Save",
     "userName": "User Name",
-    "userNameRequiredMsg": "User Name is required"
+    "userNameRequiredMsg": "User Name is required",
+        "createNewAcc":"Create new account"
   },
   "Register": {
     "signup": "Sign Up",
