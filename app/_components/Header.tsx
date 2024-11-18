@@ -2,7 +2,7 @@
 import { Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useUser } from "../_context/UserContext";
 import LocaleSwitcher from "./LocaleSwitcher";
 import ProfileDropdown from "./ProfileDD";
@@ -18,6 +18,8 @@ export default function Header() {
   const locale = useLocale() as Locale;
   const pathName = usePathname();
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -89,6 +91,12 @@ export default function Header() {
     }
   };
 
+  const navigate = (href: string) => {
+    startTransition(() => {
+      router.push("/sometwhere");
+    });
+  };
+
   return (
     <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center fixed top-0  left-0 w-full   shadow-md z-50">
       <div className="flex h-full items-center justify-between w-full container ">
@@ -103,8 +111,8 @@ export default function Header() {
           >
             <span className="sr-only">Home</span>
             <Image
-              width={150}
-              height={150}
+              width={200}
+              height={200}
               src="/assets/logo.svg"
               alt="logo"
               priority

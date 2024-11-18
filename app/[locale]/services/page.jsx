@@ -44,7 +44,7 @@ export default function Services() {
                     <Image
                       width={300}
                       height={200}
-                      priority
+                      priority={true}
                       src={service?.image}
                       alt={service?.name}
                     />
@@ -65,7 +65,7 @@ export default function Services() {
                     <Image
                       width={300}
                       height={200}
-                      priority
+                      priority={true}
                       src={service?.image}
                       alt={service?.name}
                     />
