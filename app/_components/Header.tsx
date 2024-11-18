@@ -1,14 +1,14 @@
 "use client";
 import { Locale } from "@/i18n.config";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState, useTransition } from "react";
-import { useUser } from "../_context/UserContext";
-import LocaleSwitcher from "./LocaleSwitcher";
-import ProfileDropdown from "./ProfileDD";
-import axiosInstance from "../_lib/axios";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useUser } from "../_context/UserContext";
+import axiosInstance from "../_lib/axios";
+import LocaleSwitcher from "./LocaleSwitcher";
+import ProfileDropdown from "./ProfileDD";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,6 @@ export default function Header() {
   const locale = useLocale() as Locale;
   const pathName = usePathname();
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,6 +78,7 @@ export default function Header() {
   };
 
   const closeMenu = () => {
+    checkLoggedIn();
     setIsOpen(false);
   };
 
@@ -88,9 +88,7 @@ export default function Header() {
     } else {
       router.push("/register");
     }
-    closeMenu()
   };
-
 
   return (
     <header className="bg-white h-[100px] border-b-2 border-[#FFBB00] flex items-center fixed top-0  left-0 w-full   shadow-md z-50">

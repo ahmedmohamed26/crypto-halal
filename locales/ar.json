@@ -94,7 +94,7 @@
     "save": "حفظ",
     "userName": "اسم المستخدم",
     "userNameRequiredMsg": "يجب ادخال أسم المستخدم",
-    "createNewAcc":"إنشاء حساب جديد"
+    "createNewAcc": "إنشاء حساب جديد"
   },
   "Register": {
     "signup": "اشتراك",
@@ -104,7 +104,7 @@
     "name": "الأسم",
     "userName": "اسم المستخدم",
     "confirmPassword": "تأكيد كلمة المرور",
-    "register": "تسجيل دخول",
+    "register": "انشاء حساب",
     "userRequiredMsg": "يجب ادخال الأسم ",
     "userNameRequiredMsg": "يجب ادخال أسم المستخدم",
     "emailRequiredMsg": "يجب ادخال البريد الالكتروني",
@@ -217,7 +217,8 @@
     "date": "التاريخ",
     "noHistoricalData": "لا توجد بيانات",
     "priceUSD": "السعر (دولار أمريكي)",
-    "UseOfCurrency": "استخدام العمله"
+    "UseOfCurrency": "استخدام العمله",
+    "judgnote": "ملاحظات الحكم"
   },
   "Subscription": {
     "subscriptionSuccess": {

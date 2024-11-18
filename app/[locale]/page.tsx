@@ -61,9 +61,9 @@ export default function Home() {
             )}
           </div>
           {locale === "ar" ? (
-            <div className='hidden xl:block bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full'></div>
+            <div className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full bg-contain'></div>
           ) : (
-            <div className='hidden xl:block bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full scale-x-[-1]'></div>
+            <div className='bg-[url("/assets/intro.svg")] bg-no-repeat  aspect-[6/5] w-full scale-x-[-1] bg-contain'></div>
           )}
         </div>
       </div>

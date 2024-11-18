@@ -94,7 +94,7 @@
     "save": "Save",
     "userName": "User Name",
     "userNameRequiredMsg": "User Name is required",
-        "createNewAcc":"Create new account"
+    "createNewAcc": "Create new account"
   },
   "Register": {
     "signup": "Sign Up",
@@ -104,7 +104,7 @@
     "name": "Name",
     "userName": "User Name",
     "confirmPassword": "Confirm Password",
-    "register": "Register",
+    "register": "Create Account",
     "userRequiredMsg": "Name is required",
     "userNameRequiredMsg": "User Name is required",
     "emailRequiredMsg": "Email is required",
@@ -213,7 +213,8 @@
     "high": "High",
     "showMore": "Show More",
     "showLess": "Show Less",
-    "UseOfCurrency": "Use Of Currency"
+    "UseOfCurrency": "Use Of Currency",
+    "judgnote": "Judg Note"
   },
   "Subscription": {
     "subscriptionSuccess": {

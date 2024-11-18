@@ -1,25 +1,23 @@
 "use client";
 import axiosInstance from "@/app/_lib/axios";
 import {
-  Spinner,
+  Button,
+  DateRangePicker,
+  Tab,
   Table,
   TableBody,
   TableCell,
   TableColumn,
   TableHeader,
   TableRow,
-  Tab,
   Tabs,
   User,
-  DateRangePicker,
-  Button,
 } from "@nextui-org/react";
+import DOMPurify from "isomorphic-dompurify";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import React from "react";
-import { HistoricalData } from "./historicalData";
 import { ChartData } from "./chartData";
-import DOMPurify from "isomorphic-dompurify";
+import { HistoricalData } from "./historicalData";
 
 const dateFormat = (dateObj: any) => {
   const dateStr = `${String(dateObj.year)}-${String(dateObj.month).padStart(
@@ -153,24 +151,13 @@ export default function CurrencyDetails({
         <div>
           <div className="bg-[#1E3760] mt-7 rounded-md p-4">
             <h2 className="text-[22px] font-regular text-white">
-              {t("UseOfCurrency")}
-            </h2>
-          </div>
-          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {DOMPurify.sanitize(currencyDetails?.uses, {
-              USE_PROFILES: { html: false },
-            })}
-          </p>
-        </div>
-
-        <div>
-          <div className="bg-[#1E3760] mt-7 rounded-md p-4">
-            <h2 className="text-[22px] font-regular text-white">
               {t("projectType")} : <span>{currencyDetails?.projectType} </span>
             </h2>
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {currencyDetails?.description}
+            {DOMPurify.sanitize(currencyDetails?.description, {
+              USE_PROFILES: { html: false },
+            })}
           </p>
         </div>
 
@@ -204,6 +191,33 @@ export default function CurrencyDetails({
               <span>{t("suspect")}</span>
             )}
           </h2>
+        </div>
+        {currencyDetails?.judgnote && (
+          <div>
+            <div className="bg-[#1E3760] mt-7 rounded-md p-4">
+              <h2 className="text-[22px] font-regular text-white">
+                {t("judgnote")}
+              </h2>
+            </div>
+            <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
+              {DOMPurify.sanitize(currencyDetails?.judgnote, {
+                USE_PROFILES: { html: true },
+              })}
+            </p>
+          </div>
+        )}
+
+        <div>
+          <div className="bg-[#1E3760] mt-7 rounded-md p-4">
+            <h2 className="text-[22px] font-regular text-white">
+              {t("UseOfCurrency")}
+            </h2>
+          </div>
+          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
+            {DOMPurify.sanitize(currencyDetails?.uses, {
+              USE_PROFILES: { html: false },
+            })}
+          </p>
         </div>
 
         <div className="lg:flex md:block w-full items-start justify-between mt-16 mb-8">

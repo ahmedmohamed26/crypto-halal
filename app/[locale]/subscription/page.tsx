@@ -176,29 +176,6 @@ function Subscription() {
                 </button>
               </div>
             </div>
-
-            {/* Invoice Summary Section */}
-            <div className="mt-8">
-              {/* <h2 className="text-size16 md:text-[28px] font-regular mb-9">
-                ملخص الفاتورة
-              </h2> */}
-              <div className="text-gray-600 text-[14px] md:text-size16">
-                {/* <p className="mb-9">
-                  الباقة المختارة:{" "}
-                  <span className="font-semibold">النسخة النصف سنوية</span>، سعر
-                  الباقة: <span className="font-semibold">USD 30.00</span>
-                </p> */}
-                <p>
-                  كوبون تخفيض :{" "}
-                  <span className="font-semibold">
-                    USD{" "}
-                    {couponDetails?.discount ? couponDetails?.discount : "0.00"}
-                  </span>{" "}
-                  {/* المبلغ الإجمالي:{" "} */}
-                  {/* <span className="font-semibold">USD 30.00</span> */}
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
