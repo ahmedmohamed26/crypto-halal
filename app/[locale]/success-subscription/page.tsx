@@ -66,7 +66,11 @@ function SuccessSubscription() {
           </p>
           <p> {t("subscriptionSuccess.description2")} </p>
           <div className="py-10 text-center">
-            <Link href="/" className="btn-yellow  !text-size16" prefetch>
+            <Link
+              href="/"
+              className="btn-yellow  !text-size16"
+              prefetch={false}
+            >
               {t("subscriptionSuccess.goHome")}
             </Link>
           </div>

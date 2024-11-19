@@ -35,7 +35,7 @@ function StudyAndResearch() {
       <ul className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-4 pt-20">
         {data?.map((item: any, index: number) => (
           <li key={index}>
-            <Link href={`study-research/${item?.id}`} prefetch>
+            <Link href={`study-research/${item?.id}`} prefetch={false}>
               <Card item={item} />
             </Link>
           </li>

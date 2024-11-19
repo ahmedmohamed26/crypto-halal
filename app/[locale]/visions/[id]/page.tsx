@@ -199,7 +199,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
               <Link
                 href="/visions"
                 className="btn-yellow !text-size22"
-                prefetch
+                prefetch={false}
               >
                 <span>{t("more")}</span>
               </Link>

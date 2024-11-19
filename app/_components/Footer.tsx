@@ -105,33 +105,33 @@ export default function Footer() {
           <div>
             <ul className="text-size16 space-y-4">
               <li>
-                <Link href="/" prefetch>
+                <Link href="/" prefetch={false}>
                   {t("home")}
                 </Link>
               </li>
 
               <li>
-                <Link href="/services" prefetch>
+                <Link href="/services" prefetch={false}>
                   {t("services")}
                 </Link>
               </li>
               <li>
-                <Link href="/visions" prefetch>
+                <Link href="/visions" prefetch={false}>
                   {t("visions")}
                 </Link>
               </li>
               <li>
-                <Link href="/news" prefetch>
+                <Link href="/news" prefetch={false}>
                   {t("news")}
                 </Link>
               </li>
               <li>
-                <Link href="/study-research" prefetch>
+                <Link href="/study-research" prefetch={false}>
                   {t("studyAndResearch")}
                 </Link>
               </li>
               <li>
-                <Link href="/currencies" prefetch>
+                <Link href="/currencies" prefetch={false}>
                   {t("currencies")}
                 </Link>
               </li>
@@ -141,18 +141,18 @@ export default function Footer() {
           <div>
             <ul className="text-size16 space-y-4">
               <li>
-                <Link href="/usage" prefetch>
+                <Link href="/usage" prefetch={false}>
                   {t("termsOfUse")}
                 </Link>
               </li>
 
               <li>
-                <Link href="/privacy-policy" prefetch>
+                <Link href="/privacy-policy" prefetch={false}>
                   {t("privacyPolicy")}
                 </Link>
               </li>
               <li>
-                <Link href="/terms-conditions" prefetch>
+                <Link href="/terms-conditions" prefetch={false}>
                   {t("termsAndConditions")}
                 </Link>
               </li>

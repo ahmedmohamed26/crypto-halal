@@ -65,7 +65,7 @@ function Subscription() {
           <Link
             href="/subscription"
             className="btn-yellow !text-size18"
-            prefetch
+            prefetch={false}
           >
             {t("renewSubscription")}
           </Link>

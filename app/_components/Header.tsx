@@ -87,7 +87,7 @@ export default function Header() {
     } else {
       router.push("/register");
     }
-    checkLoggedIn();
+    closeMenu();
   };
 
   return (
@@ -100,7 +100,7 @@ export default function Header() {
             className="block text-teal-600"
             href="/"
             scroll={false}
-            prefetch={true}
+            prefetch={false}
           >
             <span className="sr-only">Home</span>
             <Image
@@ -127,7 +127,7 @@ export default function Header() {
                       <Link
                         href={link.href}
                         scroll={false}
-                        prefetch={true}
+                        prefetch={false}
                         passHref
                         className={
                           pathName === link.href
@@ -224,7 +224,7 @@ export default function Header() {
                       <li key={ids}>
                         <Link
                           href={link.href}
-                          prefetch
+                          prefetch={false}
                           className="text-[16px] text-black font-regular"
                           onClick={closeMenu}
                         >

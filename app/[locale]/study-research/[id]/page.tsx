@@ -104,18 +104,17 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           {researchDetails?.lecturer?.name}
         </h6>
       </div>
-    {
-      researchDetails?.pdf &&    <div className="video-container mt-16">
-      <Link
-        className="btn-yellow !text-size18"
-        href={researchDetails ? researchDetails?.pdf : ''}
-        target="_blank"
-      >
-        {t("readResearch")}
-      </Link>
-    </div>
-    }
-   
+      {researchDetails?.pdf && (
+        <div className="video-container mt-16">
+          <Link
+            className="btn-yellow !text-size18"
+            href={researchDetails ? researchDetails?.pdf : ""}
+            target="_blank"
+          >
+            {t("readResearch")}
+          </Link>
+        </div>
+      )}
 
       {researchDetails?.similers?.length ? (
         <div className="related-videos mt-16">
@@ -131,7 +130,7 @@ function StudyResearchDetails({ params }: { params: { id: string } }) {
           <ul className="grid  lg:grid-cols-4 grid-cols-2 gap-8 pt-16">
             {researchDetails?.similers?.map((item: any, index: number) => (
               <li key={index}>
-                <Link href={`study-research/${item?.id}`} prefetch>
+                <Link href={`study-research/${item?.id}`} prefetch={false}>
                   <Card item={item} />
                 </Link>
               </li>

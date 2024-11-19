@@ -118,7 +118,7 @@ export default function Currencies() {
         return (
           <div className="relative flex items-center gap-2">
             <Link
-              prefetch
+              prefetch={false}
               href={`/currencies/${user.id}`}
               className="rounded bg-[#173EAD] px-8 py-3 font-regular text-white text-[14px] md:text-size16"
             >

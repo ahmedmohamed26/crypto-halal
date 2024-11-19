@@ -51,7 +51,7 @@ function FailedSubscription() {
             <Link
               href="/subscription"
               className="btn-yellow  !text-size16"
-              prefetch
+              prefetch={false}
             >
               {t("subscriptionfailed.goSubscription")}
             </Link>
