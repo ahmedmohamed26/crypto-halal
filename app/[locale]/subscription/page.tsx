@@ -15,10 +15,8 @@ function Subscription() {
   const [planId, setPlanId] = useState<number>();
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [couponLoadingSpinner, setCouponLoadingSpinner] = useState(false);
-
   const [couponValue, setCouponValue] = useState<string>("");
-  const [couponDetails, setCouponDetails] = useState<any>(null);
-  const { user } = useUser();
+  const { setUser } = useUser();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,11 +33,9 @@ function Subscription() {
     setPlanId(planId);
     setLoadingSpinner(true);
     try {
-      let data = {
+      const response = await axiosInstance.post(`subscriptions`, {
         plan_id: planId,
-        coupon: couponValue,
-      };
-      const response = await axiosInstance.post(`subscriptions`, data);
+      });
       setLoadingSpinner(false);
       router.push(response.data.data.invoice_url);
     } catch (error: any) {
@@ -56,19 +52,35 @@ function Subscription() {
 
   const checkCoupon = async () => {
     setCouponLoadingSpinner(true);
-    let data = {
-      email: user?.email,
-      coupon: couponValue,
-    };
     try {
-      const response = await axiosInstance.post("check-coupon", data);
-      setCouponDetails(response.data.data);
+      const response = await axiosInstance.post("subscriptions", {
+        coupon: couponValue,
+      });
       setCouponLoadingSpinner(false);
+      toast.success(t("subscriptionSuccessMsg"), {
+        onClose: () => toast.dismiss(),
+      });
+      fetchProfileData();
     } catch (error: any) {
       setCouponLoadingSpinner(false);
       toast.error(error?.response?.data?.message, {
         onClose: () => toast.dismiss(),
       });
+    }
+  };
+
+  const fetchProfileData = async () => {
+    try {
+      const response = await axiosInstance.get("profile");
+      const userProfile = response.data.data;
+      setUser({
+        email: userProfile.email,
+        name: userProfile.name,
+        subscribe_flag: userProfile.subscribe_flag,
+      });
+      router.push("/currencies");
+    } catch (error: any) {
+      router.push("/");
     }
   };
 
@@ -96,9 +108,16 @@ function Subscription() {
                 <span className="sr-only">Plan</span>
               </h2>
 
-              <p className="text-primary font-bold text-[38px] mb-8">
-                $ {plan?.price}.00
-              </p>
+              <div className="flex justify-center items-center">
+                {plan?.before_discount && (
+                  <del className="text-size18">
+                    $ {plan?.before_discount}.00
+                  </del>
+                )}
+                <p className="text-primary font-bold text-[38px] mb-8">
+                  $ {plan?.price}.00
+                </p>
+              </div>
               <p className="text-black font-regular text-size22 mb-8">
                 {DOMPurify.sanitize(plan?.desc, {
                   USE_PROFILES: { html: false },

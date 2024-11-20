@@ -116,7 +116,8 @@
     "save": "Save",
     "chooseYourPlan": "Choose your plan",
     "subscribeNow": "Subscribe Now",
-    "paymentTitle": "Payment Status"
+    "paymentTitle": "Payment Status",
+    "subscriptionSuccessMsg": "You have successfully subscribed"
   },
   "ContactUs": {
     "userName": "User Name",
@@ -214,7 +215,11 @@
     "showMore": "Show More",
     "showLess": "Show Less",
     "UseOfCurrency": "Use Of Currency",
-    "judgnote": "Judg Note"
+    "judgnote": "Judg Note",
+    "noHistoricalData": "No Historical Data",
+    "close": "close",
+    "open": "Open",
+    "date": "Date"
   },
   "Subscription": {
     "subscriptionSuccess": {

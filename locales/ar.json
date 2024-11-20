@@ -116,7 +116,8 @@
     "save": "حفظ",
     "chooseYourPlan": "اختر خطتك",
     "subscribeNow": "اشترك الان",
-    "paymentTitle": "حاله الدفع"
+    "paymentTitle": "حاله الدفع",
+    "subscriptionSuccessMsg": "تم الاشتراك بنجاح"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
