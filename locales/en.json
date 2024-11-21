@@ -117,7 +117,11 @@
     "chooseYourPlan": "Choose your plan",
     "subscribeNow": "Subscribe Now",
     "paymentTitle": "Payment Status",
-    "subscriptionSuccessMsg": "You have successfully subscribed"
+    "subscriptionSuccessMsg": "You have successfully subscribed",
+    "choosePaymentMethod": "Choose a suitable payment method",
+    "cryptoCurrencies": "Crypto Currencies",
+    "enterCouponCode": "Enter Coupon Code",
+    "activation": "Activate"
   },
   "ContactUs": {
     "userName": "User Name",

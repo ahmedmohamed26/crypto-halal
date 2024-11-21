@@ -144,7 +144,7 @@ function Subscription() {
             {/* Payment Method Section */}
             <div>
               <h2 className="text-size16 md:text-[28px] font-regular mb-4">
-                اختر وسيلة للدفع مناسبة
+                {t("choosePaymentMethod")}
               </h2>
               <div className="flex items-center space-x-2">
                 <input
@@ -165,7 +165,7 @@ function Subscription() {
                       <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                     )}
                   </div>
-                  العملات الرقمية
+                  {t("cryptoCurrencies")}
                 </label>
               </div>
             </div>
@@ -173,12 +173,12 @@ function Subscription() {
             {/* Coupon Code Section */}
             <div className="mt-6 ">
               <h2 className="text-size16 md:text-[28px] font-regular mb-4">
-                أدخل رمز القسيمة
+                {t("enterCouponCode")}
               </h2>
               <div className="flex">
                 <input
                   type="text"
-                  placeholder="أدخل رمز القسيمة"
+                  placeholder={t("enterCouponCode")}
                   className="w-full p-3  rounded-md bg-[#F1F7FD] focus:outline-none"
                   value={couponValue}
                   onChange={handleInputChange}
@@ -190,7 +190,7 @@ function Subscription() {
                   {couponLoadingSpinner ? (
                     <div className="border-white h-8 w-8 animate-spin rounded-full border-2 border-t-primary p-2" />
                   ) : (
-                    <span>تفعيل</span>
+                    <span> {t("activation")}</span>
                   )}
                 </button>
               </div>

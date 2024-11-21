@@ -117,7 +117,11 @@
     "chooseYourPlan": "اختر خطتك",
     "subscribeNow": "اشترك الان",
     "paymentTitle": "حاله الدفع",
-    "subscriptionSuccessMsg": "تم الاشتراك بنجاح"
+    "subscriptionSuccessMsg": "تم الاشتراك بنجاح",
+    "choosePaymentMethod": "اختر وسيلة للدفع مناسبة",
+    "cryptoCurrencies": "العملات الرقمية",
+    "enterCouponCode": "أدخل رمز القسيمة",
+    "activation": "تفعيل"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
