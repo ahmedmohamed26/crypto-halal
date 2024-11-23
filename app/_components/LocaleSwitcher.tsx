@@ -3,6 +3,7 @@
 import { usePathname, useRouter, type Locale } from "@/i18n.config";
 import Image from "next/image";
 import { useState } from "react";
+import { setUserLocale } from "../_lib/locale";
 
 export default function LocaleSwitcher({ locale }: { locale: Locale }) {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export default function LocaleSwitcher({ locale }: { locale: Locale }) {
       setIcon("/assets/ar.svg");
     }
     document.cookie = `NEXT_LOCALE=${newLocale}`;
-
+    setUserLocale(newLocale);
     localStorage.setItem("NEXT_LOCALE", newLocale);
     router.push(pathname, { locale: newLocale });
   };
