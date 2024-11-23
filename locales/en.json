@@ -121,7 +121,8 @@
     "choosePaymentMethod": "Choose a suitable payment method",
     "cryptoCurrencies": "Crypto Currencies",
     "enterCouponCode": "Enter Coupon Code",
-    "activation": "Activate"
+    "activation": "Activate",
+    "haveAccount": "You already have an account ?"
   },
   "ContactUs": {
     "userName": "User Name",

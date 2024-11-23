@@ -21,6 +21,32 @@ function VisualDetails({ params }: { params: { id: string } }) {
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const { isLoggedIn } = useUser();
 
+  function convertToEmbedLink(
+    youtubeUrl: string | undefined
+  ): string | undefined {
+    if (!youtubeUrl) {
+      return undefined;
+    }
+
+    try {
+      const url = new URL(youtubeUrl);
+      let videoId: string | null = null;
+
+      if (url.hostname === "youtu.be") {
+        videoId = url.pathname.slice(1);
+      } else if (url.hostname.includes("youtube.com")) {
+        videoId = url.searchParams.get("v");
+      }
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+    } catch (error) {
+      console.error("Invalid YouTube URL:", error);
+    }
+
+    return undefined;
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -174,7 +200,7 @@ function VisualDetails({ params }: { params: { id: string } }) {
               <div>
                 <iframe
                   className="w-full h-[515px]"
-                  src={visualDetails?.video}
+                  src={convertToEmbedLink(visualDetails?.video)}
                   title="YouTube video player"
                   allowFullScreen
                 ></iframe>

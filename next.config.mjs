@@ -8,7 +8,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "yalla.redgits.com",
+        hostname: "api.cryptohalal.cc",
         pathname: "**",
       },
     ],

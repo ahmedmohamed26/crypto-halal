@@ -179,7 +179,7 @@ function Register() {
               )}
             </div>
 
-            <div className="form-control mb-9">
+            <div className="form-control mb-5">
               <label
                 htmlFor="confirmPassword"
                 className="block text-black text-size18 md:text-size22 font-regular mb-4"
@@ -205,6 +205,12 @@ function Register() {
                 </p>
               )}
             </div>
+            <Link
+              href="/login"
+              className="text-size14 md:text-size18 font-regular border-b"
+            >
+              {t("haveAccount")}
+            </Link>
           </div>
 
           <div className="text-center">

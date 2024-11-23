@@ -172,6 +172,19 @@ export default function CurrencyDetails({
           </p>
         </div>
 
+        <div>
+          <div className="bg-[#1E3760] mt-7 rounded-md p-4">
+            <h2 className="text-[22px] font-regular text-white">
+              {t("UseOfCurrency")}
+            </h2>
+          </div>
+          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
+            {DOMPurify.sanitize(currencyDetails?.uses, {
+              USE_PROFILES: { html: false },
+            })}
+          </p>
+        </div>
+
         <div
           className={`${
             currencyDetails?.judgement == 0
@@ -206,19 +219,6 @@ export default function CurrencyDetails({
             </p>
           </div>
         )}
-
-        <div>
-          <div className="bg-[#1E3760] mt-7 rounded-md p-4">
-            <h2 className="text-[22px] font-regular text-white">
-              {t("UseOfCurrency")}
-            </h2>
-          </div>
-          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {DOMPurify.sanitize(currencyDetails?.uses, {
-              USE_PROFILES: { html: false },
-            })}
-          </p>
-        </div>
 
         <div className="lg:flex md:block w-full items-start justify-between mt-16 mb-8">
           <h6 className="lg:text-size20 text-size16 text-white font-regular mt-3">

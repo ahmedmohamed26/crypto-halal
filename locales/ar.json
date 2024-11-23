@@ -121,7 +121,8 @@
     "choosePaymentMethod": "اختر وسيلة للدفع مناسبة",
     "cryptoCurrencies": "العملات الرقمية",
     "enterCouponCode": "أدخل رمز القسيمة",
-    "activation": "تفعيل"
+    "activation": "تفعيل",
+    "haveAccount": "لديك حساب بالفعل ؟"
   },
   "ContactUs": {
     "userName": "اسم المستخدم",
