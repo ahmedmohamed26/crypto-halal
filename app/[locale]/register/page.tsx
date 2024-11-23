@@ -3,6 +3,7 @@ import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -216,13 +217,13 @@ function Register() {
                   href="https://play.google.com/store/apps/details?id=com.cryptohalal.cryptohalal"
                   target="_blank"
                 >
-                  <img
+                  <Image
                     src="assets/play-store.svg"
                     alt="play store"
                     width={150}
                     height={150}
                     className="mb-8"
-                    loading="lazy"
+                    priority={true}
                   />
                 </Link>
 
@@ -230,21 +231,21 @@ function Register() {
                   href="https://apps.apple.com/us/app/crypto-halal/id6450399914"
                   target="_blank"
                 >
-                  <img
+                  <Image
                     src="assets/ios-store.svg"
                     alt="ios store"
                     width={150}
                     height={150}
-                    loading="lazy"
+                    priority={true}
                   />
                 </Link>
               </div>
-              <img
+              <Image
                 src="assets/iPhone.svg"
                 alt="store"
                 width={250}
                 height={250}
-                loading="lazy"
+                priority={true}
               />
             </div>
           </div>
