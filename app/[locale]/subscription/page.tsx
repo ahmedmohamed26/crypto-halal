@@ -107,17 +107,17 @@ function Subscription() {
                 {plan?.name}
                 <span className="sr-only">Plan</span>
               </h2>
-
-              <div className="flex justify-center items-center">
-                {plan?.before_discount && (
-                  <del className="text-size18">
-                    $ {plan?.before_discount}.00
-                  </del>
-                )}
-                <p className="text-primary font-bold text-[38px] mb-8">
+              {plan?.price && (
+                <p className="text-primary font-bold text-[38px]">
                   $ {plan?.price}.00
                 </p>
-              </div>
+              )}
+
+              {plan?.before_discount && (
+                <del className="text-size24 mb-8">
+                  $ {plan?.before_discount}.00
+                </del>
+              )}
               <p className="text-black font-regular text-size22 mb-8">
                 {DOMPurify.sanitize(plan?.desc, {
                   USE_PROFILES: { html: false },
