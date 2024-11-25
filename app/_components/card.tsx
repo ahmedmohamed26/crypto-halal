@@ -9,7 +9,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
       <img
         alt=""
         src={item?.image}
-        className="w-full h-[140px] object-cover rounded-md"
+        className="w-full h-[140px] object-fill rounded-md"
       />
 
       <div className="bg-white pt-6">
