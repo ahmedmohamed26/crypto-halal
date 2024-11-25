@@ -8,24 +8,26 @@ const Card = dynamic(() => import("@/app/_components/card"));
 
 function Visions() {
   const t = useTranslations("Visions");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any[]>([]);
   const [pagination, setPagination] = useState<any>({});
-  const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosInstance.get("visions?limit=10&page=1");
-        setData(response.data.data.items);
-        setPagination(response.data.data.meta);
-      } catch (error) {
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchData();
-  }, []);
+  }, [currentPage]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `visions?limit=10&page=${currentPage}`
+      );
+      setData((prevData) => [...prevData, ...response.data.data.items]);
+      setPagination(response.data.data.meta);
+    } catch (error) {}
+  };
+  const getMoreData = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
 
   return (
     <section className="visions py-28 container">
@@ -47,7 +49,9 @@ function Visions() {
       </ul>
       {pagination.next_page !== null && (
         <div className="flex justify-center py-16">
-          <button className="btn-yellow">{t("more")}</button>
+          <button className="btn-yellow" onClick={() => getMoreData()}>
+            {t("more")}
+          </button>
         </div>
       )}
     </section>

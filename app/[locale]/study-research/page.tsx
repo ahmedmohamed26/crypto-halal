@@ -7,21 +7,27 @@ import { useEffect, useState } from "react";
 const Card = dynamic(() => import("@/app/_components/card"));
 
 function StudyAndResearch() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any[]>([]);
   const [pagination, setPagination] = useState<any>({});
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const t = useTranslations("StudyAndResearch");
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosInstance.get("researches?limit=10&page=1");
-        setData(response.data.data.items);
-        setPagination(response.data.data.meta);
-      } catch (error) {}
-    };
-
     fetchData();
-  }, []);
+  }, [currentPage]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `researches?limit=10&page=${currentPage}`
+      );
+      setData((prevData) => [...prevData, ...response.data.data.items]);
+      setPagination(response.data.data.meta);
+    } catch (error) {}
+  };
+  const getMoreData = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
 
   return (
     <section className="visions container py-28">
@@ -43,7 +49,9 @@ function StudyAndResearch() {
       </ul>
       {pagination.next_page !== null && (
         <div className="flex justify-center py-16">
-          <button className="btn-yellow">{t("more")}</button>
+          <button className="btn-yellow" onClick={() => getMoreData()}>
+            {t("more")}
+          </button>
         </div>
       )}
     </section>
