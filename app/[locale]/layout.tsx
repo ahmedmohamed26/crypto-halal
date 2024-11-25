@@ -8,6 +8,7 @@ import { UserProvider } from "../_context/UserContext";
 import useTextDirection from "../_hooks/useTextDirection";
 import "./globals.css";
 import { Suspense } from "react";
+import { CountryProvider } from "../_context/CountryContext";
 const Header = dynamic(() => import("../_components/Header"));
 
 const Footer = dynamic(() => import("../_components/Footer"));
@@ -56,8 +57,9 @@ export default function RootLayout({
               <Header />
               <div className="mt-[100px]">
                 <FloatingIcon />
-                {/* {children} */}
-                <Suspense fallback={<Loader />}>{children}</Suspense>
+                <Suspense fallback={<Loader />}>
+                  <CountryProvider>{children}</CountryProvider>
+                </Suspense>
               </div>
               <Footer />
             </NextIntlClientProvider>

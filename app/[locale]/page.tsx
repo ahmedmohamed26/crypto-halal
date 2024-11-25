@@ -18,6 +18,8 @@ export default function Home() {
   const { isLoggedIn, user } = useUser();
   const locale = useLocale() as Locale;
   const router = useRouter();
+  // const [country, setCountry] = useState<string>("Unknown");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,6 +30,45 @@ export default function Home() {
 
     fetchData();
   }, []);
+
+  // async function findCountry(lat: number, lon: number) {
+  //   try {
+  //     const resp = await fetch(
+  //       `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
+  //     );
+  //     const data = await resp.json();
+  //     return data?.address?.country ?? "Unknown";
+  //   } catch (e) {
+  //     console.error("Error fetching country:", e);
+  //     return "Unknown";
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   const getCountry = async () => {
+  //     if ("geolocation" in navigator) {
+  //       navigator.geolocation.getCurrentPosition(
+  //         async (position) => {
+  //           const lat = position.coords.latitude;
+  //           const lon = position.coords.longitude;
+  //           const detectedCountry = await findCountry(lat, lon);
+  //           setCountry(detectedCountry);
+  //           console.log(country);
+  //         },
+  //         (error) => {
+  //           console.error("Error getting user location:", error);
+  //           setCountry("Unknown");
+  //         }
+  //       );
+  //     } else {
+  //       console.error("Geolocation is not supported by this browser.");
+  //       setCountry("Unknown");
+  //     }
+  //   };
+
+  //   getCountry();
+  // }, []);
+
   const t = useTranslations("Home");
 
   const checkLoggedIn = () => {

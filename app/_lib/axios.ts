@@ -7,6 +7,7 @@ const axiosInstance = axios.create({
   headers: {
     Accept: "application/json",
     "Access-Control-Allow-Origin": "*",
+    type: "web",
   },
 });
 
@@ -20,6 +21,10 @@ axiosInstance.interceptors.request.use(
 
     if (config.headers) {
       config.headers["Accept-Language"] = locale;
+    }
+    const country = localStorage.getItem("detectedCountry");
+    if (country) {
+      config.headers["country"] = country;
     }
 
     return config;
