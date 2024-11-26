@@ -28,7 +28,8 @@
     "visualReleases": "الاصدارات المرئية",
     "studiesAndResearch": "الدراسات والابحاث",
     "news": "الاخبار",
-    "partners": "عملائنا"
+    "partners": "عملائنا",
+    "controlAndAuditReports": "تقارير الرقابه والتدقيق"
   },
   "Header": {
     "home": "الرئيسية",
@@ -238,5 +239,15 @@
       "description1": "لقد حدث عطل ما ادي الى عدم اكتمال العمليه",
       "goSubscription": "الذهاب لصفحه الأشتراك"
     }
+  },
+  "controlAndAuditReports": {
+    "title": "تقارير الرقابه والتدقيق",
+    "more": "المزيد",
+    "watchMore": "شاهد ايضا",
+    "publish": "نشر",
+    "comment": "اترك تعليق",
+    "share": "شارك التقرير",
+    "addCommentSuccess": "تم اضافه التعليق بنجاح",
+    "readResearch": "أقرأ التقرير"
   }
 }

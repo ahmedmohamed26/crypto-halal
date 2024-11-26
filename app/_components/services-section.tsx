@@ -79,9 +79,27 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
   });
 
   const partnersList = sponsors?.map((item: any, index: number) => {
-    return (
-      <div
+    return item?.link ? (
+      <Link
+        href={item?.link}
+        target="_blank"
         className="item group block  border-1 border-[#ddd] shadow-md p-4 mx-2"
+        data-value={index}
+        dir={locale == "en" ? "rtl" : "ltr"}
+      >
+        <img
+          src={item?.image}
+          alt={item?.name}
+          className="w-full h-[200px] rounded object-fill"
+          loading="lazy"
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          draggable={false}
+        />
+      </Link>
+    ) : (
+      <div
+        className="item group block border-1 border-[#ddd] shadow-md p-4 mx-2 cursor-not-allowed"
         data-value={index}
         dir={locale == "en" ? "rtl" : "ltr"}
       >
@@ -124,7 +142,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
         {/* services  */}
 
         <div
-          className="w-full relative bg-primary  mt-[-105px]"
+          className="w-full relative bg-primary mt-[-105px]"
           style={{
             background:
               "linear-gradient(140deg, rgba(26,81,154,1) 0%, rgba(16,36,73,1) 25%, rgba(28,74,112,1) 100%)",
@@ -151,7 +169,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
             <div className="w-full flex items-center justify-center flex-col order-1 md:order-2">
               <img
                 loading="lazy"
-                src="assets/visual-releases.svg"
+                src="assets/visions.svg"
                 alt="visions"
                 width={400}
                 height={400}
@@ -188,7 +206,7 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
             </div>
           </div>
 
-          <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center py-[200px] container">
+          <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center pt-[250px] container">
             <div className="flex items-center flex-col order-2 md:order-1">
               <h4 className="text-white text-[50px] mb-[3rem]">{t("news")}</h4>
               <p className="w-[75%] text-white text-[28px] mb-[2rem]">
@@ -214,7 +232,32 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
               />
             </div>
           </div>
+
+          <div className=" grid lg:grid-cols-2 grid-cols-1 gap-4 text-center py-[200px] container">
+            <div className="w-full flex items-center justify-center">
+              <img
+                loading="lazy"
+                src="assets/controlAndAuditReports.svg"
+                alt="research"
+                width={500}
+                height={500}
+              />
+            </div>
+            <div className="flex items-center flex-col">
+              <h4 className="text-white text-[50px] mb-[3rem]">
+                {t("controlAndAuditReports")}
+              </h4>
+              <Link
+                href="/control-and-reports"
+                prefetch={false}
+                className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
+              >
+                {t("more")}
+              </Link>
+            </div>
+          </div>
         </div>
+
         <section
           className="work-team pt-16 pb-20"
           style={{

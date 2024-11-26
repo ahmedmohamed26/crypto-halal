@@ -28,7 +28,8 @@
     "visualReleases": "Visual Releases",
     "studiesAndResearch": "Studies and Research",
     "news": "News",
-    "partners": "Customers"
+    "partners": "Customers",
+    "controlAndAuditReports": "Control and audit reports"
   },
   "Header": {
     "home": "Home",
@@ -238,5 +239,15 @@
       "description1": "An error occurred that prevented the process from completing.",
       "goSubscription": "Go to Subscription Page"
     }
+  },
+  "controlAndAuditReports": {
+    "title": "Control and audit reports",
+    "more": "More",
+    "watchMore": "Watch More",
+    "publish": "Publish",
+    "comment": "Leave a Comment",
+    "share": "Share Research",
+    "addCommentSuccess": "Comment added successfully",
+    "readResearch": "Read Research"
   }
 }
