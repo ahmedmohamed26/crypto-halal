@@ -17,7 +17,7 @@ axiosInstance.interceptors.request.use(
     if (token && config.headers) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
-    const locale = localStorage.getItem("NEXT_LOCALE") || "en";
+    const locale = localStorage.getItem("NEXT_LOCALE") || "ar";
 
     if (config.headers) {
       config.headers["Accept-Language"] = locale;
