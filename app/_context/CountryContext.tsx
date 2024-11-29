@@ -20,22 +20,18 @@ export const CountryProvider = ({
 
   useEffect(() => {
     const getCountry = async () => {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          async (position) => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            const detectedCountry = await fetchCountry(lat, lon);
-            localStorage.setItem("detectedCountry", detectedCountry);
-            setCountry(detectedCountry);
-          },
-          (error) => {
-            console.error("Error getting user location:", error);
-            setCountry("Unknown");
-          }
-        );
-      } else {
-        console.error("Geolocation is not supported by this browser.");
+      try {
+        const locationData = await fetchLocationByIP();
+        if (locationData) {
+          const detectedCountry = locationData.country;
+          localStorage.setItem("detectedCountry", detectedCountry);
+          setCountry(detectedCountry);
+          console.log(detectedCountry);
+        } else {
+          setCountry("Unknown");
+        }
+      } catch (error) {
+        console.error("Error getting country by IP:", error);
         setCountry("Unknown");
       }
     };
@@ -43,16 +39,27 @@ export const CountryProvider = ({
     getCountry();
   }, []);
 
-  const fetchCountry = async (lat: number, lon: number): Promise<string> => {
+  const fetchLocationByIP = async (): Promise<{
+    lat: number;
+    lon: number;
+    country: string;
+  } | null> => {
     try {
-      const resp = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
-      );
-      const data = await resp.json();
-
-      return data?.address?.country ?? "Unknown";
-    } catch (e) {
-      return "Unknown";
+      const response = await fetch("http://ip-api.com/json/");
+      const data = await response.json();
+      if (data.status === "success") {
+        return {
+          lat: data.lat,
+          lon: data.lon,
+          country: data.country,
+        };
+      } else {
+        console.error("Failed to fetch location data:", data.message);
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching location by IP:", error);
+      return null;
     }
   };
 

@@ -22,10 +22,10 @@ axiosInstance.interceptors.request.use(
     if (config.headers) {
       config.headers["Accept-Language"] = locale;
     }
-    // const country = localStorage.getItem("detectedCountry");
-    // if (country) {
-    //   config.headers["country"] = country;
-    // }
+    const country = localStorage.getItem("detectedCountry");
+    if (country) {
+      config.headers["country"] = country;
+    }
 
     return config;
   },
