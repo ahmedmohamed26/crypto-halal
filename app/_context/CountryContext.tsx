@@ -26,7 +26,6 @@ export const CountryProvider = ({
           const detectedCountry = locationData.country;
           localStorage.setItem("detectedCountry", detectedCountry);
           setCountry(detectedCountry);
-          console.log(detectedCountry);
         } else {
           setCountry("Unknown");
         }
@@ -45,12 +44,12 @@ export const CountryProvider = ({
     country: string;
   } | null> => {
     try {
-      const response = await fetch("http://ip-api.com/json/");
+      const response = await fetch("https://ipwhois.app/json/");
       const data = await response.json();
-      if (data.status === "success") {
+      if (data.success) {
         return {
-          lat: data.lat,
-          lon: data.lon,
+          lat: parseFloat(data.latitude),
+          lon: parseFloat(data.longitude),
           country: data.country,
         };
       } else {
