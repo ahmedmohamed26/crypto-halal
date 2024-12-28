@@ -290,7 +290,7 @@ export default function CurrencyDetails({
         </div>
         {currentTab === "historicalData" ? (
           <HistoricalData
-            historical={currencyDetails.historical}
+            historical={currencyDetails?.historical}
             isLoading={isLoading}
           />
         ) : (
