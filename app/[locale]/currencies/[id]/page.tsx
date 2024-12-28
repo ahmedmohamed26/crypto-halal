@@ -168,7 +168,9 @@ export default function CurrencyDetails({
             </h2>
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {currencyDetails?.services}
+            {DOMPurify.sanitize(currencyDetails?.services, {
+              USE_PROFILES: { html: false },
+            })}
           </p>
         </div>
 
