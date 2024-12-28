@@ -134,10 +134,11 @@ export default function CurrencyDetails({
                 <TableCell>
                   {" "}
                   <p className="font-regular text-size16 capitalize text-start">
-                    {Number.parseFloat(currencyDetails?.market_cap_usd).toFixed(
-                      2
-                    )}{" "}
-                    {"$"}
+                    {currencyDetails?.market_cap_usd != null
+                      ? `${Number.parseFloat(
+                          currencyDetails.market_cap_usd
+                        ).toFixed(2)} $`
+                      : "0"}
                   </p>
                 </TableCell>
                 <TableCell>

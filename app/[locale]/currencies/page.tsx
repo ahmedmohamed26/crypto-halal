@@ -101,7 +101,9 @@ export default function Currencies() {
                 user?.percent_change_24h > 0 ? "text-green-500" : "text-red-500"
               } text-size16 font-regular  capitalize bg-white p-2 w-[70px] rounded text-center`}
             >
-              {Number.parseFloat(user?.percent_change_24h).toFixed(2)}
+              {user?.percent_change_24h
+                ? Number.parseFloat(user.percent_change_24h).toFixed(2)
+                : "-"}
             </p>
           </div>
         );
@@ -109,7 +111,9 @@ export default function Currencies() {
         return (
           <div className="flex flex-col">
             <p className="font-regular text-size16 capitalize text-start">
-              {Number.parseFloat(user?.market_cap_usd).toFixed(2)} {"$"}
+              {user?.market_cap_usd != null
+                ? `${Number.parseFloat(user.market_cap_usd).toFixed(2)} $`
+                : "0"}
             </p>
           </div>
         );
