@@ -124,9 +124,11 @@ export default function CurrencyDetails({
                         : "text-red-500"
                     } text-size16 font-regular  capitalize bg-white p-2 w-[70px] rounded text-center`}
                   >
-                    {Number.parseFloat(
-                      currencyDetails?.percent_change_24h
-                    ).toFixed(2)}
+                    {currencyDetails?.percent_change_24h
+                      ? Number.parseFloat(
+                          currencyDetails.percent_change_24h
+                        ).toFixed(2)
+                      : "-"}
                   </p>
                 </TableCell>
                 <TableCell>
