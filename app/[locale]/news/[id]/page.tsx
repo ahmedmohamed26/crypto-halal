@@ -1,5 +1,4 @@
 "use client";
-
 import { useUser } from "@/app/_context/UserContext";
 import axiosInstance from "@/app/_lib/axios";
 import DOMPurify from "isomorphic-dompurify";
@@ -26,7 +25,20 @@ function NewsDetails({ params }: { params: { id: string } }) {
     const fetchData = async () => {
       try {
         const response = await axiosInstance.get(`news/${params?.id}`);
-        setNewsDetails(response.data.data);
+        const data = response?.data?.data;
+        const sanitizedDesc = DOMPurify.sanitize(data?.desc);
+        const cleanDesc = sanitizedDesc
+          .replace(/&nbsp;/g, " ")
+          .replace(/&amp;/g, "&")
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">")
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'");
+
+        setNewsDetails({
+          ...data,
+          desc: cleanDesc,
+        });
       } catch (error) {}
     };
 
@@ -81,11 +93,10 @@ function NewsDetails({ params }: { params: { id: string } }) {
               {newsDetails?.title}
             </h1>
 
-            <p className="text-black text-size22 font-regular mt-10">
-              {DOMPurify.sanitize(newsDetails?.desc, {
-                USE_PROFILES: { html: false },
-              })}
-            </p>
+            <div
+              className="text-black text-size22 font-regular mt-10"
+              dangerouslySetInnerHTML={{ __html: newsDetails?.desc }}
+            />
             <h6 className="text-[#475467] text-size16 font-regular mt-8">
               {newsDetails?.date}
             </h6>
