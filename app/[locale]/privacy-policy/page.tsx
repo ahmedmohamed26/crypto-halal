@@ -25,7 +25,7 @@ function PrivacyPolicy() {
         {t("privacyPolicy")}
       </h1>
       <p className="w-[75%] text-black text-[28px] mb-[2rem]">
-        {DOMPurify.sanitize(data?.policy, {
+        {DOMPurify.sanitize(data?.policy.replace(/&nbsp;/g, " "), {
           USE_PROFILES: { html: false },
         })}
       </p>

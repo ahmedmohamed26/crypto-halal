@@ -36,7 +36,7 @@ export default function Services() {
               <div className="container">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                   <p className="text-white font-medium text-[24px]  order-2 md:order-1">
-                    {DOMPurify.sanitize(service?.desc, {
+                    {DOMPurify.sanitize(service?.desc.replace(/&nbsp;/g, " "), {
                       USE_PROFILES: { html: false },
                     })}
                   </p>
@@ -71,7 +71,7 @@ export default function Services() {
                     />
                   </div>
                   <p className="text-black font-medium text-[24px]">
-                    {DOMPurify.sanitize(service?.desc, {
+                    {DOMPurify.sanitize(service?.desc.replace(/&nbsp;/g, " "), {
                       USE_PROFILES: { html: false },
                     })}
                   </p>
