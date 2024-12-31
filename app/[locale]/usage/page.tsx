@@ -26,7 +26,7 @@ function Usage() {
         {t("termsOfUse")}
       </h1>
       <p className="w-[75%] text-black text-[28px] mb-[2rem]">
-        {DOMPurify.sanitize(data?.usage.replace(/&nbsp;/g, " "), {
+        {DOMPurify.sanitize(data?.usage?.replace(/&nbsp;/g, " "), {
           USE_PROFILES: { html: false },
         })}
       </p>

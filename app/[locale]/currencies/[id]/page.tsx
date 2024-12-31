@@ -162,7 +162,7 @@ export default function CurrencyDetails({
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
             {DOMPurify.sanitize(
-              currencyDetails?.description.replace(/&nbsp;/g, " "),
+              currencyDetails?.description?.replace(/&nbsp;/g, " "),
               {
                 USE_PROFILES: { html: false },
               }
@@ -178,7 +178,7 @@ export default function CurrencyDetails({
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
             {DOMPurify.sanitize(
-              currencyDetails?.services.replace(/&nbsp;/g, " "),
+              currencyDetails?.services?.replace(/&nbsp;/g, " "),
               {
                 USE_PROFILES: { html: false },
               }
@@ -193,9 +193,12 @@ export default function CurrencyDetails({
             </h2>
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {DOMPurify.sanitize(currencyDetails?.uses.replace(/&nbsp;/g, " "), {
-              USE_PROFILES: { html: false },
-            })}
+            {DOMPurify.sanitize(
+              currencyDetails?.uses?.replace(/&nbsp;/g, " "),
+              {
+                USE_PROFILES: { html: false },
+              }
+            )}
           </p>
         </div>
 
@@ -228,7 +231,7 @@ export default function CurrencyDetails({
             </div>
             <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
               {DOMPurify.sanitize(
-                currencyDetails?.judgnote.replace(/&nbsp;/g, " "),
+                currencyDetails?.judgnote?.replace(/&nbsp;/g, " "),
                 {
                   USE_PROFILES: { html: true },
                 }

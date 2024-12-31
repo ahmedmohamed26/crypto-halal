@@ -15,7 +15,7 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
       </h2>
 
       <p className="title text-black  text-[14px] md:text-size20 font-regular mt-6 text-ellipsis line-clamp-1">
-        {DOMPurify.sanitize(item?.desc.replace(/&nbsp;/g, " "), {
+        {DOMPurify.sanitize(item?.desc?.replace(/&nbsp;/g, " "), {
           USE_PROFILES: { html: false },
         })}
       </p>

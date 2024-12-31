@@ -119,7 +119,7 @@ function Subscription() {
                 </del>
               )}
               <p className="text-black font-regular text-size22 mb-8">
-                {DOMPurify.sanitize(plan?.desc.replace(/&nbsp;/g, " "), {
+                {DOMPurify.sanitize(plan?.desc?.replace(/&nbsp;/g, " "), {
                   USE_PROFILES: { html: false },
                 })}
               </p>
