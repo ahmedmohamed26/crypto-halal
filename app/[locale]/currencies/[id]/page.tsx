@@ -161,12 +161,16 @@ export default function CurrencyDetails({
             </h2>
           </div>
           <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {DOMPurify.sanitize(
-              currencyDetails?.description?.replace(/&nbsp;/g, " "),
-              {
-                USE_PROFILES: { html: false },
-              }
-            )}
+            <span
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(
+                  currencyDetails?.description?.replace(/&nbsp;/g, "<br/>"),
+                  {
+                    USE_PROFILES: { html: true },
+                  }
+                ),
+              }}
+            />
           </p>
         </div>
 
@@ -176,13 +180,17 @@ export default function CurrencyDetails({
               {t("projectServices")}
             </h2>
           </div>
-          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {DOMPurify.sanitize(
-              currencyDetails?.services?.replace(/&nbsp;/g, " "),
-              {
-                USE_PROFILES: { html: false },
-              }
-            )}
+          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10 ">
+            <span
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(
+                  currencyDetails?.services?.replace(/&nbsp;/g, "<br/>"),
+                  {
+                    USE_PROFILES: { html: true },
+                  }
+                ),
+              }}
+            />
           </p>
         </div>
 
