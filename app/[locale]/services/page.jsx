@@ -36,10 +36,18 @@ export default function Services() {
               <div className="container">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                   <p className="text-white font-medium text-[24px]  order-2 md:order-1">
-                    {DOMPurify.sanitize(service?.desc?.replace(/&nbsp;/g, " "), {
-                      USE_PROFILES: { html: false },
-                    })}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(
+                          service?.desc.replace(/&nbsp;/g, "<br/>"),
+                          {
+                            USE_PROFILES: { html: true },
+                          }
+                        ),
+                      }}
+                    />
                   </p>
+
                   <div className="flex items-center lg:justify-end justify-center order-1 md:order-2  mb-8 md:mb-0">
                     <Image
                       width={300}
@@ -71,9 +79,16 @@ export default function Services() {
                     />
                   </div>
                   <p className="text-black font-medium text-[24px]">
-                    {DOMPurify.sanitize(service?.desc?.replace(/&nbsp;/g, " "), {
-                      USE_PROFILES: { html: false },
-                    })}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(
+                          service?.desc.replace(/&nbsp;/g, "<br/>"),
+                          {
+                            USE_PROFILES: { html: true },
+                          }
+                        ),
+                      }}
+                    />
                   </p>
                 </div>
               </div>

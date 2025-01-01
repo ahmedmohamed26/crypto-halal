@@ -13,11 +13,14 @@ const CardNews: React.FC<CardNewsProps> = ({ item }) => {
       <h2 className="title text-primary  text-[14px] md:text-size22 font-regular">
         {item?.title}
       </h2>
-
       <p className="title text-black  text-[14px] md:text-size20 font-regular mt-6 text-ellipsis line-clamp-1">
-        {DOMPurify.sanitize(item?.desc?.replace(/&nbsp;/g, " "), {
-          USE_PROFILES: { html: false },
-        })}
+        <span
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(item?.desc.replace(/&nbsp;/g, "<br/>"), {
+              USE_PROFILES: { html: true },
+            }),
+          }}
+        />
       </p>
 
       <div className="mt-6 flex justify-end">

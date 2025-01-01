@@ -119,10 +119,18 @@ function Subscription() {
                 </del>
               )}
               <p className="text-black font-regular text-size22 mb-8">
-                {DOMPurify.sanitize(plan?.desc?.replace(/&nbsp;/g, " "), {
-                  USE_PROFILES: { html: false },
-                })}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      plan?.desc.replace(/&nbsp;/g, "<br/>"),
+                      {
+                        USE_PROFILES: { html: true },
+                      }
+                    ),
+                  }}
+                />
               </p>
+
               <button
                 className="btn-yellow"
                 onClick={() => subscribeFn(plan.id)}

@@ -200,13 +200,17 @@ export default function CurrencyDetails({
               {t("UseOfCurrency")}
             </h2>
           </div>
-          <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-            {DOMPurify.sanitize(
-              currencyDetails?.uses?.replace(/&nbsp;/g, " "),
-              {
-                USE_PROFILES: { html: false },
-              }
-            )}
+          <p className="text-size18 font-regular text-white w-full  mt-8 leading-10 ">
+            <span
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(
+                  currencyDetails?.uses?.replace(/&nbsp;/g, "<br/>"),
+                  {
+                    USE_PROFILES: { html: true },
+                  }
+                ),
+              }}
+            />
           </p>
         </div>
 
@@ -237,13 +241,17 @@ export default function CurrencyDetails({
                 {t("judgnote")}
               </h2>
             </div>
-            <p className="text-size18 font-regular text-white w-full md:w-[50%] mt-8 leading-10">
-              {DOMPurify.sanitize(
-                currencyDetails?.judgnote?.replace(/&nbsp;/g, " "),
-                {
-                  USE_PROFILES: { html: true },
-                }
-              )}
+            <p className="text-size18 font-regular text-white w-full  mt-8 leading-10 ">
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(
+                    currencyDetails?.judgnote?.replace(/&nbsp;/g, "<br/>"),
+                    {
+                      USE_PROFILES: { html: true },
+                    }
+                  ),
+                }}
+              />
             </p>
           </div>
         )}

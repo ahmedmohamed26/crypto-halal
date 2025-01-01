@@ -154,10 +154,18 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
                 {t("visualReleases")}
               </h4>
               <p className="w-[75%] text-white text-[28px] mb-[2rem]">
-                {DOMPurify.sanitize(info?.vision?.replace(/&nbsp;/g, " "), {
-                  USE_PROFILES: { html: false },
-                })}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      info?.vision.replace(/&nbsp;/g, "<br/>"),
+                      {
+                        USE_PROFILES: { html: true },
+                      }
+                    ),
+                  }}
+                />
               </p>
+
               <Link
                 href="/visions"
                 className="rounded bg-[#FFBB00] px-6 py-3 text-black text-[16px] cursor-pointer"
@@ -192,10 +200,18 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
                 {t("studiesAndResearch")}
               </h4>
               <p className="w-[75%] text-white text-[28px] mb-[2rem]">
-                {DOMPurify.sanitize(info?.research?.replace(/&nbsp;/g, " "), {
-                  USE_PROFILES: { html: false },
-                })}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      info?.research.replace(/&nbsp;/g, "<br/>"),
+                      {
+                        USE_PROFILES: { html: true },
+                      }
+                    ),
+                  }}
+                />
               </p>
+
               <Link
                 href="/study-research"
                 prefetch={false}
@@ -210,10 +226,18 @@ const ServicesSection = ({ sponsors, teams, info }: any) => {
             <div className="flex items-center flex-col order-2 md:order-1">
               <h4 className="text-white text-[50px] mb-[3rem]">{t("news")}</h4>
               <p className="w-[75%] text-white text-[28px] mb-[2rem]">
-                {DOMPurify.sanitize(info?.news?.replace(/&nbsp;/g, " "), {
-                  USE_PROFILES: { html: false },
-                })}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      info?.news.replace(/&nbsp;/g, "<br/>"),
+                      {
+                        USE_PROFILES: { html: true },
+                      }
+                    ),
+                  }}
+                />
               </p>
+
               <Link
                 href="/news"
                 prefetch={false}

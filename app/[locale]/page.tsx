@@ -119,9 +119,16 @@ export default function Home() {
             {t("whatIsCrypto")}
           </h3>
           <p className="font-regular text-[14px] md:text-[24px] text-black mt-[1rem]">
-            {DOMPurify.sanitize(data?.info?.about.replace(/&nbsp;/g, " "), {
-              USE_PROFILES: { html: false },
-            })}
+            <span
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(
+                  data?.info?.about.replace(/&nbsp;/g, "<br/>"),
+                  {
+                    USE_PROFILES: { html: true },
+                  }
+                ),
+              }}
+            />
           </p>
         </div>
       </div>

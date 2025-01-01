@@ -26,9 +26,16 @@ function Usage() {
         {t("termsOfUse")}
       </h1>
       <p className="w-[75%] text-black text-[28px] mb-[2rem]">
-        {DOMPurify.sanitize(data?.usage?.replace(/&nbsp;/g, " "), {
-          USE_PROFILES: { html: false },
-        })}
+        <span
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(
+              data?.usage.replace(/&nbsp;/g, "<br/>"),
+              {
+                USE_PROFILES: { html: true },
+              }
+            ),
+          }}
+        />
       </p>
     </div>
   );
